@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnulu7wcjcw6b"]
+
+[ext_resource type="Script" path="res://nodes/ui/CowndownTimer.gd" id="1_bi2i8"]
+
+[node name="CowndownTimer" type="Node2D"]
+rotation = -1.5708
+script = ExtResource("1_bi2i8")
+metadata/_edit_group_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="RedrawTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RedrawTimer" to="." method="_on_redraw_timer_timeout"]
