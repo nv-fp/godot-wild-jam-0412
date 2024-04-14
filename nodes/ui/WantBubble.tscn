@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvuxrlrwuqj22"]
+
+[ext_resource type="Script" path="res://nodes/ui/WantBubble.gd" id="1_1iapf"]
+[ext_resource type="Texture2D" uid="uid://up78p4f0dl2a" path="res://art/pixel-thought-bubble.png" id="1_3kinr"]
+[ext_resource type="PackedScene" uid="uid://svq8fgrv36qt" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
+
+[node name="WantBubble" type="Node2D"]
+position = Vector2(-2, -2)
+script = ExtResource("1_1iapf")
+metadata/_edit_group_ = true
+
+[node name="Frame" type="Sprite2D" parent="."]
+position = Vector2(11, -22)
+texture = ExtResource("1_3kinr")
+
+[node name="Item" type="Sprite2D" parent="Frame"]
+z_index = 1
+position = Vector2(-32, -4)
+
+[node name="PartA" type="Sprite2D" parent="Frame"]
+z_index = 1
+position = Vector2(-2, -4)
+
+[node name="PartB" type="Sprite2D" parent="Frame"]
+z_index = 1
+position = Vector2(30, -5)
+
+[node name="CompletionTimer" parent="." instance=ExtResource("3_bhlja")]
+
+[connection signal="timeout" from="CompletionTimer" to="." method="_on_completion_timer_timeout"]

@@ -15,6 +15,14 @@ run/main_scene="res://nodes/objects/Blacksmith.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+WantBubbleFactory="*res://scripts/WantBubbleFactory.gd"
+
+[dotnet]
+
+project/assembly_name="GodotGameJam68"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -24,6 +32,7 @@ version_control/autoload_on_startup=true
 
 folder_colors={
 "res://art/": "red",
+"res://config/": "gray",
 "res://nodes/": "yellow",
 "res://scripts/": "green",
 "res://sound/": "purple"
