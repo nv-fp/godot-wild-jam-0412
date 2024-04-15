@@ -1,9 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxe0j2htnvcaq"]
 
-[ext_resource type="Texture2D" uid="uid://c6muxha7hrijx" path="res://art/gold.png" id="1_oee3k"]
+[ext_resource type="Texture2D" uid="uid://nevw4530ioq8" path="res://art/materials.png" id="1_uwd20"]
 
 [node name="Gold" type="Area2D"]
 texture_filter = 1
 
 [node name="Gold" type="Sprite2D" parent="."]
-texture = ExtResource("1_oee3k")
+texture = ExtResource("1_uwd20")
+region_enabled = true
+region_rect = Rect2(29, 0, 31, 22)

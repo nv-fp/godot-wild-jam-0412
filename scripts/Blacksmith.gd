@@ -39,16 +39,15 @@ func basic_movement():
 	
 	
 func show_interact_button():
-	pass
-	#if raycastResult.has('position'):
-		#var tile = tilemap.local_to_map(raycastResult.get('position'))
-		#if tile:
-			#$InteractPrompt.visible = true
-			#$InteractPrompt.position = tilemap.map_to_local(tile)
-		#else:
-			#$InteractPrompt.visible = false
-	#else:
-		#$InteractPrompt.visible = false
+	if interactable:
+		var tile = tilemap.local_to_map(interactable.position)
+		if tile:
+			$InteractPrompt.visible = true
+			$InteractPrompt.position = tilemap.map_to_local(tile)
+		else:
+			$InteractPrompt.visible = false
+	else:
+		$InteractPrompt.visible = false
 
 func handleInteractionInput() -> void:
 	if interactable:
