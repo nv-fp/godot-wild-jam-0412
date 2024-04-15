@@ -3,11 +3,14 @@ extends TileMap
 var crateCollisionTiles: PackedVector2Array = PackedVector2Array([Vector2(31, -1), Vector2(31, -3), Vector2(31, -5)])
 var anvilCollisionTile: Vector2 = Vector2(25, -5)
 var furnaceCollisionTile: Vector2 = Vector2(28, -5)
-var groupNames = ["Bronze", "Gold", "Diamond"]
+var groupNames = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
 var canInteract = false
 var interactables = []
 
-var tileToArea = {}
+var furnaces = []
+var anvils = []
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,11 +33,29 @@ func _ready():
 	anvilArea.body_exited.connect(area_exited.bind(anvilArea))
 	add_child(anvilArea)
 	
+	anvils.append({
+		"recipe": null,
+		"smithing": false,
+		"timer": null,
+		"area": anvilArea,
+		"inventory": [],
+		"id": "Anvil"
+	})
+	
 	var furnaceArea = create_collision_for_furnace(furnaceCollisionTile)
 	furnaceArea.add_to_group("Furnace")
 	furnaceArea.body_entered.connect(area_entered.bind(furnaceArea))
 	furnaceArea.body_exited.connect(area_exited.bind(furnaceArea))
 	add_child(furnaceArea)
+	
+	furnaces.append({
+		"recipe": null,
+		"smelting": false,
+		"timer": null,
+		"area": furnaceArea,
+		"inventory": [],
+		"id": "Furnace"
+	})
 
 # Create Area2D on tile
 func create_collision_for_single_tile(coordinates: Vector2) -> Area2D:

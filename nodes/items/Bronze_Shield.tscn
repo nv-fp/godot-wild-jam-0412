@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0v4a1hhi8nd6"]
+
+[ext_resource type="Texture2D" uid="uid://bmamebqog2msb" path="res://art/shield.png" id="1_a87rn"]
+
+[node name="BronzeShield" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_a87rn")
+region_enabled = true
+region_rect = Rect2(32, 13, 18, 19)

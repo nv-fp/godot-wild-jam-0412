@@ -6,6 +6,8 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.996121, 1)
 texture = ExtResource("1_dgo3t")
 region_enabled = true
-region_rect = Rect2(48, 5, 5, 27)
+region_rect = Rect2(64, 5, 5, 27)

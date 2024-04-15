@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Blacksmith.gd" id="1_0gssd"]
 [ext_resource type="Texture2D" uid="uid://cgn17okr5qsnn" path="res://art/Small-8-Direction-Characters_by_AxulArt.png" id="1_we5hh"]
-[ext_resource type="Texture2D" path="res://art/Keyboard Letters and Symbols.png" id="3_4v8kb"]
+[ext_resource type="Texture2D" uid="uid://phd1hy08xbjh" path="res://art/Keyboard Letters and Symbols.png" id="3_4v8kb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ewm1"]
 atlas = ExtResource("1_we5hh")
