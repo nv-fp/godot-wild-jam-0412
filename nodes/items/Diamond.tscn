@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://wjkhmo863qpa"]
+
+[ext_resource type="Texture2D" uid="uid://c6xyt6bpksxqn" path="res://art/materials.png" id="1_5rob2"]
+
+[node name="Diamond" type="Area2D"]
+texture_filter = 1
+
+[node name="Diamond" type="Sprite2D" parent="."]
+texture = ExtResource("1_5rob2")
+hframes = 4
+frame = 1
