@@ -26,6 +26,11 @@ func is_started() -> bool:
 func is_paused() -> bool:
 	return pause_start_time_ms > 0
 
+func pause() -> void:
+	if is_paused() or not is_started():
+		return
+	pause_start_time_ms = Time.get_ticks_msec()
+
 func start() -> void:
 	if not is_started():
 		# first start
