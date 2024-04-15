@@ -312,7 +312,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10j8c"]
-size = Vector2(7, 6)
+size = Vector2(5, 5)
 
 [node name="Blacksmith" type="CharacterBody2D"]
 z_index = 1
@@ -329,7 +329,7 @@ animation = &"idle_south"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-0.5, -3)
+position = Vector2(-0.5, -2.5)
 shape = SubResource("RectangleShape2D_10j8c")
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -337,7 +337,7 @@ position = Vector2(0, -20)
 
 [node name="InteractPrompt" type="Node2D" parent="."]
 top_level = true
-z_index = 1
+z_index = 6
 y_sort_enabled = true
 texture_filter = 1
 

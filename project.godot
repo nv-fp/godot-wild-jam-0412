@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GodotGameJam68"
-run/main_scene="res://nodes/scenes/Level1.tscn"
+run/main_scene="res://nodes/scenes/Main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
