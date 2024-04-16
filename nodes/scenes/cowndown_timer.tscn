@@ -1,10 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://88u7b0mqfk78"]
+[gd_scene load_steps=2 format=3 uid="uid://cnulu7wcjcw6b"]
 
 [ext_resource type="Script" path="res://nodes/ui/CowndownTimer.gd" id="1_bi2i8"]
 
 [node name="CowndownTimer" type="Node2D"]
-rotation = -1.5708
 script = ExtResource("1_bi2i8")
+display_type = "bar"
 metadata/_edit_group_ = true
 
 [node name="Timer" type="Timer" parent="."]

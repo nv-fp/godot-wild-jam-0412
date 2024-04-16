@@ -14,6 +14,13 @@ func has_bubble() -> bool:
 
 func add_bubble():
 	if has_bubble():
+		print('_want_bubble.is_paused(): ' + str(_want_bubble.is_paused()))
+		if _want_bubble.is_paused():
+			print('unpause')
+			_want_bubble.unpause()
+		else:
+			print('paused')
+			_want_bubble.pause()
 		return
 	
 	_want_bubble = WantBubbleFactory.new_item(null)
@@ -35,9 +42,9 @@ func _bubble_timeout(id: String) -> void:
 		_want_bubble.queue_free()
 		_want_bubble = null
 
-func _bubble_filled(id: String, value: int) -> void:
+func _bubble_filled(id: String, value: int, rem_ms: int) -> void:
 	if has_bubble():
-		print('want fulfilled: ', id, ' for points: ', value)
+		print('want fulfilled: ' + id + ' for points: ' + str(value) + ' with remaining time: ' + str(rem_ms))
 		_want_bubble.queue_free()
 		_want_bubble = null
 

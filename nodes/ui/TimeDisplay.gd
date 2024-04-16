@@ -1,5 +1,7 @@
 extends Label
 
+var rem_time_sec: int = 0
+
 func start():
 	if rem_time_sec == 0:
 		# we've reached jam level error handling
@@ -13,8 +15,6 @@ func pause():
 
 func unpause():
 	paused = false
-
-var rem_time_sec: int = 0
 
 func set_time(time_sec: int) -> void:
 	rem_time_sec = time_sec
@@ -30,10 +30,6 @@ func update_digits():
 	$Digit2.text = str(min)
 	$Digit3.text = str(d3)
 	$Digit4.text = str(d4)
-
-func _ready():
-	set_time(128)
-	start()
 
 func _tick():
 	if paused:
