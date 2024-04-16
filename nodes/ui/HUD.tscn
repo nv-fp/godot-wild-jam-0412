@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bty8lytcdurqn"]
+[gd_scene load_steps=7 format=3 uid="uid://bty8lytcdurqn"]
 
 [ext_resource type="Script" path="res://nodes/ui/HUD.gd" id="1_1uwmk"]
 [ext_resource type="PackedScene" uid="uid://um802b47lglk" path="res://nodes/ui/ScoreDisplay.tscn" id="1_fnd5s"]
 [ext_resource type="PackedScene" uid="uid://btoot08xfykph" path="res://nodes/ui/TimeDisplay.tscn" id="3_kfrte"]
 [ext_resource type="Texture2D" uid="uid://cgg43vy8g6btt" path="res://art/trash-bg.png" id="4_0sk3r"]
 [ext_resource type="Texture2D" uid="uid://jl5yea5dkm0y" path="res://art/audio-64.png" id="4_sc0ny"]
+[ext_resource type="PackedScene" uid="uid://c6dlko1xek8xl" path="res://nodes/ui/OrderQueue.tscn" id="6_6kiyj"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_1uwmk")
@@ -44,4 +45,43 @@ icon = ExtResource("4_sc0ny")
 flat = true
 icon_alignment = 1
 
+[node name="OrderQueue" parent="." instance=ExtResource("6_6kiyj")]
+position = Vector2(523, 627)
+
+[node name="Button" type="Button" parent="."]
+visible = false
+offset_left = 508.0
+offset_top = 486.0
+offset_right = 550.0
+offset_bottom = 536.0
+text = "1"
+
+[node name="Button2" type="Button" parent="."]
+visible = false
+offset_left = 585.0
+offset_top = 487.0
+offset_right = 627.0
+offset_bottom = 534.0
+text = "2"
+
+[node name="Button3" type="Button" parent="."]
+visible = false
+offset_left = 669.0
+offset_top = 488.0
+offset_right = 704.0
+offset_bottom = 533.0
+text = "3"
+
+[node name="Button4" type="Button" parent="."]
+visible = false
+offset_left = 575.0
+offset_top = 409.0
+offset_right = 628.0
+offset_bottom = 447.0
+text = "Add"
+
 [connection signal="toggled" from="Trash-bg/AudioToggle" to="." method="_toggle_audio"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]

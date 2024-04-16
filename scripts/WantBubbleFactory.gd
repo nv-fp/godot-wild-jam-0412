@@ -113,7 +113,7 @@ func get_tex(tex_name: String):
 	tex.set_region(rect)
 	return tex
 
-# returns a new WantBubble Node, as configured in config does not have an ID set
+# returns a new WantBubble Node, as configured in config; has random ID set
 # TODO: is it possible to make variadic functions in gdscript
 func new_item(opts) -> WantBubble:
 	_load_cfg()
@@ -139,10 +139,20 @@ func new_item(opts) -> WantBubble:
 	wb.part_a_tex = get_tex(parts[0])
 	wb.part_b_tex = get_tex(parts[1])
 
-	wb.complete_time_ms = get_object_time_ms(tgt)
+	wb.set_complete_time_ms(get_object_time_ms(tgt))
 	wb.point_value = get_object_points(tgt)
 
+	wb.id = tgt + '-' + generate_word(10)
+
 	return wb
+
+var _characters = 'abcdefghijklmnopqrstuvwxyz0123456789'
+func generate_word(length):
+	var word: String
+	var n_char = len(_characters)
+	for i in range(length):
+		word += _characters[randi() % n_char]
+	return word
 
 # get all defined items
 func get_items() -> Array:

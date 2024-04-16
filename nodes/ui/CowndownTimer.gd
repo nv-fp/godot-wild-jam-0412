@@ -43,8 +43,7 @@ var paused_time_ms: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if run_time == 0:
-		run_time = 4
+	assert(run_time > 0)
 
 	run_time_ms = run_time * 1000
 	timer.one_shot = true
@@ -101,6 +100,7 @@ func _draw():
 	var draw_center = Vector2.ZERO
 	var now: float = Time.get_ticks_msec()
 	var progress: float = (now - start_time_ms - paused_time_ms) / run_time_ms
+	progress = clampf(progress, 0, 1)
 
 	match display_type:
 		'wheel':
@@ -139,8 +139,8 @@ func pause() -> void:
 	redraw_timer.set_paused(true)
 
 func _on_timer_timeout():
+	redraw_timer.set_paused(true)
 	timeout.emit(id)
-	queue_free()
 
 func _on_redraw_timer_timeout():
 	queue_redraw()

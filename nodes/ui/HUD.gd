@@ -20,7 +20,6 @@ func _ready():
 	add_child(p)
 
 	Jukebox.play_bg()
-	pass
 
 func _exit_tree():
 	remove_child(Jukebox.get_player())
@@ -39,3 +38,19 @@ func _background_pressed():
 
 func _title_pressed():
 	Jukebox.play_title()
+
+func _on_button_pressed():
+	var item = $OrderQueue.queue[0]
+	$OrderQueue.remove_item(item.id)
+
+func _on_button_2_pressed():
+	var item = $OrderQueue.queue[1]
+	$OrderQueue.remove_item(item.id)
+
+func _on_button_3_pressed():
+	var item = $OrderQueue.queue[2]
+	$OrderQueue.remove_item(item.id)
+
+func _on_button_4_pressed():
+	var wb = WantBubbleFactory.new_item(null)
+	$OrderQueue.add_item(wb)
