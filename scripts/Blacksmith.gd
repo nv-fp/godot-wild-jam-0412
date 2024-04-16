@@ -172,7 +172,6 @@ func handle_interaction_input() -> void:
 
 			"Furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
-				print(furnace)
 				
 				# Our item finished smelting and we need to collect it
 				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting:
@@ -230,10 +229,6 @@ func handle_interaction_input() -> void:
 					else:
 						table.inventory.append(resource)
 						
-					
-					print(table.inventory)
-					print(table.recipes.get(table.recipe))
-					print(table.inventory == table.recipes.get(table.recipe))
 
 					if table.recipes.has(table.recipe) && table.inventory == table.recipes.get(table.recipe):
 						table.crafting = true
@@ -248,6 +243,7 @@ func handle_interaction_input() -> void:
 						table.timer.start()
 						await table.timer.timeout
 						table.inventory = [table.recipe]
+						table.timer.queue_free()
 						table.timer = null
 			"Trash":
 				if heldItem != null:
