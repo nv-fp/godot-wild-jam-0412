@@ -1,15 +1,100 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3msjpk4q03n8"]
+<<<<<<< Updated upstream
+[gd_scene load_steps=28 format=3 uid="uid://ddy044qenymg5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_hinuh"]
+[ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_wcgui"]
+=======
+[gd_scene load_steps=20 format=3 uid="uid://c443l8pubxuhd"]
+
+[ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_hinuh"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://scripts/TileMap.gd" id="2_07rq8"]
 [ext_resource type="PackedScene" uid="uid://f6awl6ik3hm0" path="res://nodes/objects/Blacksmith.tscn" id="2_f4rxc"]
-[ext_resource type="Texture2D" path="res://art/tiles.png" id="3_3kd4b"]
-[ext_resource type="Texture2D" path="res://art/door.png" id="3_luwvn"]
+[ext_resource type="Texture2D" uid="uid://nh7xo0eyman0" path="res://art/tiles.png" id="3_3kd4b"]
+[ext_resource type="Texture2D" uid="uid://b6npmx8t210vb" path="res://art/door.png" id="3_luwvn"]
 [ext_resource type="Texture2D" uid="uid://d18lgtvrxowmu" path="res://art/counter.png" id="4_fw4n6"]
-[ext_resource type="Texture2D" path="res://art/crates2.png" id="4_x22vq"]
-[ext_resource type="Texture2D" path="res://art/walls.png" id="5_bh8c7"]
-[ext_resource type="Texture2D" path="res://art/anvil.png" id="6_e34ge"]
+[ext_resource type="Texture2D" uid="uid://cobb3bqmkwu0i" path="res://art/crates2.png" id="4_x22vq"]
+<<<<<<< Updated upstream
+[ext_resource type="Texture2D" uid="uid://d2icifub1b3j1" path="res://art/anvil.png" id="6_e34ge"]
 [ext_resource type="Texture2D" uid="uid://dr1gfvvdl2hoi" path="res://art/furnace.png" id="6_vi2y2"]
+[ext_resource type="Texture2D" uid="uid://dstti4knqy3mj" path="res://art/sink.png" id="9_s6ulv"]
+[ext_resource type="Texture2D" uid="uid://cm6b5pclp867y" path="res://art/crafting_table.png" id="10_xlipf"]
+[ext_resource type="Texture2D" uid="uid://cpl8kse6juxgi" path="res://art/trashcan.png" id="11_81fc6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilik3"]
+texture = ExtResource("1_wcgui")
+texture_region_size = Vector2i(32, 32)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sv5f"]
+texture = ExtResource("3_luwvn")
+texture_region_size = Vector2i(32, 48)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -7)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -7)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -7)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q6735"]
+texture = ExtResource("3_3kd4b")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_wcosa"]
+tile_shape = 1
+tile_layout = 5
+tile_offset_axis = 1
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ilik3")
+sources/1 = SubResource("TileSetAtlasSource_1sv5f")
+sources/2 = SubResource("TileSetAtlasSource_q6735")
+=======
+[ext_resource type="Texture2D" uid="uid://c52sgeiav4jgp" path="res://art/walls.png" id="5_bh8c7"]
+[ext_resource type="Texture2D" uid="uid://d2icifub1b3j1" path="res://art/anvil.png" id="6_e34ge"]
+[ext_resource type="Texture2D" uid="uid://dr1gfvvdl2hoi" path="res://art/furnace.png" id="6_vi2y2"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0c81p"]
 texture = ExtResource("1_hinuh")
@@ -231,7 +316,10 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/texture_origin = Vector2i(0, -8)
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -5)
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -240,7 +328,10 @@ texture_region_size = Vector2i(32, 32)
 1:1/0/texture_origin = Vector2i(0, -8)
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -5)
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -249,12 +340,18 @@ texture_region_size = Vector2i(32, 32)
 2:1/0/texture_origin = Vector2i(0, -8)
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:1/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 3:1/0 = 0
 3:1/0/texture_origin = Vector2i(0, -8)
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, -5)
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -263,7 +360,10 @@ texture_region_size = Vector2i(32, 32)
 4:1/0/texture_origin = Vector2i(0, -8)
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
 4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(0, -5)
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -276,18 +376,16 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/texture_origin = Vector2i(0, -8)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+=======
+>>>>>>> Stashed changes
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -8)
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2sup"]
-texture = ExtResource("3_luwvn")
-texture_region_size = Vector2i(48, 80)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-8, 1)
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
+<<<<<<< Updated upstream
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrdo3"]
 texture = ExtResource("6_vi2y2")
@@ -296,10 +394,12 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/texture_origin = Vector2i(0, -8)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -16, 24, 0, 24)
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, -8)
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, -16, 16, 0, 24, 16, 16, 16, 0, 0, 8)
 2:1/0 = 0
 2:1/0/texture_origin = Vector2i(0, -8)
 2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -332,15 +432,62 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/texture_origin = Vector2i(0, -8)
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, -8, -16, 0, 0, 8, 16, 16, 16, 0)
+=======
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r2sup"]
+texture = ExtResource("3_luwvn")
+texture_region_size = Vector2i(48, 80)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-8, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vecvi"]
+texture = ExtResource("6_vi2y2")
+texture_region_size = Vector2i(48, 80)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-7, -8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pcx6"]
 texture = ExtResource("6_e34ge")
 texture_region_size = Vector2i(40, 64)
 0:0/0 = 0
+<<<<<<< Updated upstream
 0:0/0/texture_origin = Vector2i(6, 11)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, -32, 8, 0, 24, 16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ypvu"]
+texture = ExtResource("9_s6ulv")
+texture_region_size = Vector2i(41, 64)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-8, 1)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 16, 32, 32, 24)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jofl"]
+texture = ExtResource("10_xlipf")
+texture_region_size = Vector2i(48, 48)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(8, 2)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, -32, 8, 0, 24, 16, 16)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(8, 2)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+=======
+0:0/0/texture_origin = Vector2i(0, 8)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_06jol"]
 texture = ExtResource("3_3kd4b")
@@ -362,6 +509,18 @@ texture_region_size = Vector2i(32, 32)
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
 
+<<<<<<< Updated upstream
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d536k"]
+texture = ExtResource("11_81fc6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(1, -7)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
+
+[sub_resource type="TileSet" id="TileSet_k1m4y"]
+=======
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqmlp"]
 texture = ExtResource("5_bh8c7")
 texture_region_size = Vector2i(32, 32)
@@ -369,24 +528,21 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/texture_origin = Vector2i(0, -8)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, -8)
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(0, -8)
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(0, -8)
 3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:0/0/physics_layer_0/angular_velocity = 0.0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 0, 24, 16, 16)
 
 [sub_resource type="TileSet" id="TileSet_f6had"]
+>>>>>>> Stashed changes
 tile_shape = 1
 tile_layout = 5
 tile_offset_axis = 1
@@ -394,61 +550,153 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0c81p")
 sources/6 = SubResource("TileSetAtlasSource_06jol")
+<<<<<<< Updated upstream
+sources/14 = SubResource("TileSetAtlasSource_tln52")
+sources/15 = SubResource("TileSetAtlasSource_l44dg")
+sources/19 = SubResource("TileSetAtlasSource_1pcx6")
+sources/18 = SubResource("TileSetAtlasSource_lrdo3")
+sources/23 = SubResource("TileSetAtlasSource_1ypvu")
+sources/24 = SubResource("TileSetAtlasSource_0jofl")
+sources/9 = SubResource("TileSetAtlasSource_d536k")
+tile_proxies/coords_level = [[8, Vector2i(0, 0)], [12, Vector2i(0, 0)], [8, Vector2i(1, 0)], [12, Vector2i(1, 0)], [8, Vector2i(2, 0)], [12, Vector2i(2, 0)], [8, Vector2i(3, 0)], [12, Vector2i(3, 0)], [11, Vector2i(0, 0)], [12, Vector2i(4, 0)], [11, Vector2i(1, 0)], [12, Vector2i(5, 0)], [11, Vector2i(2, 0)], [12, Vector2i(6, 0)], [11, Vector2i(3, 0)], [12, Vector2i(7, 0)]]
+
+[node name="Level 1" type="Node2D"]
+
+[node name="Walls" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_wcosa")
+collision_visibility_mode = 2
+format = 2
+layer_0/name = "Wall1"
+layer_0/y_sort_enabled = true
+layer_0/y_sort_origin = 1
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(-65514, 0, 0, -131050, 0, 0, -196586, 0, 0, -262122, 0, 0, -327658, 0, 0, -393194, 0, 0, -458730, 0, 0, -524266, 0, 0, -524265, 0, 0, -524264, 0, 0, -524263, 0, 0, -524262, 0, 0, -524261, 0, 0, -524260, 0, 0, -524259, 0, 0, -524258, 0, 0, -524257, 0, 0, -524256, 0, 0, 22, 131073, 268435456, 131094, 0, 0, 196630, 0, 0, -524255, 0, 0)
+layer_1/name = "Wall2"
+layer_1/y_sort_enabled = true
+layer_1/y_sort_origin = 2
+layer_1/z_index = 2
+layer_1/tile_data = PackedInt32Array(65557, 0, 0, -131051, 0, 0, -196587, 0, 0, -262123, 0, 0, -327659, 0, 0, -393195, 0, 0, -458731, 0, 0, -524267, 0, 0, -589803, 0, 0, -589802, 0, 0, -589801, 0, 0, -589800, 0, 0, -589799, 0, 0, -589798, 0, 0, -589797, 0, 0, -589796, 0, 0, -589795, 0, 0, -589794, 0, 0, -589793, 0, 0, -65515, 65537, 268435456, -589792, 0, 0, 131093, 0, 0)
+layer_2/name = "Wall3"
+layer_2/y_sort_enabled = true
+layer_2/y_sort_origin = 3
+layer_2/z_index = 3
+layer_2/tile_data = PackedInt32Array(20, 0, 0, -196588, 0, 0, -262124, 0, 0, -327660, 0, 0, -393196, 0, 0, -458732, 0, 0, -524268, 0, 0, -589804, 0, 0, -655340, 0, 0, -655339, 0, 0, -655338, 0, 0, -655337, 0, 0, -655336, 0, 0, -655335, 0, 0, -655334, 0, 0, -655333, 0, 0, -655332, 0, 0, -655331, 0, 0, -655330, 0, 0, -131052, 1, 268435456, -655329, 0, 0, 65556, 0, 0)
+layer_3/name = "Wall4"
+layer_3/y_sort_enabled = true
+layer_3/y_sort_origin = 4
+layer_3/z_index = 4
+layer_3/tile_data = PackedInt32Array(-65517, 0, 0, -131053, 0, 0, -196589, 0, 0, -262125, 0, 0, -327661, 0, 0, -393197, 0, 0, -458733, 0, 0, -524269, 0, 0, -589805, 0, 0, -655341, 0, 0, -720877, 0, 0, -720876, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -720872, 0, 0, -720871, 0, 0, -720870, 0, 0, -720869, 0, 0, -720867, 0, 0, -720868, 0, 0, -720866, 0, 0, 19, 0, 0)
+layer_4/name = "Wall5"
+layer_4/y_sort_enabled = true
+layer_4/y_sort_origin = 5
+layer_4/z_index = 5
+layer_4/tile_data = PackedInt32Array(-131054, 196608, 0, -196590, 196608, 0, -262126, 196608, 0, -327662, 196608, 0, -393198, 196608, 0, -458734, 196608, 0, -524270, 196608, 0, -589806, 196608, 0, -655342, 196608, 0, -720878, 196608, 0, -65518, 196608, 0, -786411, 196608, 268435456, -786410, 196608, 268435456, -786409, 196608, 268435456, -786408, 196608, 268435456, -786407, 196608, 268435456, -786406, 196608, 268435456, -786405, 196608, 268435456, -786404, 196608, 268435456, -786403, 196608, 268435456, -786412, 196608, 268435456, -786413, 196608, 268435456, -786414, 196608, 0)
+layer_5/name = "Floor"
+layer_5/y_sort_enabled = true
+layer_5/tile_data = PackedInt32Array(65559, 2, 0, 131095, 2, 0, 196631, 0, 0, -458719, 0, 0, 65558, 2, 0, 131094, 2, 0, 262167, 0, 0, -458718, 0, 0)
+layer_6/name = "Subfloor"
+layer_6/y_sort_enabled = true
+layer_6/y_sort_origin = -1
+layer_6/z_index = -1
+layer_6/tile_data = PackedInt32Array(327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 327709, 2, 0, 327710, 2, 0, 327711, 2, 0, 327712, 2, 0, 327713, 2, 0, 327714, 2, 0, 327715, 2, 0, 262179, 2, 0, 196643, 2, 0, 131107, 2, 0, 65571, 2, 0, 35, 2, 0, -65501, 2, 0, -131037, 2, 0, -196573, 2, 0, -262109, 2, 0, -327645, 2, 0, -393181, 0, 0, 327704, 0, 0)
+
+[node name="Tilemap" type="TileMap" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+tile_set = SubResource("TileSet_k1m4y")
+collision_visibility_mode = 2
+format = 2
+layer_0/name = "Floor"
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(196641, 6, 0, 131105, 6, 0, 131104, 6, 0, 65568, 65542, 0, 196640, 196614, 0, 33, 6, 0, 32, 6, 0, 65569, 6, 0, -131039, 6, 0, -131040, 6, 0, -65504, 6, 0, -65505, 6, 0, 31, 6, 0, 30, 6, 0, 65566, 6, 0, 131102, 6, 0, 196638, 6, 0, 196637, 6, 0, 196639, 6, 0, 131103, 131078, 0, 65567, 6, 0, -65503, 196614, 0, -196575, 6, 0, -196576, 6, 0, -131041, 6, 0, -131042, 6, 0, -65506, 6, 0, -65507, 6, 0, 29, 6, 0, 65565, 6, 0, 131101, 65542, 0, 131100, 6, 0, 196636, 131078, 0, -393192, 6, 0, -327656, 6, 0, -262120, 6, 0, -196584, 6, 0, -131048, 6, 0, 24, 6, 0, 65560, 6, 0, 131096, 6, 0, 196632, 6, 0, -393191, 6, 0, -327655, 65542, 0, -262119, 6, 0, -196583, 6, 0, 25, 6, 0, 65561, 196614, 0, 131097, 6, 0, 196633, 65542, 0, -327654, 6, 0, -262118, 6, 0, -196582, 131078, 0, -131046, 6, 0, 26, 6, 0, 65562, 6, 0, 131098, 196614, 0, 196634, 6, 0, -262117, 6, 0, -196581, 6, 0, -131045, 6, 0, -65509, 6, 0, 27, 6, 0, 131099, 6, 0, 196635, 6, 0, -393188, 6, 0, -327652, 6, 0, -262116, 6, 0, -196580, 6, 0, -131044, 6, 0, -65508, 6, 0, 28, 6, 0, 65564, 6, 0, -393187, 6, 0, -327651, 6, 0, -262115, 131078, 0, -196579, 6, 0, -131043, 65542, 0, -393186, 6, 0, -327650, 196614, 0, -262114, 6, 0, -196578, 196614, 0, -393185, 6, 0, -327649, 6, 0, -262113, 6, 0, -393184, 6, 0, -327648, 6, 0, -262112, 6, 0, -393183, 196614, 0, -327647, 6, 0, -262111, 131078, 0, 65563, 131078, 0, -65512, 6, 0, -393190, 6, 0, -393189, 6, 0, -327653, 6, 0, -131047, 6, 0, -65510, 6, 0, -65511, 6, 0, -196577, 6, 0)
+=======
 sources/8 = SubResource("TileSetAtlasSource_xqmlp")
 sources/14 = SubResource("TileSetAtlasSource_tln52")
 sources/15 = SubResource("TileSetAtlasSource_l44dg")
 sources/16 = SubResource("TileSetAtlasSource_r2sup")
+sources/17 = SubResource("TileSetAtlasSource_vecvi")
 sources/19 = SubResource("TileSetAtlasSource_1pcx6")
-sources/18 = SubResource("TileSetAtlasSource_lrdo3")
 tile_proxies/coords_level = [[8, Vector2i(0, 0)], [12, Vector2i(0, 0)], [8, Vector2i(1, 0)], [12, Vector2i(1, 0)], [8, Vector2i(2, 0)], [12, Vector2i(2, 0)], [8, Vector2i(3, 0)], [12, Vector2i(3, 0)], [11, Vector2i(0, 0)], [12, Vector2i(4, 0)], [11, Vector2i(1, 0)], [12, Vector2i(5, 0)], [11, Vector2i(2, 0)], [12, Vector2i(6, 0)], [11, Vector2i(3, 0)], [12, Vector2i(7, 0)]]
 
 [node name="Level 1" type="TileMap"]
-z_index = 1
 y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_f6had")
-collision_visibility_mode = 1
+collision_visibility_mode = 2
 navigation_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(196641, 6, 0, 131105, 6, 0, 131104, 6, 0, 65568, 65542, 0, 196640, 196614, 0, 33, 6, 0, 32, 6, 0, 65569, 6, 0, -131039, 6, 0, -131040, 6, 0, -65504, 6, 0, -65505, 6, 0, 31, 6, 0, 30, 6, 0, 65566, 6, 0, 131102, 6, 0, 196638, 6, 0, 196637, 6, 0, 196639, 6, 0, 131103, 131078, 0, 65567, 6, 0, -65503, 196614, 0, -196575, 6, 0, -196576, 6, 0, -196577, 6, 0, -131041, 6, 0, -131042, 6, 0, -65506, 6, 0, -65507, 6, 0, 29, 6, 0, 65565, 6, 0, 131101, 65542, 0, 131100, 6, 0, 196636, 131078, 0, -393192, 6, 0, -327656, 6, 0, -262120, 6, 0, -196584, 6, 0, -131048, 6, 0, 24, 6, 0, 65560, 6, 0, 131096, 6, 0, 196632, 6, 0, -393191, 6, 0, -327655, 65542, 0, -262119, 6, 0, -196583, 6, 0, -131047, 65542, 0, -65511, 6, 0, 25, 6, 0, 65561, 196614, 0, 131097, 6, 0, 196633, 65542, 0, -327654, 6, 0, -262118, 6, 0, -196582, 131078, 0, -131046, 6, 0, -65510, 6, 0, 26, 6, 0, 65562, 6, 0, 131098, 196614, 0, 196634, 6, 0, -262117, 6, 0, -196581, 6, 0, -131045, 6, 0, -65509, 6, 0, 27, 6, 0, 131099, 6, 0, 196635, 6, 0, -393188, 6, 0, -327652, 6, 0, -262116, 6, 0, -196580, 6, 0, -131044, 6, 0, -65508, 6, 0, 28, 6, 0, 65564, 6, 0, -393187, 6, 0, -327651, 6, 0, -262115, 131078, 0, -196579, 6, 0, -131043, 65542, 0, -393186, 6, 0, -327650, 196614, 0, -262114, 6, 0, -196578, 196614, 0, -393185, 6, 0, -327649, 6, 0, -262113, 6, 0, -393184, 6, 0, -327648, 6, 0, -262112, 6, 0, -393183, 196614, 0, -327647, 6, 0, -262111, 131078, 0, -458719, 8, 0, 131095, 6, 0, 196631, 8, 0, 65563, 131078, 0, 65559, 6, 0, 65558, 6, 0, 131094, 6, 0, -65512, 6, 0, -393190, 6, 0, -393189, 6, 0, -327653, 6, 0)
+layer_0/tile_data = PackedInt32Array(196641, 6, 0, 131105, 6, 0, 131104, 6, 0, 65568, 65542, 0, 196640, 196614, 0, 33, 6, 0, 32, 6, 0, 65569, 6, 0, -131039, 6, 0, -131040, 6, 0, -65504, 6, 0, -65505, 6, 0, 31, 6, 0, 30, 6, 0, 65566, 6, 0, 131102, 6, 0, 196638, 6, 0, 196637, 6, 0, 196639, 6, 0, 131103, 131078, 0, 65567, 6, 0, -65503, 196614, 0, -196575, 6, 0, -196576, 6, 0, -196577, 6, 0, -131041, 6, 0, -131042, 6, 0, -65506, 6, 0, -65507, 6, 0, 29, 6, 0, 65565, 6, 0, 131101, 65542, 0, 131100, 6, 0, 196636, 131078, 0, -393192, 6, 0, -327656, 6, 0, -262120, 6, 0, -196584, 6, 0, -131048, 6, 0, 24, 6, 0, 65560, 6, 0, 131096, 6, 0, 196632, 6, 0, -393191, 6, 0, -327655, 65542, 0, -262119, 6, 0, -196583, 6, 0, -131047, 65542, 0, -65511, 6, 0, 25, 6, 0, 65561, 196614, 0, 131097, 6, 0, 196633, 65542, 0, -327654, 6, 0, -262118, 6, 0, -196582, 131078, 0, -131046, 6, 0, -65510, 6, 0, 26, 6, 0, 65562, 6, 0, 131098, 196614, 0, 196634, 6, 0, -262117, 6, 0, -196581, 6, 0, -131045, 6, 0, -65509, 6, 0, 27, 6, 0, 131099, 6, 0, 196635, 6, 0, -393188, 6, 0, -327652, 6, 0, -262116, 6, 0, -196580, 6, 0, -131044, 6, 0, -65508, 6, 0, 28, 6, 0, 65564, 6, 0, -393187, 6, 0, -327651, 6, 0, -262115, 131078, 0, -196579, 6, 0, -131043, 65542, 0, -393186, 6, 0, -327650, 196614, 0, -262114, 6, 0, -196578, 196614, 0, -393185, 6, 0, -327649, 6, 0, -262113, 6, 0, -393184, 6, 0, -327648, 6, 0, -262112, 6, 0, -393183, 196614, 0, -327647, 6, 0, -262111, 131078, 0, -458719, 8, 0, 131095, 6, 0, 196631, 8, 0, -131049, 8, 0, -196585, 8, 0, -262121, 8, 0, -327657, 8, 0, -393193, 8, 0, -458729, 8, 0, -458728, 8, 0, -458727, 8, 0, -458726, 6, 0, -458725, 6, 0, -458724, 8, 0, -458723, 8, 0, -458722, 8, 0, -458721, 8, 0, -458720, 8, 0, 65563, 131078, 0, 65559, 6, 0, 65558, 6, 0, 131094, 6, 0, -65512, 6, 0, -393190, 6, 0, -393189, 6, 0, -327653, 6, 0, -524263, 6, 0)
+>>>>>>> Stashed changes
 layer_1/name = "Wall1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(131094, 65544, 0, -524257, 8, 0, -524256, 8, 0, -65511, 15, 268435456, -65510, 15, 268435456, -65512, 15, 268435456, -131041, 131086, 1, -262113, 196622, 1, -393185, 262158, 1, -65507, 15, 268435456, -65506, 15, 268435456, -65505, 65551, 0, -327649, 15, 0, -458721, 15, 0, -524265, 8, 0, -327658, 8, 0, -131050, 8, 0, -65514, 8, 0, -65513, 15, 268435456, -196586, 8, 0, -458730, 8, 0, -262122, 131080, 0, -524266, 8, 0, -393194, 8, 0, -458728, 19, 0, -196577, 15, 0, -524258, 8, 0, -524259, 8, 0, -524260, 8, 0, -524261, 8, 0, -524263, 8, 0, -524264, 8, 0, -524262, 8, 0, -393189, 18, 1, -458724, 65554, 1)
+<<<<<<< Updated upstream
+layer_1/tile_data = PackedInt32Array(-131041, 14, 268435457, -262113, 196622, 268435457, -393185, 262158, 268435457, -65506, 15, 268435456, -65505, 65551, 0, -327649, 15, 0, -458721, 15, 0, -65513, 15, 268435456, -458728, 19, 0, -393189, 18, 1, -458724, 65554, 1, -65509, 15, 268435456, -65508, 23, 0, -65511, 15, 268435456, -65512, 15, 268435456, -65510, 15, 268435456, -262121, 9, 0, -196577, 15, 0)
+=======
+layer_1/tile_data = PackedInt32Array(131094, 65544, 0, -393194, 8, 0, -524266, 8, 0, -524264, 65544, 0, -524257, 8, 0, -524258, 8, 0, -524259, 8, 0, -131050, 8, 0, -196586, 8, 0, -65514, 8, 0, -524256, 8, 0, -458721, 15, 0, -262122, 131080, 0, -327658, 8, 0, -524261, 8, 0, -524260, 8, 0, -458730, 8, 0, -65511, 15, 268435456, -65510, 15, 268435456, -65513, 15, 268435456, -65512, 15, 268435456, -65507, 15, 268435456, -65506, 15, 268435456, -65505, 65551, 0, -524263, 8, 0, -524262, 8, 0, -131041, 131086, 1, -262113, 196622, 1, -393185, 262158, 1, -196577, 15, 0, -327649, 15, 0, -524265, 8, 0, -458728, 19, 0)
+>>>>>>> Stashed changes
 layer_2/name = "Wall2"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
 layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(-196587, 8, 0, -262123, 8, 0, -524267, 8, 0, -589803, 8, 0, 65557, 8, 0, -589801, 65544, 0, -589802, 65544, 0, -589796, 8, 0, -589795, 8, 0, -589794, 131080, 0, -589793, 8, 0, -327659, 8, 0, -393195, 8, 0, -458731, 131080, 0, -131051, 8, 0, -458722, 262158, 0, -327650, 196622, 0, -196578, 131086, 0, -589800, 8, 0, -589797, 8, 0, -589798, 131080, 0, -589799, 8, 0, -524263, 18, 0, -458726, 131090, 1, -524261, 196626, 1)
+<<<<<<< Updated upstream
+layer_2/tile_data = PackedInt32Array(-458722, 262158, 268435456, -327650, 196622, 268435456, -196578, 131086, 268435456, -524263, 18, 0, -458726, 131090, 1, -524261, 196626, 1)
+=======
+layer_2/tile_data = PackedInt32Array(-196587, 8, 0, -262123, 8, 0, -524267, 8, 0, -589803, 8, 0, 65557, 8, 0, -589801, 8, 0, -589802, 65544, 0, -589800, 8, 0, -589799, 8, 0, -589798, 8, 0, -589797, 8, 0, -589796, 8, 0, -589795, 8, 0, -589794, 131080, 0, -589793, 8, 0, -327659, 8, 0, -393195, 8, 0, -458731, 131080, 0, -131051, 8, 0, -458722, 262158, 0, -327650, 196622, 0, -196578, 131086, 0)
+>>>>>>> Stashed changes
 layer_3/name = "Wall3"
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 3
 layer_3/z_index = 3
-layer_3/tile_data = PackedInt32Array(20, 65544, 0, -327660, 8, 0, -458732, 8, 0, -524268, 8, 0, -589804, 65544, 0, -655340, 0, 3, -655339, 8, 0, -655338, 65544, 0, -655333, 8, 0, -655332, 8, 0, -655331, 8, 0, -655330, 65544, 0, -393196, 8, 0, -262124, 8, 0, -196588, 8, 0, 21, 16, 0, -655334, 8, 0, -655335, 8, 0, -655336, 8, 0, -655337, 8, 0, -589800, 131090, 0, -524263, 262162, 1, -589798, 327698, 1)
+<<<<<<< Updated upstream
+layer_3/tile_data = PackedInt32Array(-589800, 131090, 0, -524263, 262162, 1, -589798, 327698, 1)
+=======
+layer_3/tile_data = PackedInt32Array(20, 65544, 0, -327660, 8, 0, -458732, 8, 0, -524268, 8, 0, -589804, 65544, 0, -655340, 0, 3, -655339, 8, 0, -655338, 65544, 0, -655337, 8, 0, -655336, 65544, 0, -655335, 8, 0, -655334, 131080, 0, -655333, 8, 0, -655332, 8, 0, -655331, 8, 0, -655330, 65544, 0, -393196, 8, 0, -262124, 8, 0, -196588, 8, 0, 21, 16, 0)
+>>>>>>> Stashed changes
 layer_4/name = "Wall4"
 layer_4/y_sort_enabled = true
 layer_4/y_sort_origin = 4
 layer_4/z_index = 4
-layer_4/tile_data = PackedInt32Array(-131053, 131080, 0, -196589, 8, 0, -262125, 8, 0, -393197, 8, 0, -458733, 65544, 0, -524269, 8, 0, -589805, 8, 0, -655341, 8, 0, -720877, 8, 0, -720876, 131080, 0, -720875, 8, 0, -720874, 8, 0, -720873, 8, 0, -720872, 8, 0, -720871, 8, 0, -720870, 8, 0, -720869, 8, 0, -720868, 8, 0, -720867, 8, 0, -65517, 8, 0, -327661, 8, 0, -589800, 393234, 1, -655335, 458770, 1)
+<<<<<<< Updated upstream
+layer_4/tile_data = PackedInt32Array(-589800, 393234, 1, -655335, 458770, 1)
+=======
+layer_4/tile_data = PackedInt32Array(-131053, 131080, 0, -196589, 8, 0, -262125, 8, 0, -393197, 8, 0, -458733, 65544, 0, -524269, 8, 0, -589805, 8, 0, -655341, 8, 0, -720877, 8, 0, -720876, 131080, 0, -720875, 8, 0, -720874, 8, 0, -720873, 8, 0, -720872, 8, 0, -720871, 8, 0, -720870, 8, 0, -720869, 8, 0, -720868, 8, 0, -720867, 8, 0, -65517, 8, 0, -327661, 8, 0)
+>>>>>>> Stashed changes
 layer_5/name = "Wall5"
 layer_5/y_sort_enabled = true
 layer_5/y_sort_origin = 5
 layer_5/z_index = 5
+<<<<<<< Updated upstream
+layer_5/tile_data = PackedInt32Array()
+script = ExtResource("2_07rq8")
+
+[node name="Blacksmith" parent="Tilemap" instance=ExtResource("2_f4rxc")]
+position = Vector2(500, 208)
+collision_mask = 1
+
+[node name="Camera2D" type="Camera2D" parent="Tilemap"]
+=======
 layer_5/tile_data = PackedInt32Array(-131054, 196616, 0, -196590, 196616, 0, -262126, 196616, 0, -327662, 196616, 0, -393198, 196616, 0, -458734, 196616, 0, -524270, 196616, 0, -589806, 196616, 0, -655342, 196616, 0, -720878, 196616, 0, -786414, 196616, 0, -786413, 196616, 268435456, -786412, 196616, 268435456, -786411, 196616, 268435456, -786410, 196616, 268435456, -786409, 196616, 268435456, -786408, 196616, 268435456, -786407, 196616, 268435456, -786406, 196616, 268435456, -786405, 196616, 268435456, -786404, 196616, 268435456)
 script = ExtResource("2_07rq8")
 
 [node name="Blacksmith" parent="." instance=ExtResource("2_f4rxc")]
-z_index = 2
 position = Vector2(407, 251)
 scale = Vector2(2, 2)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+>>>>>>> Stashed changes
 zoom = Vector2(2, 2)
 limit_left = -50
 limit_top = -50
 limit_right = 1177
 limit_bottom = 673
+<<<<<<< Updated upstream
+position_smoothing_speed = 20.0
+=======
+>>>>>>> Stashed changes

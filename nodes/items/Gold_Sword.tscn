@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1b7lxn5kvt6h"]
+
+[ext_resource type="Texture2D" uid="uid://bsw7b488wo8k3" path="res://art/sword_and_staff.png" id="1_30b4u"]
+
+[node name="GoldSword" type="Node2D"]
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_30b4u")
+region_enabled = true
+region_rect = Rect2(16, 30, 7, 34)

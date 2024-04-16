@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://pwihgwge3a33"]
+
+[ext_resource type="Texture2D" uid="uid://nevw4530ioq8" path="res://art/materials.png" id="1_yrvox"]
+
+[node name="Leather" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_yrvox")
+region_enabled = true
+region_rect = Rect2(88, 0, 32, 28)
