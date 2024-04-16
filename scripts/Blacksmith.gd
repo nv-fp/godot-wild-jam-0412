@@ -169,7 +169,6 @@ func handle_interaction_input() -> void:
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
 						anvil.timer = null
-						remove_child(anvil.timer)
 
 			"Furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
