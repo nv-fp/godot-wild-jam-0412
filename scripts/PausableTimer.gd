@@ -43,6 +43,15 @@ func start() -> void:
 	else:
 		print("errant call to start")
 
+func remaining_time_ms() -> int:
+	var now = Time.get_ticks_msec()
+	var passed_ms = (now - start_time_ms) - paused_time_ms
+	var run_time_ms = run_time_sec * 1000
+
+	if passed_ms > run_time_ms:
+		return 0
+	return run_time_ms - passed_ms
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not is_started():

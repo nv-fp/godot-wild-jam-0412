@@ -9,6 +9,9 @@ extends Node2D
 @export var run_time: float
 var run_time_ms: float
 
+@export_enum('wheel', 'bar')
+var display_type: String = 'wheel'
+
 @export var bg_color: Color = Color.WHITE
 @export var fg_color_lots: Color = Color.DARK_GREEN
 @export var fg_color_med: Color = Color.ORANGE
@@ -19,6 +22,9 @@ var run_time_ms: float
 
 @export var radius: int = 10
 @export var redraw_rate_ms: int = 10
+
+@export var bar_border: int = 2
+@export var bar_height: int = 0 # defaults to 6 * radius
 
 # This is an id that will be provided with the timout signal, default to ""
 @export var id: String = ""
@@ -48,20 +54,59 @@ func _ready():
 	if autostart:
 		start()
 
-func _draw():
-	var now: float = Time.get_ticks_msec()
-	var progress: float = (now - start_time_ms - paused_time_ms) / run_time_ms
-
+func _get_color(progress: float) -> Color:
 	var draw_color: Color = fg_color_lots
 	if progress > .8:
 		draw_color = fg_color_low
 	elif progress > .5:
 		draw_color = fg_color_med
+	return draw_color
 
-	var draw_center = Vector2.ZERO
+func _draw_wheel(draw_center: Vector2, progress: float):
+	var draw_color = _get_color(progress)
 
 	draw_circle(draw_center, 2 * radius, bg_color)
-	draw_arc(draw_center, radius, TAU, TAU * progress, radius + 1, draw_color, (2 * radius) + 1)
+	var angle_adjust = TAU / 4
+	draw_arc(draw_center, radius, TAU - angle_adjust, (TAU - angle_adjust) * progress, radius + 1, draw_color, (2 * radius) + 1)
+
+func _draw_bar(draw_center: Vector2, progress: float):
+	var cx = draw_center.x
+	var cy = draw_center.y
+
+	var width = 2 * radius
+	var height = 6 * radius
+	if bar_height != 0:
+		height = bar_height
+
+	# draw outline
+	draw_rect(
+		Rect2(cx - bar_border, cy + bar_border,
+			width + (2 * bar_border), -1 * (height + (2 * bar_border)),
+		), Color.BLACK)
+	draw_line(Vector2(cx + bar_border, cy + bar_border), Vector2(cx + width - bar_border, cy + bar_border), Color.BLACK, bar_border)
+	draw_line(Vector2(cx + bar_border, cy - height - bar_border), Vector2(cx + width - bar_border, cy - height - bar_border), Color.BLACK, bar_border)
+	# draw background
+	draw_rect(
+		Rect2(
+			cx, cy,
+			width, -height
+		), bg_color)
+
+	var draw_height = height * (1 - progress)
+
+	# fill
+	draw_rect(Rect2(cx, cy, width, -draw_height), _get_color(progress))
+
+func _draw():
+	var draw_center = Vector2.ZERO
+	var now: float = Time.get_ticks_msec()
+	var progress: float = (now - start_time_ms - paused_time_ms) / run_time_ms
+
+	match display_type:
+		'wheel':
+			_draw_wheel(draw_center, progress)
+		'bar':
+			_draw_bar(draw_center, progress)
 
 func is_started() -> bool:
 	return start_time_ms > 0

@@ -5,7 +5,8 @@ class_name WantBubble
 # fires if the want is not completed in time: (id: String)
 signal timeout
 
-# fires if the bubble is marked completed: (id: String, points: int)
+# fires if the bubble is marked completed:
+#     (id: String, points: int, remaining_ms: int)
 signal completed
 
 # some uniquely identifying id for this want to tie it to other systems
@@ -16,6 +17,8 @@ signal completed
 
 # how many points is completing this want worth
 @export var point_value: int
+
+@export var display_timer: bool = true
 
 # what are we building
 @export var item_tex: Texture2D
@@ -29,11 +32,16 @@ func _ready():
 	$Frame/PartB.texture = part_b_tex
 	$CompletionTimer.run_time_sec = complete_time_ms / 1000.0
 
+func is_paused() -> bool:
+	return $CompletionTimer.is_paused()
+
 func pause() -> void:
 	$CompletionTimer.pause()
+	$CountdownTimer.pause()
 
 func unpause() -> void:
 	$CompletionTimer.start()
+	$CountdownTimer.start()
 
 # TODO
 func _get_configuration_warning() -> String:
@@ -44,5 +52,5 @@ func _on_completion_timer_timeout():
 	queue_free()
 
 func fill() -> void:
-	completed.emit(id, point_value)
+	completed.emit(id, point_value, $CompletionTimer.remaining_time_ms())
 	queue_free()

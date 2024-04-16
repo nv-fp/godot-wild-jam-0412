@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bty8lytcdurqn"]
+[gd_scene load_steps=6 format=3 uid="uid://bty8lytcdurqn"]
 
 [ext_resource type="Script" path="res://nodes/ui/HUD.gd" id="1_1uwmk"]
 [ext_resource type="PackedScene" uid="uid://um802b47lglk" path="res://nodes/ui/ScoreDisplay.tscn" id="1_fnd5s"]
 [ext_resource type="PackedScene" uid="uid://btoot08xfykph" path="res://nodes/ui/TimeDisplay.tscn" id="3_kfrte"]
+[ext_resource type="Texture2D" uid="uid://cgg43vy8g6btt" path="res://art/trash-bg.png" id="4_0sk3r"]
+[ext_resource type="Texture2D" uid="uid://jl5yea5dkm0y" path="res://art/audio-64.png" id="4_sc0ny"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_1uwmk")
@@ -25,3 +27,21 @@ offset_top = 542.0
 offset_right = 1053.0
 offset_bottom = 565.0
 scale = Vector2(2, 2)
+
+[node name="Trash-bg" type="Sprite2D" parent="."]
+position = Vector2(1237.5, 56)
+scale = Vector2(0.734372, 0.71875)
+texture = ExtResource("4_0sk3r")
+
+[node name="AudioToggle" type="Button" parent="Trash-bg"]
+offset_left = -33.3619
+offset_top = -33.3913
+offset_right = 41.6381
+offset_bottom = 41.6087
+scale = Vector2(0.9, 0.9)
+toggle_mode = true
+icon = ExtResource("4_sc0ny")
+flat = true
+icon_alignment = 1
+
+[connection signal="toggled" from="Trash-bg/AudioToggle" to="." method="_toggle_audio"]

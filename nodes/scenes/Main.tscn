@@ -1,5 +1,6 @@
-[gd_scene load_steps=29 format=3 uid="uid://dm0lylhut6eoi"]
+[gd_scene load_steps=30 format=3 uid="uid://clejojlin7ctj"]
 
+[ext_resource type="Script" path="res://nodes/scenes/Main.gd" id="1_anjtx"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_o32qj"]
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="2_ug2hg"]
 [ext_resource type="Texture2D" uid="uid://cobb3bqmkwu0i" path="res://art/crates2.png" id="3_crgvs"]
@@ -13,7 +14,7 @@
 [ext_resource type="Script" path="res://scripts/TileMap.gd" id="10_lyfy5"]
 [ext_resource type="Texture2D" uid="uid://cm6b5pclp867y" path="res://art/crafting_table.png" id="10_t38o2"]
 [ext_resource type="PackedScene" uid="uid://f6awl6ik3hm0" path="res://nodes/objects/Blacksmith.tscn" id="11_pugqx"]
-[ext_resource type="PackedScene" path="res://nodes/ui/HUD.tscn" id="12_sgaab"]
+[ext_resource type="PackedScene" uid="uid://bty8lytcdurqn" path="res://nodes/ui/HUD.tscn" id="12_sgaab"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilik3"]
 texture = ExtResource("1_o32qj")
@@ -497,6 +498,7 @@ sources/24 = SubResource("TileSetAtlasSource_0jofl")
 tile_proxies/coords_level = [[8, Vector2i(0, 0)], [12, Vector2i(0, 0)], [8, Vector2i(1, 0)], [12, Vector2i(1, 0)], [8, Vector2i(2, 0)], [12, Vector2i(2, 0)], [8, Vector2i(3, 0)], [12, Vector2i(3, 0)], [11, Vector2i(0, 0)], [12, Vector2i(4, 0)], [11, Vector2i(1, 0)], [12, Vector2i(5, 0)], [11, Vector2i(2, 0)], [12, Vector2i(6, 0)], [11, Vector2i(3, 0)], [12, Vector2i(7, 0)]]
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_anjtx")
 
 [node name="Walls" type="TileMap" parent="."]
 y_sort_enabled = true
