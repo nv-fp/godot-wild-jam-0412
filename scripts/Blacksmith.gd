@@ -6,7 +6,6 @@ extends CharacterBody2D
 @export var speed: int = 100
 
 var scenes = {
-<<<<<<< Updated upstream
 	"Bronze_Ore": preload("res://nodes/items/Bronze_Ore.tscn"),
 	"Gold_Ore": preload("res://nodes/items/Gold_Ore.tscn"),
 	"Diamond_Ore": preload("res://nodes/items/Diamond_Ore.tscn"),
@@ -87,24 +86,13 @@ var furnace_allowed_items = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
 var anvil_allowed_items = ["Bronze_Shield_Chunk", "Gold_Shield_Chunk", "Diamond_Shield_Chunk", "Bronze_Blade_Chunk", "Gold_Blade_Chunk", "Diamond_Blade_Chunk"]
 var table_allowed_items = ["Bronze_Blade", "Gold_Blade", "Diamond_Blade", "Leather_Hide"]
 
-=======
-	"Bronze": preload("res://nodes/items/Bronze.tscn"),
-	"Gold": preload("res://nodes/items/Gold.tscn"),
-	"Diamond": preload("res://nodes/items/Diamond.tscn")
-}
-
->>>>>>> Stashed changes
 var pickedUpItem = false
 var heldItem: Node2D
 var interactable: Area2D
 
-<<<<<<< Updated upstream
 var smithingItem: bool = false
 var smithingTimerScene: PackedScene = preload("res://nodes/scenes/cowndown_timer.tscn")
 var smithingTimer: Node2D
-=======
-var smithingItem = false
->>>>>>> Stashed changes
 
 var directions: PackedStringArray = PackedStringArray(["east", "south_east", "south", "south_west", "west", "north_west", "north", "north_east"])
 var last_direction: String = "south"
@@ -122,17 +110,12 @@ func basic_movement():
 	else:
 		$AnimatedSprite2D.animation = "idle_" + last_direction
 		
-<<<<<<< Updated upstream
 	$AnimatedSprite2D.play()
-=======
-	$AnimatedSprite2D.play()	
->>>>>>> Stashed changes
 	velocity = input_direction * speed
 	move_and_slide()
 	
 	
 func show_interact_button():
-<<<<<<< Updated upstream
 	if interactable && !smithingItem:
 		var group = interactable.get_groups()[0]
 		var tile = tilemap.get_used_cells_by_id(atlas_layers.get(group), atlas_ids.get(group), atlas_coords.get(group))[0]
@@ -370,46 +353,3 @@ func _process(_delta) -> void:
 
 
 
-=======
-	pass
-	#if raycastResult.has('position'):
-		#var tile = tilemap.local_to_map(raycastResult.get('position'))
-		#if tile:
-			#$InteractPrompt.visible = true
-			#$InteractPrompt.position = tilemap.map_to_local(tile)
-		#else:
-			#$InteractPrompt.visible = false
-	#else:
-		#$InteractPrompt.visible = false
-
-func handleInteractionInput() -> void:
-	if interactable:
-		var group = interactable.get_groups()[0]
-		match group:
-			"Diamond","Gold","Bronze":
-				if heldItem != null:
-					return
-				pickedUpItem = true
-				var sceneToCreate = scenes.get(group)
-				var node = sceneToCreate.instantiate()
-				heldItem = node
-				add_child(node)
-				node.scale.x = 0.75
-				node.scale.y = 0.75
-				node.y_sort_enabled = false
-				node.z_index = 2
-				node.position = $Marker2D.position
-			"Anvil":
-				print("Anvil")
-
-func _physics_process(_delta) -> void:
-	basic_movement()
-	show_interact_button()
-	
-func _process(_delta) -> void:
-	if Input.is_action_just_pressed("interaction"):
-		handleInteractionInput()
-	
-
-
->>>>>>> Stashed changes

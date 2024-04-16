@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
 [gd_scene load_steps=5 format=3 uid="uid://cp4c7onqrssyh"]
-=======
-[gd_scene load_steps=5 format=3 uid="uid://4d5w0p3a62ur"]
->>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_b4s0j"]
 [ext_resource type="PackedScene" uid="uid://f6awl6ik3hm0" path="res://nodes/objects/Blacksmith.tscn" id="2_3d6ph"]
@@ -260,9 +256,5 @@ layer_5/z_index = 5
 layer_5/tile_data = PackedInt32Array(524306, 0, 3, 458770, 0, 3, 393234, 0, 3, 327698, 0, 3, 262162, 0, 3, -65518, 0, 3, -131054, 0, 3, -196590, 0, 3, -262126, 0, 3, -327662, 0, 3, -393198, 0, 3, -458734, 0, 3, -524270, 0, 3, -589806, 0, 3, -655342, 0, 3, -720878, 0, 3, -786414, 0, 3, -786413, 0, 3, -786412, 0, 3, -786411, 0, 3, -786410, 0, 3, -786409, 0, 3, -786408, 0, 3, -786407, 0, 3, -786406, 0, 3, -786405, 0, 3, -786404, 0, 3, -786403, 0, 3, -786402, 0, 3, -786401, 0, 3, -786400, 0, 3, -786399, 0, 3, -786398, 0, 3, -786397, 0, 3, -786396, 0, 3, -786395, 0, 3, -786394, 0, 3, 196626, 0, 3, 131090, 0, 3, 65554, 0, 3, 18, 0, 3)
 
 [node name="Blacksmith" parent="." instance=ExtResource("2_3d6ph")]
-<<<<<<< Updated upstream
-=======
-z_index = 1
->>>>>>> Stashed changes
 position = Vector2(375, 355)
 collision_mask = 1
