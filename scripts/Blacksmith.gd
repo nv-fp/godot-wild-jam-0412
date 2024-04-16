@@ -135,7 +135,6 @@ func handle_interaction_input() -> void:
 				if heldItem == null:
 					spawn_in_held_item(group)
 			"Anvil":
-				### Come back here and do something similar like I did with Furnace
 				var anvil = tilemap.anvils.filter(func (a): return a.area == interactable).front()
 
 				if  heldItem == null && anvil.inventory.size() == 1 && anvil.smithing:
@@ -168,7 +167,10 @@ func handle_interaction_input() -> void:
 						await anvil.timer.timeout
 						smithingItem = false
 						anvil.inventory = [anvil.recipe]
+						anvil.timer.queue_free()
 						anvil.timer = null
+						remove_child(anvil.timer)
+
 			"Furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				print(furnace)

@@ -28,6 +28,7 @@ func _ready():
 	add_child(anvil_area)
 	
 	anvils.append({
+		"tile": anvil_collision_tile,
 		"recipe": null,
 		"smithing": false,
 		"timer": null,
@@ -48,6 +49,7 @@ func _ready():
 	add_child(furnace_area)
 	
 	furnaces.append({
+		"tile": furnace_collision_tile,
 		"recipe": null,
 		"smelting": false,
 		"timer": null,
@@ -127,13 +129,13 @@ func area_entered(node: Node2D, emitter: Area2D):
 	if node != $Blacksmith:
 		return
 	$Blacksmith.interactable = emitter
-	if (emitter.get_groups()[0] == "Furnace"):
+	if emitter.get_groups()[0] == "Furnace" || emitter.get_groups()[0] == "Anvil":
 		$Blacksmith.z_index = 4
 
 # Old Trigger for exiting a crates area2d
 func area_exited(node: Node2D, emitter: Area2D):
 	$Blacksmith.interactable = null
-	if (emitter.get_groups()[0] == "Furnace"):
+	if emitter.get_groups()[0] == "Furnace" || emitter.get_groups()[0] == "Anvil":
 		$Blacksmith.z_index = 1
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj6voqs0ghb44"]
+[gd_scene load_steps=7 format=3 uid="uid://c0lrmcspb8st8"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_av4hw"]
 [ext_resource type="Script" path="res://scripts/TestLevel.gd" id="1_gqf81"]
@@ -262,7 +262,6 @@ layer_5/tile_data = PackedInt32Array(-65518, 0, 3, -131054, 0, 3, -196590, 0, 3,
 script = ExtResource("4_aqxgs")
 
 [node name="Blacksmith" parent="TileMap2" instance=ExtResource("2_7xyj7")]
-z_index = 1
 position = Vector2(532, 246)
 collision_mask = 1
 
