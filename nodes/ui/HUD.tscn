@@ -14,23 +14,23 @@ script = ExtResource("1_1uwmk")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 122.0
-offset_top = 543.0
-offset_right = -1058.0
-offset_bottom = -133.0
+offset_left = 77.0
+offset_top = 629.0
+offset_right = -1103.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="TimeDisplay" parent="." instance=ExtResource("3_kfrte")]
-offset_left = 978.0
-offset_top = 542.0
-offset_right = 1053.0
-offset_bottom = 565.0
+offset_left = 87.0
+offset_top = 567.0
+offset_right = 161.0
+offset_bottom = 594.0
 scale = Vector2(2, 2)
 
 [node name="Trash-bg" type="Sprite2D" parent="."]
-position = Vector2(1237.5, 56)
+position = Vector2(1221.5, 664)
 scale = Vector2(0.734372, 0.71875)
 texture = ExtResource("4_0sk3r")
 
@@ -46,42 +46,52 @@ flat = true
 icon_alignment = 1
 
 [node name="OrderQueue" parent="." instance=ExtResource("6_6kiyj")]
-position = Vector2(523, 627)
+position = Vector2(1138, 175)
 
 [node name="Button" type="Button" parent="."]
 visible = false
-offset_left = 508.0
-offset_top = 486.0
-offset_right = 550.0
-offset_bottom = 536.0
+offset_left = 1035.0
+offset_top = 206.0
+offset_right = 1077.0
+offset_bottom = 256.0
 text = "1"
 
 [node name="Button2" type="Button" parent="."]
 visible = false
-offset_left = 585.0
-offset_top = 487.0
-offset_right = 627.0
-offset_bottom = 534.0
+offset_left = 1036.0
+offset_top = 332.0
+offset_right = 1078.0
+offset_bottom = 379.0
 text = "2"
 
 [node name="Button3" type="Button" parent="."]
 visible = false
-offset_left = 669.0
-offset_top = 488.0
-offset_right = 704.0
-offset_bottom = 533.0
+offset_left = 1040.0
+offset_top = 449.0
+offset_right = 1075.0
+offset_bottom = 494.0
 text = "3"
 
 [node name="Button4" type="Button" parent="."]
 visible = false
-offset_left = 575.0
-offset_top = 409.0
-offset_right = 628.0
-offset_bottom = 447.0
+offset_left = 915.0
+offset_top = 341.0
+offset_right = 968.0
+offset_bottom = 379.0
 text = "Add"
+
+[node name="Button5" type="Button" parent="."]
+visible = false
+offset_left = 1060.0
+offset_top = 637.0
+offset_right = 1152.0
+offset_bottom = 685.0
+toggle_mode = true
+text = "Pause"
 
 [connection signal="toggled" from="Trash-bg/AudioToggle" to="." method="_toggle_audio"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="toggled" from="Button5" to="." method="_toggle_pause"]

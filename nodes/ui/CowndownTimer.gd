@@ -78,12 +78,13 @@ func _draw_bar(draw_center: Vector2, progress: float):
 		height = bar_height
 
 	# draw outline
-	draw_rect(
-		Rect2(cx - bar_border, cy + bar_border,
-			width + (2 * bar_border), -1 * (height + (2 * bar_border)),
-		), Color.BLACK)
-	draw_line(Vector2(cx + bar_border, cy + bar_border), Vector2(cx + width - bar_border, cy + bar_border), Color.BLACK, bar_border)
-	draw_line(Vector2(cx + bar_border, cy - height - bar_border), Vector2(cx + width - bar_border, cy - height - bar_border), Color.BLACK, bar_border)
+	if bar_border > 0:
+		draw_rect(
+			Rect2(cx - bar_border, cy + bar_border,
+				width + (2 * bar_border), -1 * (height + (2 * bar_border)),
+			), Color.BLACK)
+		draw_line(Vector2(cx + bar_border, cy + bar_border), Vector2(cx + width - bar_border, cy + bar_border), Color.BLACK, bar_border)
+		draw_line(Vector2(cx + bar_border, cy - height - bar_border), Vector2(cx + width - bar_border, cy - height - bar_border), Color.BLACK, bar_border)
 	# draw background
 	draw_rect(
 		Rect2(

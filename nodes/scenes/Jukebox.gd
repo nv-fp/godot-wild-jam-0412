@@ -39,4 +39,3 @@ func _switch_to(new_stream):
 		cur_music = new_stream
 	player.stream = cur_music
 	player.playing = true
-	print('stream: ' , player.stream)
