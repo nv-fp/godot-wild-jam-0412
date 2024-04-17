@@ -363,7 +363,7 @@ func spawn_finished_item(item: String, interactable):
 	var node = sceneToCreate.instantiate()
 	add_child(node)
 	node.scale = item_scales.get(item)
-	node.z_index = 5
+	node.z_index = 6
 	node.y_sort_enabled = false
 	node.position = interactable.toast.position
 	node.top_level = true
@@ -380,8 +380,8 @@ func remove_held_item() -> Node2D:
 func create_timer() -> Node2D:
 	var timer = smithingTimerScene.instantiate()
 	timer.autostart = false
-	timer.z_index = 4
-	timer.top_level = 4
+	timer.z_index = 6
+	timer.top_level = true
 	timer.rotation_degrees = 90
 	timer.scale = Vector2(0.4, 0.4)
 	timer.fg_color_lots = Color.DARK_GREEN
