@@ -16,7 +16,35 @@ func unpause():
 func get_size() -> int:
 	return queue.size()
 
-func get_item(id: String):
+func fill(typ: String) -> bool:
+	var item_id = find_item(typ)
+	if item_id == null:
+		return false
+	var idx = get_item_idx(item_id)
+	var wb = queue[idx]
+	wb.fill()
+	return true
+
+# given an item type find a match that has the lowest remaining time and return the string
+# returns null if no matches found
+func find_item(typ: String):
+	var options = []
+	for e in queue:
+		#print(e.id + ' -> ' + str(e.remaining_time_ms()))
+		if e.item_type == typ:
+			options.push_back(e)
+	if options.size() == 0:
+		return null
+
+	#print("---------------------")
+	options.sort_custom(func(a, b): return a.remaining_time_ms() < b.remaining_time_ms())
+	#for o in options:
+		#print(o.id + ' -> ' + str(o.remaining_time_ms()))
+
+	return options[0].id
+
+# returns ?int
+func get_item_idx(id: String):
 	var idx = 0
 	for e in queue:
 		if e.id == id:
@@ -26,12 +54,10 @@ func get_item(id: String):
 
 # returns ?WantBubble
 func remove_item(id: String):
-	print('removing: ' + id)
 	if queue.size() == 0:
 		return
 
-	var idx = get_item(id)
-	print('found at idx: ', idx)
+	var idx = get_item_idx(id)
 	if idx == null:
 		return
 	idx = idx as int # for the type checker
@@ -46,10 +72,6 @@ func remove_item(id: String):
 func add_item(wb: WantBubble):
 	wb.auto_free = false
 	queue.push_back(wb)
-	print('queue is now: ')
-	for e in queue:
-		print(e.id)
-	print('')
 
 	add_child(wb)
 	wb.timeout.connect(_item_timeout)
@@ -65,7 +87,7 @@ func _item_filled(id: String, _points: int, _remaining_ms: int):
 #@export_enum('vertical', 'horizontal')
 func _get_coords_pos(idx: int) -> Vector2:
 	#var v_offset = 100
-	var h_offset = 115
+	var h_offset = 130
 	return Vector2(0, idx * h_offset)
 
 func _reflow(idx: int, tgt: WantBubble):
@@ -75,22 +97,9 @@ func _reflow(idx: int, tgt: WantBubble):
 		# we may want to tween eventually but for now remove the child / free it
 		remove_child(tgt)
 		tgt.queue_free()
-		print('Updated queue:')
 		for n in range(0, queue.size()):
-			print(queue[n].id)
 			var p = _get_coords_pos(n)
 			queue[n].position = Vector2(p.x, p.y)
-		print('')
 	else:
 		var p = _get_coords_pos(idx)
 		tgt.position = Vector2(p.x, p.y)
-		#tgt.transform = Transform2D() # _get_coords_pos(idx)
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass

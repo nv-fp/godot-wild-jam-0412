@@ -14,25 +14,26 @@ script = ExtResource("1_1uwmk")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 77.0
-offset_top = 629.0
-offset_right = -1103.0
-offset_bottom = -47.0
+offset_left = 38.0
+offset_top = 631.0
+offset_right = -1142.0
+offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 
 [node name="TimeDisplay" parent="." instance=ExtResource("3_kfrte")]
-offset_left = 87.0
-offset_top = 567.0
-offset_right = 161.0
-offset_bottom = 594.0
+offset_left = 1095.0
+offset_top = 632.0
+offset_right = 1169.0
+offset_bottom = 659.0
 scale = Vector2(2, 2)
 
 [node name="Trash-bg" type="Sprite2D" parent="."]
-position = Vector2(1221.5, 664)
+position = Vector2(1239, 39)
 scale = Vector2(0.734372, 0.71875)
 texture = ExtResource("4_0sk3r")
+metadata/_edit_group_ = true
 
 [node name="AudioToggle" type="Button" parent="Trash-bg"]
 offset_left = -33.3619
@@ -46,48 +47,111 @@ flat = true
 icon_alignment = 1
 
 [node name="OrderQueue" parent="." instance=ExtResource("6_6kiyj")]
-position = Vector2(1138, 175)
+position = Vector2(1182, 148)
 
 [node name="Button" type="Button" parent="."]
 visible = false
 offset_left = 1035.0
-offset_top = 206.0
+offset_top = 209.0
 offset_right = 1077.0
-offset_bottom = 256.0
+offset_bottom = 259.0
 text = "1"
 
 [node name="Button2" type="Button" parent="."]
 visible = false
 offset_left = 1036.0
-offset_top = 332.0
+offset_top = 329.0
 offset_right = 1078.0
-offset_bottom = 379.0
+offset_bottom = 376.0
 text = "2"
 
 [node name="Button3" type="Button" parent="."]
 visible = false
 offset_left = 1040.0
-offset_top = 449.0
+offset_top = 446.0
 offset_right = 1075.0
-offset_bottom = 494.0
+offset_bottom = 491.0
 text = "3"
 
 [node name="Button4" type="Button" parent="."]
-visible = false
-offset_left = 915.0
-offset_top = 341.0
-offset_right = 968.0
-offset_bottom = 379.0
+offset_left = 515.0
+offset_top = 581.0
+offset_right = 568.0
+offset_bottom = 619.0
 text = "Add"
 
 [node name="Button5" type="Button" parent="."]
-visible = false
-offset_left = 1060.0
-offset_top = 637.0
-offset_right = 1152.0
-offset_bottom = 685.0
+offset_left = 504.0
+offset_top = 650.0
+offset_right = 596.0
+offset_bottom = 698.0
 toggle_mode = true
 text = "Pause"
+
+[node name="BSword" type="Button" parent="."]
+offset_left = 671.0
+offset_top = 553.0
+offset_right = 728.0
+offset_bottom = 584.0
+text = "Bronze Sword"
+
+[node name="Shield" type="Button" parent="BSword"]
+layout_mode = 0
+offset_left = 133.0
+offset_right = 189.0
+offset_bottom = 31.0
+text = "Shield"
+
+[node name="Staff" type="Button" parent="BSword"]
+layout_mode = 0
+offset_left = 208.0
+offset_top = -1.0
+offset_right = 252.0
+offset_bottom = 30.0
+text = "Staff
+"
+
+[node name="GSword" type="Button" parent="."]
+offset_left = 691.0
+offset_top = 594.0
+offset_right = 788.0
+offset_bottom = 625.0
+text = "Gold Sword"
+
+[node name="Shield" type="Button" parent="GSword"]
+layout_mode = 0
+offset_left = 115.0
+offset_right = 171.0
+offset_bottom = 31.0
+text = "Shield"
+
+[node name="Staff" type="Button" parent="GSword"]
+layout_mode = 0
+offset_left = 188.0
+offset_right = 232.0
+offset_bottom = 31.0
+text = "Staff"
+
+[node name="DSword" type="Button" parent="."]
+offset_left = 656.0
+offset_top = 634.0
+offset_right = 788.0
+offset_bottom = 665.0
+text = "Diamond Sword"
+
+[node name="Shield" type="Button" parent="DSword"]
+layout_mode = 0
+offset_left = 149.0
+offset_right = 205.0
+offset_bottom = 31.0
+text = "Shield"
+
+[node name="Staff" type="Button" parent="DSword"]
+layout_mode = 0
+offset_left = 224.0
+offset_right = 268.0
+offset_bottom = 31.0
+text = "Staff"
 
 [connection signal="toggled" from="Trash-bg/AudioToggle" to="." method="_toggle_audio"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
@@ -95,3 +159,12 @@ text = "Pause"
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
 [connection signal="toggled" from="Button5" to="." method="_toggle_pause"]
+[connection signal="pressed" from="BSword" to="." method="_bsword"]
+[connection signal="pressed" from="BSword/Shield" to="." method="_bshield"]
+[connection signal="pressed" from="BSword/Staff" to="." method="_bstaff"]
+[connection signal="pressed" from="GSword" to="." method="_gsword"]
+[connection signal="pressed" from="GSword/Shield" to="." method="_gshield"]
+[connection signal="pressed" from="GSword/Staff" to="." method="_gstaff"]
+[connection signal="pressed" from="DSword" to="." method="_dsword"]
+[connection signal="pressed" from="DSword/Shield" to="." method="_dshield"]
+[connection signal="pressed" from="DSword/Staff" to="." method="_dstaff"]

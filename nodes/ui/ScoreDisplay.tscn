@@ -5,14 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://o3pxjhp1pelp" path="res://art/coins.png" id="3_kttdh"]
 
 [node name="Score" type="Label"]
+offset_left = -2.0
+offset_right = -1.0
+offset_bottom = 26.0
 theme_override_fonts/font = ExtResource("1_rwwpf")
 theme_override_font_sizes/font_size = 32
 script = ExtResource("2_yrvgk")
 
 [node name="Digit1" type="Label" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_right = 60.0
+offset_left = 46.0
+offset_right = 86.0
 offset_bottom = 26.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
@@ -22,8 +25,8 @@ text = "0"
 
 [node name="Digit2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 36.0
-offset_right = 76.0
+offset_left = 62.0
+offset_right = 102.0
 offset_bottom = 26.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
@@ -33,8 +36,8 @@ text = "0"
 
 [node name="Digit3" type="Label" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_right = 92.0
+offset_left = 78.0
+offset_right = 118.0
 offset_bottom = 26.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
@@ -44,8 +47,8 @@ text = "0"
 
 [node name="Digit4" type="Label" parent="."]
 layout_mode = 0
-offset_left = 68.0
-offset_right = 108.0
+offset_left = 94.0
+offset_right = 134.0
 offset_bottom = 26.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
@@ -54,6 +57,16 @@ theme_override_font_sizes/font_size = 32
 text = "0"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 14)
+position = Vector2(17, 14)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_kttdh")
+
+[node name="Negative" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 34.0
+offset_right = 46.0
+offset_bottom = 26.0
+theme_override_fonts/font = ExtResource("1_rwwpf")
+theme_override_font_sizes/font_size = 32
+text = "-"
