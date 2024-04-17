@@ -3,6 +3,16 @@ extends Node2D
 # Array<WantBubble>
 var queue = []
 
+func pause():
+	for wb in queue:
+		if wb != null:
+			wb.pause()
+
+func unpause():
+	for wb in queue:
+		if wb != null:
+			wb.unpause()
+
 func get_size() -> int:
 	return queue.size()
 
@@ -52,8 +62,11 @@ func _item_timeout(id: String):
 func _item_filled(id: String, _points: int, _remaining_ms: int):
 	remove_item(id)
 
+#@export_enum('vertical', 'horizontal')
 func _get_coords_pos(idx: int) -> Vector2:
-	return Vector2(idx * 74, 0)
+	#var v_offset = 100
+	var h_offset = 115
+	return Vector2(0, idx * h_offset)
 
 func _reflow(idx: int, tgt: WantBubble):
 	if queue[idx] == null:

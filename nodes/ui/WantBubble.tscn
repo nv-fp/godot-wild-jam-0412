@@ -1,38 +1,44 @@
 [gd_scene load_steps=5 format=3 uid="uid://cvuxrlrwuqj22"]
 
 [ext_resource type="Script" path="res://nodes/ui/WantBubble.gd" id="1_1iapf"]
-[ext_resource type="Texture2D" uid="uid://cfm08ubo2ka81" path="res://art/thought_bubble.png" id="2_s3vyb"]
+[ext_resource type="Texture2D" uid="uid://cs01s3j3qqgnu" path="res://art/queue-card.png" id="2_cr6u0"]
 [ext_resource type="PackedScene" uid="uid://svq8fgrv36qt" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
 [ext_resource type="PackedScene" uid="uid://cnulu7wcjcw6b" path="res://nodes/scenes/cowndown_timer.tscn" id="4_vb3c3"]
 
 [node name="WantBubble" type="Node2D"]
-position = Vector2(-2, -2)
+position = Vector2(1, 3)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("1_1iapf")
 
 [node name="Frame" type="Sprite2D" parent="."]
-position = Vector2(39, -47)
-scale = Vector2(2, 2)
-texture = ExtResource("2_s3vyb")
+position = Vector2(95, 70)
+scale = Vector2(1.9, 1.9)
+texture = ExtResource("2_cr6u0")
 
 [node name="Item" type="Sprite2D" parent="Frame"]
 z_index = 1
-position = Vector2(-7, -8)
+position = Vector2(-17, 4.5)
 
 [node name="PartA" type="Sprite2D" parent="Frame"]
 z_index = 1
-position = Vector2(-14, 2.5)
+position = Vector2(31, -9)
+scale = Vector2(0.8, 0.8)
 
 [node name="PartB" type="Sprite2D" parent="Frame"]
 z_index = 1
-position = Vector2(2, 2.5)
+position = Vector2(31, 20)
+scale = Vector2(0.8, 0.8)
 
 [node name="CompletionTimer" parent="." instance=ExtResource("3_bhlja")]
+run_time_sec = 10.0
 
 [node name="CountdownTimer" parent="." instance=ExtResource("4_vb3c3")]
-position = Vector2(-9, -90)
+position = Vector2(21, 1.66667)
 rotation = 1.5708
-radius = 5
+run_time = 10.0
+radius = 8
 redraw_rate_ms = 5
-bar_height = 75
+bar_border = 0
+bar_height = 140
 
 [connection signal="timeout" from="CompletionTimer" to="." method="_on_completion_timer_timeout"]

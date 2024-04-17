@@ -8,12 +8,6 @@ func start_level():
 func update_score(value: int):
 	$Score.update_score(value)
 
-func pause():
-	$TimeDisplay.pause()
-
-func unpause():
-	$TimeDisplay.unpause()
-
 func _ready():
 	$TimeDisplay.set_time(initial_display_sec)
 	var p = Jukebox.get_player()
@@ -54,3 +48,20 @@ func _on_button_3_pressed():
 func _on_button_4_pressed():
 	var wb = WantBubbleFactory.new_item(null)
 	$OrderQueue.add_item(wb)
+
+
+func pause():
+	$OrderQueue.pause()
+	$TimeDisplay.pause()
+
+func unpause():
+	$OrderQueue.unpause()
+	$TimeDisplay.unpause()
+
+func _toggle_pause(toggled_on):
+	if toggled_on:
+		$Button5.text = 'Unpause'
+		pause()
+	else:
+		$Button5.text = 'Pause'
+		unpause()
