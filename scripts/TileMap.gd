@@ -9,6 +9,8 @@ var groupNames = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
 var furnaces = []
 var anvils = []
 
+var mat_toast = preload("res://nodes/ui/MaterialToast.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Camera2D.position = $Blacksmith.position
@@ -39,7 +41,8 @@ func _ready():
 			"Bronze_Shield": ["Bronze_Shield_Chunk"],
 			"Gold_Shield": ["Gold_Shield_Chunk"],
 			"Diamond_Shield": ["Diamond_Shield_Chunk"]
-		}
+		},
+		"toast": mat_toast.instantiate()
 	})
 	
 	var furnace_area = create_collision_for_furnace(furnace_collision_tile)
@@ -60,7 +63,8 @@ func _ready():
 			"Bronze_Shield_Chunk": ["Bronze_Ore", "Bronze_Ore", "Bronze_Ore"],
 			"Gold_Shield_Chunk": ["Gold_Ore", "Gold_Ore", "Gold_Ore"],
 			"Diamond_Shield_Chunk": ["Diamond_Ore", "Diamond_Ore", "Diamond_Ore"],
-		}
+		},
+		"toast": mat_toast.instantiate()
 	})
 	
 	var trash_area = create_collision_for_single_tile(trash_collision_tile)
@@ -141,4 +145,5 @@ func area_exited(node: Node2D, emitter: Area2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably
 func _process(_delta):
-	$Camera2D.position = $Blacksmith.position
+	pass
+	#$Camera2D.position = $Blacksmith.position

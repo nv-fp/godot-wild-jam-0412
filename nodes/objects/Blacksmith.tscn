@@ -366,7 +366,6 @@ y_sort_enabled = true
 texture_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="InteractPrompt"]
-modulate = Color(1, 0.32549, 1, 1)
 position = Vector2(0, -77)
 texture = ExtResource("3_4v8kb")
 hframes = 8

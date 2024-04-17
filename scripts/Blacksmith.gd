@@ -207,6 +207,8 @@ func handle_interaction_input() -> void:
 						return
 
 					furnace.inventory.append(str(resource))
+					furnace.toast.add_material(str(resource))
+
 					remove_held_item()
 					match furnace.inventory.size():
 						1:

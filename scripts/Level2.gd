@@ -13,6 +13,8 @@ var anvils = []
 var tables = []
 var tubs = []
 
+var mat_toast = preload('res://nodes/ui/MaterialToast.tscn')
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Camera2D.position = $Blacksmith.position
@@ -45,7 +47,8 @@ func _ready():
 			"Bronze_Blade": ["Bronze_Blade_Chunk"],
 			"Gold_Blade": ["Gold_Blade_Chunk"],
 			"Diamond_Blade": ["Diamond_Blade_Chunk"]
-		}
+		},
+		"toast": mat_toast.instantiate()
 	})
 	
 	for i in range(furnace_collision_tiles.size()):
@@ -54,6 +57,14 @@ func _ready():
 		furnace_area.body_entered.connect(area_entered.bind(furnace_area))
 		furnace_area.body_exited.connect(area_exited.bind(furnace_area))
 		add_child(furnace_area)
+		
+		var toast = mat_toast.instantiate()
+		add_child(toast)
+		toast.position = $Blacksmith.position + Vector2(0, -30)
+		toast.top_level = true
+		toast.y_sort_enabled = true
+		toast.z_index = 5
+
 	
 		furnaces.append({
 			"tile": furnace_collision_tiles[i],
@@ -69,7 +80,8 @@ func _ready():
 				"Bronze_Blade_Chunk": ["Bronze_Ore", "Bronze_Ore"],
 				"Gold_Blade_Chunk": ["Gold_Ore", "Gold_Ore"],
 				"Diamond_Blade_Chunk": ["Diamond_Ore", "Diamond_Ore"]
-			}
+			},
+			"toast": toast
 		})
 	
 	var table_area = create_collision_for_table(table_collision_tile)
@@ -89,7 +101,8 @@ func _ready():
 			"Bronze_Sword": ["Bronze_Blade", "Leather_Hide"],
 			"Gold_Sword": ["Gold_Blade", "Leather_Hide"],
 			"Diamond_Sword": ["Diamond_Blade", "Leather_Hide"]
-		}
+		},
+		"toast": mat_toast.instantiate()
 	})
 	
 	var trash_area = create_collision_for_single_tile(trash_collision_tile)
@@ -119,7 +132,8 @@ func _ready():
 				"Polished_Bronze_Sword": ["Bronze_Sword"],
 				"Polished_Gold_Sword": ["Gold_Sword"],
 				"Polished_Diamond_Sword": ["Diamond_Sword"]
-			}
+			},
+			"toast": mat_toast.instantiate()
 		})
 
 # Create Area2D on tile
@@ -207,5 +221,6 @@ func area_exited(node: Node2D, emitter: Area2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably
 func _process(_delta):
-	$Camera2D.position = $Blacksmith.position
+	pass
+	#$Camera2D.position = $Blacksmith.position
 

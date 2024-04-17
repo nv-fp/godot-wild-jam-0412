@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://du7tlxxgjqjmy"]
+[gd_scene load_steps=2 format=3 uid="uid://dpsr055c1v16j"]
 
 [ext_resource type="Script" path="res://nodes/ui/MaterialToast.gd" id="1_foom5"]
 
