@@ -154,7 +154,8 @@ func handle_interaction_input() -> void:
 				var anvil = tilemap.anvils.filter(func (a): return a.area == interactable).front()
 
 				if  heldItem == null && anvil.inventory.size() == 1 && anvil.smithing:
-					clear_anvil(anvil)
+					anvil.smithing = false
+					clear_interactable(anvil)
 					return
 
 				if heldItem && !anvil.smithing:
@@ -170,26 +171,23 @@ func handle_interaction_input() -> void:
 					if anvil.recipes.has(anvil.recipe):
 						smithingItem = true
 						anvil.smithing = true
-						anvil.timer = smithingTimerScene.instantiate()
-						anvil.timer.autostart = false
+						anvil.timer = create_timer()
 						anvil.timer.run_time = 5
 						add_child(anvil.timer)
-						anvil.timer.position = get_location_from_group(group, anvil.tile) - Vector2(0, 30)
-						anvil.timer.z_index = 4
-						anvil.timer.top_level = true
-						anvil.timer.scale.x = 0.4
-						anvil.timer.scale.y = 0.4
+						anvil.timer.position = get_location_from_group(group, anvil.tile) - anvil.timer_position
 						anvil.timer.start()
 						await anvil.timer.timeout
 						smithingItem = false
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
 						anvil.timer = null
+						spawn_finished_item(anvil.recipe, anvil)
 			"Furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				# Our item finished smelting and we need to collect it
 				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting:
-					clear_furnace(furnace)
+					furnace.smelting = false
+					clear_interactable(furnace)
 					return
 				
 				if furnace.inventory.size() > 2:
@@ -220,7 +218,8 @@ func handle_interaction_input() -> void:
 			"Craft":
 				var table = tilemap.tables.filter(func (t): return t.area == interactable).front()
 				if heldItem == null && table.inventory.size() == 1 && table.crafting:
-					clear_table(table)
+					table.crafting = false
+					clear_interactable(table)
 					return
 				
 				if table.inventory.size() > 1:
@@ -244,28 +243,29 @@ func handle_interaction_input() -> void:
 						table.recipe = mat + "_Sword"
 					else:
 						table.inventory.append(str(resource))
+					
+					table.toast.add_material(str(resource))
 						
 
 					if table.recipes.has(table.recipe) && table.inventory == table.recipes.get(table.recipe):
+						table.toast.clear()
 						table.crafting = true
-						table.timer = smithingTimerScene.instantiate()
-						table.timer.autostart = false
+						table.timer = create_timer()
 						table.timer.run_time = 5
 						add_child(table.timer)
-						table.timer.position = get_location_from_group(group, table.tile) - Vector2(0, 30)
-						table.timer.z_index = 4
-						table.timer.top_level = true
-						table.timer.scale = Vector2(0.4, 0.4)
+						table.timer.position = get_location_from_group(group, table.tile) - table.timer_position
 						table.timer.start()
 						await table.timer.timeout
 						table.inventory = [table.recipe]
 						table.timer.queue_free()
 						table.timer = null
+						spawn_finished_item(table.recipe, table)
 			"Tub":
 				var tub = tilemap.tubs.filter(func (t): return t.area == interactable).front()
-				print(tub.inventory)
-				if heldItem == null && tub.inventory.size() == 1 && tub.polishing:
-					clear_tub(tub)
+				
+				if heldItem == null && tub.inventory.size() == 1 && tub.polishing && tub.timer == null:
+					tub.polishing = false
+					clear_interactable(tub)
 					return
 				
 				if tub.inventory.size() > 0:
@@ -281,18 +281,15 @@ func handle_interaction_input() -> void:
 					tub.inventory.append(str(resource))
 					tub.recipe = "Polished_" + resource
 
-					if tub.recipes.has(tub.recipe) && tub.inventory == tub.recipes.get(tub.recipe):
+					if tub.recipes.has(tub.recipe) && tub.inventory == tub.recipes.get(tub.recipe) && !tub.polishing:
 						tub.polishing = true
-						tub.timer = smithingTimerScene.instantiate()
-						tub.timer.autostart = false
+						tub.timer = create_timer()
 						tub.timer.run_time = 5
 						add_child(tub.timer)
-						tub.timer.position = get_location_from_group(group, tub.tile) - Vector2(0, 30)
-						tub.timer.z_index = 4
-						tub.timer.top_level = true
-						tub.timer.scale = Vector2(0.4, 0.4)
+						tub.timer.position = get_location_from_group(group, tub.tile) - tub.timer_position
 						tub.timer.start()
 						await tub.timer.timeout
+						spawn_finished_item(tub.recipe, tub)
 						tub.inventory = [tub.recipe]
 						tub.timer.queue_free()
 						tub.timer = null
@@ -308,18 +305,14 @@ func handle_start_interaction_input():
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				if furnace.recipes.has(furnace.recipe) && !furnace.smelting:
 					print("Starting smelting for " + furnace.recipe)
+					furnace.toast.clear()
 					furnace.smelting = true
-					furnace.timer = smithingTimerScene.instantiate()
-					furnace.timer.autostart = false
+					furnace.timer = create_timer()
 					furnace.timer.connect("timeout", furnace_timer_timeout.bind(furnace))
 					furnace.timer.run_time = 5
 					add_child(furnace.timer)
 					furnace.timer.start()
-					furnace.timer.position = get_location_from_group(group, furnace.tile) - Vector2(-10, 40)
-					furnace.timer.z_index = 4
-					furnace.timer.top_level = true
-					furnace.timer.scale.x = 0.4
-					furnace.timer.scale.y = 0.4
+					furnace.timer.position = get_location_from_group(group, furnace.tile) - furnace.timer_position
 
 
 func get_location_from_group(group: String, tile: Vector2) -> Vector2:
@@ -337,39 +330,18 @@ func furnace_timer_timeout(_id: String, furnace):
 	var itemToSpawn = furnace.recipe
 	furnace.inventory = [furnace.recipe]
 	remove_child(furnace.timer)
+	spawn_finished_item(itemToSpawn, furnace)
 	furnace.timer = null
+	
 
-func clear_furnace(furnace):
-	furnace.smelting = false
-	print("Picking Up Item From Furnace")
-	var item = furnace.inventory[0]
-	furnace.recipe = null
-	furnace.inventory = []
+func clear_interactable(interactable):
+	print("Picking up item from interactable")
+	var item = interactable.inventory[0]
+	interactable.recipe = null
+	interactable.inventory = []
 	spawn_in_held_item(item)
-
-func clear_anvil(anvil):
-	anvil.smithing = false
-	print("Picking up Item from Anvil")
-	var item = anvil.inventory[0]
-	anvil.recipe = null
-	anvil.inventory = []
-	spawn_in_held_item(item)
-
-func clear_table(table):
-	table.crafting = false
-	print("Picking up Item from Table")
-	var item = table.inventory[0]
-	table.recipe = null
-	table.inventory = []
-	spawn_in_held_item(item)
-
-func clear_tub(tub):
-	tub.polishing = false
-	print("Picking up Item from Tub")
-	var item = tub.inventory[0]
-	tub.recipe = null
-	tub.inventory = []
-	spawn_in_held_item(item)
+	remove_child(interactable.finished_item)
+	interactable.finished_item = null
 
 func spawn_in_held_item(item: String):
 	print("Spawning in Item " + item)
@@ -386,6 +358,17 @@ func spawn_in_held_item(item: String):
 	node.z_index = 2
 	node.position = $Marker2D.position
 
+func spawn_finished_item(item: String, interactable):
+	var sceneToCreate = scenes.get(item)
+	var node = sceneToCreate.instantiate()
+	add_child(node)
+	node.scale = item_scales.get(item)
+	node.z_index = 5
+	node.y_sort_enabled = false
+	node.position = interactable.toast.position
+	node.top_level = true
+	interactable.finished_item = node
+
 func remove_held_item() -> Node2D:
 		var node = heldItem
 		heldItem = null
@@ -393,9 +376,20 @@ func remove_held_item() -> Node2D:
 		remove_child(node)
 		return node
 		
-		
-func show_item_in_interface(item: String, position: Vector2) -> void:
-	pass
+
+func create_timer() -> Node2D:
+	var timer = smithingTimerScene.instantiate()
+	timer.autostart = false
+	timer.z_index = 4
+	timer.top_level = 4
+	timer.rotation_degrees = 90
+	timer.scale = Vector2(0.4, 0.4)
+	timer.fg_color_lots = Color.DARK_GREEN
+	timer.fg_color_med = Color.DARK_GREEN
+	timer.fg_color_low = Color.DARK_GREEN
+	timer.radius = 5
+	timer.bar_height = 10 * 6
+	return timer
 
 func _physics_process(_delta) -> void:
 	if !smithingItem:

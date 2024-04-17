@@ -336,7 +336,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_10j8c"]
-size = Vector2(10, 10)
+size = Vector2(10.5, 10)
 
 [node name="Blacksmith" type="CharacterBody2D"]
 z_index = 1
@@ -353,7 +353,7 @@ animation = &"east"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 y_sort_enabled = true
-position = Vector2(-1, -5)
+position = Vector2(0.25, -5)
 shape = SubResource("RectangleShape2D_10j8c")
 
 [node name="Marker2D" type="Marker2D" parent="."]

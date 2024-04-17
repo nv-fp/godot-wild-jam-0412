@@ -7,7 +7,6 @@ var components = []
 @export var circle_radius = 8
 @export var circle_bg_color = Color.GRAY
 
-var bg_tex = preload('res://art/tiny-circle.png')
 
 var _center = 0
 var _left = 1
@@ -71,7 +70,16 @@ func add_material(type: String):
 	var node = Sprite2D.new()
 	node.texture = WantBubbleFactory.get_tex(type)
 	var bg_node = Sprite2D.new()
-	bg_node.texture = bg_tex
+	bg_node.texture = WantBubbleFactory.get_tex('paper2')
+	
+	node.z_index = 6
+	bg_node.z_index = 6
+	node.top_level = true
+	bg_node.top_level = true
+	
+	node.scale = Vector2(0.5, 0.5)
+	bg_node.scale = Vector2(0.65, 0.65)
+	
 	add_child(bg_node)
 	add_child(node)
 	components.push_back([type, node, bg_node])
