@@ -12,6 +12,9 @@ signal completed
 # some uniquely identifying id for this want to tie it to other systems
 @export var id: String
 
+# what kind of item is this
+var item_type: String
+
 # how long does the player have to complete this task
 @export var complete_time_ms: int
 
@@ -53,6 +56,9 @@ func unpause() -> void:
 # TODO
 func _get_configuration_warning() -> String:
 	return ""
+
+func remaining_time_ms() -> int:
+	return $CompletionTimer.remaining_time_ms()
 
 func _on_completion_timer_timeout():
 	$CompletionTimer.pause()

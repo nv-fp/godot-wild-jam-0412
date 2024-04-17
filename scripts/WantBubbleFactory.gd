@@ -143,6 +143,7 @@ func new_item(opts) -> WantBubble:
 	wb.point_value = get_object_points(tgt)
 
 	wb.id = tgt + '-' + generate_word(10)
+	wb.item_type = tgt
 
 	return wb
 
