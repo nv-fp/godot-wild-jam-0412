@@ -24,7 +24,13 @@ var scenes = {
 	"Diamond_Blade": preload("res://nodes/items/Diamond_Blade.tscn"),
 	"Bronze_Sword": preload("res://nodes/items/Bronze_Sword.tscn"),
 	"Gold_Sword": preload("res://nodes/items/Gold_Sword.tscn"),
-	"Diamond_Sword": preload("res://nodes/items/Diamond_Sword.tscn")
+	"Diamond_Sword": preload("res://nodes/items/Diamond_Sword.tscn"),
+	"Polished_Bronze_Shield": preload("res://nodes/items/Polished_Bronze_Shield.tscn"),
+	"Polished_Gold_Shield": preload("res://nodes/items/Polished_Gold_Shield.tscn"),
+	"Polished_Diamond_Shield": preload("res://nodes/items/Polished_Diamond_Shield.tscn"),
+	"Polished_Bronze_Sword": preload("res://nodes/items/Polished_Bronze_Sword.tscn"),
+	"Polished_Gold_Sword": preload("res://nodes/items/Polished_Gold_Sword.tscn"),
+	"Polished_Diamond_Sword": preload("res://nodes/items/Polished_Diamond_Sword.tscn")
 }
 
 var atlas_coords = {
@@ -35,7 +41,8 @@ var atlas_coords = {
 	"Anvil": Vector2(0, 0),
 	"Furnace": Vector2(0, 1),
 	"Trash": Vector2(0, 0),
-	"Craft": Vector2(0, 0)
+	"Craft": Vector2(0, 0),
+	"Tub": Vector2(0, 0),
 }
 
 var atlas_ids = {
@@ -46,7 +53,8 @@ var atlas_ids = {
 	"Anvil": 19,
 	"Furnace": 18,
 	"Trash": 9,
-	"Craft": 24
+	"Craft": 24,
+	"Tub": 23
 }
 
 var atlas_layers = {
@@ -57,7 +65,8 @@ var atlas_layers = {
 	"Anvil": 1,
 	"Furnace": 1,
 	"Trash": 1,
-	"Craft": 1
+	"Craft": 1,
+	"Tub": 1
 }
 
 var item_scales = {
@@ -79,12 +88,19 @@ var item_scales = {
 	"Diamond_Blade": Vector2(1, 1),
 	"Bronze_Sword": Vector2(1, 1),
 	"Gold_Sword": Vector2(1, 1),
-	"Diamond_Sword": Vector2(1, 1)
+	"Diamond_Sword": Vector2(1, 1),
+	"Polished_Bronze_Shield": Vector2(1, 1),
+	"Polished_Gold_Shield": Vector2(1, 1),
+	"Polished_Diamond_Shield": Vector2(1, 1),
+	"Polished_Bronze_Sword": Vector2(1, 1),
+	"Polished_Gold_Sword": Vector2(1, 1),
+	"Polished_Diamond_Sword": Vector2(1, 1)
 }
 
 var furnace_allowed_items = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
 var anvil_allowed_items = ["Bronze_Shield_Chunk", "Gold_Shield_Chunk", "Diamond_Shield_Chunk", "Bronze_Blade_Chunk", "Gold_Blade_Chunk", "Diamond_Blade_Chunk"]
 var table_allowed_items = ["Bronze_Blade", "Gold_Blade", "Diamond_Blade", "Leather_Hide"]
+var tub_allowed_items = ["Bronze_Shield", "Gold_Shield", "Diamond_Shield", "Bronze_Sword", "Gold_Sword", "Diamond_Sword"]
 
 var pickedUpItem = false
 var heldItem: Node2D
@@ -147,7 +163,7 @@ func handle_interaction_input() -> void:
 					if !anvil_allowed_items.has(item):
 						return
 
-					anvil.inventory.append(item)
+					anvil.inventory.append(str(item))
 					remove_held_item()
 					anvil.recipe = "_".join(item.split("_").slice(0, 2))
 					
@@ -169,10 +185,8 @@ func handle_interaction_input() -> void:
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
 						anvil.timer = null
-
 			"Furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
-				
 				# Our item finished smelting and we need to collect it
 				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting:
 					clear_furnace(furnace)
@@ -191,8 +205,8 @@ func handle_interaction_input() -> void:
 					if !furnace.inventory.all(func(r): return r == resource):
 						print("Not Everything inside was same, disgard interact action")
 						return
-					furnace.inventory.append(resource)
-					
+
+					furnace.inventory.append(str(resource))
 					remove_held_item()
 					match furnace.inventory.size():
 						1:
@@ -223,11 +237,11 @@ func handle_interaction_input() -> void:
 					remove_held_item()
 					
 					if resource != "Leather_Hide":
-						table.inventory.push_front(resource)
-						var material = resource.split("_")[0]
-						table.recipe = material + "_Sword"
+						table.inventory.push_front(str(resource))
+						var mat = resource.split("_")[0]
+						table.recipe = mat + "_Sword"
 					else:
-						table.inventory.append(resource)
+						table.inventory.append(str(resource))
 						
 
 					if table.recipes.has(table.recipe) && table.inventory == table.recipes.get(table.recipe):
@@ -245,6 +259,41 @@ func handle_interaction_input() -> void:
 						table.inventory = [table.recipe]
 						table.timer.queue_free()
 						table.timer = null
+			"Tub":
+				var tub = tilemap.tubs.filter(func (t): return t.area == interactable).front()
+				print(tub.inventory)
+				if heldItem == null && tub.inventory.size() == 1 && tub.polishing:
+					clear_tub(tub)
+					return
+				
+				if tub.inventory.size() > 0:
+					return
+					
+				if heldItem != null && !tub.polishing:
+					var resource = heldItem.get_groups()[0]
+					
+					if !tub_allowed_items.has(resource):
+						return
+
+					remove_held_item()
+					tub.inventory.append(str(resource))
+					tub.recipe = "Polished_" + resource
+
+					if tub.recipes.has(tub.recipe) && tub.inventory == tub.recipes.get(tub.recipe):
+						tub.polishing = true
+						tub.timer = smithingTimerScene.instantiate()
+						tub.timer.autostart = false
+						tub.timer.run_time = 5
+						add_child(tub.timer)
+						tub.timer.position = get_location_from_group(group, tub.tile) - Vector2(0, 30)
+						tub.timer.z_index = 4
+						tub.timer.top_level = true
+						tub.timer.scale = Vector2(0.4, 0.4)
+						tub.timer.start()
+						await tub.timer.timeout
+						tub.inventory = [tub.recipe]
+						tub.timer.queue_free()
+						tub.timer = null
 			"Trash":
 				if heldItem != null:
 					remove_held_item()
@@ -312,6 +361,14 @@ func clear_table(table):
 	table.inventory = []
 	spawn_in_held_item(item)
 
+func clear_tub(tub):
+	tub.polishing = false
+	print("Picking up Item from Tub")
+	var item = tub.inventory[0]
+	tub.recipe = null
+	tub.inventory = []
+	spawn_in_held_item(item)
+
 func spawn_in_held_item(item: String):
 	print("Spawning in Item " + item)
 	if heldItem != null:
@@ -333,6 +390,10 @@ func remove_held_item() -> Node2D:
 		pickedUpItem = false
 		remove_child(node)
 		return node
+		
+		
+func show_item_in_interface(item: String, position: Vector2) -> void:
+	pass
 
 func _physics_process(_delta) -> void:
 	if !smithingItem:

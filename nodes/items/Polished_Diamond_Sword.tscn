@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dormbxs8dwmy5"]
+
+[ext_resource type="Texture2D" uid="uid://bsw7b488wo8k3" path="res://art/sword_and_staff.png" id="1_gorrx"]
+
+[node name="PolishedDiamondSword" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("1_gorrx")
+region_enabled = true
+region_rect = Rect2(32, 30, 9, 34)

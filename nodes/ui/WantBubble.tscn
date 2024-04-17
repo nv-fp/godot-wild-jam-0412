@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://nodes/ui/WantBubble.gd" id="1_1iapf"]
 [ext_resource type="Texture2D" uid="uid://cfm08ubo2ka81" path="res://art/thought_bubble.png" id="2_s3vyb"]
-[ext_resource type="PackedScene" uid="uid://svq8fgrv36qt" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
+[ext_resource type="PackedScene" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
 [ext_resource type="PackedScene" uid="uid://cnulu7wcjcw6b" path="res://nodes/scenes/cowndown_timer.tscn" id="4_vb3c3"]
 
 [node name="WantBubble" type="Node2D"]

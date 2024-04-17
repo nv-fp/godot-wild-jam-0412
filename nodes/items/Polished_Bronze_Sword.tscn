@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://08703bd8lmni"]
+
+[ext_resource type="Texture2D" uid="uid://bsw7b488wo8k3" path="res://art/sword_and_staff.png" id="1_wtei3"]
+
+[node name="PolishedBronzeSword" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.733333, 0.54902, 1)
+texture_filter = 1
+rotation = 1.5708
+texture = ExtResource("1_wtei3")
+region_enabled = true
+region_rect = Rect2(0, 30, 7, 34)

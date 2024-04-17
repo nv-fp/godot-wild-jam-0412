@@ -1,11 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dtwbxt24ih3r5"]
+[gd_scene load_steps=28 format=3 uid="uid://dtwbxt24ih3r5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_qvg4w"]
 [ext_resource type="Texture2D" uid="uid://b6npmx8t210vb" path="res://art/door.png" id="2_nln6s"]
 [ext_resource type="PackedScene" uid="uid://f6awl6ik3hm0" path="res://nodes/objects/Blacksmith.tscn" id="3_bcgo6"]
 [ext_resource type="Texture2D" uid="uid://nh7xo0eyman0" path="res://art/tiles.png" id="3_uhcqq"]
-[ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="4_g1tna"]
 [ext_resource type="Texture2D" uid="uid://cobb3bqmkwu0i" path="res://art/crates2.png" id="5_a7hpq"]
 [ext_resource type="Texture2D" uid="uid://d18lgtvrxowmu" path="res://art/counter.png" id="6_hc5lq"]
 [ext_resource type="Texture2D" uid="uid://dr1gfvvdl2hoi" path="res://art/furnace.png" id="7_1o4ji"]
@@ -521,12 +520,6 @@ layer_6/y_sort_origin = -1
 layer_6/z_index = -1
 layer_6/tile_data = PackedInt32Array(-393175, 0, 0, -327639, 2, 0, -262103, 2, 0, -196567, 2, 0, -131031, 2, 0, -65495, 2, 0, 41, 2, 0, 65577, 2, 0, 131113, 2, 0, 196649, 2, 0, 262185, 2, 0, 327721, 2, 0, 393257, 2, 0, 458793, 2, 0, 524329, 2, 0, 589865, 2, 0, 589864, 2, 0, 655400, 2, 0, 655401, 2, 0, 655399, 2, 0, 655398, 2, 0, 655397, 2, 0, 655396, 2, 0, 655395, 2, 0, 655394, 2, 0, 655393, 2, 0, 655392, 2, 0, 655391, 2, 0, 655390, 2, 0, 655389, 2, 0, 655388, 2, 0, 655387, 2, 0, 655386, 2, 0, 655385, 2, 0, 655384, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 2
-y_sort_enabled = true
-position = Vector2(514, 242)
-texture = ExtResource("4_g1tna")
-
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
 y_sort_enabled = true
@@ -541,7 +534,7 @@ layer_1/name = "Wall1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(196631, 15, 268435456, 196632, 15, 268435456, 196633, 15, 268435456, 196635, 15, 268435456, 196641, 15, 268435456, -327645, 15, 0, -393181, 15, 0, -131037, 15, 0, 196637, 15, 268435456, -458717, 15, 0, 196640, 15, 268435456, 131107, 24, 268435456, 196638, 23, 0, -65501, 131086, 268435457, 196636, 262158, 268435457, 196634, 14, 268435457, 35, 15, 0, -196573, 15, 0, -262109, 196622, 268435457, -262122, 19, 268435456, -393191, 18, 1, -458726, 65554, 1, -458722, 65554, 1, -393187, 18, 1, 23, 9, 0, 196642, 15, 268435456, 196643, 65551, 0, -458719, 23, 0)
+layer_1/tile_data = PackedInt32Array(196631, 15, 268435456, 196632, 15, 268435456, 196633, 15, 268435456, 196635, 15, 268435456, 196641, 15, 268435456, -327645, 15, 0, -393181, 15, 0, -131037, 15, 0, -458717, 15, 0, 131107, 24, 268435456, 196638, 23, 0, -65501, 131086, 268435457, 196636, 262158, 268435457, 196634, 14, 268435457, 35, 15, 0, -196573, 15, 0, -262109, 196622, 268435457, -262122, 19, 268435456, -393191, 18, 1, -458726, 65554, 1, -458722, 65554, 1, -393187, 18, 1, 23, 9, 0, 196642, 15, 268435456, 196643, 65551, 0, -458719, 23, 0, 196640, 15, 268435456, 196637, 15, 268435456)
 layer_2/name = "Wall2"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
@@ -565,8 +558,8 @@ layer_5/tile_data = PackedInt32Array()
 script = ExtResource("11_smvx2")
 
 [node name="Blacksmith" parent="TileMap" instance=ExtResource("3_bcgo6")]
-position = Vector2(532, 246)
+position = Vector2(516, 246)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="TileMap"]
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)

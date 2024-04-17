@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqe2auohvc2vx"]
+
+[ext_resource type="Texture2D" uid="uid://bmamebqog2msb" path="res://art/shield.png" id="1_kloeh"]
+
+[node name="PolishedDiamondShield" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.0705882, 0.517647, 1)
+texture_filter = 1
+texture = ExtResource("1_kloeh")
+region_enabled = true
+region_rect = Rect2(0, 13, 18, 19)
