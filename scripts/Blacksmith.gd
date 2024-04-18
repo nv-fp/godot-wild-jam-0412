@@ -5,44 +5,6 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
-var scenes = {
-	"Bronze_Ore": preload("res://nodes/items/Bronze_Ore.tscn"),
-	"Gold_Ore": preload("res://nodes/items/Gold_Ore.tscn"),
-	"Diamond_Ore": preload("res://nodes/items/Diamond_Ore.tscn"),
-	"Leather_Hide": preload("res://nodes/items/Leather.tscn"),
-	"Wood": preload("res://nodes/items/Wood.tscn"),
-	"Bronze_Shield_Chunk": preload("res://nodes/items/Bronze_Shield_Chunk.tscn"),
-	"Gold_Shield_Chunk": preload("res://nodes/items/Gold_Shield_Chunk.tscn"),
-	"Diamond_Shield_Chunk": preload("res://nodes/items/Diamond_Shield_Chunk.tscn"),
-	"Bronze_Shield": preload("res://nodes/items/Bronze_Shield.tscn"),
-	"Gold_Shield": preload("res://nodes/items/Gold_Shield.tscn"),
-	"Diamond_Shield": preload("res://nodes/items/Diamond_Shield.tscn"),
-	"Bronze_Blade_Chunk": preload("res://nodes/items/Bronze_Blade_Chunk.tscn"),
-	"Gold_Blade_Chunk": preload("res://nodes/items/Gold_Blade_Chunk.tscn"),
-	"Diamond_Blade_Chunk": preload("res://nodes/items/Diamond_Blade_Chunk.tscn"),
-	"Bronze_Blade": preload("res://nodes/items/Bronze_Blade.tscn"),
-	"Gold_Blade": preload("res://nodes/items/Gold_Blade.tscn"),
-	"Diamond_Blade": preload("res://nodes/items/Diamond_Blade.tscn"),
-	"Bronze_Sword": preload("res://nodes/items/Bronze_Sword.tscn"),
-	"Gold_Sword": preload("res://nodes/items/Gold_Sword.tscn"),
-	"Diamond_Sword": preload("res://nodes/items/Diamond_Sword.tscn"),
-	"Bronze_Gem_Chunk": preload("res://nodes/items/Bronze_Gem_Chunk.tscn"),
-	"Gold_Gem_Chunk": preload("res://nodes/items/Gold_Gem_Chunk.tscn"),
-	"Diamond_Gem_Chunk": preload("res://nodes/items/Diamond_Gem_Chunk.tscn"),
-	"Bronze_Gem": preload("res://nodes/items/Bronze_Gem.tscn"),
-	"Gold_Gem": preload("res://nodes/items/Gold_Gem.tscn"),
-	"Diamond_Gem": preload("res://nodes/items/Diamond_Gem.tscn"),
-	"Bronze_Staff": preload("res://nodes/items/Bronze_Staff.tscn"),
-	"Gold_Staff": preload("res://nodes/items/Gold_Staff.tscn"),
-	"Diamond_Staff": preload("res://nodes/items/Diamond_Staff.tscn"),
-	"Polished_Bronze_Shield": preload("res://nodes/items/Polished_Bronze_Shield.tscn"),
-	"Polished_Gold_Shield": preload("res://nodes/items/Polished_Gold_Shield.tscn"),
-	"Polished_Diamond_Shield": preload("res://nodes/items/Polished_Diamond_Shield.tscn"),
-	"Polished_Bronze_Sword": preload("res://nodes/items/Polished_Bronze_Sword.tscn"),
-	"Polished_Gold_Sword": preload("res://nodes/items/Polished_Gold_Sword.tscn"),
-	"Polished_Diamond_Sword": preload("res://nodes/items/Polished_Diamond_Sword.tscn")
-}
-
 var atlas_coords = {
 	"bronze_ore": Vector2(2, 0),
 	"gold_ore": Vector2(3, 0),
@@ -136,32 +98,6 @@ var smithingTimer: Node2D
 var directions: PackedStringArray = PackedStringArray(["east", "south_east", "south", "south_west", "west", "north_west", "north", "north_east"])
 var last_direction: String = "south"
 var last_direction_vector: Vector2 = Vector2(0, 1)
-
-
-
-func _ready():
-	pass
-	var f = FileAccess.open("res://config/test.cfg", FileAccess.WRITE)
-	
-	var itemStrings = []
-	for item: String in scenes:
-		var scene = scenes.get(item)
-		var itemScene = scene.instantiate()
-		var sprite = itemScene.get_node("Sprite2D")
-		var texture = sprite.get_texture()
-		
-		var rect: Rect2 = sprite.region_rect
-		
-		var itemArray = [item.to_lower()]
-		itemArray.append(texture.get_path())
-		itemArray.append(rect.position[0])
-		itemArray.append(rect.position[1])
-		itemArray.append(rect.size[0])
-		itemArray.append(rect.size[1])
-		
-		f.store_csv_line(itemArray)
-		
-	f.close()
 
 func basic_movement():
 	var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
