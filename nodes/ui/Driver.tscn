@@ -18,7 +18,6 @@ visible = false
 z_index = 4000
 position = Vector2(264, 100)
 scale = Vector2(0.4, 0.4)
-hammer_limits = [150, 300, 450]
 
 [connection signal="progress" from="LevelSummary" to="." method="_summary_progress"]
 [connection signal="to_menu" from="LevelSummary" to="." method="_summary_menu"]
