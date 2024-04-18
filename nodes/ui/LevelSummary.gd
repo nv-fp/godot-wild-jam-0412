@@ -7,8 +7,6 @@ signal progress
 # fires if the user wants to head back to the main menu
 signal to_menu
 
-@export var hammer_limits = []
-
 var _hammer_count = 0
 
 func _get_message() -> String:
@@ -31,8 +29,9 @@ func _get_hammer(min: int) -> Texture2D:
 		return preload('res://art/level-summary/full-hammer.png')
 	return preload('res://art/level-summary/empty-hammer.png')
 
-func setup(score: int):
-	for tgt in hammer_limits:
+func setup(score: int, score_limits: Array):
+	_hammer_count = 0
+	for tgt in score_limits:
 		if score > tgt:
 			_hammer_count += 1
 

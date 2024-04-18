@@ -85,10 +85,10 @@ func _level_fade_in_completed():
 
 func _level_completed(score: int):
 	print('level completed with score: ' + str(score))
-	$LevelSummary.setup(score)
+	$LevelSummary.setup(score, active_level.score_limits)
 	$LevelSummary.visible = true
 	if active_level != null:
-		active_level.get_node('Level').end_level()
+		active_level.end_level()
 
 func _summary_progress(typ: Enums.ProgressType):
 	match typ:
