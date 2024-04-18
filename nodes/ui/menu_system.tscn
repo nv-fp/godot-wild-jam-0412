@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1p3hl55up3u8"]
+
+[ext_resource type="Texture2D" uid="uid://12tcnoh4t2rt" path="res://art/main_menu.jpg" id="1_8u8lk"]
+[ext_resource type="Script" path="res://nodes/ui/menu_system.gd" id="1_bpgo5"]
+[ext_resource type="Texture2D" uid="uid://c1th7bkbekqgr" path="res://art/main-menu/main_menu_base.png" id="2_k1mfh"]
+[ext_resource type="Texture2D" uid="uid://wxorn3874kvk" path="res://art/main-menu/buttons.png" id="3_b5mhr"]
+[ext_resource type="Texture2D" uid="uid://dejaafy4w1ffj" path="res://art/main-menu/font.png" id="4_upawf"]
+[ext_resource type="Texture2D" uid="uid://dpgtmjj15ln7j" path="res://art/main-menu/buttons-drop-shadow.png" id="5_epw5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cg7qw"]
+size = Vector2(367, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5tsdj"]
+size = Vector2(258, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5ofg"]
+size = Vector2(462, 107)
+
+[node name="MenuSystem" type="Node2D"]
+script = ExtResource("1_bpgo5")
+
+[node name="MainMenuBG" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_k1mfh")
+
+[node name="StartButton" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-2, -75)
+texture = ExtResource("3_b5mhr")
+region_enabled = true
+region_rect = Rect2(444, 256, 378, 161)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/StartButton"]
+position = Vector2(-4.97437, 7.25)
+scale = Vector2(0.910256, 0.910256)
+texture = ExtResource("4_upawf")
+region_enabled = true
+region_rect = Rect2(456.679, 287.122, 356.123, 117.205)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/StartButton"]
+z_index = -1
+position = Vector2(15, 19)
+texture = ExtResource("5_epw5x")
+region_enabled = true
+region_rect = Rect2(450.669, 275.852, 382.419, 152.517)
+
+[node name="StartArea" type="Area2D" parent="MainMenuBG/StartButton"]
+position = Vector2(-173, -78)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/StartButton/StartArea"]
+position = Vector2(173.5, 79.5)
+shape = SubResource("RectangleShape2D_cg7qw")
+
+[node name="QuitButton" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+z_as_relative = false
+position = Vector2(-8, 235)
+texture = ExtResource("3_b5mhr")
+region_enabled = true
+region_rect = Rect2(493.316, 552.316, 274.23, 89.4064)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/QuitButton"]
+position = Vector2(4, 5)
+scale = Vector2(0.852941, 0.852941)
+texture = ExtResource("4_upawf")
+region_enabled = true
+region_rect = Rect2(510.235, 559.443, 249.79, 85.0349)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/QuitButton"]
+z_index = -1
+position = Vector2(16.5, 14.5)
+scale = Vector2(0.989051, 0.96875)
+texture = ExtResource("5_epw5x")
+region_enabled = true
+region_rect = Rect2(502.797, 561.651, 274.334, 96.525)
+
+[node name="QuitArea" type="Area2D" parent="MainMenuBG/QuitButton"]
+position = Vector2(-130, -37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/QuitButton/QuitArea"]
+position = Vector2(129, 39.5)
+shape = SubResource("RectangleShape2D_5tsdj")
+
+[node name="CreditsButton" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-2, 96)
+texture = ExtResource("3_b5mhr")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/CreditsButton"]
+position = Vector2(-5.95708, 2.25)
+scale = Vector2(0.914141, 0.914141)
+texture = ExtResource("4_upawf")
+region_enabled = true
+region_rect = Rect2(705.885, 430.277, 395.307, 99.5588)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/CreditsButton"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_epw5x")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="Area2D" type="Area2D" parent="MainMenuBG/CreditsButton"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/CreditsButton/Area2D"]
+position = Vector2(2, 5.5)
+shape = SubResource("RectangleShape2D_c5ofg")
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("1_8u8lk")
+
+[connection signal="input_event" from="MainMenuBG/StartButton/StartArea" to="." method="_start_input"]
+[connection signal="mouse_entered" from="MainMenuBG/StartButton/StartArea" to="." method="_start_over"]
+[connection signal="mouse_exited" from="MainMenuBG/StartButton/StartArea" to="." method="_start_exit"]
+[connection signal="input_event" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_event"]
+[connection signal="mouse_entered" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_over"]
+[connection signal="mouse_exited" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_exit"]
+[connection signal="mouse_entered" from="MainMenuBG/CreditsButton/Area2D" to="." method="_over_credits"]
+[connection signal="mouse_exited" from="MainMenuBG/CreditsButton/Area2D" to="." method="_exit_credits"]
