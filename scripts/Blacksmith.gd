@@ -10,6 +10,7 @@ var scenes = {
 	"Gold_Ore": preload("res://nodes/items/Gold_Ore.tscn"),
 	"Diamond_Ore": preload("res://nodes/items/Diamond_Ore.tscn"),
 	"Leather_Hide": preload("res://nodes/items/Leather.tscn"),
+	"Wood": preload("res://nodes/items/Wood.tscn"),
 	"Bronze_Shield_Chunk": preload("res://nodes/items/Bronze_Shield_Chunk.tscn"),
 	"Gold_Shield_Chunk": preload("res://nodes/items/Gold_Shield_Chunk.tscn"),
 	"Diamond_Shield_Chunk": preload("res://nodes/items/Diamond_Shield_Chunk.tscn"),
@@ -25,6 +26,15 @@ var scenes = {
 	"Bronze_Sword": preload("res://nodes/items/Bronze_Sword.tscn"),
 	"Gold_Sword": preload("res://nodes/items/Gold_Sword.tscn"),
 	"Diamond_Sword": preload("res://nodes/items/Diamond_Sword.tscn"),
+	"Bronze_Gem_Chunk": preload("res://nodes/items/Bronze_Gem_Chunk.tscn"),
+	"Gold_Gem_Chunk": preload("res://nodes/items/Gold_Gem_Chunk.tscn"),
+	"Diamond_Gem_Chunk": preload("res://nodes/items/Diamond_Gem_Chunk.tscn"),
+	"Bronze_Gem": preload("res://nodes/items/Bronze_Gem.tscn"),
+	"Gold_Gem": preload("res://nodes/items/Gold_Gem.tscn"),
+	"Diamond_Gem": preload("res://nodes/items/Diamond_Gem.tscn"),
+	"Bronze_Staff": preload("res://nodes/items/Bronze_Staff.tscn"),
+	"Gold_Staff": preload("res://nodes/items/Gold_Staff.tscn"),
+	"Diamond_Staff": preload("res://nodes/items/Diamond_Staff.tscn"),
 	"Polished_Bronze_Shield": preload("res://nodes/items/Polished_Bronze_Shield.tscn"),
 	"Polished_Gold_Shield": preload("res://nodes/items/Polished_Gold_Shield.tscn"),
 	"Polished_Diamond_Shield": preload("res://nodes/items/Polished_Diamond_Shield.tscn"),
@@ -38,6 +48,7 @@ var atlas_coords = {
 	"Gold_Ore": Vector2(3, 0),
 	"Diamond_Ore": Vector2(4, 0),
 	"Leather_Hide": Vector2(0, 0),
+	"Wood": Vector2(1, 0),
 	"Anvil": Vector2(0, 0),
 	"Furnace": Vector2(0, 1),
 	"Trash": Vector2(0, 0),
@@ -50,6 +61,7 @@ var atlas_ids = {
 	"Gold_Ore": 14,
 	"Diamond_Ore": 14,
 	"Leather_Hide": 14,
+	"Wood": 14,
 	"Anvil": 19,
 	"Furnace": 18,
 	"Trash": 9,
@@ -62,6 +74,7 @@ var atlas_layers = {
 	"Gold_Ore": 2,
 	"Diamond_Ore": 2,
 	"Leather_Hide": 2,
+	"Wood": 2,
 	"Anvil": 1,
 	"Furnace": 1,
 	"Trash": 1,
@@ -74,6 +87,7 @@ var item_scales = {
 	"Gold_Ore": Vector2(0.6, 0.6),
 	"Diamond_Ore": Vector2(0.6, 0.6),
 	"Leather_Hide": Vector2(0.6, 0.6),
+	"Wood": Vector2(0.6, 0.6),
 	"Bronze_Shield_Chunk": Vector2(1, 1),
 	"Gold_Shield_Chunk": Vector2(1, 1),
 	"Diamond_Shield_Chunk": Vector2(1, 1),
@@ -89,6 +103,15 @@ var item_scales = {
 	"Bronze_Sword": Vector2(1, 1),
 	"Gold_Sword": Vector2(1, 1),
 	"Diamond_Sword": Vector2(1, 1),
+	"Bronze_Gem_Chunk": Vector2(1, 1),
+	"Gold_Gem_Chunk": Vector2(1, 1),
+	"Diamond_Gem_Chunk": Vector2(1, 1),
+	"Bronze_Gem": Vector2(1, 1),
+	"Gold_Gem": Vector2(1, 1),
+	"Diamond_Gem": Vector2(1, 1),
+	"Bronze_Staff": Vector2(1, 1),
+	"Gold_Staff": Vector2(1, 1),
+	"Diamond_Staff": Vector2(1, 1),
 	"Polished_Bronze_Shield": Vector2(1, 1),
 	"Polished_Gold_Shield": Vector2(1, 1),
 	"Polished_Diamond_Shield": Vector2(1, 1),
@@ -98,8 +121,8 @@ var item_scales = {
 }
 
 var furnace_allowed_items = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
-var anvil_allowed_items = ["Bronze_Shield_Chunk", "Gold_Shield_Chunk", "Diamond_Shield_Chunk", "Bronze_Blade_Chunk", "Gold_Blade_Chunk", "Diamond_Blade_Chunk"]
-var table_allowed_items = ["Bronze_Blade", "Gold_Blade", "Diamond_Blade", "Leather_Hide"]
+var anvil_allowed_items = ["Bronze_Shield_Chunk", "Gold_Shield_Chunk", "Diamond_Shield_Chunk", "Bronze_Blade_Chunk", "Gold_Blade_Chunk", "Diamond_Blade_Chunk", "Bronze_Gem_Chunk", "Gold_Gem_Chunk", "Diamond_Gem_Chunk"]
+var table_allowed_items = ["Bronze_Blade", "Gold_Blade", "Diamond_Blade", "Leather_Hide", "Bronze_Gem", "Gold_Gem", "Diamond_Gem", "Wood"]
 var tub_allowed_items = ["Bronze_Shield", "Gold_Shield", "Diamond_Shield", "Bronze_Sword", "Gold_Sword", "Diamond_Sword"]
 
 var pickedUpItem = false
@@ -147,7 +170,7 @@ func handle_interaction_input() -> void:
 	if interactable:
 		var group = interactable.get_groups()[0]
 		match group:
-			"Diamond_Ore","Gold_Ore","Bronze_Ore","Leather_Hide":
+			"Diamond_Ore","Gold_Ore","Bronze_Ore","Leather_Hide", "Wood":
 				if heldItem == null:
 					spawn_in_held_item(group)
 			"Anvil":
@@ -210,7 +233,7 @@ func handle_interaction_input() -> void:
 					remove_held_item()
 					match furnace.inventory.size():
 						1:
-							furnace.recipe = resource.split("_")[0] + "_Staff_Chunk"
+							furnace.recipe = resource.split("_")[0] + "_Gem_Chunk"
 						2:
 							furnace.recipe = resource.split("_")[0] + "_Blade_Chunk"
 						3:
@@ -237,12 +260,25 @@ func handle_interaction_input() -> void:
 					
 					remove_held_item()
 					
-					if resource != "Leather_Hide":
-						table.inventory.push_front(str(resource))
-						var mat = resource.split("_")[0]
-						table.recipe = mat + "_Sword"
-					else:
+					if resource == "Leather_Hide":
+						if table.recipe:
+							table.recipe = table.recipe + "_Sword"
+						else:
+							table.recipe = "_Sword"
 						table.inventory.append(str(resource))
+					elif resource == "Wood":
+						if table.recipe:
+							table.recipe = table.recipe + "_Staff"
+						else:
+							table.recipe = "_Staff"
+						table.inventory.append(str(resource))
+					else:
+						var mat = resource.split("_")[0]
+						if table.recipe:
+							table.recipe = mat + table.recipe
+						else:
+							table.recipe = mat
+						table.inventory.push_front(str(resource))
 					
 					table.toast.add_material(str(resource))
 						

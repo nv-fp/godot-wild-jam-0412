@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbom1puxa2u6e"]
+
+[ext_resource type="Texture2D" uid="uid://boswd7pfh3ejx" path="res://art/unfinished_items.png" id="1_fad0m"]
+
+[node name="GoldGemChunk" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_fad0m")
+region_enabled = true
+region_rect = Rect2(0, 26, 10, 6)

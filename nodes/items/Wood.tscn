@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyn6rrq8w7raa"]
+
+[ext_resource type="Texture2D" uid="uid://dv4knvlmhk44g" path="res://art/item.png" id="1_rtxnl"]
+
+[node name="Wood" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rtxnl")
+region_enabled = true
+region_rect = Rect2(63, 0, 14, 14)

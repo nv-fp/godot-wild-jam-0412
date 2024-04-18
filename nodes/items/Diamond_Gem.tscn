@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgxxmobe0ong"]
+
+[ext_resource type="Texture2D" uid="uid://boswd7pfh3ejx" path="res://art/unfinished_items.png" id="1_rba3g"]
+
+[node name="DiamondGem" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_rba3g")
+region_enabled = true
+region_rect = Rect2(96, 43, 6, 5)

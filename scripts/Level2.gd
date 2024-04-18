@@ -237,7 +237,9 @@ func _process(_delta):
 
 # Dirty hack for z_index clipping
 func _on_area_2d_body_entered(body):
-	$Blacksmith.z_index = 4
+	if body == $Blacksmith:
+		$Blacksmith.z_index = 4
 
 func _on_area_2d_body_exited(body):
-	$Blacksmith.z_index = 1
+	if body == $Blacksmith:
+		$Blacksmith.z_index = 1
