@@ -5,7 +5,7 @@
 [node name="GoldOre" type="Area2D"]
 texture_filter = 1
 
-[node name="Gold" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_frupi")
 region_enabled = true
 region_rect = Rect2(29, 0, 31, 22)

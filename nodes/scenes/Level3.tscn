@@ -545,7 +545,6 @@ layer_6/tile_data = PackedInt32Array()
 y_sort_enabled = true
 position = Vector2(1, 0)
 tile_set = SubResource("TileSet_f6had")
-collision_visibility_mode = 1
 navigation_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
@@ -634,29 +633,29 @@ position = Vector2(701, 231)
 [node name="Crates" type="Node2D" parent="TileMap"]
 z_index = 1
 
-[node name="Leather_Hide" type="Area2D" parent="TileMap/Crates"]
+[node name="leather_hide" type="Area2D" parent="TileMap/Crates"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/Leather_Hide"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/leather_hide"]
 polygon = PackedVector2Array(323, 263, 336, 256, 349, 263, 336, 270)
 
-[node name="Bronze_Ore" type="Area2D" parent="TileMap/Crates"]
+[node name="bronze_ore" type="Area2D" parent="TileMap/Crates"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/Bronze_Ore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/bronze_ore"]
 polygon = PackedVector2Array(355, 280, 368, 273, 381, 280, 368, 286)
 
-[node name="Gold_Ore" type="Area2D" parent="TileMap/Crates"]
+[node name="gold_ore" type="Area2D" parent="TileMap/Crates"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/Gold_Ore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/gold_ore"]
 polygon = PackedVector2Array(467, 335, 480, 329, 493, 335, 480, 342)
 
-[node name="Diamond_Ore" type="Area2D" parent="TileMap/Crates"]
+[node name="diamond_ore" type="Area2D" parent="TileMap/Crates"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/Diamond_Ore"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/diamond_ore"]
 polygon = PackedVector2Array(499, 351, 512, 344, 526, 352, 512, 358)
 
-[node name="Wood" type="Area2D" parent="TileMap/Crates"]
+[node name="wood" type="Area2D" parent="TileMap/Crates"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/Wood"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/wood"]
 polygon = PackedVector2Array(675, 311, 687, 305, 701, 312, 688, 319)
 
 [node name="Tables" type="Node2D" parent="TileMap"]

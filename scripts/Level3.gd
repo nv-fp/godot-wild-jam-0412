@@ -11,7 +11,7 @@ var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(20, 
 var table_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(15, 30), Vector2(-10, 30)])
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40), Vector2(15, 20)])
 
-var groupNames = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore", "Leather_Hide", "Wood"]
+var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide", "wood"]
 var furnaces = []
 var anvils = []
 var tables = []
@@ -32,7 +32,7 @@ func _ready():
 	
 	for i in range($Anvils.get_child_count()):
 		var anvil_area = $Anvils.get_node("Anvil" + str(i))
-		anvil_area.add_to_group("Anvil")
+		anvil_area.add_to_group("anvil")
 		anvil_area.body_entered.connect(area_entered.bind(anvil_area))
 		anvil_area.body_exited.connect(area_exited.bind(anvil_area))
 	
@@ -48,15 +48,15 @@ func _ready():
 			"area": anvil_area,
 			"inventory": [],
 			"recipes": {
-				"Bronze_Shield": ["Bronze_Shield_Chunk"],
-				"Gold_Shield": ["Gold_Shield_Chunk"],
-				"Diamond_Shield": ["Diamond_Shield_Chunk"],
-				"Bronze_Blade": ["Bronze_Blade_Chunk"],
-				"Gold_Blade": ["Gold_Blade_Chunk"],
-				"Diamond_Blade": ["Diamond_Blade_Chunk"],
-				"Bronze_Gem": ["Bronze_Gem_Chunk"],
-				"Gold_Gem": ["Gold_Gem_Chunk"],
-				"Diamond_Gem": ["Diamond_Gem_Chunk"]
+				"bronze_shield": ["bronze_shield_chunk"],
+				"gold_shield": ["gold_shield_chunk"],
+				"diamond_shield": ["diamond_shield_chunk"],
+				"bronze_blade": ["bronze_blade_chunk"],
+				"gold_blade": ["gold_blade_chunk"],
+				"diamond_blade": ["diamond_blade_chunk"],
+				"bronze_gem": ["bronze_gem_chunk"],
+				"gold_gem": ["gold_gem_chunk"],
+				"diamond_gem": ["diamond_gem_chunk"]
 			},
 			"toast": anvil_toast,
 			"timer_position": Vector2(20, 45)
@@ -65,7 +65,7 @@ func _ready():
 	for i in range($Furnaces.get_child_count()):
 		var furnace: Node2D = $Furnaces.get_node("Furnace" + str(i))
 		var furnace_area = furnace.get_node("Area")
-		furnace_area.add_to_group("Furnace")
+		furnace_area.add_to_group("furnace")
 		furnace_area.body_entered.connect(area_entered.bind(furnace_area))
 		furnace_area.body_exited.connect(area_exited.bind(furnace_area))
 		
@@ -81,15 +81,15 @@ func _ready():
 			"area": furnace_area,
 			"inventory": [],
 			"recipes": {
-				"Bronze_Shield_Chunk": ["Bronze_Ore", "Bronze_Ore", "Bronze_Ore"],
-				"Gold_Shield_Chunk": ["Gold_Ore", "Gold_Ore", "Gold_Ore"],
-				"Diamond_Shield_Chunk": ["Diamond_Ore", "Diamond_Ore", "Diamond_Ore"],
-				"Bronze_Blade_Chunk": ["Bronze_Ore", "Bronze_Ore"],
-				"Gold_Blade_Chunk": ["Gold_Ore", "Gold_Ore"],
-				"Diamond_Blade_Chunk": ["Diamond_Ore", "Diamond_Ore"],
-				"Bronze_Gem_Chunk": ["Bronze_Ore"],
-				"Gold_Gem_Chunk": ["Gold_Ore"],
-				"Diamond_Gem_Chunk": ["Diamond_Ore"]
+				"bronze_shield_chunk": ["bronze_ore", "bronze_ore", "bronze_ore"],
+				"gold_shield_chunk": ["gold_ore", "gold_ore", "gold_ore"],
+				"diamond_shield_chunk": ["diamond_ore", "diamond_ore", "diamond_ore"],
+				"bronze_blade_chunk": ["bronze_ore", "bronze_ore"],
+				"gold_blade_chunk": ["gold_ore", "gold_ore"],
+				"diamond_blade_chunk": ["diamond_ore", "diamond_ore"],
+				"bronze_gem_chunk": ["bronze_ore"],
+				"gold_gem_chunk": ["gold_ore"],
+				"diamond_gem_chunk": ["diamond_ore"]
 			},
 			"toast": toast,
 			"timer_position": furnace_timer_offsets[i]
@@ -98,7 +98,7 @@ func _ready():
 	for i in range($Tables.get_child_count()):
 		var table = $Tables.get_node("Table" + str(i))
 		var table_area = table.get_node("Area")
-		table_area.add_to_group("Craft")
+		table_area.add_to_group("craft")
 		table_area.body_entered.connect(area_entered.bind(table_area))
 		table_area.body_exited.connect(area_exited.bind(table_area))
 	
@@ -114,12 +114,12 @@ func _ready():
 			"area": table_area,
 			"inventory": [],
 			"recipes": {
-				"Bronze_Sword": ["Bronze_Blade", "Leather_Hide"],
-				"Gold_Sword": ["Gold_Blade", "Leather_Hide"],
-				"Diamond_Sword": ["Diamond_Blade", "Leather_Hide"],
-				"Bronze_Staff": ["Bronze_Gem", "Wood"],
-				"Gold_Staff": ["Gold_Gem", "Wood"],
-				"Diamond_Staff": ["Diamond_Gem", "Wood"]
+				"bronze_sword": ["bronze_blade", "leather_hide"],
+				"gold_sword": ["gold_blade", "leather_hide"],
+				"diamond_sword": ["diamond_blade", "leather_hide"],
+				"bronze_staff": ["bronze_gem", "wood"],
+				"gold_staff": ["gold_gem", "wood"],
+				"diamond_staff": ["diamond_gem", "wood"]
 			},
 			"toast": table_toast,
 			"timer_position": table_timer_offsets[i]
@@ -135,7 +135,7 @@ func _ready():
 	for i in range($Tubs.get_child_count()):
 		var tub = $Tubs.get_node("Tubs" + str(i))
 		var tub_area = tub.get_node("Area")
-		tub_area.add_to_group("Tub")
+		tub_area.add_to_group("tub")
 		tub_area.body_entered.connect(area_entered.bind(tub_area))
 		tub_area.body_exited.connect(area_exited.bind(tub_area))
 		
@@ -151,12 +151,12 @@ func _ready():
 			"area": tub_area,
 			"inventory": [],
 			"recipes": {
-				"Polished_Bronze_Shield": ["Bronze_Shield"],
-				"Polished_Gold_Shield": ["Gold_Shield"],
-				"Polished_Diamond_Shield": ["Diamond_Shield"],
-				"Polished_Bronze_Sword": ["Bronze_Sword"],
-				"Polished_Gold_Sword": ["Gold_Sword"],
-				"Polished_Diamond_Sword": ["Diamond_Sword"]
+				"polished_bronze_shield": ["bronze_shield"],
+				"polished_gold_shield": ["gold_shield"],
+				"polished_diamond_shield": ["diamond_shield"],
+				"polished_bronze_sword": ["bronze_sword"],
+				"polished_gold_sword": ["gold_sword"],
+				"polished_diamond_sword": ["diamond_sword"]
 			},
 			"toast": tub_toast,
 			"timer_position": tub_timer_offsets[i]

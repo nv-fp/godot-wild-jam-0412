@@ -44,86 +44,86 @@ var scenes = {
 }
 
 var atlas_coords = {
-	"Bronze_Ore": Vector2(2, 0),
-	"Gold_Ore": Vector2(3, 0),
-	"Diamond_Ore": Vector2(4, 0),
-	"Leather_Hide": Vector2(0, 0),
-	"Wood": Vector2(1, 0),
-	"Anvil": Vector2(0, 0),
-	"Furnace": Vector2(0, 1),
-	"Trash": Vector2(0, 0),
-	"Craft": Vector2(0, 0),
-	"Tub": Vector2(0, 0),
+	"bronze_ore": Vector2(2, 0),
+	"gold_ore": Vector2(3, 0),
+	"diamond_ore": Vector2(4, 0),
+	"leather_hide": Vector2(0, 0),
+	"wood": Vector2(1, 0),
+	"anvil": Vector2(0, 0),
+	"furnace": Vector2(0, 1),
+	"trash": Vector2(0, 0),
+	"craft": Vector2(0, 0),
+	"tub": Vector2(0, 0),
 }
 
 var atlas_ids = {
-	"Bronze_Ore": 14,
-	"Gold_Ore": 14,
-	"Diamond_Ore": 14,
-	"Leather_Hide": 14,
-	"Wood": 14,
-	"Anvil": 19,
-	"Furnace": 18,
-	"Trash": 9,
-	"Craft": 24,
-	"Tub": 23
+	"bronze_ore": 14,
+	"gold_ore": 14,
+	"diamond_ore": 14,
+	"leather_hide": 14,
+	"wood": 14,
+	"anvil": 19,
+	"furnace": 18,
+	"trash": 9,
+	"craft": 24,
+	"tub": 23
 }
 
 var atlas_layers = {
-	"Bronze_Ore": 2,
-	"Gold_Ore": 2,
-	"Diamond_Ore": 2,
-	"Leather_Hide": 2,
-	"Wood": 2,
-	"Anvil": 1,
-	"Furnace": 1,
-	"Trash": 1,
-	"Craft": 1,
-	"Tub": 1
+	"bronze_ore": 2,
+	"gold_ore": 2,
+	"diamond_ore": 2,
+	"leather_hide": 2,
+	"wood": 2,
+	"anvil": 1,
+	"furnace": 1,
+	"trash": 1,
+	"craft": 1,
+	"tub": 1
 }
 
 var item_scales = {
-	"Bronze_Ore": Vector2(0.6, 0.6),
-	"Gold_Ore": Vector2(0.6, 0.6),
-	"Diamond_Ore": Vector2(0.6, 0.6),
-	"Leather_Hide": Vector2(0.6, 0.6),
-	"Wood": Vector2(0.6, 0.6),
-	"Bronze_Shield_Chunk": Vector2(1, 1),
-	"Gold_Shield_Chunk": Vector2(1, 1),
-	"Diamond_Shield_Chunk": Vector2(1, 1),
-	"Bronze_Shield": Vector2(1,1),
-	"Gold_Shield": Vector2(1, 1),
-	"Diamond_Shield": Vector2(1, 1),
-	"Bronze_Blade_Chunk": Vector2(1, 1),
-	"Gold_Blade_Chunk": Vector2(1, 1),
-	"Diamond_Blade_Chunk": Vector2(1, 1),
-	"Bronze_Blade": Vector2(1, 1),
-	"Gold_Blade": Vector2(1, 1),
-	"Diamond_Blade": Vector2(1, 1),
-	"Bronze_Sword": Vector2(1, 1),
-	"Gold_Sword": Vector2(1, 1),
-	"Diamond_Sword": Vector2(1, 1),
-	"Bronze_Gem_Chunk": Vector2(1, 1),
-	"Gold_Gem_Chunk": Vector2(1, 1),
-	"Diamond_Gem_Chunk": Vector2(1, 1),
-	"Bronze_Gem": Vector2(1, 1),
-	"Gold_Gem": Vector2(1, 1),
-	"Diamond_Gem": Vector2(1, 1),
-	"Bronze_Staff": Vector2(1, 1),
-	"Gold_Staff": Vector2(1, 1),
-	"Diamond_Staff": Vector2(1, 1),
-	"Polished_Bronze_Shield": Vector2(1, 1),
-	"Polished_Gold_Shield": Vector2(1, 1),
-	"Polished_Diamond_Shield": Vector2(1, 1),
-	"Polished_Bronze_Sword": Vector2(1, 1),
-	"Polished_Gold_Sword": Vector2(1, 1),
-	"Polished_Diamond_Sword": Vector2(1, 1)
+	"bronze_ore": Vector2(0.6, 0.6),
+	"gold_ore": Vector2(0.6, 0.6),
+	"diamond_ore": Vector2(0.6, 0.6),
+	"leather_hide": Vector2(0.6, 0.6),
+	"wood": Vector2(0.6, 0.6),
+	"bronze_shield_chunk": Vector2(1, 1),
+	"gold_shield_chunk": Vector2(1, 1),
+	"diamond_shield_chunk": Vector2(1, 1),
+	"bronze_shield": Vector2(1,1),
+	"gold_shield": Vector2(1, 1),
+	"diamond_shield": Vector2(1, 1),
+	"bronze_blade_chunk": Vector2(1, 1),
+	"gold_blade_chunk": Vector2(1, 1),
+	"diamond_blade_chunk": Vector2(1, 1),
+	"bronze_blade": Vector2(1, 1),
+	"gold_blade": Vector2(1, 1),
+	"diamond_blade": Vector2(1, 1),
+	"bronze_sword": Vector2(1, 1),
+	"gold_sword": Vector2(1, 1),
+	"diamond_sword": Vector2(1, 1),
+	"bronze_gem_chunk": Vector2(1, 1),
+	"gold_gem_chunk": Vector2(1, 1),
+	"diamond_gem_chunk": Vector2(1, 1),
+	"bronze_gem": Vector2(1, 1),
+	"gold_gem": Vector2(1, 1),
+	"diamond_gem": Vector2(1, 1),
+	"bronze_staff": Vector2(1, 1),
+	"gold_staff": Vector2(1, 1),
+	"diamond_staff": Vector2(1, 1),
+	"polished_bronze_shield": Vector2(1, 1),
+	"polished_gold_shield": Vector2(1, 1),
+	"polished_diamond_shield": Vector2(1, 1),
+	"polished_bronze_sword": Vector2(1, 1),
+	"polished_gold_sword": Vector2(1, 1),
+	"polished_diamond_sword": Vector2(1, 1)
 }
 
-var furnace_allowed_items = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
-var anvil_allowed_items = ["Bronze_Shield_Chunk", "Gold_Shield_Chunk", "Diamond_Shield_Chunk", "Bronze_Blade_Chunk", "Gold_Blade_Chunk", "Diamond_Blade_Chunk", "Bronze_Gem_Chunk", "Gold_Gem_Chunk", "Diamond_Gem_Chunk"]
-var table_allowed_items = ["Bronze_Blade", "Gold_Blade", "Diamond_Blade", "Leather_Hide", "Bronze_Gem", "Gold_Gem", "Diamond_Gem", "Wood"]
-var tub_allowed_items = ["Bronze_Shield", "Gold_Shield", "Diamond_Shield", "Bronze_Sword", "Gold_Sword", "Diamond_Sword"]
+var furnace_allowed_items = ["bronze_ore", "gold_ore", "diamond_ore"]
+var anvil_allowed_items = ["bronze_shield_chunk", "gold_shield_chunk", "diamond_shield_chunk", "bronze_blade_chunk", "gold_blade_chunk", "diamond_blade_chunk", "bronze_gem_chunk", "gold_gem_chunk", "diamond_gem_chunk"]
+var table_allowed_items = ["bronze_blade", "gold_blade", "diamond_blade", "leather_hide", "bronze_gem", "gold_gem", "diamond_gem", "wood"]
+var tub_allowed_items = ["bronze_shield", "gold_shield", "diamond_shield", "bronze_sword", "gold_sword", "diamond_sword"]
 
 var pickedUpItem = false
 var heldItem: Node2D
@@ -136,6 +136,32 @@ var smithingTimer: Node2D
 var directions: PackedStringArray = PackedStringArray(["east", "south_east", "south", "south_west", "west", "north_west", "north", "north_east"])
 var last_direction: String = "south"
 var last_direction_vector: Vector2 = Vector2(0, 1)
+
+
+
+func _ready():
+	pass
+	var f = FileAccess.open("res://config/test.cfg", FileAccess.WRITE)
+	
+	var itemStrings = []
+	for item: String in scenes:
+		var scene = scenes.get(item)
+		var itemScene = scene.instantiate()
+		var sprite = itemScene.get_node("Sprite2D")
+		var texture = sprite.get_texture()
+		
+		var rect: Rect2 = sprite.region_rect
+		
+		var itemArray = [item.to_lower()]
+		itemArray.append(texture.get_path())
+		itemArray.append(rect.position[0])
+		itemArray.append(rect.position[1])
+		itemArray.append(rect.size[0])
+		itemArray.append(rect.size[1])
+		
+		f.store_csv_line(itemArray)
+		
+	f.close()
 
 func basic_movement():
 	var input_direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -169,11 +195,12 @@ func show_interact_button():
 func handle_interaction_input() -> void:
 	if interactable:
 		var group = interactable.get_groups()[0]
+		print(group)
 		match group:
-			"Diamond_Ore","Gold_Ore","Bronze_Ore","Leather_Hide", "Wood":
+			"diamond_ore","gold_ore","bronze_ore","leather_hide", "wood":
 				if heldItem == null:
 					spawn_in_held_item(group)
-			"Anvil":
+			"anvil":
 				var anvil = tilemap.anvils.filter(func (a): return a.area == interactable).front()
 
 				if  heldItem == null && anvil.inventory.size() == 1 && anvil.smithing:
@@ -205,7 +232,7 @@ func handle_interaction_input() -> void:
 						anvil.timer.queue_free()
 						anvil.timer = null
 						spawn_finished_item(anvil.recipe, anvil)
-			"Furnace":
+			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				# Our item finished smelting and we need to collect it
 				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting:
@@ -233,12 +260,12 @@ func handle_interaction_input() -> void:
 					remove_held_item()
 					match furnace.inventory.size():
 						1:
-							furnace.recipe = resource.split("_")[0] + "_Gem_Chunk"
+							furnace.recipe = resource.split("_")[0] + "_gem_chunk"
 						2:
-							furnace.recipe = resource.split("_")[0] + "_Blade_Chunk"
+							furnace.recipe = resource.split("_")[0] + "_blade_chunk"
 						3:
-							furnace.recipe = resource.split("_")[0] + "_Shield_Chunk"
-			"Craft":
+							furnace.recipe = resource.split("_")[0] + "_shield_chunk"
+			"craft":
 				var table = tilemap.tables.filter(func (t): return t.area == interactable).front()
 				if heldItem == null && table.inventory.size() == 1 && table.crafting:
 					table.crafting = false
@@ -260,17 +287,17 @@ func handle_interaction_input() -> void:
 					
 					remove_held_item()
 					
-					if resource == "Leather_Hide":
+					if resource == "leather_hide":
 						if table.recipe:
-							table.recipe = table.recipe + "_Sword"
+							table.recipe = table.recipe + "_sword"
 						else:
-							table.recipe = "_Sword"
+							table.recipe = "_sword"
 						table.inventory.append(str(resource))
-					elif resource == "Wood":
+					elif resource == "wood":
 						if table.recipe:
-							table.recipe = table.recipe + "_Staff"
+							table.recipe = table.recipe + "_staff"
 						else:
-							table.recipe = "_Staff"
+							table.recipe = "_staff"
 						table.inventory.append(str(resource))
 					else:
 						var mat = resource.split("_")[0]
@@ -296,7 +323,7 @@ func handle_interaction_input() -> void:
 						table.timer.queue_free()
 						table.timer = null
 						spawn_finished_item(table.recipe, table)
-			"Tub":
+			"tub":
 				var tub = tilemap.tubs.filter(func (t): return t.area == interactable).front()
 				
 				if heldItem == null && tub.inventory.size() == 1 && tub.polishing && tub.timer == null:
@@ -315,7 +342,7 @@ func handle_interaction_input() -> void:
 
 					remove_held_item()
 					tub.inventory.append(str(resource))
-					tub.recipe = "Polished_" + resource
+					tub.recipe = "polished_" + resource
 
 					if tub.recipes.has(tub.recipe) && tub.inventory == tub.recipes.get(tub.recipe) && !tub.polishing:
 						tub.polishing = true
@@ -329,7 +356,7 @@ func handle_interaction_input() -> void:
 						tub.inventory = [tub.recipe]
 						tub.timer.queue_free()
 						tub.timer = null
-			"Trash":
+			"trash":
 				if heldItem != null:
 					remove_held_item()
 
@@ -337,7 +364,7 @@ func handle_start_interaction_input():
 	if interactable:
 		var group = interactable.get_groups()[0]
 		match group:
-			"Furnace":
+			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				if furnace.recipes.has(furnace.recipe) && !furnace.smelting:
 					print("Starting smelting for " + furnace.recipe)
@@ -355,7 +382,7 @@ func get_location_from_group(group: String, tile: Vector2) -> Vector2:
 	if !tile:
 		tile = tilemap.get_used_cells_by_id(atlas_layers.get(group), atlas_ids.get(group), atlas_coords.get(group))[0]
 	if tile:
-		if group == "Anvil":
+		if group == "anvil":
 			return tilemap.map_to_local(tile)
 		else:
 			return tilemap.map_to_local(tile) - Vector2(0, -10)
@@ -384,19 +411,19 @@ func spawn_in_held_item(item: String):
 	if heldItem != null:
 		return
 	pickedUpItem = true
-	var sceneToCreate = scenes.get(item)
-	var node = sceneToCreate.instantiate()
+	var node = Sprite2D.new()
+	node.texture = WantBubbleFactory.get_tex(item)
+	add_child(node)
 	heldItem = node
 	node.add_to_group(item)
-	add_child(node)
 	node.scale = item_scales.get(item)
 	node.y_sort_enabled = false
 	node.z_index = 2
 	node.position = $Marker2D.position
 
 func spawn_finished_item(item: String, interactable):
-	var sceneToCreate = scenes.get(item)
-	var node = sceneToCreate.instantiate()
+	var node = Sprite2D.new()
+	node.texture = WantBubbleFactory.get_tex(item)
 	add_child(node)
 	node.scale = item_scales.get(item)
 	node.z_index = 6
@@ -406,11 +433,11 @@ func spawn_finished_item(item: String, interactable):
 	interactable.finished_item = node
 
 func remove_held_item() -> Node2D:
-		var node = heldItem
-		heldItem = null
-		pickedUpItem = false
-		remove_child(node)
-		return node
+	var node = heldItem
+	heldItem = null
+	pickedUpItem = false
+	remove_child(node)
+	return node
 		
 
 func create_timer() -> Node2D:

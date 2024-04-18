@@ -5,7 +5,7 @@ var anvil_collision_tile: Vector2 = Vector2(25, -5)
 var furnace_collision_tile: Vector2 = Vector2(28, -5)
 var trash_collision_tile: Vector2 = Vector2(25, -3)
 var tub_collision_tile: Vector2 = Vector2(29, -1)
-var groupNames = ["Bronze_Ore", "Gold_Ore", "Diamond_Ore"]
+var groupNames = ["bronze_ore", "gold_ore", "diamond_ore"]
 
 var furnaces = []
 var anvils = []
@@ -26,7 +26,7 @@ func _ready():
 		add_child(area)
 	
 	var anvil_area = create_collision_for_anvil(anvil_collision_tile)
-	anvil_area.add_to_group("Anvil")
+	anvil_area.add_to_group("anvil")
 	anvil_area.body_entered.connect(area_entered.bind(anvil_area))
 	anvil_area.body_exited.connect(area_exited.bind(anvil_area))
 	add_child(anvil_area)
@@ -44,16 +44,16 @@ func _ready():
 		"inventory": [],
 		"id": "Anvil",
 		"recipes": {
-			"Bronze_Shield": ["Bronze_Shield_Chunk"],
-			"Gold_Shield": ["Gold_Shield_Chunk"],
-			"Diamond_Shield": ["Diamond_Shield_Chunk"]
+			"bronze_shield": ["bronze_shield_chunk"],
+			"gold_shield": ["gold_shield_chunk"],
+			"diamond_shield": ["diamond_shield_chunk"]
 		},
 		"toast": anvil_toast,
 		"timer_position": Vector2(5, 40)
 	})
 	
 	var furnace_area = create_collision_for_furnace(furnace_collision_tile)
-	furnace_area.add_to_group("Furnace")
+	furnace_area.add_to_group("furnace")
 	furnace_area.body_entered.connect(area_entered.bind(furnace_area))
 	furnace_area.body_exited.connect(area_exited.bind(furnace_area))
 	add_child(furnace_area)
@@ -71,22 +71,22 @@ func _ready():
 		"inventory": [],
 		"id": "Furnace",
 		"recipes": {
-			"Bronze_Shield_Chunk": ["Bronze_Ore", "Bronze_Ore", "Bronze_Ore"],
-			"Gold_Shield_Chunk": ["Gold_Ore", "Gold_Ore", "Gold_Ore"],
-			"Diamond_Shield_Chunk": ["Diamond_Ore", "Diamond_Ore", "Diamond_Ore"],
+			"bronze_shield_chunk": ["bronze_ore", "bronze_ore", "bronze_ore"],
+			"gold_shield_chunk": ["gold_ore", "gold_ore", "gold_ore"],
+			"diamond_shield_chunk": ["diamond_ore", "diamond_ore", "diamond_ore"],
 		},
 		"toast": furnace_toast,
 		"timer_position": Vector2(0, 45)
 	})
 	
 	var trash_area = create_collision_for_single_tile(trash_collision_tile)
-	trash_area.add_to_group("Trash")
+	trash_area.add_to_group("trash")
 	trash_area.body_entered.connect(area_entered.bind(trash_area))
 	trash_area.body_exited.connect(area_exited.bind(trash_area))
 	add_child(trash_area)
 	
 	var tub_area = create_collision_for_tub(tub_collision_tile)
-	tub_area.add_to_group("Tub")
+	tub_area.add_to_group("tub")
 	tub_area.body_entered.connect(area_entered.bind(tub_area))
 	tub_area.body_exited.connect(area_exited.bind(tub_area))
 	add_child(tub_area)
@@ -103,12 +103,9 @@ func _ready():
 		"area": tub_area,
 		"inventory": [],
 		"recipes": {
-			"Polished_Bronze_Shield": ["Bronze_Shield"],
-			"Polished_Gold_Shield": ["Gold_Shield"],
-			"Polished_Diamond_Shield": ["Diamond_Shield"],
-			"Polished_Bronze_Sword": ["Bronze_Sword"],
-			"Polished_Gold_Sword": ["Gold_Sword"],
-			"Polished_Diamond_Sword": ["Diamond_Sword"]
+			"polished_bronze_shield": ["bronze_shield"],
+			"polished_gold_shield": ["gold_shield"],
+			"polished_diamond_shield": ["diamond_shield"],
 		},
 		"toast": tub_toast,
 		"timer_position": Vector2(19, 30)
