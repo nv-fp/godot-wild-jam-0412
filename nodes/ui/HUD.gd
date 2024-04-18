@@ -3,6 +3,7 @@ extends CanvasLayer
 @export var initial_display_sec: int = 180
 
 func start_level():
+	visible = true
 	$TimeDisplay.start()
 
 func update_score(value: int):
@@ -54,7 +55,7 @@ func _on_button_4_pressed():
 func _item_completed(id: String, points: int, remaining_ms: int):
 	var wb_idx = $OrderQueue.get_item_idx(id)
 	var wb = $OrderQueue.queue[wb_idx]
-	var percent = clampf(remaining_ms / (.75 * wb.complete_time_ms), 0, 1.0)
+	var percent = clampf(remaining_ms / (.75 * wb.complete_time_ms), .2, 1.0)
 	update_score((percent * points) as int)
 	$OrderQueue.remove_item(id)
 

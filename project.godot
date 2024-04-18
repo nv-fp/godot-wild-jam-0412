@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 WantBubbleFactory="*res://scripts/WantBubbleFactory.gd"
 Jukebox="*res://nodes/scenes/Jukebox.gd"
+Enums="*res://scripts/EnumVals.gd"
 
 [display]
 

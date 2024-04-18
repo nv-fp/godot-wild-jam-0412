@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dtwbxt24ih3r5"]
+[gd_scene load_steps=32 format=3 uid="uid://c1g0rk3jgoqyl"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_qvg4w"]
