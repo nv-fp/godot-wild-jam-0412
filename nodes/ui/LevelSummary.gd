@@ -8,6 +8,7 @@ signal progress
 signal to_menu
 
 var _hammer_count = 0
+var _credits_next = false
 
 func _get_message() -> String:
 	match _hammer_count:
@@ -21,7 +22,10 @@ func _get_message() -> String:
 
 func _get_progress_text() -> String:
 	if _hammer_count > 0:
-		return 'Next Level >'
+		if _credits_next:
+			return 'Credits >'
+		else:
+			return 'Next Level >'
 	return 'Retry'
 
 func _get_hammer(min: int) -> Texture2D:
@@ -36,8 +40,8 @@ func setup(score: int, score_limits: Array):
 			_hammer_count += 1
 
 	$Score/Hammer1.texture = _get_hammer(1)
-	$Score/Hammer1.texture = _get_hammer(2)
-	$Score/Hammer1.texture = _get_hammer(3)
+	$Score/Hammer2.texture = _get_hammer(2)
+	$Score/Hammer3.texture = _get_hammer(3)
 
 	$Message.text = _get_message()
 	$Progress.text = _get_progress_text()
@@ -59,7 +63,10 @@ func _progress_event(_viewport, event, _shape_idx):
 		return
 
 	if _hammer_count > 0:
-		progress.emit(Enums.ProgressType.NEXT_LEVEL)
+		if _credits_next:
+			progress.emit(Enums.ProgressType.CREDITS)
+		else:
+			progress.emit(Enums.ProgressType.NEXT_LEVEL)
 	else:
 		progress.emit(Enums.ProgressType.RETRY)
 

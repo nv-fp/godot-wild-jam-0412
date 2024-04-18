@@ -30,9 +30,7 @@ func update_score(value: int):
 
 func _ready():
 	$TimeDisplay.set_time(initial_display_sec)
-	var p = Jukebox.get_player()
 	$OrderTimer.wait_time = order_frequency_sec
-	add_child(p)
 
 	Jukebox.play_bg()
 

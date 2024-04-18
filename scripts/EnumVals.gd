@@ -8,4 +8,5 @@ enum StartMode {
 enum ProgressType{
 	NEXT_LEVEL,
 	RETRY,
+	CREDITS,
 }

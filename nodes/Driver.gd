@@ -26,11 +26,14 @@ func _ready():
 func _game_exit():
 	get_tree().quit()
 
+@onready var _curtain = $CanvasLayer/Curtain
+@onready var _level_summary = $CanvasLayer/LevelSummary
+
 # next: ?Callable
 func _curtain_in(next):
 	cur_tweener = get_tree().create_tween()
 	cur_tweener.tween_property(
-		$Curtain,
+		_curtain,
 		"modulate",
 		_color_fade_out,
 		1.5)
@@ -40,8 +43,8 @@ func _curtain_in(next):
 # next: ?Callable
 func _curtain_out(next):
 	cur_tweener = get_tree().create_tween()
-	cur_tweener.tween_property($Curtain, 'modulate', _color_fade_in, 1.5)
-	cur_tweener.tween_property($Curtain, 'modulate', _color_fade_in, 1)
+	cur_tweener.tween_property(_curtain, 'modulate', _color_fade_in, 1.5)
+	cur_tweener.tween_property(_curtain, 'modulate', _color_fade_in, 1)
 	if next != null:
 		cur_tweener.tween_callback(next)
 
@@ -53,7 +56,7 @@ func _game_start():
 var _color_fade_out = Color(0, 0, 0, 1)
 var _color_fade_in = Color(0, 0, 0, 0)
 func _load_level():
-	$LevelSummary.visible = false
+	_level_summary.visible = false
 	# remove the currently active level if there is one
 	if active_level != null:
 		remove_child(active_level)
@@ -70,12 +73,12 @@ func _load_level():
 	Jukebox.play_bg()
 
 func _load_menu():
-	$LevelSummary.visible = false
+	_level_summary.visible = false
 	if active_level != null:
 		remove_child(active_level)
 	
 	menu_system.visible = true
-	menu_system.modulate = Color.BLACK
+	menu_system.modulate = Color.WHITE
 	_curtain_out(null)
 	Jukebox.play_title()
 
@@ -85,8 +88,10 @@ func _level_fade_in_completed():
 
 func _level_completed(score: int):
 	print('level completed with score: ' + str(score))
-	$LevelSummary.setup(score, active_level.score_limits)
-	$LevelSummary.visible = true
+	if cur_level == levels.size() - 1:
+		_level_summary._credits_next = true
+	_level_summary.setup(score, active_level.score_limits)
+	_level_summary.visible = true
 	if active_level != null:
 		active_level.end_level()
 
@@ -96,8 +101,11 @@ func _summary_progress(typ: Enums.ProgressType):
 			cur_level -= 1
 		Enums.ProgressType.NEXT_LEVEL:
 			pass
+		Enums.ProgressType.CREDITS:
+			_summary_menu()
+			return
 
 	_game_start()
 
 func _summary_menu():
-	pass
+	_curtain_in(_load_menu)
