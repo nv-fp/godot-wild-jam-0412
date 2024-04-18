@@ -1,10 +1,25 @@
 extends CanvasLayer
 
 @export var initial_display_sec: int = 180
+@export var order_frequency_sec: int = 15
 
-func start_level():
+var _level_items
+
+func start_level(level_items):
 	visible = true
+	_level_items = level_items
 	$TimeDisplay.start()
+	$OrderTimer.wait_time = order_frequency_sec
+	$OrderTimer.start()
+	# start with a new order
+	_order_timer_triggered()
+
+func _order_timer_triggered():
+	if $OrderQueue.has_space():
+		var new_want = WantBubbleFactory.new_item(_level_items)
+		new_want.completed.connect(_item_completed)
+		new_want.timeout.connect(_item_missed)
+		$OrderQueue.add_item(new_want)
 
 func update_score(value: int):
 	$Score.update_score(value)
@@ -12,6 +27,7 @@ func update_score(value: int):
 func _ready():
 	$TimeDisplay.set_time(initial_display_sec)
 	var p = Jukebox.get_player()
+	$OrderTimer.wait_time = order_frequency_sec
 	add_child(p)
 
 	Jukebox.play_bg()
@@ -65,17 +81,19 @@ func _item_missed(_id: String):
 func pause():
 	$OrderQueue.pause()
 	$TimeDisplay.pause()
+	$OrderTimer.set_paused(true)
 
 func unpause():
 	$OrderQueue.unpause()
 	$TimeDisplay.unpause()
+	$OrderTimer.set_paused(false)
 
 func _toggle_pause(toggled_on):
 	if toggled_on:
-		$Button5.text = 'Unpause'
+		$DebugUI/Button5.text = 'Unpause'
 		pause()
 	else:
-		$Button5.text = 'Pause'
+		$DebugUI/Button5.text = 'Pause'
 		unpause()
 
 func _button(typ: String):

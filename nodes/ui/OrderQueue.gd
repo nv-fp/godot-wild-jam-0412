@@ -3,6 +3,8 @@ extends Node2D
 # Array<WantBubble>
 var queue = []
 
+@export var max_queue_size = 3
+
 func pause():
 	for wb in queue:
 		if wb != null:
@@ -30,16 +32,12 @@ func fill(typ: String) -> bool:
 func find_item(typ: String):
 	var options = []
 	for e in queue:
-		#print(e.id + ' -> ' + str(e.remaining_time_ms()))
 		if e.item_type == typ:
 			options.push_back(e)
 	if options.size() == 0:
 		return null
 
-	#print("---------------------")
 	options.sort_custom(func(a, b): return a.remaining_time_ms() < b.remaining_time_ms())
-	#for o in options:
-		#print(o.id + ' -> ' + str(o.remaining_time_ms()))
 
 	return options[0].id
 
@@ -69,7 +67,13 @@ func remove_item(id: String):
 	
 	return tgt
 
-func add_item(wb: WantBubble):
+func has_space() -> bool:
+	return queue.size() < max_queue_size
+
+func add_item(wb: WantBubble) -> bool:
+	if queue.size() == max_queue_size:
+		return false
+
 	wb.auto_free = false
 	queue.push_back(wb)
 
@@ -77,6 +81,8 @@ func add_item(wb: WantBubble):
 	wb.timeout.connect(_item_timeout)
 	wb.completed.connect(_item_filled)
 	_reflow(queue.size() - 1, wb)
+
+	return true
 
 func _item_timeout(id: String):
 	remove_item(id)
