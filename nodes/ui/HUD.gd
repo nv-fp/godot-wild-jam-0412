@@ -5,6 +5,10 @@ extends CanvasLayer
 
 var _level_items
 
+# Fires when the timer is done
+#  (score: int)
+signal level_completed
+
 func start_level(level_items):
 	visible = true
 	_level_items = level_items
@@ -32,8 +36,14 @@ func _ready():
 
 	Jukebox.play_bg()
 
-func _exit_tree():
-	remove_child(Jukebox.get_player())
+func _level_over():
+	$OrderQueue.pause()
+	$TimeDisplay.pause()
+	$OrderTimer.set_paused(true)
+	level_completed.emit($Score.cur_score)
+
+#func _exit_tree():
+	#remove_child(Jukebox.get_player())
 
 func _toggle_audio(toggled_on):
 	if toggled_on:

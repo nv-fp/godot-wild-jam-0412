@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://0uwkg1a2yx8f"]
+
+[ext_resource type="Script" path="res://nodes/ui/LevelSummary.gd" id="1_hel2b"]
+[ext_resource type="Texture2D" uid="uid://ukfsaepwrtt" path="res://art/level-summary/level_summary.png" id="1_xohrf"]
+[ext_resource type="Texture2D" uid="uid://barcecjuel6qv" path="res://art/level-summary/empty-hammer.png" id="3_1c1yb"]
+[ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="4_yhwya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgo2b"]
+size = Vector2(183, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gtpm"]
+size = Vector2(172, 25)
+
+[node name="LevelSummary" type="Node2D"]
+script = ExtResource("1_hel2b")
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(524, 264)
+texture = ExtResource("1_xohrf")
+
+[node name="Score" type="Node2D" parent="."]
+position = Vector2(337, 170)
+scale = Vector2(0.8, 0.8)
+
+[node name="Hammer1" type="Sprite2D" parent="Score"]
+position = Vector2(1.12828e-06, 47.3236)
+rotation = -0.296706
+texture = ExtResource("3_1c1yb")
+
+[node name="Hammer2" type="Sprite2D" parent="Score"]
+position = Vector2(215, 0)
+texture = ExtResource("3_1c1yb")
+
+[node name="Hammer3" type="Sprite2D" parent="Score"]
+position = Vector2(430, 47.3236)
+rotation = 0.296706
+texture = ExtResource("3_1c1yb")
+
+[node name="Message" type="Label" parent="."]
+offset_left = 341.0
+offset_top = 348.0
+offset_right = 692.0
+offset_bottom = 387.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 48
+text = "Level Complete!"
+
+[node name="Progress" type="Label" parent="."]
+offset_left = 820.0
+offset_top = 465.0
+offset_right = 1000.0
+offset_bottom = 491.0
+size_flags_horizontal = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 32
+text = "Next Level >"
+
+[node name="Area2D" type="Area2D" parent="Progress"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Progress/Area2D"]
+position = Vector2(89.5, 12)
+shape = SubResource("RectangleShape2D_jgo2b")
+
+[node name="Menu" type="Label" parent="."]
+offset_left = 36.0
+offset_top = 465.0
+offset_right = 208.0
+offset_bottom = 491.0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 32
+text = "< Main Menu"
+
+[node name="Area2D" type="Area2D" parent="Menu"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2D"]
+position = Vector2(86, 11.5)
+shape = SubResource("RectangleShape2D_8gtpm")
+
+[connection signal="input_event" from="Progress/Area2D" to="." method="_progress_event"]
+[connection signal="mouse_entered" from="Progress/Area2D" to="." method="_progress_enter"]
+[connection signal="mouse_exited" from="Progress/Area2D" to="." method="_progress_exit"]
+[connection signal="input_event" from="Menu/Area2D" to="." method="_menu_event"]
+[connection signal="mouse_entered" from="Menu/Area2D" to="." method="_menu_enter"]
+[connection signal="mouse_exited" from="Menu/Area2D" to="." method="_menu_exit"]

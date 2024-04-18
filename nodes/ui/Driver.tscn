@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dao4lr15cqhil"]
+[gd_scene load_steps=4 format=3 uid="uid://dao4lr15cqhil"]
 
 [ext_resource type="Script" path="res://nodes/Driver.gd" id="1_pg7lk"]
 [ext_resource type="Script" path="res://nodes/ui/Curtain.gd" id="2_1ugqh"]
+[ext_resource type="PackedScene" uid="uid://0uwkg1a2yx8f" path="res://nodes/ui/LevelSummary.tscn" id="3_myki5"]
 
 [node name="Driver" type="Node2D"]
 script = ExtResource("1_pg7lk")
@@ -11,3 +12,13 @@ modulate = Color(0, 0, 0, 0)
 top_level = true
 z_index = 4096
 script = ExtResource("2_1ugqh")
+
+[node name="LevelSummary" parent="." instance=ExtResource("3_myki5")]
+visible = false
+z_index = 4000
+position = Vector2(264, 100)
+scale = Vector2(0.4, 0.4)
+hammer_limits = [150, 300, 450]
+
+[connection signal="progress" from="LevelSummary" to="." method="_summary_progress"]
+[connection signal="to_menu" from="LevelSummary" to="." method="_summary_menu"]

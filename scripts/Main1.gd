@@ -1,11 +1,8 @@
 extends Node2D
 
 @export var level_items = [
-	'bronze_sword',
 	'bronze_shield',
-	'gold_sword',
 	'gold_shield',
-	'diamond_sword',
 	'diamond_shield'
 ]
 
@@ -13,3 +10,6 @@ extends Node2D
 func start_level():
 	$Hud.visible = true
 	$Hud.start_level(level_items)
+
+func end_level():
+	$Level.end_level()

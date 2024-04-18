@@ -1,5 +1,6 @@
-[gd_scene load_steps=28 format=3 uid="uid://ddy044qenymg5"]
+[gd_scene load_steps=29 format=3 uid="uid://ddy044qenymg5"]
 
+[ext_resource type="Script" path="res://scripts/Level1.gd" id="1_2op5i"]
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_hinuh"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_wcgui"]
 [ext_resource type="Script" path="res://scripts/TileMap.gd" id="2_07rq8"]
@@ -481,6 +482,7 @@ sources/9 = SubResource("TileSetAtlasSource_d536k")
 tile_proxies/coords_level = [[8, Vector2i(0, 0)], [12, Vector2i(0, 0)], [8, Vector2i(1, 0)], [12, Vector2i(1, 0)], [8, Vector2i(2, 0)], [12, Vector2i(2, 0)], [8, Vector2i(3, 0)], [12, Vector2i(3, 0)], [11, Vector2i(0, 0)], [12, Vector2i(4, 0)], [11, Vector2i(1, 0)], [12, Vector2i(5, 0)], [11, Vector2i(2, 0)], [12, Vector2i(6, 0)], [11, Vector2i(3, 0)], [12, Vector2i(7, 0)]]
 
 [node name="Level 1" type="Node2D"]
+script = ExtResource("1_2op5i")
 
 [node name="Walls" type="TileMap" parent="."]
 y_sort_enabled = true

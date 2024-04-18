@@ -243,3 +243,6 @@ func _on_area_2d_body_entered(body):
 func _on_area_2d_body_exited(body):
 	if body == $Blacksmith:
 		$Blacksmith.z_index = 1
+
+func end_level():
+	$Blacksmith.end_level()

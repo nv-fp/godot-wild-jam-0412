@@ -397,12 +397,20 @@ func create_timer() -> Node2D:
 	timer.bar_height = 10 * 6
 	return timer
 
+func end_level():
+	level_over = true
+var level_over = false
+
 func _physics_process(_delta) -> void:
+	if level_over:
+		return
 	if !smithingItem:
 		basic_movement()
 	show_interact_button()
 	
 func _process(_delta) -> void:
+	if level_over:
+		return
 	if smithingItem:
 		return
 	if Input.is_action_just_pressed("interaction"):

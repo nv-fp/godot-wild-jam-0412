@@ -58,9 +58,6 @@ func _over_button(b: Sprite2D):
 func _exit_button(b: Sprite2D):
 	b.modulate = Color.WHITE
 
-func _is_click(event: InputEvent) -> bool:
-	return event.is_class('InputEventMouseButton') and event.pressed
-
 func _start_over():
 	_over_button($MainMenuBG/StartButton)
 
@@ -70,8 +67,8 @@ func _start_exit():
 func _start_input(_viewport, event: InputEvent, _shape_idx):
 	if not has_displayed_intro_animation:
 		return
-	if _is_click(event):
-		start_game.emit(Enums.StartMode.NORMAL, '')
+	if InputUtil.is_click(event):
+		start_game.emit()
 
 func _quit_over():
 	_over_button($MainMenuBG/QuitButton)
@@ -80,7 +77,7 @@ func _quit_exit():
 	_exit_button($MainMenuBG/QuitButton)
 
 func _quit_event(viewport, event, shape_idx):
-	if _is_click(event):
+	if InputUtil.is_click(event):
 		quit_game.emit()
 
 func _over_credits():

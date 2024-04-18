@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d30b0w2xir4di"]
+
+[ext_resource type="Script" path="res://scripts/Main2.gd" id="1_m7l1w"]
+[ext_resource type="PackedScene" uid="uid://bty8lytcdurqn" path="res://nodes/ui/HUD.tscn" id="2_nhlxf"]
+[ext_resource type="PackedScene" uid="uid://c1g0rk3jgoqyl" path="res://nodes/scenes/Level2.tscn" id="3_vpcqs"]
+
+[node name="Main2" type="Node2D"]
+script = ExtResource("1_m7l1w")
+
+[node name="Hud" parent="." instance=ExtResource("2_nhlxf")]
+visible = false
+initial_display_sec = 10
+
+[node name="Level" parent="." instance=ExtResource("3_vpcqs")]
