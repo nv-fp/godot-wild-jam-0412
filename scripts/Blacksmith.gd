@@ -105,10 +105,13 @@ func basic_movement():
 	var step: int = snapped(angle, PI/4) / (PI/4)
 	var index: int = wrapi(int(step), 0, 8)	
 	if input_direction.length() != 0:
+		if $Footsteps.playing == false:
+			$Footsteps.playing = true
 		$AnimatedSprite2D.animation = directions[index]
 		last_direction = directions[index]
 		last_direction_vector = input_direction
 	else:
+		$Footsteps.playing = false
 		$AnimatedSprite2D.animation = "idle_" + last_direction
 		
 	$AnimatedSprite2D.play()
@@ -136,6 +139,7 @@ func handle_interaction_input() -> void:
 			"diamond_ore","gold_ore","bronze_ore","leather_hide", "wood":
 				if heldItem == null:
 					spawn_in_held_item(group)
+					$GrabItem.playing = true
 			"anvil":
 				var anvil = tilemap.anvils.filter(func (a): return a.area == interactable).front()
 
@@ -303,6 +307,7 @@ func handle_start_interaction_input():
 			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				if furnace.recipes.has(furnace.recipe) && !furnace.smelting:
+					$LightFurnace.play()
 					print("Starting smelting for " + furnace.recipe)
 					furnace.toast.clear()
 					furnace.smelting = true
@@ -312,6 +317,7 @@ func handle_start_interaction_input():
 					add_child(furnace.timer)
 					furnace.timer.start()
 					furnace.timer.position = get_location_from_group(group, furnace.tile) - furnace.timer_position
+					
 
 
 func get_location_from_group(group: String, tile: Vector2) -> Vector2:
@@ -334,6 +340,7 @@ func furnace_timer_timeout(_id: String, furnace):
 	
 
 func clear_interactable(interactable):
+	$GrabItem.playing = true
 	print("Picking up item from interactable")
 	var item = interactable.inventory[0]
 	interactable.recipe = null
