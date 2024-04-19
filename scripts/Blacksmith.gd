@@ -305,7 +305,7 @@ func handle_interaction_input() -> void:
 				if heldItem != null:
 					var queue = get_tree().current_scene.active_level.get_node("Hud").get_node("OrderQueue")
 					var item = heldItem.get_groups()[0]
-					if queue.fill(item):
+					if item.begins_with("polished") && queue.fill("_".join(item.split("_").slice(1))):
 						remove_held_item()
 						# PLAY DING SOUND OR COMPLETED ORDER SOUND
 					
