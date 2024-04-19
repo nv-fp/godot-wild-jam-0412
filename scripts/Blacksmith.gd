@@ -122,6 +122,7 @@ func basic_movement():
 func show_interact_button():
 	if interactable && !smithingItem:
 		var group = interactable.get_groups()[0]
+		if group == "delivery": return
 		var tile = tilemap.get_used_cells_by_id(atlas_layers.get(group), atlas_ids.get(group), atlas_coords.get(group))[0]
 		if tile:
 			$InteractPrompt.visible = true
@@ -302,8 +303,9 @@ func handle_interaction_input() -> void:
 					remove_held_item()
 			"delivery":
 				if heldItem != null:
-					var queue = $Tilemap.get_parent().get_parent().get_node("Hud").get_node("OrderQueue")
-					if queue.fill(heldItem):
+					var queue = get_tree().current_scene.active_level.get_node("Hud").get_node("OrderQueue")
+					var item = heldItem.get_groups()[0]
+					if queue.fill(item):
 						remove_held_item()
 						# PLAY DING SOUND OR COMPLETED ORDER SOUND
 					

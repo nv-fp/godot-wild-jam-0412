@@ -589,7 +589,7 @@ layer_5/z_index = 5
 layer_5/tile_data = PackedInt32Array()
 script = ExtResource("11_smvx2")
 
-[node name="DeliveryArea" type="Area2D" parent="TileMap"]
+[node name="DeliveryArea" type="Area2D" parent="TileMap" groups=["delivery"]]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/DeliveryArea"]
 z_index = 1

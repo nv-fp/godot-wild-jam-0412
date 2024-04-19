@@ -560,7 +560,7 @@ layer_5/z_index = 5
 layer_5/tile_data = PackedInt32Array()
 script = ExtResource("2_07rq8")
 
-[node name="DeliveryArea" type="Area2D" parent="Tilemap"]
+[node name="DeliveryArea" type="Area2D" parent="Tilemap" groups=["delivery"]]
 z_index = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Tilemap/DeliveryArea"]
