@@ -122,14 +122,11 @@ func basic_movement():
 	
 func show_interact_button():
 	if interactable:
-		var group = interactable.get_groups()[0]
-		if group == "delivery": return
-		var tile = tilemap.get_used_cells_by_id(atlas_layers.get(group), atlas_ids.get(group), atlas_coords.get(group))[0]
-		if tile:
-			$InteractPrompt.visible = true
-			$InteractPrompt.position = tilemap.map_to_local(tile) - Vector2(0, -10)
+		$InteractPrompt.visible = true
+		if !heldItem:
+			$InteractPrompt.position = position + Vector2(0, 20)
 		else:
-			$InteractPrompt.visible = false
+			$InteractPrompt.position = position + Vector2(0, 5)
 	else:
 		$InteractPrompt.visible = false
 
