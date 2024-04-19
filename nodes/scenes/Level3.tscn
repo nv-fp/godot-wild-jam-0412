@@ -705,12 +705,12 @@ polygon = PackedVector2Array(560, 240, 588, 255, 576, 262, 548, 247)
 position = Vector2(554, 239)
 
 [node name="Blacksmith" parent="TileMap" instance=ExtResource("3_jp4lu")]
-position = Vector2(459, 298)
+position = Vector2(501, 231)
 collision_mask = 1
 
 [node name="Camera2D" type="Camera2D" parent="TileMap"]
 position = Vector2(504, 267)
-zoom = Vector2(2, 2)
+zoom = Vector2(1.7, 1.7)
 
 [connection signal="body_entered" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_exited"]

@@ -21,8 +21,6 @@ var mat_toast = preload('res://nodes/ui/MaterialToast.tscn')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Camera2D.position = $Blacksmith.position
-
 	for i in range($Crates.get_child_count()):
 		var area: Area2D = $Crates.get_node(groupNames[i])
 		area.body_entered.connect(area_entered.bind(area))
