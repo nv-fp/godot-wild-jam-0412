@@ -10,5 +10,8 @@ func _ready():
 func _process(delta):
 	pass
 
+func start_level():
+	$Tilemap/Blacksmith.start_level()
+
 func end_level():
 	$Tilemap/Blacksmith.end_level()

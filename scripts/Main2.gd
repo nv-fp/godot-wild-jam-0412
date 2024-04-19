@@ -15,6 +15,7 @@ extends Node2D
 func start_level():
 	$Hud.visible = true
 	$Hud.start_level(level_items)
+	$Level.get_node('TileMap').start_level()
 
 func end_level():
 	$Level.get_node('TileMap').end_level()
