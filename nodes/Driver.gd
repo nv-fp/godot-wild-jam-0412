@@ -4,6 +4,10 @@ var menu_system
 var cur_tweener
 var active_level
 
+# controls whether we can hit start -- needed to prevent folks\
+# spamming start and jumping levels
+var _can_start = true
+
 @export var levels = [
 	preload('res://nodes/scenes/Main1.tscn'),
 	preload('res://nodes/scenes/Main2.tscn'),
@@ -44,14 +48,19 @@ func _curtain_in(next):
 func _curtain_out(next):
 	cur_tweener = get_tree().create_tween()
 	cur_tweener.tween_property(_curtain, 'modulate', _color_fade_in, 1.5)
-	cur_tweener.tween_property(_curtain, 'modulate', _color_fade_in, 1)
+	#cur_tweener.tween_property(_curtain, 'modulate', _color_fade_in, 1)
 	if next != null:
 		cur_tweener.tween_callback(next)
 
+var max_level = 0
 
+# handles button presses so we can filter out spamming the start button
 func _game_start():
+	if not _can_start:
+		return
+	_can_start = false
+	cur_level = max_level
 	_curtain_in(_load_level)
-	cur_level += 1
 
 var _color_fade_out = Color(0, 0, 0, 1)
 var _color_fade_in = Color(0, 0, 0, 0)
@@ -63,7 +72,6 @@ func _load_level():
 	cur_tweener = null
 
 	active_level = levels[cur_level].instantiate()
-	#active_level.modulate = Color.BLACK
 	add_child(active_level)
 	menu_system.visible = false
 	menu_system.modulate = Color.WHITE
@@ -79,6 +87,7 @@ func _load_menu():
 	
 	menu_system.visible = true
 	menu_system.modulate = Color.WHITE
+	_can_start = true
 	_curtain_out(null)
 	Jukebox.play_title()
 
@@ -115,12 +124,15 @@ func _summary_progress(typ: Enums.ProgressType):
 		Enums.ProgressType.RETRY:
 			cur_level -= 1
 		Enums.ProgressType.NEXT_LEVEL:
-			pass
+			cur_level += 1
 		Enums.ProgressType.CREDITS:
 			_summary_menu()
 			return
 
-	_game_start()
+	if cur_level > max_level:
+		max_level = cur_level
+
+	_curtain_in(_load_level)
 
 func _summary_menu():
 	_curtain_in(_load_menu)

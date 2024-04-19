@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://nodes/Driver.gd" id="1_pg7lk"]
 [ext_resource type="Script" path="res://nodes/ui/Curtain.gd" id="2_1ugqh"]
-[ext_resource type="PackedScene" path="res://nodes/ui/LevelSummary.tscn" id="3_myki5"]
-[ext_resource type="PackedScene" path="res://nodes/ui/TutorialCard.tscn" id="4_vyawf"]
+[ext_resource type="PackedScene" uid="uid://0uwkg1a2yx8f" path="res://nodes/ui/LevelSummary.tscn" id="3_myki5"]
+[ext_resource type="PackedScene" uid="uid://mxsv78s4n8l5" path="res://nodes/ui/TutorialCard.tscn" id="4_vyawf"]
 
 [node name="Driver" type="Node2D"]
 script = ExtResource("1_pg7lk")

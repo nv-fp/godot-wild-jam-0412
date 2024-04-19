@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
-var immobile = false
+var immobile = true
 
 var atlas_coords = {
 	"bronze_ore": Vector2(2, 0),
@@ -403,6 +403,9 @@ func create_timer() -> Node2D:
 	timer.radius = 5
 	timer.bar_height = 10 * 6
 	return timer
+
+func start_level():
+	set_immobile(false)
 
 func end_level():
 	set_immobile(true)

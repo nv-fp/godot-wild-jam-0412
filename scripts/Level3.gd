@@ -190,5 +190,8 @@ func _on_area_2d_body_exited(body):
 	if body == $Blacksmith:
 		$Blacksmith.z_index = 1
 
+func start_level():
+	$Blacksmith.start_level()
+
 func end_level():
 	$Blacksmith.end_level()
