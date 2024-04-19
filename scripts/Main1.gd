@@ -6,10 +6,11 @@ extends Node2D
 	'diamond_shield'
 ]
 
-@export var score_limits = [-1000, 200, 400]
+@export var score_limits = [100, 200, 400]
 
 # Called when the node enters the scene tree for the first time.
 func start_level():
+	
 	$Hud.visible = true
 	$Hud.start_level(level_items)
 
