@@ -285,7 +285,9 @@ func handle_interaction_input() -> void:
 						add_child(table.timer)
 						table.timer.position = get_location_from_group(group, table.tile) - table.timer_position
 						table.timer.start()
+						$Crafting.playing = true
 						await table.timer.timeout
+						$Crafting.playing = false
 						table.inventory = [table.recipe]
 						table.timer.queue_free()
 						table.timer = null
