@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
-var immobile = true
+var immobile = false
 
 var atlas_coords = {
 	"bronze_ore": Vector2(2, 0),
