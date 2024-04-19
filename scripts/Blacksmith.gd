@@ -7,6 +7,12 @@ extends CharacterBody2D
 
 var immobile = true
 
+var polishing_time = 5
+var anvil_time = 5
+var furnace_time = 5
+var craft_time = 5
+
+
 var atlas_coords = {
 	"bronze_ore": Vector2(2, 0),
 	"gold_ore": Vector2(3, 0),
@@ -161,7 +167,7 @@ func handle_interaction_input() -> void:
 						immobile = true
 						anvil.smithing = true
 						anvil.timer = create_timer()
-						anvil.timer.run_time = 5
+						anvil.timer.run_time = anvil_time
 						add_child(anvil.timer)
 						anvil.timer.position = get_location_from_group(group, anvil.tile) - anvil.timer_position
 						anvil.timer.start()
@@ -253,7 +259,7 @@ func handle_interaction_input() -> void:
 						table.toast.clear()
 						table.crafting = true
 						table.timer = create_timer()
-						table.timer.run_time = 5
+						table.timer.run_time = craft_time
 						add_child(table.timer)
 						table.timer.position = get_location_from_group(group, table.tile) - table.timer_position
 						table.timer.start()
@@ -286,7 +292,7 @@ func handle_interaction_input() -> void:
 					if tub.recipes.has(tub.recipe) && tub.inventory == tub.recipes.get(tub.recipe) && !tub.polishing:
 						tub.polishing = true
 						tub.timer = create_timer()
-						tub.timer.run_time = 5
+						tub.timer.run_time = polishing_time
 						add_child(tub.timer)
 						tub.timer.position = get_location_from_group(group, tub.tile) - tub.timer_position
 						tub.timer.start()
@@ -320,7 +326,7 @@ func handle_start_interaction_input():
 					furnace.smelting = true
 					furnace.timer = create_timer()
 					furnace.timer.connect("timeout", furnace_timer_timeout.bind(furnace))
-					furnace.timer.run_time = 5
+					furnace.timer.run_time = furnace_time
 					add_child(furnace.timer)
 					furnace.timer.start()
 					furnace.timer.position = get_location_from_group(group, furnace.tile) - furnace.timer_position
