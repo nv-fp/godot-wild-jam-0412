@@ -33,7 +33,7 @@ func _get_hammer(min: int) -> Texture2D:
 		return preload('res://art/level-summary/full-hammer.png')
 	return preload('res://art/level-summary/empty-hammer.png')
 
-func setup(score: int, score_limits: Array):
+func setup(score: int, score_limits: Array, orders_filled: int, orders_missed: int):
 	_hammer_count = 0
 	for tgt in score_limits:
 		if score > tgt:
