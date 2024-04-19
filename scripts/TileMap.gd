@@ -202,13 +202,13 @@ func _process(_delta):
 # Dirty hack to get z_index clipping working
 func _on_area_2d_body_entered(body):
 	if body == $Blacksmith:
-		var tile_data = get_cell_tile_data(2, Vector2(31, -5))
-		tile_data.z_index = 6
+		#var tile_data = get_cell_tile_data(2, Vector2(31, -5))
+		#tile_data.z_index = 6
 		$Blacksmith.z_index = 5
 
 
 func _on_area_2d_body_exited(body):
 	if body == $Blacksmith:
-		var tile_data = get_cell_tile_data(2, Vector2(31, -5))
-		tile_data.z_index = 1
+		#var tile_data = get_cell_tile_data(2, Vector2(31, -5))
+		#tile_data.z_index = 1
 		$Blacksmith.z_index = 1

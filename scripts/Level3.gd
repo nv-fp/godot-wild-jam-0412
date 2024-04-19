@@ -132,7 +132,6 @@ func _ready():
 	trash_area.add_to_group("trash")
 	trash_area.body_entered.connect(area_entered.bind(trash_area))
 	trash_area.body_exited.connect(area_exited.bind(trash_area))
-	add_child(trash_area)
 	
 	for i in range($Tubs.get_child_count()):
 		var tub = $Tubs.get_node("Tubs" + str(i))
