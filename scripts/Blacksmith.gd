@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
+var immobile = false
+
 var atlas_coords = {
 	"bronze_ore": Vector2(2, 0),
 	"gold_ore": Vector2(3, 0),
@@ -91,7 +93,6 @@ var pickedUpItem = false
 var heldItem: Node2D
 var interactable: Area2D
 
-var smithingItem: bool = false
 var smithingTimerScene: PackedScene = preload("res://nodes/scenes/cowndown_timer.tscn")
 var smithingTimer: Node2D
 
@@ -120,7 +121,7 @@ func basic_movement():
 	
 	
 func show_interact_button():
-	if interactable && !smithingItem:
+	if interactable:
 		var group = interactable.get_groups()[0]
 		if group == "delivery": return
 		var tile = tilemap.get_used_cells_by_id(atlas_layers.get(group), atlas_ids.get(group), atlas_coords.get(group))[0]
@@ -160,7 +161,7 @@ func handle_interaction_input() -> void:
 					anvil.recipe = "_".join(item.split("_").slice(0, 2))
 					
 					if anvil.recipes.has(anvil.recipe):
-						smithingItem = true
+						immobile = true
 						anvil.smithing = true
 						anvil.timer = create_timer()
 						anvil.timer.run_time = 5
@@ -168,7 +169,7 @@ func handle_interaction_input() -> void:
 						anvil.timer.position = get_location_from_group(group, anvil.tile) - anvil.timer_position
 						anvil.timer.start()
 						await anvil.timer.timeout
-						smithingItem = false
+						immobile = false
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
 						anvil.timer = null
@@ -407,20 +408,18 @@ func create_timer() -> Node2D:
 	return timer
 
 func end_level():
-	level_over = true
-var level_over = false
+	set_immobile(true)
 
 func _physics_process(_delta) -> void:
-	if level_over:
-		return
-	if !smithingItem:
+	if !immobile:
 		basic_movement()
-	show_interact_button()
+		show_interact_button()
+	
+func set_immobile(true_or_false):
+	immobile = true_or_false
 	
 func _process(_delta) -> void:
-	if level_over:
-		return
-	if smithingItem:
+	if immobile:
 		return
 	if Input.is_action_just_pressed("interaction"):
 		handle_interaction_input()
