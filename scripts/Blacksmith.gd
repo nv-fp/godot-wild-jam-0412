@@ -369,6 +369,8 @@ func spawn_in_held_item(item: String):
 	node.scale = item_scales.get(item)
 	node.y_sort_enabled = false
 	node.z_index = 2
+	if item.ends_with("sword") || item.ends_with("staff") || item.ends_with("blade"):
+		node.rotation_degrees = 90
 	node.position = $Marker2D.position
 
 func spawn_finished_item(item: String, interactable):
@@ -380,6 +382,9 @@ func spawn_finished_item(item: String, interactable):
 	node.y_sort_enabled = false
 	node.position = interactable.toast.position
 	node.top_level = true
+	print(item)
+	if item.ends_with("sword") || item.ends_with("staff") || item.ends_with("blade"):
+		node.rotation_degrees = 90
 	interactable.finished_item = node
 
 func remove_held_item() -> Node2D:

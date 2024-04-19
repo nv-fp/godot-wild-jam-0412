@@ -76,9 +76,13 @@ func add_material(type: String):
 	bg_node.z_index = 6
 	node.top_level = true
 	bg_node.top_level = true
-	
+
 	node.scale = Vector2(0.3, 0.3)
 	bg_node.scale = Vector2(0.65, 0.65)
+	
+	if type.ends_with("sword") || type.ends_with("staff") || type.ends_with("blade"):
+		node.rotation_degrees = 90
+		node.scale = Vector2(0.4, 0.4)
 	
 	add_child(bg_node)
 	add_child(node)
