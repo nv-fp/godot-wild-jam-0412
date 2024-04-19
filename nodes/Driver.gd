@@ -82,12 +82,27 @@ func _load_menu():
 	_curtain_out(null)
 	Jukebox.play_title()
 
+func _get_tutorial_type():
+	match cur_level:
+		0:
+			return Enums.TutorialCard.SHIELD
+		1:
+			return Enums.TutorialCard.SWORD
+		2:
+			return Enums.TutorialCard.STAFF
+		_:
+			assert(false)
+
 func _level_fade_in_completed():
 	cur_tweener = null
+	$CanvasLayer/TutorialCard.setup(_get_tutorial_type())
+	$CanvasLayer/TutorialCard.visible = true
+
+func _tutorial_card_clear():
+	$CanvasLayer/TutorialCard.visible = false
 	active_level.start_level()
 
 func _level_completed(score: int):
-	print('level completed with score: ' + str(score))
 	if cur_level == levels.size() - 1:
 		_level_summary._credits_next = true
 	_level_summary.setup(score, active_level.score_limits)

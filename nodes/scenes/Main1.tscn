@@ -9,6 +9,6 @@ script = ExtResource("1_mk1rs")
 
 [node name="Hud" parent="." instance=ExtResource("2_nmfpu")]
 visible = false
-initial_display_sec = 10
+initial_display_sec = 120
 
 [node name="Level" parent="." instance=ExtResource("3_b5mw0")]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://mxsv78s4n8l5"]
+
+[ext_resource type="Script" path="res://nodes/ui/TutorialCard.gd" id="1_kmt1j"]
+[ext_resource type="Texture2D" uid="uid://ukfsaepwrtt" path="res://art/level-summary/level_summary.png" id="2_khy8r"]
+[ext_resource type="Texture2D" uid="uid://csj47fk8x4mql" path="res://art/tutorial-card/shield-text.png" id="3_ypemw"]
+[ext_resource type="Texture2D" uid="uid://c3fi60dbpkr2m" path="res://art/tutorial-card/sword-text.png" id="4_mg6h8"]
+[ext_resource type="Texture2D" uid="uid://d4uucflrltmi" path="res://art/tutorial-card/staff-text.png" id="5_x6otf"]
+[ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="6_wjwgq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwhod"]
+size = Vector2(104, 22)
+
+[node name="TutorialCard" type="Node2D"]
+script = ExtResource("1_kmt1j")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(522, 265)
+texture = ExtResource("2_khy8r")
+
+[node name="Shield" type="Sprite2D" parent="Background"]
+visible = false
+texture = ExtResource("3_ypemw")
+
+[node name="Sword" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(13, -24)
+texture = ExtResource("4_mg6h8")
+
+[node name="Staff" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(-24, -75)
+texture = ExtResource("5_x6otf")
+
+[node name="Start" type="Label" parent="."]
+offset_left = 890.0
+offset_top = 460.0
+offset_right = 996.0
+offset_bottom = 486.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_wjwgq")
+theme_override_font_sizes/font_size = 32
+text = "Start >"
+
+[node name="Area2D" type="Area2D" parent="Start"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Area2D"]
+position = Vector2(53, 12)
+shape = SubResource("RectangleShape2D_lwhod")
+
+[connection signal="input_event" from="Start/Area2D" to="." method="_start_event"]
+[connection signal="mouse_entered" from="Start/Area2D" to="." method="_start_enter"]
+[connection signal="mouse_exited" from="Start/Area2D" to="." method="_start_exit"]
