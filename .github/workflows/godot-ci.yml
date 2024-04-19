@@ -1,5 +1,8 @@
 name: "godot-ci export"
-on: push
+on:
+  push:
+    branches:
+      - main
 
 env:
   GODOT_VERSION: 4.2.2
@@ -91,7 +94,7 @@ jobs:
           path: build/web
       - name: Install rsync 📚
         run: |
-          apt-get update && apt-get install -y rsync
+          apt-get update && apt-get install -y rsync curl
       - name: Patch for Cross Origin Isolation and SharedArrayBuffer
         run: |
           cd build/web/
