@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
-var immobile = false
+var immobile = true
 
 var polishing_time = 5
 var anvil_time = 5
@@ -174,7 +174,9 @@ func handle_interaction_input() -> void:
 						add_child(anvil.timer)
 						anvil.timer.position = get_location_from_group(group, anvil.tile) - anvil.timer_position
 						anvil.timer.start()
+						$Anviling.playing = true
 						await anvil.timer.timeout
+						$Anviling.playing = false
 						immobile = false
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
