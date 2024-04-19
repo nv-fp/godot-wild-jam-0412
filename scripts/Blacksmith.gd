@@ -7,10 +7,10 @@ extends CharacterBody2D
 
 var immobile = true
 
-var polishing_time = 5
-var anvil_time = 5
-var furnace_time = 5
-var craft_time = 5
+var polishing_time = 3
+var anvil_time = 3
+var furnace_time = 3
+var craft_time = 3
 
 
 var atlas_coords = {
