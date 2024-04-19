@@ -111,10 +111,10 @@ func _tutorial_card_clear():
 	$CanvasLayer/TutorialCard.visible = false
 	active_level.start_level()
 
-func _level_completed(score: int):
+func _level_completed(score: int, orders_filled: int, orders_missed: int):
 	if cur_level == levels.size() - 1:
 		_level_summary._credits_next = true
-	_level_summary.setup(score, active_level.score_limits)
+	_level_summary.setup(score, active_level.score_limits, orders_filled, orders_missed)
 	_level_summary.visible = true
 	if active_level != null:
 		active_level.end_level()

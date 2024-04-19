@@ -6,7 +6,7 @@ extends CanvasLayer
 var _level_items
 
 # Fires when the timer is done
-#  (score: int)
+#  (score: int, orders_filled: int, orders_missed: int)
 signal level_completed
 
 func start_level(level_items):
@@ -38,7 +38,7 @@ func _level_over():
 	$OrderQueue.pause()
 	$TimeDisplay.pause()
 	$OrderTimer.set_paused(true)
-	level_completed.emit($Score.cur_score)
+	level_completed.emit($Score.cur_score, item_completed, item_missed)
 
 #func _exit_tree():
 	#remove_child(Jukebox.get_player())
@@ -76,7 +76,11 @@ func _on_button_4_pressed():
 	wb.timeout.connect(_item_missed)
 	$OrderQueue.add_item(wb)
 
+var item_completed = 0
+var item_missed = 0
+
 func _item_completed(id: String, points: int, remaining_ms: int):
+	item_completed += 1
 	var wb_idx = $OrderQueue.get_item_idx(id)
 	var wb = $OrderQueue.queue[wb_idx]
 	var percent = clampf(remaining_ms / (.75 * wb.complete_time_ms), .2, 1.0)
@@ -84,6 +88,7 @@ func _item_completed(id: String, points: int, remaining_ms: int):
 	$OrderQueue.remove_item(id)
 
 func _item_missed(_id: String):
+	item_missed += 1
 	update_score(-50)
 
 func pause():
