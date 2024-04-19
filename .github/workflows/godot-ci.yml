@@ -18,7 +18,7 @@ jobs:
           lfs: true
         - name: Issue 120
         run: |
-	        mkdir -p /github/home/.config/godot
+          mkdir -p /github/home/.config/godot
           cp /root/.config/godot/editor_settings-4.tres /github/home/.config/godot/
       - name: Setup
         run: |
