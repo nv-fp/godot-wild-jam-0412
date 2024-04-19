@@ -85,6 +85,9 @@ func _ready():
 	trash_area.body_exited.connect(area_exited.bind(trash_area))
 	add_child(trash_area)
 	
+	$DeliveryArea.body_entered.connect(area_entered.bind($DeliveryArea))
+	$DeliveryArea.body_exited.connect(area_exited.bind($DeliveryArea))
+	
 	var tub_area = create_collision_for_tub(tub_collision_tile)
 	tub_area.add_to_group("tub")
 	tub_area.body_entered.connect(area_entered.bind(tub_area))

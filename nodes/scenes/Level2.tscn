@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c1g0rk3jgoqyl"]
+[gd_scene load_steps=32 format=3 uid="uid://dtwbxt24ih3r5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_qvg4w"]
@@ -588,6 +588,12 @@ layer_5/y_sort_origin = 5
 layer_5/z_index = 5
 layer_5/tile_data = PackedInt32Array()
 script = ExtResource("11_smvx2")
+
+[node name="DeliveryArea" type="Area2D" parent="TileMap"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/DeliveryArea"]
+z_index = 1
+polygon = PackedVector2Array(676, 263, 704, 249, 747, 272, 720, 285)
 
 [node name="ZIndexArea" type="Area2D" parent="TileMap"]
 

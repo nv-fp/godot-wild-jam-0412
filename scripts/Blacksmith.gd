@@ -298,8 +298,15 @@ func handle_interaction_input() -> void:
 						tub.timer = null
 			"trash":
 				if heldItem != null:
+					$TrashCan.playing = true
 					remove_held_item()
-
+			"delivery":
+				if heldItem != null:
+					var queue = $Tilemap.get_parent().get_parent().get_node("Hud").get_node("OrderQueue")
+					if queue.fill(heldItem):
+						remove_held_item()
+						# PLAY DING SOUND OR COMPLETED ORDER SOUND
+					
 func handle_start_interaction_input():
 	if interactable:
 		var group = interactable.get_groups()[0]

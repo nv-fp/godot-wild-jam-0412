@@ -123,12 +123,16 @@ func _ready():
 			"timer_position": table_timer_offsets[i]
 		})
 	
+	# Hook up our Delivery Area
+	$DeliveryArea.body_entered.connect(area_entered.bind($DeliveryArea))
+	$DeliveryArea.body_exited.connect(area_exited.bind($DeliveryArea))
+	
 	# Come back and add trash area after everything else
-	#var trash_area = create_collision_for_single_tile(trash_collision_tile)
-	#trash_area.add_to_group("Trash")
-	#trash_area.body_entered.connect(area_entered.bind(trash_area))
-	#trash_area.body_exited.connect(area_exited.bind(trash_area))
-	#add_child(trash_area)
+	var trash_area = $Trash.get_node("Area2D")
+	trash_area.add_to_group("trash")
+	trash_area.body_entered.connect(area_entered.bind(trash_area))
+	trash_area.body_exited.connect(area_exited.bind(trash_area))
+	add_child(trash_area)
 	
 	for i in range($Tubs.get_child_count()):
 		var tub = $Tubs.get_node("Tubs" + str(i))
