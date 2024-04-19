@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 100
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 5
 var anvil_time = 5
@@ -87,13 +87,16 @@ var item_scales = {
 	"polished_diamond_shield": Vector2(1, 1),
 	"polished_bronze_sword": Vector2(1, 1),
 	"polished_gold_sword": Vector2(1, 1),
-	"polished_diamond_sword": Vector2(1, 1)
+	"polished_diamond_sword": Vector2(1, 1),
+	"polished_bronze_staff": Vector2(1, 1),
+	"polished_gold_staff": Vector2(1, 1),
+	"polished_diamond_staff": Vector2(1, 1)
 }
 
 var furnace_allowed_items = ["bronze_ore", "gold_ore", "diamond_ore"]
 var anvil_allowed_items = ["bronze_shield_chunk", "gold_shield_chunk", "diamond_shield_chunk", "bronze_blade_chunk", "gold_blade_chunk", "diamond_blade_chunk", "bronze_gem_chunk", "gold_gem_chunk", "diamond_gem_chunk"]
 var table_allowed_items = ["bronze_blade", "gold_blade", "diamond_blade", "leather_hide", "bronze_gem", "gold_gem", "diamond_gem", "wood"]
-var tub_allowed_items = ["bronze_shield", "gold_shield", "diamond_shield", "bronze_sword", "gold_sword", "diamond_sword"]
+var tub_allowed_items = ["bronze_shield", "gold_shield", "diamond_shield", "bronze_sword", "gold_sword", "diamond_sword", "bronze_staff", "gold_staff", "diamond_staff"]
 
 var pickedUpItem = false
 var heldItem: Node2D
@@ -230,6 +233,23 @@ func handle_interaction_input() -> void:
 						print("You already put one of those in there!")
 						return
 					
+					# dirty hack to prevent putting in leather with staff or wood with sword
+					# too lazy to do this any other way
+					if table.inventory.size() > 0:
+						match resource:
+							"leather_hide":
+								if !table.inventory[0].ends_with("blade"):
+									return
+							"wood":
+								if !table.inventory[0].ends_with("gem"):
+									return
+							_:
+								if table.inventory[0] == "leather" && !resource.ends_with("blade"):
+									return
+								if table.inventory[0] == "wood" && !resource.ends_with("gem"):
+									return
+					
+					
 					remove_held_item()
 					
 					if resource == "leather_hide":
@@ -296,7 +316,9 @@ func handle_interaction_input() -> void:
 						add_child(tub.timer)
 						tub.timer.position = get_location_from_group(group, tub.tile) - tub.timer_position
 						tub.timer.start()
+						$Polishing.playing = true
 						await tub.timer.timeout
+						$Polishing.playing = false
 						spawn_finished_item(tub.recipe, tub)
 						tub.inventory = [tub.recipe]
 						tub.timer.queue_free()
@@ -329,6 +351,7 @@ func handle_start_interaction_input():
 					furnace.timer.run_time = furnace_time
 					add_child(furnace.timer)
 					furnace.timer.start()
+					$HeatFurnace.playing = true
 					furnace.timer.position = get_location_from_group(group, furnace.tile) - furnace.timer_position
 					
 
@@ -345,6 +368,7 @@ func get_location_from_group(group: String, tile: Vector2) -> Vector2:
 		return Vector2(0, 0)
 
 func furnace_timer_timeout(_id: String, furnace):
+	$HeatFurnace.playing = false
 	var itemToSpawn = furnace.recipe
 	furnace.inventory = [furnace.recipe]
 	remove_child(furnace.timer)

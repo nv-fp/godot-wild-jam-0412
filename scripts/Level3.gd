@@ -157,7 +157,10 @@ func _ready():
 				"polished_diamond_shield": ["diamond_shield"],
 				"polished_bronze_sword": ["bronze_sword"],
 				"polished_gold_sword": ["gold_sword"],
-				"polished_diamond_sword": ["diamond_sword"]
+				"polished_diamond_sword": ["diamond_sword"],
+				"polished_bronze_staff": ["bronze_staff"],
+				"polished_gold_staff": ["gold_staff"],
+				"polished_diamond_staff": ["diamond_staff"]
 			},
 			"toast": tub_toast,
 			"timer_position": tub_timer_offsets[i]
