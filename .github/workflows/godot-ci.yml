@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           lfs: true
-        - name: Issue 120
+      - name: Issue 120
         run: |
           mkdir -p /github/home/.config/godot
           cp /root/.config/godot/editor_settings-4.tres /github/home/.config/godot/
