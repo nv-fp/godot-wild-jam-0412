@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3kvsxdnvimer"]
+
+[ext_resource type="Texture2D" uid="uid://dwgbet2r20u6s" path="res://art/flare_11.png" id="2_nymdy"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0pp4m"]
+emission_shape = 1
+emission_sphere_radius = 10.0
+angle_min = -35.0
+angle_max = 35.0
+gravity = Vector3(0, -45, 0)
+scale_min = 0.1
+scale_max = 0.1
+turbulence_enabled = true
+turbulence_noise_strength = 2.76
+
+[node name="ParticleFlair" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_0pp4m")
+texture = ExtResource("2_nymdy")
+visibility_rect = Rect2(-20, -20, 40, 40)
