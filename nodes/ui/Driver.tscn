@@ -19,7 +19,7 @@ script = ExtResource("2_1ugqh")
 [node name="LevelSummary" parent="CanvasLayer" instance=ExtResource("3_myki5")]
 visible = false
 z_index = 4000
-position = Vector2(136, 92)
+position = Vector2(302, 105)
 
 [node name="TutorialCard" parent="CanvasLayer" instance=ExtResource("4_vyawf")]
 visible = false

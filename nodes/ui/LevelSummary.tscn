@@ -1,92 +1,211 @@
-[gd_scene load_steps=7 format=3 uid="uid://0uwkg1a2yx8f"]
+[gd_scene load_steps=10 format=3 uid="uid://0uwkg1a2yx8f"]
 
 [ext_resource type="Script" path="res://nodes/ui/LevelSummary.gd" id="1_hel2b"]
 [ext_resource type="Texture2D" uid="uid://ukfsaepwrtt" path="res://art/level-summary/level_summary.png" id="1_xohrf"]
 [ext_resource type="Texture2D" uid="uid://barcecjuel6qv" path="res://art/level-summary/empty-hammer.png" id="3_1c1yb"]
 [ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="4_yhwya"]
+[ext_resource type="Texture2D" uid="uid://bxirbdmdokf8i" path="res://art/level-summary/buttons.png" id="6_c2rtg"]
+[ext_resource type="Texture2D" uid="uid://dq5d505m4kx6r" path="res://art/level-summary/button-text.png" id="7_8eqgn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgo2b"]
-size = Vector2(183, 26)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j85dn"]
+size = Vector2(202, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gtpm"]
-size = Vector2(172, 25)
+size = Vector2(199, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgo2b"]
+size = Vector2(205, 113)
 
 [node name="LevelSummary" type="Node2D"]
+position = Vector2(112, 88)
 script = ExtResource("1_hel2b")
 
 [node name="Backdrop" type="Sprite2D" parent="."]
-position = Vector2(524, 264)
+position = Vector2(354, 258)
 texture = ExtResource("1_xohrf")
+region_rect = Rect2(169.254, -0.460533, 962.043, 707.384)
 
 [node name="Score" type="Node2D" parent="."]
-position = Vector2(337, 170)
+position = Vector2(350, 170)
 scale = Vector2(0.8, 0.8)
 
 [node name="Hammer1" type="Sprite2D" parent="Score"]
-position = Vector2(1.12828e-06, 47.3236)
-rotation = -0.296706
+position = Vector2(-180, -34)
+rotation = -0.261799
 texture = ExtResource("3_1c1yb")
+region_rect = Rect2(345.256, 131.279, 160.341, 205.142)
 
 [node name="Hammer2" type="Sprite2D" parent="Score"]
-position = Vector2(215, 0)
+position = Vector2(0, -57.25)
 texture = ExtResource("3_1c1yb")
 
 [node name="Hammer3" type="Sprite2D" parent="Score"]
-position = Vector2(430, 47.3236)
-rotation = 0.296706
+position = Vector2(180, -34)
+rotation = 0.261799
 texture = ExtResource("3_1c1yb")
 
 [node name="Message" type="Label" parent="."]
-offset_left = 341.0
-offset_top = 348.0
-offset_right = 692.0
-offset_bottom = 387.0
+offset_left = 157.0
+offset_top = 18.0
+offset_right = 508.0
+offset_bottom = 57.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 48
+
+[node name="GoodTry" type="Label" parent="Message"]
+visible = false
+offset_left = -155.0
+offset_right = 538.0
+offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 48
+text = "Good Try!"
+horizontal_alignment = 1
+
+[node name="LevelComplete" type="Label" parent="Message"]
+visible = false
+offset_left = -155.0
+offset_right = 537.0
+offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_yhwya")
 theme_override_font_sizes/font_size = 48
 text = "Level Complete!"
+horizontal_alignment = 1
 
-[node name="Progress" type="Label" parent="."]
-offset_left = 820.0
-offset_top = 465.0
-offset_right = 1000.0
-offset_bottom = 491.0
-size_flags_horizontal = 8
+[node name="Wow" type="Label" parent="Message"]
+visible = false
+offset_left = -158.0
+offset_right = 537.0
+offset_bottom = 39.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 48
+text = "Wow! Great Work!"
+horizontal_alignment = 1
+
+[node name="HammerTime" type="Label" parent="Message"]
+visible = false
+offset_right = 351.0
+offset_bottom = 39.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_yhwya")
+theme_override_font_sizes/font_size = 48
+text = "It's Hammer Time!"
+horizontal_alignment = 1
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="Score" type="Sprite2D" parent="Stats"]
+position = Vector2(211, 290)
+texture = ExtResource("6_c2rtg")
+region_enabled = true
+region_rect = Rect2(400, 346, 219, 109)
+
+[node name="Text" type="Label" parent="Stats/Score"]
+offset_left = -93.0
+offset_right = 88.0
+offset_bottom = 38.0
+theme_override_colors/font_color = Color(0.792157, 0.737255, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.227451, 0.152941, 0.117647, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_yhwya")
 theme_override_font_sizes/font_size = 32
-text = "Next Level >"
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="Progress"]
+[node name="Failures" type="Sprite2D" parent="Stats"]
+position = Vector2(493, 284)
+texture = ExtResource("6_c2rtg")
+region_enabled = true
+region_rect = Rect2(684, 335, 216, 119)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Progress/Area2D"]
-position = Vector2(89.5, 12)
-shape = SubResource("RectangleShape2D_jgo2b")
-
-[node name="Menu" type="Label" parent="."]
-offset_left = 36.0
-offset_top = 465.0
-offset_right = 208.0
-offset_bottom = 491.0
-size_flags_horizontal = 0
-size_flags_vertical = 1
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+[node name="Text" type="Label" parent="Stats/Failures"]
+offset_left = -96.0
+offset_top = 6.0
+offset_right = 85.0
+offset_bottom = 44.0
+theme_override_colors/font_color = Color(0.792157, 0.737255, 0.678431, 1)
+theme_override_colors/font_outline_color = Color(0.227451, 0.152941, 0.117647, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("4_yhwya")
 theme_override_font_sizes/font_size = 32
-text = "< Main Menu"
+text = "1234"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Area2D" type="Area2D" parent="Menu"]
+[node name="Buttons" type="Node2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Menu/Area2D"]
-position = Vector2(86, 11.5)
+[node name="Retry" type="Sprite2D" parent="Buttons"]
+position = Vector2(127, 426)
+texture = ExtResource("6_c2rtg")
+region_enabled = true
+region_rect = Rect2(300.967, 463.258, 226.27, 137.093)
+
+[node name="Text" type="Sprite2D" parent="Buttons/Retry"]
+position = Vector2(0, -3)
+texture = ExtResource("7_8eqgn")
+region_enabled = true
+region_rect = Rect2(328.546, 487.776, 174.361, 74.536)
+
+[node name="Area2D" type="Area2D" parent="Buttons/Retry"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Retry/Area2D"]
+position = Vector2(2, -1)
+shape = SubResource("RectangleShape2D_j85dn")
+
+[node name="Menu" type="Sprite2D" parent="Buttons"]
+position = Vector2(349, 419)
+texture = ExtResource("6_c2rtg")
+region_enabled = true
+region_rect = Rect2(529.527, 474.466, 223.608, 101.156)
+
+[node name="Text" type="Sprite2D" parent="Buttons/Menu"]
+position = Vector2(3, 7)
+texture = ExtResource("7_8eqgn")
+region_enabled = true
+region_rect = Rect2(545.499, 505.079, 195.657, 51.909)
+
+[node name="Area2D" type="Area2D" parent="Buttons/Menu"]
+position = Vector2(-313, 46)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Menu/Area2D"]
+position = Vector2(314.5, -42)
 shape = SubResource("RectangleShape2D_8gtpm")
 
-[connection signal="input_event" from="Progress/Area2D" to="." method="_progress_event"]
-[connection signal="mouse_entered" from="Progress/Area2D" to="." method="_progress_enter"]
-[connection signal="mouse_exited" from="Progress/Area2D" to="." method="_progress_exit"]
-[connection signal="input_event" from="Menu/Area2D" to="." method="_menu_event"]
-[connection signal="mouse_entered" from="Menu/Area2D" to="." method="_menu_enter"]
-[connection signal="mouse_exited" from="Menu/Area2D" to="." method="_menu_exit"]
+[node name="Next" type="Sprite2D" parent="Buttons"]
+position = Vector2(582, 423)
+texture = ExtResource("6_c2rtg")
+region_enabled = true
+region_rect = Rect2(758.459, 455.832, 228.932, 137.093)
+
+[node name="Text" type="Sprite2D" parent="Buttons/Next"]
+position = Vector2(0, 5)
+texture = ExtResource("7_8eqgn")
+region_enabled = true
+region_rect = Rect2(802.382, 483.783, 147.741, 91.839)
+
+[node name="Area2D" type="Area2D" parent="Buttons/Next"]
+position = Vector2(-3, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buttons/Next/Area2D"]
+position = Vector2(2.5, -2.5)
+shape = SubResource("RectangleShape2D_jgo2b")
+
+[connection signal="input_event" from="Buttons/Retry/Area2D" to="." method="_retry_event"]
+[connection signal="mouse_entered" from="Buttons/Retry/Area2D" to="." method="_retry_enter"]
+[connection signal="mouse_exited" from="Buttons/Retry/Area2D" to="." method="_retry_exit"]
+[connection signal="input_event" from="Buttons/Menu/Area2D" to="." method="_menu_event"]
+[connection signal="mouse_entered" from="Buttons/Menu/Area2D" to="." method="_menu_enter"]
+[connection signal="mouse_exited" from="Buttons/Menu/Area2D" to="." method="_menu_exit"]
+[connection signal="input_event" from="Buttons/Next/Area2D" to="." method="_progress_event"]
+[connection signal="mouse_entered" from="Buttons/Next/Area2D" to="." method="_progress_enter"]
+[connection signal="mouse_exited" from="Buttons/Next/Area2D" to="." method="_progress_exit"]
