@@ -63,20 +63,20 @@ func _ready():
 	furnace_toast.position = map_to_local(furnace_collision_tile) + Vector2(10, -34)
 	
 	furnaces.append({
+		"id": 0,
 		"tile": furnace_collision_tile,
 		"recipe": null,
 		"smelting": false,
 		"timer": null,
 		"area": furnace_area,
 		"inventory": [],
-		"id": "Furnace",
 		"recipes": {
 			"bronze_shield_chunk": ["bronze_ore", "bronze_ore", "bronze_ore"],
 			"gold_shield_chunk": ["gold_ore", "gold_ore", "gold_ore"],
 			"diamond_shield_chunk": ["diamond_ore", "diamond_ore", "diamond_ore"],
 		},
 		"toast": furnace_toast,
-		"timer_position": Vector2(0, 45)
+		"timer_position": Vector2(0, 55)
 	})
 	
 	var trash_area = create_collision_for_single_tile(trash_collision_tile)
@@ -195,8 +195,9 @@ func area_exited(node: Node2D, emitter: Area2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably
 func _process(_delta):
-	pass
-	#$Camera2D.position = $Blacksmith.position
+	$Camera2D.position = $Blacksmith.position
+
+
 
 
 # Dirty hack to get z_index clipping working

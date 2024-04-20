@@ -404,6 +404,7 @@ bus = &"Environment"
 
 [node name="HeatFurnace" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_odft2")
+max_polyphony = 3
 bus = &"Environment"
 
 [node name="TrashCan" type="AudioStreamPlayer2D" parent="."]
@@ -412,6 +413,7 @@ bus = &"Environment"
 
 [node name="Polishing" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMP3_0kpvn")
+max_polyphony = 3
 bus = &"Environment"
 
 [node name="Anviling" type="AudioStreamPlayer2D" parent="."]
@@ -420,4 +422,5 @@ bus = &"Environment"
 
 [node name="Crafting" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamMP3_mxqrh")
+max_polyphony = 3
 bus = &"Environment"

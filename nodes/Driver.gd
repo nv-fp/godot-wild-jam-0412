@@ -14,8 +14,6 @@ var _can_start = true
 	preload('res://nodes/scenes/Main3.tscn'),
 ]
 
-@export var start_level = 0
-
 var cur_level = -1
 
 # Called when the node enters the scene tree for the first time.

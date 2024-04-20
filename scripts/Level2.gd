@@ -20,8 +20,6 @@ var mat_toast = preload('res://nodes/ui/MaterialToast.tscn')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Camera2D.position = $Blacksmith.position
-
 	for i in range(crate_collision_tiles.size()):
 		var area: Area2D = create_collision_for_single_tile(crate_collision_tiles[i])
 		area.body_entered.connect(area_entered.bind(area))
@@ -71,6 +69,7 @@ func _ready():
 		toast.position = map_to_local(furnace_collision_tiles[i]) + Vector2(10, -34)
 
 		furnaces.append({
+			"id": i,
 			"tile": furnace_collision_tiles[i],
 			"recipe": null,
 			"smelting": false,
@@ -86,7 +85,7 @@ func _ready():
 				"diamond_blade_chunk": ["diamond_ore", "diamond_ore"]
 			},
 			"toast": toast,
-			"timer_position": Vector2(0, 45)
+			"timer_position": Vector2(0, 55)
 		})
 	
 	var table_area = create_collision_for_table(table_collision_tile)
@@ -236,8 +235,7 @@ func area_exited(node: Node2D, emitter: Area2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably
 func _process(_delta):
-	pass
-	#$Camera2D.position = $Blacksmith.position
+	$Camera2D.position = $Blacksmith.position
 
 # Dirty hack for z_index clipping
 func _on_area_2d_body_entered(body):

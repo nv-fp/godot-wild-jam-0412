@@ -84,6 +84,9 @@ func add_material(type: String):
 		node.rotation_degrees = 90
 		node.scale = Vector2(0.4, 0.4)
 	
+	if type.ends_with("gem"):
+		node.scale = Vector2(0.8, 0.8)
+	
 	add_child(bg_node)
 	add_child(node)
 	components.push_back([type, node, bg_node])

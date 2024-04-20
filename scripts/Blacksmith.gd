@@ -3,7 +3,7 @@ extends CharacterBody2D
 # We can also export this and set in the designer
 # but the character will be a parent of the tilemap for y-sorting to work properly
 @onready var tilemap: TileMap = get_parent()
-@export var speed: int = 100
+@export var speed: int = 175
 
 var immobile = true
 
@@ -114,7 +114,7 @@ func basic_movement():
 	var angle: float = input_direction.angle()
 	var step: int = snapped(angle, PI/4) / (PI/4)
 	var index: int = wrapi(int(step), 0, 8)	
-	if input_direction.length() != 0:
+	if input_direction.length() != 0 && !immobile:
 		if $Footsteps.playing == false:
 			$Footsteps.playing = true
 		$AnimatedSprite2D.animation = directions[index]
@@ -185,7 +185,7 @@ func handle_interaction_input() -> void:
 			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				# Our item finished smelting and we need to collect it
-				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting:
+				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
 					furnace.smelting = false
 					clear_interactable(furnace)
 					return
@@ -238,6 +238,8 @@ func handle_interaction_input() -> void:
 					# dirty hack to prevent putting in leather with staff or wood with sword
 					# too lazy to do this any other way
 					if table.inventory.size() > 0:
+						print(table.inventory[0])
+						print(resource)
 						match resource:
 							"leather_hide":
 								if !table.inventory[0].ends_with("blade"):
@@ -245,10 +247,11 @@ func handle_interaction_input() -> void:
 							"wood":
 								if !table.inventory[0].ends_with("gem"):
 									return
-							_:
-								if table.inventory[0] == "leather" && !resource.ends_with("blade"):
+							"bronze_gem","gold_gem","diamond_gem":
+								if table.inventory[0] == "leather_hide":
 									return
-								if table.inventory[0] == "wood" && !resource.ends_with("gem"):
+							"bronze_blade","gold_blade","diamond_blade":
+								if table.inventory[0] == "wood":
 									return
 					
 					
@@ -347,6 +350,7 @@ func handle_start_interaction_input():
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				if furnace.recipes.has(furnace.recipe) && !furnace.smelting:
 					$LightFurnace.play()
+					tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").visible = true
 					print("Starting smelting for " + furnace.recipe)
 					furnace.toast.clear()
 					furnace.smelting = true
@@ -373,6 +377,7 @@ func get_location_from_group(group: String, tile: Vector2) -> Vector2:
 
 func furnace_timer_timeout(_id: String, furnace):
 	$HeatFurnace.playing = false
+	tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").visible = false
 	var itemToSpawn = furnace.recipe
 	furnace.inventory = [furnace.recipe]
 	remove_child(furnace.timer)

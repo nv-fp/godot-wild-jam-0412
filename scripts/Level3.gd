@@ -7,7 +7,7 @@ var trash_collision_tile: Vector2 = Vector2(25, 1)
 var table_collision_tile: PackedVector2Array = PackedVector2Array([Vector2(31, 6), Vector2(40, 4)])
 var tub_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(32, 3), Vector2(32, -2)])
 
-var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(20, 45), Vector2(0, 45), Vector2(0, 45)])
+var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(20, 60), Vector2(0, 60), Vector2(0, 60)])
 var table_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(15, 30), Vector2(-10, 30)])
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40), Vector2(15, 20)])
 
@@ -72,6 +72,7 @@ func _ready():
 		toast.position = furnace.get_node("ToastPosition").position
 
 		furnaces.append({
+			"id": i,
 			"tile": furnace_collision_tiles[i],
 			"recipe": null,
 			"smelting": false,
@@ -180,8 +181,7 @@ func area_exited(node: Node2D, emitter: Area2D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably
 func _process(_delta):
-	pass
-	#$Camera2D.position = $Blacksmith.position
+	$Camera2D.position = $Blacksmith.position
 
 # Dirty hack for z_index clipping
 func _on_area_2d_body_entered(body):
