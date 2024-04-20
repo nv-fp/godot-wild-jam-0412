@@ -27,6 +27,7 @@ func fill(typ: String) -> bool:
 		return false
 	var idx = get_item_idx(item_id)
 	var wb = queue[idx]
+	Jukebox.play_fx(Enums.HudFX.ORDER_SUCCES)
 	wb.fill()
 	return true
 
@@ -88,6 +89,7 @@ func add_item(wb: WantBubble) -> bool:
 	return true
 
 func _item_timeout(id: String):
+	Jukebox.play_fx(Enums.HudFX.ORDER_FAIL)
 	remove_item(id)
 
 func _item_filled(id: String, _points: int, _remaining_ms: int):

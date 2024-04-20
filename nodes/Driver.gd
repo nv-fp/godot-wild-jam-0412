@@ -83,7 +83,7 @@ func _load_level():
 	active_level.get_node('Hud').level_completed.connect(_level_completed)
 
 	_curtain_out(_level_fade_in_completed)
-	Jukebox.play_bg()
+	Jukebox.play_bg(cur_level)
 
 func _load_credits():
 	if active_level != null:

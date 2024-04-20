@@ -16,3 +16,9 @@ enum TutorialCard {
 	SWORD,
 	STAFF,
 }
+
+enum HudFX {
+	ORDER_SUCCES,
+	ORDER_FAIL,
+	MENU_ACCEPT,
+}

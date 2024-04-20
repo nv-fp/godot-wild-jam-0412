@@ -32,8 +32,6 @@ func _ready():
 	$TimeDisplay.set_time(initial_display_sec)
 	$OrderTimer.wait_time = order_frequency_sec
 
-	Jukebox.play_bg()
-
 func _level_over():
 	$OrderQueue.pause()
 	$TimeDisplay.pause()
@@ -50,12 +48,6 @@ func _toggle_audio(toggled_on):
 	else:
 		$"Trash-bg/AudioToggle".icon = preload('res://art/audio-64.png')
 		Jukebox.unpause()
-
-func _background_pressed():
-	Jukebox.play_bg()
-
-func _title_pressed():
-	Jukebox.play_title()
 
 func _on_button_pressed():
 	var item = $OrderQueue.queue[0]
