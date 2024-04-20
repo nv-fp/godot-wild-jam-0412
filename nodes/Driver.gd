@@ -19,6 +19,7 @@ var cur_level = -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_child(Jukebox.get_player())
+	add_child(Jukebox.get_player_fx())
 	menu_system = preload('res://nodes/ui/menu_system.tscn').instantiate()
 	add_child(menu_system)
 
