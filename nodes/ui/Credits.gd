@@ -7,17 +7,18 @@ var speed = 175
 var line_height_px = 10
 var _space_color = Color(0, 0.098, 0.157)
 
-@onready var _dlg = $Blacksmith/Dialoge
-@onready var _dlg_text = $Blacksmith/Dialoge/Mask/Text
+@onready var _dlg = $Container/Blacksmith/Dialoge
+@onready var _dlg_text = $Container/Blacksmith/Dialoge/Mask/Text
+@onready var _blacksmith = $Container/Blacksmith
 #@onready var _dlg_text = $Blacksmith/Dialoge/Text
 
 var _reversed = false
 func _anim(dir: String, rev: bool = false):
-	$Blacksmith.play(dir)
+	_blacksmith.play(dir)
 	_reversed = rev
 
 func _stop():
-	$Blacksmith.stop()
+	_blacksmith.stop()
 
 var _bs_tween
 
@@ -79,31 +80,31 @@ var credits_scr = [
 	0, # bug that skips the 0th item after switching a script not worth fixing
 	func(): _start_camera_move(40),
 	3000,
-	func(): _fade_in($Thanks, 3),
+	func(): _fade_in($Container/Thanks, 3),
 	3000,
-	func(): _fade_out($Thanks, 2.5),
+	func(): _fade_out($Container/Thanks, 2.5),
 	6000,
-	func(): _fade_in($Dino, 2.5),
-	func(): $Stars.emitting = true,
+	func(): _fade_in($Container/Dino, 2.5),
+	func(): $Container/Stars.emitting = true,
 	func(): _start_camera_move(30),
 	4000,
-	func(): _fade_out($Dino, 2.5),
+	func(): _fade_out($Container/Dino, 2.5),
 	4000,
-	func(): _fade_in($Design, 2.5),
+	func(): _fade_in($Container/Design, 2.5),
 	2500,
-	func(): _fade_in($Development, 2.5),
+	func(): _fade_in($Container/Development, 2.5),
 	2500,
-	func(): _fade_out($Design, 2.5),
+	func(): _fade_out($Container/Design, 2.5),
 	2500,
-	func(): _fade_in($Sound, 2.5),
+	func(): _fade_in($Container/Sound, 2.5),
 	2500,
-	func(): _fade_out($Development, 2.5),
+	func(): _fade_out($Container/Development, 2.5),
 	1750,
-	func(): _fade_in($Art, 2.5),
+	func(): _fade_in($Container/Art, 2.5),
 	1750,
-	func(): _fade_out($Sound, 2.5),
+	func(): _fade_out($Container/Sound, 2.5),
 	2500,
-	func(): _fade_out($Art, 2.5),
+	func(): _fade_out($Container/Art, 2.5),
 ]
 
 func _switch_script(new_scr):
@@ -138,8 +139,9 @@ func _start_camera_move(time: int):
 	if camera_tweener != null:
 		camera_tweener.kill()
 	camera_tweener = get_tree().create_tween()
-	var height = $TopSky.texture.get_height() + $Space.texture.get_height()
-	camera_tweener.tween_property($Camera2D, 'position', Vector2(0, -height), time)
+	var height = $Container/TopSky.texture.get_height() + $Container/Space.texture.get_height()
+	#camera_tweener.tween_property($Container/Camera2D, 'position', Vector2(0, -height), time)
+	camera_tweener.tween_property($Container, 'position', Vector2(0, height), time)
 
 func _scroll_dlg(lines: int, sec: float):
 	var t = get_tree().create_tween()
@@ -175,10 +177,10 @@ func _fade_out(obj, t_sec):
 	t.tween_property(obj, 'modulate', Color(Color.WHITE, 0), t_sec)
 
 func _get_velocity():
-	if not $Blacksmith.is_playing():
+	if not _blacksmith.is_playing():
 		return Vector2(0, 0)
 
-	var anim = $Blacksmith.get_animation()
+	var anim = _blacksmith.get_animation()
 	var x = 0
 	var y = 0
 
@@ -241,4 +243,4 @@ func _process(delta):
 
 	_process_script()	
 	var vel = _get_velocity()
-	$Blacksmith.position += (delta * vel)
+	_blacksmith.position += (delta * vel)

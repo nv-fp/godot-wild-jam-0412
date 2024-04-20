@@ -370,12 +370,11 @@ alpha_curve = SubResource("CurveTexture_7qaei")
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_7e3js")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-anchor_mode = 0
+[node name="Container" type="Node2D" parent="."]
 
-[node name="Canvas" type="CanvasLayer" parent="."]
+[node name="Canvas" type="CanvasLayer" parent="Container"]
 
-[node name="Label" type="Label" parent="Canvas"]
+[node name="Label" type="Label" parent="Container/Canvas"]
 offset_left = 1181.0
 offset_top = 688.0
 offset_right = 1263.0
@@ -385,50 +384,50 @@ text = "ESC to exit"
 horizontal_alignment = 2
 vertical_alignment = 2
 
-[node name="Sky" type="Sprite2D" parent="."]
+[node name="Sky" type="Sprite2D" parent="Container"]
 position = Vector2(640, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("2_eok7k")
 
-[node name="Grass" type="Sprite2D" parent="."]
+[node name="Grass" type="Sprite2D" parent="Container"]
 position = Vector2(640, 490)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c6kyy")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 231)
 
-[node name="Clouds" type="Node2D" parent="."]
+[node name="Clouds" type="Node2D" parent="Container"]
 position = Vector2(0, 128)
 script = ExtResource("4_507gy")
 height = 250
 max_clouds = 20
 
-[node name="Tree3" type="Sprite2D" parent="."]
+[node name="Tree3" type="Sprite2D" parent="Container"]
 position = Vector2(792, 350)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
-[node name="Tree4" type="Sprite2D" parent="."]
+[node name="Tree4" type="Sprite2D" parent="Container"]
 position = Vector2(184, 366)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
-[node name="Tree5" type="Sprite2D" parent="."]
+[node name="Tree5" type="Sprite2D" parent="Container"]
 position = Vector2(367, 392)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
-[node name="Tree6" type="Sprite2D" parent="."]
+[node name="Tree6" type="Sprite2D" parent="Container"]
 position = Vector2(1124, 410)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_wnr3n")
 
-[node name="Tree1" type="Sprite2D" parent="."]
+[node name="Tree1" type="Sprite2D" parent="Container"]
 position = Vector2(1004, 553)
 scale = Vector2(4, 4)
 texture = ExtResource("4_ey1sa")
 
-[node name="Blacksmith" type="AnimatedSprite2D" parent="."]
+[node name="Blacksmith" type="AnimatedSprite2D" parent="Container"]
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-56, 440)
@@ -436,19 +435,19 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_v13m2")
 animation = &"idle_south"
 
-[node name="Dialoge" type="Sprite2D" parent="Blacksmith"]
+[node name="Dialoge" type="Sprite2D" parent="Container/Blacksmith"]
 visible = false
 texture_filter = 1
 position = Vector2(106, -35)
 texture = ExtResource("11_dh1j0")
 
-[node name="Mask" type="Sprite2D" parent="Blacksmith/Dialoge"]
+[node name="Mask" type="Sprite2D" parent="Container/Blacksmith/Dialoge"]
 clip_children = 1
 texture_filter = 1
 position = Vector2(0, 2)
 texture = ExtResource("12_ldmfo")
 
-[node name="Text" type="Label" parent="Blacksmith/Dialoge/Mask"]
+[node name="Text" type="Label" parent="Container/Blacksmith/Dialoge/Mask"]
 texture_filter = 1
 offset_left = -77.0
 offset_top = -31.0
@@ -464,20 +463,20 @@ aoeu
 aoeu"
 clip_text = true
 
-[node name="Tree2" type="Sprite2D" parent="."]
+[node name="Tree2" type="Sprite2D" parent="Container"]
 position = Vector2(120, 501)
 scale = Vector2(4, 4)
 texture = ExtResource("5_wnr3n")
 
-[node name="TopSky" type="Sprite2D" parent="."]
+[node name="TopSky" type="Sprite2D" parent="Container"]
 position = Vector2(640, -440)
 texture = ExtResource("12_f5fie")
 
-[node name="Space" type="Sprite2D" parent="."]
+[node name="Space" type="Sprite2D" parent="Container"]
 position = Vector2(640, -1240)
 texture = ExtResource("13_20yrp")
 
-[node name="Thanks" type="Label" parent="."]
+[node name="Thanks" type="Label" parent="Container"]
 visible = false
 offset_left = 9.0
 offset_top = -157.0
@@ -490,12 +489,12 @@ theme_override_font_sizes/font_size = 48
 text = "Thank you For Playing"
 horizontal_alignment = 1
 
-[node name="Dino" type="Sprite2D" parent="."]
+[node name="Dino" type="Sprite2D" parent="Container"]
 visible = false
 position = Vector2(629, -409)
 texture = ExtResource("15_442ld")
 
-[node name="Label" type="Label" parent="Dino"]
+[node name="Label" type="Label" parent="Container/Dino"]
 offset_left = -99.0
 offset_top = 69.0
 offset_right = 108.0
@@ -506,7 +505,7 @@ theme_override_fonts/font = ExtResource("6_5aijh")
 theme_override_font_sizes/font_size = 48
 text = "Team Dino"
 
-[node name="Label2" type="Label" parent="Dino"]
+[node name="Label2" type="Label" parent="Container/Dino"]
 offset_left = -140.0
 offset_top = -152.0
 offset_right = 139.0
@@ -518,14 +517,14 @@ theme_override_font_sizes/font_size = 36
 text = "Developed By"
 horizontal_alignment = 1
 
-[node name="Stars" type="GPUParticles2D" parent="."]
+[node name="Stars" type="GPUParticles2D" parent="Container"]
 position = Vector2(626, -1129)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_7hwjx")
 texture = ExtResource("16_hnbjo")
 lifetime = 6.0
 
-[node name="Art" type="Label" parent="."]
+[node name="Art" type="Label" parent="Container"]
 visible = false
 offset_left = 610.0
 offset_top = -1301.0
@@ -538,7 +537,7 @@ theme_override_font_sizes/font_size = 36
 text = "Art"
 horizontal_alignment = 1
 
-[node name="Name" type="Label" parent="Art"]
+[node name="Name" type="Label" parent="Container/Art"]
 layout_mode = 0
 offset_left = -48.0
 offset_top = 40.0
@@ -551,7 +550,7 @@ theme_override_font_sizes/font_size = 82
 text = "bea +"
 horizontal_alignment = 1
 
-[node name="Name2" type="Label" parent="Art"]
+[node name="Name2" type="Label" parent="Container/Art"]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 104.0
@@ -564,7 +563,7 @@ theme_override_font_sizes/font_size = 82
 text = "kit"
 horizontal_alignment = 1
 
-[node name="Development" type="Label" parent="."]
+[node name="Development" type="Label" parent="Container"]
 visible = false
 offset_left = 792.0
 offset_top = -964.0
@@ -577,7 +576,7 @@ theme_override_font_sizes/font_size = 36
 text = "Development"
 horizontal_alignment = 1
 
-[node name="Name" type="Label" parent="Development"]
+[node name="Name" type="Label" parent="Container/Development"]
 layout_mode = 0
 offset_left = -88.0
 offset_top = 40.0
@@ -590,7 +589,7 @@ theme_override_font_sizes/font_size = 82
 text = "Blob +"
 horizontal_alignment = 1
 
-[node name="Name2" type="Label" parent="Development"]
+[node name="Name2" type="Label" parent="Container/Development"]
 layout_mode = 0
 offset_left = 72.0
 offset_top = 104.0
@@ -603,7 +602,7 @@ theme_override_font_sizes/font_size = 82
 text = "Envy"
 horizontal_alignment = 1
 
-[node name="Sound" type="Label" parent="."]
+[node name="Sound" type="Label" parent="Container"]
 visible = false
 offset_left = 250.0
 offset_top = -1119.0
@@ -616,7 +615,7 @@ theme_override_font_sizes/font_size = 36
 text = "Sound"
 horizontal_alignment = 1
 
-[node name="Name" type="Label" parent="Sound"]
+[node name="Name" type="Label" parent="Container/Sound"]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 279.0
@@ -628,7 +627,7 @@ theme_override_font_sizes/font_size = 82
 text = "Junpei"
 horizontal_alignment = 1
 
-[node name="Design" type="Label" parent="."]
+[node name="Design" type="Label" parent="Container"]
 visible = false
 offset_left = 175.0
 offset_top = -804.0
@@ -641,7 +640,7 @@ theme_override_font_sizes/font_size = 36
 text = "Design"
 horizontal_alignment = 1
 
-[node name="Name" type="Label" parent="Design"]
+[node name="Name" type="Label" parent="Container/Design"]
 layout_mode = 0
 offset_top = 40.0
 offset_right = 279.0
