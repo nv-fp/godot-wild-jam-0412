@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://dd28ij5lkfeyf"]
+[gd_scene load_steps=71 format=3 uid="uid://dd28ij5lkfeyf"]
 
 [ext_resource type="Script" path="res://scripts/Level3.gd" id="1_2x21t"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_e3tpk"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dqar7lh1jx6vm" path="res://art/posters.png" id="15_ahlua"]
 [ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="16_gpie2"]
 [ext_resource type="Texture2D" uid="uid://26xxepeooilu" path="res://art/furnace-animation/furnace animation final1.png" id="18_augld"]
+[ext_resource type="Texture2D" uid="uid://g5ewxmv22yyv" path="res://art/Hammer_animation.png" id="19_ld0kn"]
 [ext_resource type="Texture2D" uid="uid://x1eosjtvmrqa" path="res://art/furnace-animation/furnace animation final2.png" id="19_q1i22"]
 [ext_resource type="Texture2D" uid="uid://bji4cvo5x3647" path="res://art/furnace-animation/furnace animation final3.png" id="20_i85nr"]
 [ext_resource type="Texture2D" uid="uid://bwg6ff8j1436t" path="res://art/furnace-animation/furnace animation final4.png" id="21_jeim1"]
@@ -600,6 +601,35 @@ sources/3 = SubResource("TileSetAtlasSource_8p0qt")
 sources/4 = SubResource("TileSetAtlasSource_pb6kr")
 sources/5 = SubResource("TileSetAtlasSource_317c8")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qy0du"]
+atlas = ExtResource("19_ld0kn")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x66dy"]
+atlas = ExtResource("19_ld0kn")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kigj"]
+atlas = ExtResource("19_ld0kn")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jgvuu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qy0du")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x66dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kigj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.1
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_5mdpi"]
 animations = [{
 "frames": [{
@@ -982,10 +1012,30 @@ z_index = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil0"]
 polygon = PackedVector2Array(419, 199, 448, 184, 461, 192, 433, 206)
 
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil0"]
+visible = false
+top_level = true
+z_index = 5
+y_sort_enabled = true
+position = Vector2(485, 134)
+sprite_frames = SubResource("SpriteFrames_jgvuu")
+autoplay = "default"
+frame_progress = 0.709954
+
 [node name="Anvil1" type="Area2D" parent="TileMap/Anvils"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil1"]
 polygon = PackedVector2Array(466, 175, 495, 161, 510, 168, 481, 182)
+
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil1"]
+visible = false
+top_level = true
+z_index = 5
+y_sort_enabled = true
+position = Vector2(436, 160)
+sprite_frames = SubResource("SpriteFrames_jgvuu")
+autoplay = "default"
+frame_progress = 0.728058
 
 [node name="Furnaces" type="Node2D" parent="TileMap"]
 z_index = 1

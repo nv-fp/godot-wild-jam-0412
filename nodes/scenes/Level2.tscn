@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://dtwbxt24ih3r5"]
+[gd_scene load_steps=67 format=3 uid="uid://dtwbxt24ih3r5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="1_qvej2"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cbndxfbaprrmp" path="res://art/clutter.png" id="14_8q2e8"]
 [ext_resource type="Texture2D" uid="uid://x3u1xbmsljgy" path="res://art/delivery_rack.png" id="15_qplup"]
 [ext_resource type="Texture2D" uid="uid://26xxepeooilu" path="res://art/furnace-animation/furnace animation final1.png" id="19_6c0xv"]
+[ext_resource type="Texture2D" uid="uid://g5ewxmv22yyv" path="res://art/Hammer_animation.png" id="19_xbltx"]
 [ext_resource type="Texture2D" uid="uid://x1eosjtvmrqa" path="res://art/furnace-animation/furnace animation final2.png" id="20_hxyuv"]
 [ext_resource type="Texture2D" uid="uid://bji4cvo5x3647" path="res://art/furnace-animation/furnace animation final3.png" id="21_yq5bv"]
 [ext_resource type="Texture2D" uid="uid://bwg6ff8j1436t" path="res://art/furnace-animation/furnace animation final4.png" id="22_ovr54"]
@@ -575,6 +576,35 @@ sources/2 = SubResource("TileSetAtlasSource_l3d5u")
 sources/3 = SubResource("TileSetAtlasSource_pfgfl")
 sources/4 = SubResource("TileSetAtlasSource_m5hj1")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_exnfx"]
+atlas = ExtResource("19_xbltx")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu8u5"]
+atlas = ExtResource("19_xbltx")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jap1"]
+atlas = ExtResource("19_xbltx")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2i5yv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exnfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu8u5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jap1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.1
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_nxexa"]
 animations = [{
 "frames": [{
@@ -875,6 +905,20 @@ limit_top = 70
 limit_right = 775
 limit_bottom = 375
 editor_draw_limits = true
+
+[node name="Anvils" type="Node2D" parent="TileMap"]
+
+[node name="Anvil0" type="Node2D" parent="TileMap/Anvils"]
+
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil0"]
+visible = false
+top_level = true
+z_index = 5
+texture_filter = 1
+position = Vector2(448, 150)
+sprite_frames = SubResource("SpriteFrames_2i5yv")
+autoplay = "default"
+frame_progress = 0.588799
 
 [node name="Furnaces" type="Node2D" parent="TileMap"]
 

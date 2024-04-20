@@ -39,6 +39,7 @@ func _ready():
 	anvil_toast.position = map_to_local(anvil_collision_tile) + Vector2(-23, -32)
 	
 	anvils.append({
+		"id": 0,
 		"tile": anvil_collision_tile,
 		"recipe": null,
 		"smithing": false,
