@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://mxsv78s4n8l5"]
 
 [ext_resource type="Script" path="res://nodes/ui/TutorialCard.gd" id="1_kmt1j"]
-[ext_resource type="Texture2D" uid="uid://ukfsaepwrtt" path="res://art/level-summary/level_summary.png" id="2_khy8r"]
+[ext_resource type="Texture2D" uid="uid://c13gc6nid0cdp" path="res://art/tutorial-card/tutorial_card_base.png" id="2_wrlcw"]
 [ext_resource type="Texture2D" uid="uid://csj47fk8x4mql" path="res://art/tutorial-card/shield-text.png" id="3_ypemw"]
 [ext_resource type="Texture2D" uid="uid://c3fi60dbpkr2m" path="res://art/tutorial-card/sword-text.png" id="4_mg6h8"]
 [ext_resource type="Texture2D" uid="uid://d4uucflrltmi" path="res://art/tutorial-card/staff-text.png" id="5_x6otf"]
@@ -15,7 +15,7 @@ script = ExtResource("1_kmt1j")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(522, 265)
-texture = ExtResource("2_khy8r")
+texture = ExtResource("2_wrlcw")
 
 [node name="Shield" type="Sprite2D" parent="Background"]
 visible = false

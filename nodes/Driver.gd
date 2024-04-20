@@ -64,6 +64,8 @@ func _game_start():
 
 var _color_fade_out = Color(0, 0, 0, 1)
 var _color_fade_in = Color(0, 0, 0, 0)
+
+# loads whatever level is referenced by cur_level
 func _load_level():
 	_level_summary.visible = false
 	# remove the currently active level if there is one
@@ -116,13 +118,14 @@ func _level_completed(score: int, orders_filled: int, orders_missed: int):
 		_level_summary._credits_next = true
 	_level_summary.setup(score, active_level.score_limits, orders_filled, orders_missed)
 	_level_summary.visible = true
+	active_level.get_node('Hud').visible = false
 	if active_level != null:
 		active_level.end_level()
 
 func _summary_progress(typ: Enums.ProgressType):
 	match typ:
 		Enums.ProgressType.RETRY:
-			cur_level -= 1
+			pass
 		Enums.ProgressType.NEXT_LEVEL:
 			cur_level += 1
 		Enums.ProgressType.CREDITS:
