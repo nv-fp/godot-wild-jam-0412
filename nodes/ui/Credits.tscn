@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://1mghd4a0yc8k"]
+
+[ext_resource type="Script" path="res://nodes/ui/Credits.gd" id="1_7e3js"]
+[ext_resource type="Texture2D" uid="uid://chemdfjegn0jy" path="res://art/credits/grass.png" id="2_c6kyy"]
+[ext_resource type="Texture2D" uid="uid://dshk7x04xyc0w" path="res://art/credits/flatsky.png" id="2_eok7k"]
+[ext_resource type="Script" path="res://nodes/ui/Clouds.gd" id="4_507gy"]
+[ext_resource type="AudioStream" uid="uid://b7nenlv7wsexo" path="res://sound/Meet_Me_At_The_End_Demo.mp3" id="5_2nocu"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_7e3js")
+
+[node name="Sky" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+scale = Vector2(2, 2)
+texture = ExtResource("2_eok7k")
+
+[node name="Grass" type="Sprite2D" parent="."]
+position = Vector2(638.111, 488.5)
+scale = Vector2(2, 2)
+texture = ExtResource("2_c6kyy")
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 231)
+
+[node name="Clouds" type="Node2D" parent="."]
+z_index = 10
+script = ExtResource("4_507gy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_2nocu")

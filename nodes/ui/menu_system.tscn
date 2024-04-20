@@ -120,5 +120,6 @@ texture = ExtResource("1_8u8lk")
 [connection signal="input_event" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_event"]
 [connection signal="mouse_entered" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_over"]
 [connection signal="mouse_exited" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_exit"]
+[connection signal="input_event" from="MainMenuBG/CreditsButton/Area2D" to="." method="_action_credits"]
 [connection signal="mouse_entered" from="MainMenuBG/CreditsButton/Area2D" to="." method="_over_credits"]
 [connection signal="mouse_exited" from="MainMenuBG/CreditsButton/Area2D" to="." method="_exit_credits"]
