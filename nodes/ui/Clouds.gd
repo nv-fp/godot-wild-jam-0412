@@ -19,7 +19,7 @@ var pool = []
 var _max_x = 0
 
 func _get_y() -> int:
-	return position.y + randi_range(0, height)
+	return position.y - randi_range(0, height)
 
 func _on_screen(xy: Vector2) -> bool:
 	var t = xy.x < (_max_x + 200) 
