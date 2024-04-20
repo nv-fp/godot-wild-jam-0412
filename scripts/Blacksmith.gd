@@ -5,12 +5,24 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 3
 var anvil_time = 3
 var furnace_time = 3
 var craft_time = 3
+
+var polished_scenes = {
+	"polished_bronze_shield": preload('res://nodes/objects/Polished_Bronze_Shield.tscn'),
+	"polished_gold_shield": preload('res://nodes/objects/Polished_Gold_Shield.tscn'),
+	"polished_diamond_shield": preload('res://nodes/objects/Polished_Diamond_Shield.tscn'),
+	"polished_bronze_sword": preload("res://nodes/objects/Polished_Bronze_Sword.tscn"),
+	"polished_gold_sword": preload("res://nodes/objects/Polished_Gold_Sword.tscn"),
+	"polished_diamond_sword": preload("res://nodes/objects/Polished_Diamond_Sword.tscn"),
+	"polished_bronze_staff": preload("res://nodes/objects/Polished_Bronze_Staff.tscn"),
+	"polished_gold_staff": preload("res://nodes/objects/Polished_Gold_Staff.tscn"),
+	"polished_diamond_staff": preload("res://nodes/objects/Polished_Diamond_Staff.tscn"),
+}
 
 
 var atlas_coords = {
@@ -174,9 +186,13 @@ func handle_interaction_input() -> void:
 						add_child(anvil.timer)
 						anvil.timer.position = get_location_from_group(group, anvil.tile) - anvil.timer_position
 						anvil.timer.start()
-						$Anviling.playing = true
+						$Anviling.play()
+						tilemap.get_node("Anvils").get_node("Anvil" + str(anvil.id)).get_node("AnvilAnimation").frame = 0
+						tilemap.get_node("Anvils").get_node("Anvil" + str(anvil.id)).get_node("AnvilAnimation").visible = true
 						await anvil.timer.timeout
-						$Anviling.playing = false
+						tilemap.get_node("Anvils").get_node("Anvil" + str(anvil.id)).get_node("AnvilAnimation").frame = 0
+						tilemap.get_node("Anvils").get_node("Anvil" + str(anvil.id)).get_node("AnvilAnimation").visible = false
+						$Anviling.stop()
 						immobile = false
 						anvil.inventory = [anvil.recipe]
 						anvil.timer.queue_free()
@@ -400,8 +416,12 @@ func spawn_in_held_item(item: String):
 	if heldItem != null:
 		return
 	pickedUpItem = true
-	var node = Sprite2D.new()
-	node.texture = WantBubbleFactory.get_tex(item)
+	var node
+	if item.begins_with("polished"):
+		node = polished_scenes.get(item).instantiate()
+	else:
+		node = Sprite2D.new()
+		node.texture = WantBubbleFactory.get_tex(item)
 	add_child(node)
 	heldItem = node
 	node.add_to_group(item)
@@ -413,8 +433,12 @@ func spawn_in_held_item(item: String):
 	node.position = $Marker2D.position
 
 func spawn_finished_item(item: String, interactable):
-	var node = Sprite2D.new()
-	node.texture = WantBubbleFactory.get_tex(item)
+	var node
+	if item.begins_with("polished"):
+		node = polished_scenes.get(item).instantiate()
+	else:
+		node = Sprite2D.new()
+		node.texture = WantBubbleFactory.get_tex(item)
 	add_child(node)
 	node.scale = item_scales.get(item)
 	node.z_index = 6

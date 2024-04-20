@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://d0xby5jooob3m"]
+
+[ext_resource type="Texture2D" uid="uid://d0tqwkq3rs8rr" path="res://art/polished-items/bronze staff sparkle1.png" id="1_hlro4"]
+[ext_resource type="Texture2D" uid="uid://502rv0ewrr2" path="res://art/polished-items/bronze staff sparkle2.png" id="2_jph1d"]
+[ext_resource type="Texture2D" uid="uid://bmkmhj08qna83" path="res://art/polished-items/bronze staff sparkle3.png" id="3_1ngxp"]
+[ext_resource type="Texture2D" uid="uid://clcgehuiey056" path="res://art/polished-items/bronze staff sparkle4.png" id="4_laevb"]
+[ext_resource type="Texture2D" uid="uid://uf3evkolv2s6" path="res://art/polished-items/bronze staff sparkle5.png" id="5_mmp65"]
+[ext_resource type="Texture2D" uid="uid://wscbbykwne3x" path="res://art/polished-items/bronze staff sparkle6.png" id="6_p5m8c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1m6hg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hlro4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jph1d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1ngxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_laevb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mmp65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_p5m8c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PolishedBronzeStaff" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1m6hg")
+autoplay = "default"
+frame_progress = 0.612656

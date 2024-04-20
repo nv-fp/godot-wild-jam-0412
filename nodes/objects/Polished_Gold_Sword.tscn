@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://bywilirctstna"]
+
+[ext_resource type="Texture2D" uid="uid://uhkblgdecyvk" path="res://art/polished-items/gold sword sparkle1.png" id="1_k87o4"]
+[ext_resource type="Texture2D" uid="uid://egfs1m6a3su6" path="res://art/polished-items/gold sword sparkle2.png" id="2_akb7m"]
+[ext_resource type="Texture2D" uid="uid://cbd3ccg7fi7xx" path="res://art/polished-items/gold sword sparkle3.png" id="3_dwa21"]
+[ext_resource type="Texture2D" uid="uid://y4hj8dhai7rp" path="res://art/polished-items/gold sword sparkle4.png" id="4_rvreb"]
+[ext_resource type="Texture2D" uid="uid://dowvjuyo2kj6d" path="res://art/polished-items/gold sword sparkle5.png" id="5_g1ofo"]
+[ext_resource type="Texture2D" uid="uid://do12ih447q7jp" path="res://art/polished-items/gold sword sparkle6.png" id="6_3brah"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyh8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k87o4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_akb7m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dwa21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rvreb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g1ofo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3brah")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PolishedGoldSword" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pyh8a")
+autoplay = "default"
+frame_progress = 0.576893

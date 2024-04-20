@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://br114org7532d"]
+
+[ext_resource type="Texture2D" uid="uid://crvhfgn07j55m" path="res://art/polished-items/bronze shield sparkle1.png" id="1_xc60x"]
+[ext_resource type="Texture2D" uid="uid://bi5yatap11ys1" path="res://art/polished-items/bronze shield sparkle2.png" id="2_ikxis"]
+[ext_resource type="Texture2D" uid="uid://c4ecy48txyvcr" path="res://art/polished-items/bronze shield sparkle3.png" id="3_wfx5l"]
+[ext_resource type="Texture2D" uid="uid://dun4boguvlv1l" path="res://art/polished-items/bronze shield sparkle4.png" id="4_nse1k"]
+[ext_resource type="Texture2D" uid="uid://c55de0uh72biw" path="res://art/polished-items/bronze shield sparkle5.png" id="5_42i3n"]
+[ext_resource type="Texture2D" uid="uid://c31b7m6or5mt6" path="res://art/polished-items/bronze shield sparkle6.png" id="6_s83rk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_241if"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_xc60x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ikxis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wfx5l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nse1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_42i3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s83rk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PolishedBronzeShield" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_241if")
+autoplay = "default"
+frame_progress = 0.728265

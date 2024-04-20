@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://dtwbxt24ih3r5"]
+[gd_scene load_steps=62 format=3 uid="uid://dtwbxt24ih3r5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="1_qvej2"]
@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://do5663jb5ix8y" path="res://art/furnace-animation/furnace animation final20.png" id="38_yw4jl"]
 [ext_resource type="Texture2D" uid="uid://bmks2653gdufv" path="res://art/furnace-animation/furnace animation final21.png" id="39_ol6cy"]
 [ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="40_svrvx"]
+[ext_resource type="Texture2D" uid="uid://ca4sirqq4rxup" path="res://art/puddle.png" id="41_rh1ua"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ap120"]
 texture = ExtResource("1_qvg4w")
@@ -900,6 +901,12 @@ position = Vector2(521, 132)
 sprite_frames = SubResource("SpriteFrames_o28pe")
 autoplay = "default"
 frame_progress = 0.290272
+
+[node name="Puddle" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(440, 299)
+texture = ExtResource("41_rh1ua")
 
 [connection signal="body_entered" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_exited"]

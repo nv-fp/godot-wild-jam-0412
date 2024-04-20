@@ -1,6 +1,6 @@
 extends TileMap
 
-var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(32, -1), Vector2(32, -3), Vector2(32, -5)])
+var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(27, -1), Vector2(32, -1), Vector2(32, -5)])
 var anvil_collision_tile: Vector2 = Vector2(25, -5)
 var furnace_collision_tile: Vector2 = Vector2(28, -5)
 var trash_collision_tile: Vector2 = Vector2(25, -3)
@@ -36,13 +36,13 @@ func _ready():
 	anvil_toast.position = map_to_local(anvil_collision_tile) + Vector2(10, -40)
 	
 	anvils.append({
+		"id": "0",
 		"tile": anvil_collision_tile,
 		"recipe": null,
 		"smithing": false,
 		"timer": null,
 		"area": anvil_area,
 		"inventory": [],
-		"id": "Anvil",
 		"recipes": {
 			"bronze_shield": ["bronze_shield_chunk"],
 			"gold_shield": ["gold_shield_chunk"],
@@ -190,7 +190,8 @@ func area_entered(node: Node2D, emitter: Area2D):
 
 # Old Trigger for exiting a crates area2d
 func area_exited(node: Node2D, emitter: Area2D):
-	$Blacksmith.interactable = null
+	if $Blacksmith.interactable == emitter:
+		$Blacksmith.interactable = null
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # This should be moved to Blacksmith eventually probably

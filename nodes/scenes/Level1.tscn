@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://ddy044qenymg5"]
+[gd_scene load_steps=65 format=3 uid="uid://ddy044qenymg5"]
 
 [ext_resource type="Script" path="res://scripts/Level1.gd" id="1_2op5i"]
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_hinuh"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://do5663jb5ix8y" path="res://art/furnace-animation/furnace animation final20.png" id="35_feudo"]
 [ext_resource type="Texture2D" uid="uid://bmks2653gdufv" path="res://art/furnace-animation/furnace animation final21.png" id="36_1takw"]
 [ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="37_58eue"]
+[ext_resource type="Texture2D" uid="uid://g5ewxmv22yyv" path="res://art/Hammer_animation.png" id="40_63xj5"]
+[ext_resource type="Texture2D" uid="uid://ca4sirqq4rxup" path="res://art/puddle.png" id="42_gcnmn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ilik3"]
 texture = ExtResource("1_wcgui")
@@ -629,6 +631,35 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uamq"]
+atlas = ExtResource("40_63xj5")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pauo2"]
+atlas = ExtResource("40_63xj5")
+region = Rect2(48, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22cjf"]
+atlas = ExtResource("40_63xj5")
+region = Rect2(96, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n8b20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uamq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pauo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22cjf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.1
+}]
+
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_2op5i")
 
@@ -728,12 +759,12 @@ layer_1/name = "Wall1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(-65513, 15, 268435456, -458728, 19, 0, -65509, 15, 268435456, -65508, 23, 0, -65511, 15, 268435456, -65512, 15, 268435456, -65510, 15, 268435456, -262121, 9, 0, -393189, 18, 1, -458724, 65554, 1, -131040, 131086, 1, -262112, 196622, 1, -393184, 262158, 1, -65504, 65551, 0, -65505, 15, 268435456, -65506, 15, 268435456, -458720, 15, 0, -458715, 65536, 5, -393179, 65536, 5, -327643, 65536, 5, -262107, 65536, 5, -196571, 65536, 5, -131035, 65536, 5, -65499, 65536, 5, 37, 65536, 5, 65573, 65536, 5, 131109, 65536, 5, 196645, 65536, 5, 262181, 65536, 5, 262180, 65536, 5, 262179, 65536, 5, 262178, 65536, 5, 262177, 65536, 5, 262176, 65536, 5, 262175, 65536, 5, 262174, 65536, 5, 262173, 65536, 5, 262172, 65536, 5, 262171, 65536, 5, 262170, 65536, 5, 262169, 65536, 5, 262168, 65536, 5, 262167, 65536, 5)
+layer_1/tile_data = PackedInt32Array(-65513, 15, 268435456, -458728, 19, 0, -65509, 15, 268435456, -65508, 23, 0, -65511, 15, 268435456, -65512, 15, 268435456, -262121, 9, 0, -393189, 18, 1, -458724, 65554, 1, -393184, 262158, 268435457, -65504, 65551, 0, -65506, 15, 268435456, -458720, 15, 0, -458715, 65536, 5, -393179, 65536, 5, -327643, 65536, 5, -262107, 65536, 5, -196571, 65536, 5, -131035, 65536, 5, -65499, 65536, 5, 37, 65536, 5, 65573, 65536, 5, 131109, 65536, 5, 196645, 65536, 5, 262181, 65536, 5, 262180, 65536, 5, 262179, 65536, 5, 262178, 65536, 5, 262177, 65536, 5, 262176, 65536, 5, 262175, 65536, 5, 262174, 65536, 5, 262173, 65536, 5, 262172, 65536, 5, 262171, 65536, 5, 262170, 65536, 5, 262169, 65536, 5, 262168, 65536, 5, 262167, 65536, 5, -65510, 131086, 268435457, -65505, 196622, 268435457, -131040, 15, 0)
 layer_2/name = "Wall2"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
 layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(-524263, 18, 0, -458726, 131090, 1, -524261, 196626, 1, -327649, 196622, 0, -458721, 262158, 0, -196577, 131086, 0)
+layer_2/tile_data = PackedInt32Array(-524263, 18, 0, -458726, 131090, 1, -524261, 196626, 1, -458721, 262158, 268435456, -131047, 131086, 268435456, -131042, 196622, 268435456)
 layer_3/name = "Wall3"
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 3
@@ -764,7 +795,7 @@ polygon = PackedVector2Array(569, 219, 606, 200, 486, 156, 475, 162)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Tilemap/ZIndexArea"]
 z_index = 1
-polygon = PackedVector2Array(524, 290, 640, 233, 714, 255, 672, 278, 640, 263, 611, 279, 559, 303, 527, 318, 490, 303, 425, 270, 341, 222, 384, 201)
+polygon = PackedVector2Array(546, 282, 640, 233, 714, 255, 672, 278, 640, 263, 611, 279, 559, 303, 527, 318, 490, 303, 425, 270, 341, 222, 384, 201)
 
 [node name="Blacksmith" parent="Tilemap" instance=ExtResource("2_f4rxc")]
 position = Vector2(526, 222)
@@ -795,11 +826,31 @@ sprite_frames = SubResource("SpriteFrames_cxfwm")
 autoplay = "default"
 frame_progress = 0.979095
 
+[node name="Anvils" type="Node2D" parent="Tilemap"]
+
+[node name="Anvil0" type="Node2D" parent="Tilemap/Anvils"]
+
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="Tilemap/Anvils/Anvil0"]
+visible = false
+top_level = true
+z_index = 6
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(509, 129)
+sprite_frames = SubResource("SpriteFrames_n8b20")
+autoplay = "default"
+frame_progress = 0.517003
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(392, 229)
 texture = ExtResource("16_fyae3")
+
+[node name="Puddle" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(474, 250)
+texture = ExtResource("42_gcnmn")
 
 [connection signal="body_entered" from="Tilemap/ZIndexArea" to="Tilemap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Tilemap/ZIndexArea" to="Tilemap" method="_on_area_2d_body_exited"]

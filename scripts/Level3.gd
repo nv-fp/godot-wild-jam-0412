@@ -7,7 +7,7 @@ var trash_collision_tile: Vector2 = Vector2(25, 1)
 var table_collision_tile: PackedVector2Array = PackedVector2Array([Vector2(31, 6), Vector2(40, 4)])
 var tub_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(32, 3), Vector2(32, -2)])
 
-var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(20, 60), Vector2(0, 60), Vector2(0, 60)])
+var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(10, 65), Vector2(0, 60), Vector2(0, 60)])
 var table_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(15, 30), Vector2(-10, 30)])
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40), Vector2(15, 20)])
 

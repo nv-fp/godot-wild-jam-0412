@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://b67acwqgfadkc"]
+
+[ext_resource type="Texture2D" uid="uid://b3vijukfjvvgl" path="res://art/polished-items/diamond shield sparkle1.png" id="1_2u3n5"]
+[ext_resource type="Texture2D" uid="uid://bgahku0uw8lln" path="res://art/polished-items/diamond shield sparkle2.png" id="2_k172s"]
+[ext_resource type="Texture2D" uid="uid://c1a1bc2pnf32c" path="res://art/polished-items/diamond shield sparkle3.png" id="3_p6chg"]
+[ext_resource type="Texture2D" uid="uid://da1d4i6d1j7hp" path="res://art/polished-items/diamond shield sparkle4.png" id="4_b0eyp"]
+[ext_resource type="Texture2D" uid="uid://hee3wm5b8jb1" path="res://art/polished-items/diamond shield sparkle5.png" id="5_ptrkp"]
+[ext_resource type="Texture2D" uid="uid://b7r5vqu3bbgwg" path="res://art/polished-items/diamond shield sparkle6.png" id="6_nxd87"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0tp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2u3n5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_k172s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p6chg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_b0eyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ptrkp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nxd87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PolishedDiamondShield" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_y0tp8")
+autoplay = "default"
+frame_progress = 0.676302
