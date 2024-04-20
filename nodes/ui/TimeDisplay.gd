@@ -9,7 +9,7 @@ func start():
 	has_started = true
 	if rem_time_sec == 0:
 		# we've reached jam level error handling
-		assert(false)
+		print("we probably shouldn't be here")
 	$Timer.start()
 
 var paused: bool = false

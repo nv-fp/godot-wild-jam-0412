@@ -87,22 +87,28 @@ func _load_level():
 	Jukebox.play_bg(cur_level)
 
 func _load_credits():
+	_level_summary.visible = false
 	if active_level != null:
 		remove_child(active_level)
 
 	if _credits != null:
-		$CanvasLayer.remove_child(_credits)
-	
+		remove_child(_credits)
+
+	$CanvasLayer/TutorialCard.visible = false
+
 	_credits = preload('res://nodes/ui/Credits.tscn').instantiate()
 	_credits.z_index = 4000
 	_credits.visible = true
-	$CanvasLayer.add_child(_credits)
+	add_child(_credits)
+	Jukebox.play_credits()
 	_credits.end_credits.connect(_exit_credits)
 	_curtain_out(null)
 
 func _load_menu():
 	_level_summary.visible = false
-	_credits.visible = false
+	if _credits != null:
+		_credits.visible = false
+		remove_child(_credits)
 	if active_level != null:
 		remove_child(active_level)
 	
@@ -133,6 +139,7 @@ func _tutorial_card_clear():
 	active_level.start_level()
 
 func _level_completed(score: int, orders_filled: int, orders_missed: int):
+	print('level_completed ' + str(cur_level))
 	if cur_level == levels.size() - 1:
 		_level_summary._credits_next = true
 	_level_summary.setup(score, active_level.score_limits, orders_filled, orders_missed)
@@ -147,14 +154,12 @@ func _summary_progress(typ: Enums.ProgressType):
 			pass
 		Enums.ProgressType.NEXT_LEVEL:
 			cur_level += 1
+			_curtain_in(_load_level)
 		Enums.ProgressType.CREDITS:
-			_summary_menu()
-			return
+			_curtain_in(_load_credits)
 
 	if cur_level > max_level:
 		max_level = cur_level
-
-	_curtain_in(_load_level)
 
 func _summary_menu():
 	_curtain_in(_load_menu)	

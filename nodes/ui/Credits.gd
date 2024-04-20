@@ -98,9 +98,9 @@ var credits_scr = [
 	func(): _fade_in($Sound, 2.5),
 	2500,
 	func(): _fade_out($Development, 2.5),
-	2500,
+	1750,
 	func(): _fade_in($Art, 2.5),
-	2500,
+	1750,
 	func(): _fade_out($Sound, 2.5),
 	2500,
 	func(): _fade_out($Art, 2.5),
@@ -237,8 +237,7 @@ func _process_script():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed('ui_cancel'):
-		#end_credits.emit()
-		get_tree().quit()
+		end_credits.emit()
 
 	_process_script()	
 	var vel = _get_velocity()

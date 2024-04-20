@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://1mghd4a0yc8k"]
+[gd_scene load_steps=53 format=3 uid="uid://1mghd4a0yc8k"]
 
 [ext_resource type="Script" path="res://nodes/ui/Credits.gd" id="1_7e3js"]
 [ext_resource type="Texture2D" uid="uid://chemdfjegn0jy" path="res://art/credits/grass.png" id="2_c6kyy"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://nodes/ui/Clouds.gd" id="4_507gy"]
 [ext_resource type="Texture2D" uid="uid://dp74bygpd0hwp" path="res://art/credits/tree3.png" id="4_ey1sa"]
 [ext_resource type="Texture2D" uid="uid://dmuv1xpv75nkg" path="res://art/credits/tree1.png" id="4_y4u6e"]
-[ext_resource type="AudioStream" uid="uid://b7nenlv7wsexo" path="res://sound/Meet_Me_At_The_End_Demo.mp3" id="5_2nocu"]
 [ext_resource type="Texture2D" uid="uid://b4ofc1ftkew28" path="res://art/credits/tree2.png" id="5_wnr3n"]
 [ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="6_5aijh"]
 [ext_resource type="Texture2D" uid="uid://x75c515flojo" path="res://art/blacksmith_angles.png" id="7_o814s"]
@@ -404,10 +403,6 @@ script = ExtResource("4_507gy")
 height = 250
 max_clouds = 20
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_2nocu")
-autoplay = true
-
 [node name="Tree3" type="Sprite2D" parent="."]
 position = Vector2(792, 350)
 scale = Vector2(4, 4)
@@ -451,7 +446,6 @@ texture = ExtResource("11_dh1j0")
 clip_children = 1
 texture_filter = 1
 position = Vector2(0, 2)
-scale = Vector2(1, 1)
 texture = ExtResource("12_ldmfo")
 
 [node name="Text" type="Label" parent="Blacksmith/Dialoge/Mask"]
@@ -545,6 +539,7 @@ text = "Art"
 horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="Art"]
+layout_mode = 0
 offset_left = -48.0
 offset_top = 40.0
 offset_right = 231.0
@@ -557,6 +552,7 @@ text = "bea +"
 horizontal_alignment = 1
 
 [node name="Name2" type="Label" parent="Art"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 104.0
 offset_right = 319.0
@@ -582,6 +578,7 @@ text = "Development"
 horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="Development"]
+layout_mode = 0
 offset_left = -88.0
 offset_top = 40.0
 offset_right = 191.0
@@ -594,6 +591,7 @@ text = "Blob +"
 horizontal_alignment = 1
 
 [node name="Name2" type="Label" parent="Development"]
+layout_mode = 0
 offset_left = 72.0
 offset_top = 104.0
 offset_right = 351.0
@@ -619,6 +617,7 @@ text = "Sound"
 horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="Sound"]
+layout_mode = 0
 offset_top = 40.0
 offset_right = 279.0
 offset_bottom = 79.0
@@ -643,6 +642,7 @@ text = "Design"
 horizontal_alignment = 1
 
 [node name="Name" type="Label" parent="Design"]
+layout_mode = 0
 offset_top = 40.0
 offset_right = 279.0
 offset_bottom = 79.0
