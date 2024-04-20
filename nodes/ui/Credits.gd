@@ -33,26 +33,25 @@ var bart_scr = [
 	func(): _anim('idle_south'),
 	func(): _stop(),
 	500,
-	#func(): _set_pos($Blacksmith, 300, 400),
-	func(): _speak(blurb[0]),
+	func(): _speak(blurb[0]), # hi
 	1250,
-	func(): _speak(blurb[1]),
+	func(): _speak(blurb[1]), # I'm bart
+	3750,
+	func(): _scroll_dlg(3, 1.5),
+	func(): _speak(blurb[2]), # Most folks
 	3500,
-	func(): _scroll_dlg(3, 2),
-	func(): _speak(blurb[2]),
-	1000,
 	func(): _scroll_dlg(5, 2.5),
 	2000,
-	func(): _speak(blurb[3]),
+	func(): _speak(blurb[3]), # paid
 	2750,
 	func(): _speak_clear(),
 	func(): _speak(blurb[4]),
 	1000,
 	func(): _speak(blurb[5]),
-	1500,
+	2500,
 	func(): _speak(blurb[6]),
 	350,
-	func(): _start_camera_move(70),
+	func(): _start_camera_move(80),
 	1500,
 	func(): _speak_clear(),
 	func(): _speak(blurb[7]),
@@ -79,7 +78,7 @@ var bart_scr = [
 var credits_scr = [
 	0, # bug that skips the 0th item after switching a script not worth fixing
 	func(): _start_camera_move(40),
-	3000,
+	4500,
 	func(): _fade_in($Container/Thanks, 3),
 	3000,
 	func(): _fade_out($Container/Thanks, 2.5),
@@ -89,6 +88,7 @@ var credits_scr = [
 	func(): _start_camera_move(30),
 	4000,
 	func(): _fade_out($Container/Dino, 2.5),
+	func(): _dump_ground(),
 	4000,
 	func(): _fade_in($Container/Design, 2.5),
 	2500,
@@ -106,6 +106,20 @@ var credits_scr = [
 	2500,
 	func(): _fade_out($Container/Art, 2.5),
 ]
+
+var in_sky = false
+func _dump_ground():
+	in_sky = true
+	remove_child($Sky)
+	remove_child($Grass)
+	remove_child($Clouds)
+	remove_child($Tree1)
+	remove_child($Tree2)
+	remove_child($Tree3)
+	remove_child($Tree4)
+	remove_child($Tree5)
+	remove_child($Tree6)
+	remove_child($Blacksmith)
 
 func _switch_script(new_scr):
 	scr = new_scr
@@ -126,8 +140,9 @@ var blurb = [
 	"appreciated I am.\n\n",
 	"And how underpaid.\n\n", # 3
 	"Anyway.\n", # 4
-	"I'm looking for an apprecntice.", # 5
-	"It's unpaid. but you would get to", # 6
+	"I'm looking for an apprentice.", # 5
+	"I pay in exposure, of course, but you\n" +
+	"would get to...", # 6
 	"Hey, where are you going?\n", #7
 	"Come back!\n", # 8
 	". . .\n", # 9
@@ -242,5 +257,6 @@ func _process(delta):
 		end_credits.emit()
 
 	_process_script()	
-	var vel = _get_velocity()
-	_blacksmith.position += (delta * vel)
+	if not in_sky:
+		var vel = _get_velocity()
+		_blacksmith.position += (delta * vel)

@@ -396,6 +396,10 @@ texture = ExtResource("2_c6kyy")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 231)
 
+[node name="TopSky" type="Sprite2D" parent="Container"]
+position = Vector2(640, -440)
+texture = ExtResource("12_f5fie")
+
 [node name="Clouds" type="Node2D" parent="Container"]
 position = Vector2(0, 128)
 script = ExtResource("4_507gy")
@@ -467,10 +471,6 @@ clip_text = true
 position = Vector2(120, 501)
 scale = Vector2(4, 4)
 texture = ExtResource("5_wnr3n")
-
-[node name="TopSky" type="Sprite2D" parent="Container"]
-position = Vector2(640, -440)
-texture = ExtResource("12_f5fie")
 
 [node name="Space" type="Sprite2D" parent="Container"]
 position = Vector2(640, -1240)
