@@ -30,7 +30,7 @@ offset_bottom = 659.0
 scale = Vector2(2, 2)
 
 [node name="Trash-bg" type="Sprite2D" parent="."]
-position = Vector2(1239, 39)
+position = Vector2(39, 39)
 scale = Vector2(0.734372, 0.71875)
 texture = ExtResource("4_0sk3r")
 metadata/_edit_group_ = true
@@ -47,10 +47,9 @@ flat = true
 icon_alignment = 1
 
 [node name="OrderQueue" parent="." instance=ExtResource("6_6kiyj")]
-position = Vector2(1182, 148)
+position = Vector2(1128, 44)
 
 [node name="DebugUI" type="Node2D" parent="."]
-visible = false
 
 [node name="Button" type="Button" parent="DebugUI"]
 offset_left = 1035.0

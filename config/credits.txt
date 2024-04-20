@@ -1,5 +1,22 @@
-font - https://monkopus.itch.io/stacked-pixel
-hourglass - https://www.vecteezy.com/vector-art/8081723-hourglass-pixel-art-vector-illustration-design-for-games
-coins - https://www.newgrounds.com/art/view/flexviper/gold-coins-pixel-art
-speakers - https://icons8.com/icons/set/speaker
-particle textures - https://kronbits.itch.io/particle-pack
+] Team Lead
+blob, 
+
+] Design, Cat Herding
+ani
+
+] Programming
+blob,
+envy
+
+] Art
+bea
+kit
+
+] Music
+Junpei!
+
+] Assets
+Font, Stacked Pixel, https://monkopus.itch.io/stacked-pixel
+Hourglass Icon, vectezy, https://www.vecteezy.com/vector-art/8081723-hourglass-pixel-art-vector-illustration-design-for-games
+Coins Icon, flexviper, https://www.newgrounds.com/art/view/flexviper/gold-coins-pixel-art
+Speakers Icon, icons8, https://icons8.com/icons/set/speaker

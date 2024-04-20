@@ -7,8 +7,8 @@ extends Node2D
 #
 # if starting in StartMode.NORMAL level is an empty string
 signal start_game
-
 signal quit_game
+signal show_credits
 
 var has_displayed_intro_animation = false
 
@@ -85,3 +85,7 @@ func _over_credits():
 
 func _exit_credits():
 	_exit_button($MainMenuBG/CreditsButton)
+
+func _action_credits(viewport, event, shape_idx):
+	if InputUtil.is_click(event):
+		show_credits.emit()

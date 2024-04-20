@@ -5,6 +5,8 @@ var queue = []
 
 @export var max_queue_size = 3
 
+var _h_offset = 190
+
 func pause():
 	for wb in queue:
 		if wb != null:
@@ -94,8 +96,7 @@ func _item_filled(id: String, _points: int, _remaining_ms: int):
 #@export_enum('vertical', 'horizontal')
 func _get_coords_pos(idx: int) -> Vector2:
 	#var v_offset = 100
-	var h_offset = 130
-	return Vector2(0, idx * h_offset)
+	return Vector2(0, idx * _h_offset)
 
 func _reflow(idx: int, tgt: WantBubble):
 	if queue[idx] == null:

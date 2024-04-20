@@ -51,7 +51,6 @@ func _toggle_audio(toggled_on):
 		$"Trash-bg/AudioToggle".icon = preload('res://art/audio-64.png')
 		Jukebox.unpause()
 
-
 func _background_pressed():
 	Jukebox.play_bg()
 
