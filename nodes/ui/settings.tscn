@@ -1,0 +1,230 @@
+[gd_scene load_steps=10 format=3 uid="uid://c0woxlj72u5mk"]
+
+[ext_resource type="Script" path="res://nodes/ui/settings.gd" id="1_guqxq"]
+[ext_resource type="Texture2D" uid="uid://c1th7bkbekqgr" path="res://art/main-menu/main_menu_base.png" id="2_7nkg7"]
+[ext_resource type="Texture2D" uid="uid://wxorn3874kvk" path="res://art/main-menu/buttons.png" id="3_qsfh4"]
+[ext_resource type="Texture2D" uid="uid://dejaafy4w1ffj" path="res://art/main-menu/font.png" id="4_rogd8"]
+[ext_resource type="Texture2D" uid="uid://dpgtmjj15ln7j" path="res://art/main-menu/buttons-drop-shadow.png" id="5_l7mdf"]
+[ext_resource type="Texture2D" uid="uid://12tcnoh4t2rt" path="res://art/main_menu.jpg" id="6_a4edf"]
+[ext_resource type="Texture2D" uid="uid://mr2bfua01rmk" path="res://art/settings.png" id="6_v7x2v"]
+[ext_resource type="Texture2D" uid="uid://cfesys1pbcyph" path="res://art/hud_sound.png" id="7_ad7u6"]
+[ext_resource type="Texture2D" uid="uid://dfuy7gv4pqojx" path="res://art/settings_buttons.png" id="7_uc40e"]
+
+[node name="MenuSystem" type="Node2D"]
+script = ExtResource("1_guqxq")
+
+[node name="MainMenuBG" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_7nkg7")
+
+[node name="Settings" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-2, -236)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/Settings"]
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.914141, 0.914141)
+texture = ExtResource("4_rogd8")
+region_enabled = true
+region_rect = Rect2(153, 433, 487, 102)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/Settings"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="MasterVolume" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-169, -103)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/MasterVolume"]
+texture_filter = 1
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_v7x2v")
+region_enabled = true
+region_rect = Rect2(63, 7, 554, 74)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/MasterVolume"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="HSlider" type="HSlider" parent="MainMenuBG/MasterVolume"]
+offset_left = 416.0
+offset_right = 816.0
+offset_bottom = 16.0
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+
+[node name="SliderBackground" type="Sprite2D" parent="MainMenuBG/MasterVolume/HSlider"]
+z_index = -1
+texture_filter = 1
+position = Vector2(201, 7.14288)
+scale = Vector2(1.56014, 1.77606)
+texture = ExtResource("7_uc40e")
+region_enabled = true
+region_rect = Rect2(17, 93, 291, 37)
+
+[node name="MusicVolume" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-169, -5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/MusicVolume"]
+texture_filter = 1
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_v7x2v")
+region_enabled = true
+region_rect = Rect2(63, 135, 514, 74)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/MusicVolume"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="HSlider" type="HSlider" parent="MainMenuBG/MusicVolume"]
+offset_left = 416.0
+offset_right = 816.0
+offset_bottom = 16.0
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+
+[node name="SliderBackground2" type="Sprite2D" parent="MainMenuBG/MusicVolume/HSlider"]
+z_index = -1
+texture_filter = 1
+position = Vector2(201, 3.14288)
+scale = Vector2(1.56014, 1.77606)
+texture = ExtResource("7_uc40e")
+region_enabled = true
+region_rect = Rect2(17, 93, 291, 37)
+
+[node name="SfxVolume" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-169, 91)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/SfxVolume"]
+texture_filter = 1
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_v7x2v")
+region_enabled = true
+region_rect = Rect2(62, 387, 419, 78)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/SfxVolume"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="HSlider" type="HSlider" parent="MainMenuBG/SfxVolume"]
+offset_left = 416.0
+offset_right = 816.0
+offset_bottom = 16.0
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+
+[node name="SliderBackground3" type="Sprite2D" parent="MainMenuBG/SfxVolume/HSlider"]
+z_index = -1
+texture_filter = 1
+position = Vector2(201, 3.14288)
+scale = Vector2(1.56014, 1.77606)
+texture = ExtResource("7_uc40e")
+region_enabled = true
+region_rect = Rect2(17, 93, 291, 37)
+
+[node name="HudVolume" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+position = Vector2(-169, 187)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/HudVolume"]
+texture_filter = 1
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_ad7u6")
+region_enabled = true
+region_rect = Rect2(60, 60, 392, 68)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/HudVolume"]
+z_index = -1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
+
+[node name="HSlider" type="HSlider" parent="MainMenuBG/HudVolume"]
+offset_left = 416.0
+offset_right = 816.0
+offset_bottom = 16.0
+min_value = -80.0
+max_value = 0.0
+step = 10.0
+
+[node name="SliderBackground4" type="Sprite2D" parent="MainMenuBG/HudVolume/HSlider"]
+z_index = -1
+texture_filter = 1
+position = Vector2(201, 5.14282)
+scale = Vector2(1.56014, 1.77606)
+texture = ExtResource("7_uc40e")
+region_enabled = true
+region_rect = Rect2(17, 93, 291, 37)
+
+[node name="BackButton" type="Sprite2D" parent="MainMenuBG"]
+z_index = 1
+texture_filter = 1
+position = Vector2(-19, 257)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qsfh4")
+region_enabled = true
+region_rect = Rect2(496, 552, 269, 92)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/BackButton"]
+texture_filter = 1
+position = Vector2(3.04292, 2.25)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("6_v7x2v")
+region_enabled = true
+region_rect = Rect2(64, 652, 168, 68)
+
+[node name="DropShadow" type="Sprite2D" parent="MainMenuBG/BackButton"]
+z_index = -1
+texture_filter = 1
+position = Vector2(16, 13)
+texture = ExtResource("5_l7mdf")
+region_enabled = true
+region_rect = Rect2(507, 564, 265, 89)
+
+[node name="MainMenu" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+texture = ExtResource("6_a4edf")
