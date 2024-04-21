@@ -630,6 +630,8 @@ texture_region_size = Vector2i(40, 64)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 16, -24, 20, 0, 36, 8, 28)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-18.5625, -1.5625, -27.9375, 4.9375, -27.5625, 22.6875, -15.3125, 29.4375, -3.8125, 35.8125, 10.3125, 32.4375, 12.8125, 19.6875, 8.3125, 15.8125, 4.1875, 11.9375, -1.3125, 5.1875)
+0:0/0/custom_data_0 = "anvil"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l3d5u"]
 texture = ExtResource("10_sdlrj")
@@ -1113,6 +1115,7 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_f6had")
+collision_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true

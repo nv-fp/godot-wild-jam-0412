@@ -567,9 +567,13 @@ func _physics_process(_delta) -> void:
 					var interact = tilemap.tubs.filter(func (f): return f.actual_tile == tile).front()
 					if interact:
 						interactable = interact.area
+				"anvil":
+					var interact = tilemap.anvils.filter(func (f): return f.actual_tile == tile).front()
+					if interact:
+						interactable = interact.area
 	else:
 		if interactable && !interactable.get_overlapping_bodies().filter(func (b): return b == self):
-			if crates.has(interactable.get_groups()[0]) || interactable.get_groups()[0] == "tub":
+			if crates.has(interactable.get_groups()[0]) || interactable.get_groups()[0] == "tub" || interactable.get_groups()[0] == 'anvil':
 				interactable = null
 
 	

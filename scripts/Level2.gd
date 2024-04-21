@@ -12,6 +12,7 @@ var tub_item_offsets: PackedVector2Array = PackedVector2Array([Vector2(-7, -10),
 
 # RAYCAST STUFF
 var tub_tiles = [Vector2i(30, 3), Vector2i(33, -7)]
+var anvil_tile = Vector2i(22, -4)
 
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide"]
 var crates = []
@@ -48,6 +49,7 @@ func _ready():
 	anvil_toast.position = map_to_local(anvil_collision_tile) + Vector2(-23, -32)
 	
 	anvils.append({
+		"actual_tile": Vector2i(22, -4),
 		"id": 0,
 		"tile": anvil_collision_tile,
 		"recipe": null,

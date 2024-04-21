@@ -13,6 +13,7 @@ var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40)
 
 
 var tub_tiles = [Vector2i(31, 1), Vector2i(31, -2)]
+var anvil_tile = Vector2i(26, -8)
 
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide", "wood"]
 var crates = []
@@ -48,6 +49,7 @@ func _ready():
 		anvil_toast.position = $Anvils.get_node("Anvil" + str(i)).get_node("ToastPosition").position
 	
 		anvils.append({
+			"actual_tile": anvil_tile,
 			"id": i,
 			"tile": anvil_collision_tiles[i],
 			"recipe": null,
