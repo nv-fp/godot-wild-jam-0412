@@ -218,7 +218,7 @@ func handle_interaction_input() -> void:
 						furnace.inventory = furnace.inventory.slice(1)
 						print(furnace.inventory)	
 						for item in furnace.inventory:
-							furnace.topast.add_material(item)
+							furnace.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
 
 						return

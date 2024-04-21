@@ -855,6 +855,7 @@ script = ExtResource("1_2op5i")
 
 [node name="Walls" type="TileMap" parent="."]
 y_sort_enabled = true
+texture_filter = 1
 tile_set = SubResource("TileSet_wcosa")
 format = 2
 layer_0/name = "Wall1"
@@ -1034,11 +1035,13 @@ frame_progress = 0.517003
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+texture_filter = 1
 position = Vector2(392, 229)
 texture = ExtResource("16_fyae3")
 
 [node name="Puddle" type="Sprite2D" parent="."]
 z_index = 2
+texture_filter = 1
 position = Vector2(474, 250)
 texture = ExtResource("42_gcnmn")
 

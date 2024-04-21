@@ -954,11 +954,13 @@ animations = [{
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 2
 y_sort_enabled = true
+texture_filter = 1
 position = Vector2(322, 261)
 texture = ExtResource("1_qvej2")
 
 [node name="Walls" type="TileMap" parent="."]
 y_sort_enabled = true
+texture_filter = 1
 tile_set = SubResource("TileSet_fst1t")
 format = 2
 layer_0/name = "Wall1"
@@ -1038,6 +1040,7 @@ layer_14/tile_data = PackedInt32Array(-1310710, 0, 0, -1245174, 0, 0, -1179638, 
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 1
 y_sort_enabled = true
+texture_filter = 1
 position = Vector2(-2, 0)
 tile_set = SubResource("TileSet_f6had")
 format = 2
