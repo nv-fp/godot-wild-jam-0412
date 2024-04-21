@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 3
 var anvil_time = 3
@@ -215,20 +215,23 @@ func handle_interaction_input() -> void:
 				# Our item finished smelting and we need to collect it
 				if heldItem == null:
 					if furnace.smelting:
-						if furnace.inventory.size() == 1 && furnace.inventory[0] == furnace.recipe:
+						if furnace.inventory.size() ==  1 && furnace.inventory[0] == furnace.recipe:
 							furnace.smelting = false
 							clear_interactable(furnace)
 							return
 						else:
 							$WompWomp.play()
 							return
-					else:
+					elif furnace.inventory.size() > 0:
 						var itemToRemove = furnace.inventory[0]
 						furnace.toast.clear()
 						furnace.inventory = furnace.inventory.slice(1)
 						for item in furnace.inventory:
 							furnace.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
+						return
+					else:
+						$WompWomp.play()
 						return
 							
 				if furnace.inventory.size() > 2:
