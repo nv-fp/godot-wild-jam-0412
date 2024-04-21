@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://nodes/ui/WantBubble.gd" id="1_1iapf"]
 [ext_resource type="Texture2D" uid="uid://cqnej5sldjvr0" path="res://art/queue-card-2.png" id="2_o8gjx"]
-[ext_resource type="PackedScene" uid="uid://svq8fgrv36qt" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
+[ext_resource type="PackedScene" path="res://scripts/PausableTimer.tscn" id="3_bhlja"]
 [ext_resource type="PackedScene" uid="uid://cnulu7wcjcw6b" path="res://nodes/scenes/cowndown_timer.tscn" id="4_vb3c3"]
 
 [node name="WantBubble" type="Node2D"]
@@ -11,21 +11,25 @@ scale = Vector2(1.1, 1.1)
 script = ExtResource("1_1iapf")
 
 [node name="Frame" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(69.0606, 81.1516)
 scale = Vector2(2, 2)
 texture = ExtResource("2_o8gjx")
 
 [node name="Item" type="Sprite2D" parent="Frame"]
 z_index = 1
+texture_filter = 1
 position = Vector2(-7.33334, 5.90351)
 
 [node name="PartA" type="Sprite2D" parent="Frame"]
 z_index = 1
+texture_filter = 1
 position = Vector2(19.3971, -6.47528)
 scale = Vector2(0.6, 0.6)
 
 [node name="PartB" type="Sprite2D" parent="Frame"]
 z_index = 1
+texture_filter = 1
 position = Vector2(18.6954, 17.8947)
 scale = Vector2(0.6, 0.6)
 
@@ -33,10 +37,11 @@ scale = Vector2(0.6, 0.6)
 run_time_sec = 10.0
 
 [node name="CountdownTimer" parent="." instance=ExtResource("4_vb3c3")]
-position = Vector2(9.42421, 13.303)
+z_index = -1
+position = Vector2(9.42421, 12.3939)
 rotation = 1.5708
 run_time = 10.0
-radius = 6
+radius = 8
 redraw_rate_ms = 5
 bar_border = 0
 bar_height = 125
