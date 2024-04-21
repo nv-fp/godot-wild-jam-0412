@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 3
 var anvil_time = 3
@@ -357,7 +357,11 @@ func handle_interaction_input() -> void:
 						table.timer.position = get_location_from_group(group, table.tile) - table.timer_position
 						table.timer.start()
 						$Crafting.playing = true
+						tilemap.get_node("Tables").get_node("Table" + str(table.id)).get_node("TableAnimation").frame = 0
+						tilemap.get_node("Tables").get_node("Table" + str(table.id)).get_node("TableAnimation").play()
 						await table.timer.timeout
+						tilemap.get_node("Tables").get_node("Table" + str(table.id)).get_node("TableAnimation").pause()
+						tilemap.get_node("Tables").get_node("Table" + str(table.id)).get_node("TableAnimation").frame = 0
 						$Crafting.playing = false
 						table.inventory = [table.recipe]
 						table.timer.queue_free()
@@ -594,5 +598,69 @@ func _process(_delta) -> void:
 		handle_start_interaction_input()
 	
 
+func pause_game():
+	immobile = true
+	for i in range(tilemap.anvils.size()):
+		if tilemap.anvils[i].timer:
+			tilemap.anvils[i].timer.pause()
+		
+			var animation = tilemap.get_node("Anvils").get_node("Anvil" + str(i)).get_node("AnvilAnimation")
+			if animation:
+				animation.pause()
+		
+	for i in range(tilemap.furnaces.size()):
+		if tilemap.furnaces[i].timer:
+			tilemap.furnaces[i].timer.pause()
+		
+			var animation = tilemap.get_node("Furnaces").get_node("Furnace" + str(i)).get_node("FurnaceAnimation")
+			if animation:
+				animation.pause()
+	
+	for i in range(tilemap.tables.size()):
+		if tilemap.tables[i].timer:
+			tilemap.tables[i].timer.pause()
+		
+			var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
+			if animation:
+				animation.pause()
+		
+	for i in range(tilemap.tubs.size()):
+		if tilemap.tubs[i].timer:
+			tilemap.tubs[i].timer.pause()
+		
+			var animation = tilemap.get_node("Tubs").get_node("Tub" + str(i)).get_node("TubAnimation")
+			if animation:
+				animation.pause()
+		
+func resume_game():
+	immobile = false
+	for i in range(tilemap.anvils.size()):
+		if tilemap.anvils[i].timer:
+			tilemap.anvils[i].timer.start()
+			var animation = tilemap.get_node("Anvils").get_node("Anvil" + str(i)).get_node("AnvilAnimation")
+			if animation:
+				animation.play()
+		
+	for i in range(tilemap.furnaces.size()):
+		if tilemap.furnaces[i].timer:
+			tilemap.furnaces[i].timer.start()
+			var animation = tilemap.get_node("Furnaces").get_node("Furnace" + str(i)).get_node("FurnaceAnimation")
+			if animation:
+				animation.play()
+	
+	for i in range(tilemap.tables.size()):
+		if tilemap.tables[i].timer:
+			tilemap.tables[i].timer.start()
+			var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
+			if animation:
+				animation.play()
+		
+	for i in range(tilemap.tubs.size()):
+		if tilemap.tubs[i].timer:
+			tilemap.tubs[i].timer.start()
+			var animation = tilemap.get_node("Tubs").get_node("Tub" + str(i)).get_node("TubAnimation")
+			if animation:
+				animation.play()
+		
 
 

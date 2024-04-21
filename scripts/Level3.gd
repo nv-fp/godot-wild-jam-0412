@@ -118,6 +118,7 @@ func _ready():
 		table_toast.position = table.get_node("ToastPosition").position
 	
 		tables.append({
+			"id": i,
 			"tile": table_collision_tile[i],
 			"recipe": null,
 			"crafting": false,

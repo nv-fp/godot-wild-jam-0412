@@ -111,6 +111,7 @@ func _ready():
 	table_toast.position = map_to_local(table_collision_tile) + Vector2(-10, -20)
 	
 	tables.append({
+		"id": 0,
 		"tile": table_collision_tile,
 		"recipe": null,
 		"crafting": false,

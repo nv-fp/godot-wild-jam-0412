@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://dd28ij5lkfeyf"]
+[gd_scene load_steps=120 format=3 uid="uid://dd28ij5lkfeyf"]
 
 [ext_resource type="Script" path="res://scripts/Level3.gd" id="1_2x21t"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_e3tpk"]
@@ -44,20 +44,51 @@
 [ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="39_hp5x0"]
 [ext_resource type="Texture2D" uid="uid://ca4sirqq4rxup" path="res://art/puddle.png" id="42_li41q"]
 [ext_resource type="Texture2D" uid="uid://cvctyqo4l7db4" path="res://art/bubbles/bubbles1.png" id="43_6d5af"]
+[ext_resource type="Texture2D" uid="uid://d5e225hbpkvc" path="res://art/table-animation/crafting animation1.png" id="43_dfjft"]
 [ext_resource type="Texture2D" uid="uid://diaeeoq5dcqwh" path="res://art/bubbles/bubbles2.png" id="44_0onum"]
+[ext_resource type="Texture2D" uid="uid://dyvky5bjatd0g" path="res://art/table-animation/crafting animation2.png" id="44_4bahs"]
 [ext_resource type="Texture2D" uid="uid://d1ygn2qy62opo" path="res://art/bubbles/bubbles3.png" id="45_ax744"]
+[ext_resource type="Texture2D" uid="uid://dq8p7406rir7d" path="res://art/table-animation/crafting animation3.png" id="45_xxwbj"]
 [ext_resource type="Texture2D" uid="uid://dqle2wtqnx52o" path="res://art/bubbles/bubbles4.png" id="46_5mbqm"]
+[ext_resource type="Texture2D" uid="uid://seyfb6v00bv5" path="res://art/table-animation/crafting animation4.png" id="46_unwwv"]
 [ext_resource type="Texture2D" uid="uid://dhudk1a58vwtj" path="res://art/bubbles/bubbles5.png" id="47_00ixn"]
+[ext_resource type="Texture2D" uid="uid://cf88yeaadvor" path="res://art/table-animation/crafting animation5.png" id="47_mwgab"]
 [ext_resource type="Texture2D" uid="uid://57ba8q642swh" path="res://art/bubbles/bubbles6.png" id="48_2drj4"]
+[ext_resource type="Texture2D" uid="uid://yede7dwiveum" path="res://art/table-animation/crafting animation6.png" id="48_mkucr"]
+[ext_resource type="Texture2D" uid="uid://b4t4251gur153" path="res://art/table-animation/crafting animation7.png" id="49_ep265"]
 [ext_resource type="Texture2D" uid="uid://kjcyjvtgfxhw" path="res://art/bubbles/bubbles7.png" id="49_tdhp8"]
 [ext_resource type="Texture2D" uid="uid://j3whtaioiwvx" path="res://art/bubbles/bubbles8.png" id="50_58ohk"]
+[ext_resource type="Texture2D" uid="uid://b7c4mkgtdi8w6" path="res://art/table-animation/crafting animation8.png" id="50_v6670"]
+[ext_resource type="Texture2D" uid="uid://cgq6dwlrffgio" path="res://art/table-animation/crafting animation9.png" id="51_h8xk7"]
 [ext_resource type="Texture2D" uid="uid://bgumcmn11ime" path="res://art/bubbles/bubbles9.png" id="51_qc4t1"]
+[ext_resource type="Texture2D" uid="uid://brlgfonybq62w" path="res://art/table-animation/crafting animation10.png" id="52_ct0sq"]
 [ext_resource type="Texture2D" uid="uid://ddwc5rgh0mgrs" path="res://art/bubbles/bubbles10.png" id="52_k5tmf"]
 [ext_resource type="Texture2D" uid="uid://dljiie3rvh0ox" path="res://art/bubbles/bubbles11.png" id="53_8b2f8"]
+[ext_resource type="Texture2D" uid="uid://bg1fvoven6t2a" path="res://art/table-animation/crafting animation11.png" id="53_ogs23"]
+[ext_resource type="Texture2D" uid="uid://u3i2dlfw7qg" path="res://art/table-animation/crafting animation12.png" id="54_d11q5"]
 [ext_resource type="Texture2D" uid="uid://dfl84sgui5hm8" path="res://art/bubbles/bubbles12.png" id="54_qwql4"]
 [ext_resource type="Texture2D" uid="uid://dxu3ody1pq4lh" path="res://art/bubbles/bubbles13.png" id="55_h5476"]
+[ext_resource type="Texture2D" uid="uid://dbu3xfo8lhj4g" path="res://art/table-animation/crafting animation13.png" id="55_u8rub"]
 [ext_resource type="Texture2D" uid="uid://cboh4hghk2qe0" path="res://art/bubbles/bubbles14.png" id="56_nd1cw"]
+[ext_resource type="Texture2D" uid="uid://kkd48yggnsvp" path="res://art/table-animation/crafting animation14.png" id="56_srf4d"]
 [ext_resource type="Texture2D" uid="uid://bt40kxkwniyww" path="res://art/bubbles/bubbles15.png" id="57_mrtpv"]
+[ext_resource type="Texture2D" uid="uid://nx1xx0kk8fk1" path="res://art/table-animation/crafting animation15.png" id="57_yql34"]
+[ext_resource type="Texture2D" uid="uid://diube5p4h6ng" path="res://art/table-animation/crafting animation16.png" id="58_yk8nh"]
+[ext_resource type="Texture2D" uid="uid://db3n3bq2xiv5d" path="res://art/table-animation/crafting animation17.png" id="59_84pvd"]
+[ext_resource type="Texture2D" uid="uid://brr5mdw1m6e38" path="res://art/table-animation/crafting animation18.png" id="60_ahdua"]
+[ext_resource type="Texture2D" uid="uid://crnhbiwp5mtve" path="res://art/table-animation/crafting animation19.png" id="61_tc3ff"]
+[ext_resource type="Texture2D" uid="uid://quw4skikbv08" path="res://art/table-animation/crafting animation20.png" id="62_47vnn"]
+[ext_resource type="Texture2D" uid="uid://8ootumvdbvpb" path="res://art/table-animation/crafting animation21.png" id="63_b74fl"]
+[ext_resource type="Texture2D" uid="uid://dn58ywkrl5tww" path="res://art/table-animation/crafting animation22.png" id="64_8wosc"]
+[ext_resource type="Texture2D" uid="uid://0e4ovuff4dax" path="res://art/table-animation/crafting animation23.png" id="65_7iuqi"]
+[ext_resource type="Texture2D" uid="uid://c7w06rbk162ue" path="res://art/table-animation/crafting animation24.png" id="66_xpdxt"]
+[ext_resource type="Texture2D" uid="uid://c64o8dckkwc5y" path="res://art/table-animation/crafting animation25.png" id="67_21yg0"]
+[ext_resource type="Texture2D" uid="uid://m685y84a2hoj" path="res://art/table-animation/crafting animation26.png" id="68_pbdi3"]
+[ext_resource type="Texture2D" uid="uid://cjshxr0x0patj" path="res://art/table-animation/crafting animation27.png" id="69_88w88"]
+[ext_resource type="Texture2D" uid="uid://byo4bej3y8y4q" path="res://art/table-animation/crafting animation28.png" id="70_50nav"]
+[ext_resource type="Texture2D" uid="uid://ldkw52t8yxi7" path="res://art/table-animation/crafting animation29.png" id="71_g0sfb"]
+[ext_resource type="Texture2D" uid="uid://5ttf0w01sqsn" path="res://art/table-animation/crafting animation30.png" id="72_rem4o"]
+[ext_resource type="Texture2D" uid="uid://nltbl2wtwxuh" path="res://art/table-animation/crafting animation31.png" id="73_4b7lw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1jf4"]
 texture = ExtResource("1_e3tpk")
@@ -1086,6 +1117,107 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_b4mye"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_dfjft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_4bahs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_xxwbj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_unwwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_mwgab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_mkucr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_ep265")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_v6670")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_h8xk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_ct0sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_ogs23")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_d11q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_u8rub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_srf4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_yql34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_yk8nh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_84pvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_ahdua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_tc3ff")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_47vnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_b74fl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_8wosc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_7iuqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_xpdxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_21yg0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_pbdi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_88w88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_50nav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_g0sfb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_rem4o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_4b7lw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_81rnu"]
 animations = [{
 "frames": [{
@@ -1250,7 +1382,6 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(1, 0)
 tile_set = SubResource("TileSet_f6had")
-collision_visibility_mode = 1
 format = 2
 layer_0/name = "Floor"
 layer_0/y_sort_enabled = true
@@ -1264,7 +1395,7 @@ layer_2/name = "Wall2"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
 layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(327706, 131086, 268435456, 327713, 196622, 268435456, 393246, 65560, 0, -524254, 18, 0, -458717, 131090, 1, -524252, 196626, 1, -524257, 1, 0, -524256, 1, 0, -524255, 1, 0, 458775, 2, 0, 524311, 131074, 0, 458776, 2, 0, -524266, 1, 0, -524251, 1, 0, 196648, 65561, 268435456, 65580, 1, 0, 786467, 1, 0, 786476, 1, 0, -458710, 4, 0, -458712, 4, 0, -196569, 65550, 268435456, -524244, 1, 0, -262128, 5, 0, -65514, 18, 268435456, -131051, 131090, 268435456, 23, 131090, 268435457, 65558, 196626, 268435457, -131043, 14, 0, 327716, 262158, 268435456, -393194, 18, 268435456, -327657, 131090, 268435457, -262122, 196626, 268435457, 786454, 1, 0)
+layer_2/tile_data = PackedInt32Array(327706, 131086, 268435456, 327713, 196622, 268435456, -524254, 18, 0, -458717, 131090, 1, -524252, 196626, 1, -524257, 1, 0, -524256, 1, 0, -524255, 1, 0, 458775, 2, 0, 524311, 131074, 0, 458776, 2, 0, -524266, 1, 0, -524251, 1, 0, 65580, 1, 0, 786467, 1, 0, 786476, 1, 0, -458710, 4, 0, -458712, 4, 0, -196569, 65550, 268435456, -524244, 1, 0, -262128, 5, 0, -65514, 18, 268435456, -131051, 131090, 268435456, 23, 131090, 268435457, 65558, 196626, 268435457, -131043, 14, 0, 327716, 262158, 268435456, -393194, 18, 268435456, -327657, 131090, 268435457, -262122, 196626, 268435457, 786454, 1, 0)
 layer_3/name = "Wall3"
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 3
@@ -1292,7 +1423,7 @@ polygon = PackedVector2Array(727, 302, 764, 279, 827, 312, 792, 334)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/ZIndexArea"]
 z_index = 1
-polygon = PackedVector2Array(322, 231, 340, 239, 369, 255, 497, 190, 726, 300, 734, 313, 690, 336, 613, 374, 694, 359, 775, 338, 817, 351, 860, 326, 768, 282, 592, 207, 606, 200, 585, 190, 527, 160, 496, 161)
+polygon = PackedVector2Array(322, 231, 337, 243, 363, 257, 497, 190, 726, 300, 734, 313, 690, 336, 604, 376, 590, 369, 563, 383, 608, 405, 688, 354, 775, 338, 817, 351, 860, 326, 768, 282, 592, 207, 606, 200, 585, 190, 527, 160, 496, 161)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TileMap/ZIndexArea"]
 z_index = 1
@@ -1441,6 +1572,13 @@ polygon = PackedVector2Array(415, 296, 446, 312, 433, 319, 403, 304)
 [node name="ToastPosition" type="Marker2D" parent="TileMap/Tables/Table0"]
 position = Vector2(408, 298)
 
+[node name="TableAnimation" type="AnimatedSprite2D" parent="TileMap/Tables/Table0"]
+z_index = 2
+texture_filter = 1
+position = Vector2(406, 286)
+sprite_frames = SubResource("SpriteFrames_b4mye")
+flip_h = true
+
 [node name="Table1" type="Node2D" parent="TileMap/Tables"]
 
 [node name="Area" type="Area2D" parent="TileMap/Tables/Table1"]
@@ -1452,6 +1590,12 @@ polygon = PackedVector2Array(608, 345, 621, 352, 592, 366, 579, 359)
 
 [node name="ToastPosition" type="Marker2D" parent="TileMap/Tables/Table1"]
 position = Vector2(611, 349)
+
+[node name="TableAnimation" type="AnimatedSprite2D" parent="TileMap/Tables/Table1"]
+z_index = 2
+texture_filter = 1
+position = Vector2(616, 335)
+sprite_frames = SubResource("SpriteFrames_b4mye")
 
 [node name="Tubs" type="Node2D" parent="TileMap"]
 z_index = 1
