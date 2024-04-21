@@ -266,3 +266,9 @@ func start_level():
 
 func end_level():
 	$Blacksmith.end_level()
+
+func pause():
+	$Blacksmith.pause_game()
+
+func unpause():
+	$Blacksmith.resume_game()

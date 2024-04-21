@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dao4lr15cqhil"]
+[gd_scene load_steps=6 format=3 uid="uid://dao4lr15cqhil"]
 
 [ext_resource type="Script" path="res://nodes/Driver.gd" id="1_pg7lk"]
 [ext_resource type="Script" path="res://nodes/ui/Curtain.gd" id="2_1ugqh"]
 [ext_resource type="PackedScene" uid="uid://0uwkg1a2yx8f" path="res://nodes/ui/LevelSummary.tscn" id="3_myki5"]
 [ext_resource type="PackedScene" uid="uid://mxsv78s4n8l5" path="res://nodes/ui/TutorialCard.tscn" id="4_vyawf"]
+[ext_resource type="PackedScene" uid="uid://ct6luod1n4djp" path="res://nodes/ui/Pause.tscn" id="5_qw78q"]
 
 [node name="Driver" type="Node2D"]
 script = ExtResource("1_pg7lk")
@@ -13,7 +14,7 @@ script = ExtResource("1_pg7lk")
 [node name="Curtain" type="Node2D" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 0)
 top_level = true
-z_index = 4096
+z_index = 4090
 script = ExtResource("2_1ugqh")
 
 [node name="LevelSummary" parent="CanvasLayer" instance=ExtResource("3_myki5")]
@@ -26,6 +27,14 @@ visible = false
 z_index = 4000
 position = Vector2(144, 93)
 
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("5_qw78q")]
+visible = false
+z_index = 4096
+position = Vector2(378, 91)
+
 [connection signal="progress" from="CanvasLayer/LevelSummary" to="." method="_summary_progress"]
 [connection signal="to_menu" from="CanvasLayer/LevelSummary" to="." method="_summary_menu"]
 [connection signal="start" from="CanvasLayer/TutorialCard" to="." method="_tutorial_card_clear"]
+[connection signal="menu" from="CanvasLayer/Pause" to="." method="_pause_to_menu"]
+[connection signal="restart" from="CanvasLayer/Pause" to="." method="_pause_to_restart"]
+[connection signal="resume" from="CanvasLayer/Pause" to="." method="_pause_to_resume"]

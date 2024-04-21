@@ -656,6 +656,7 @@ text = "Ani
 horizontal_alignment = 1
 
 [node name="HelterSmelter" type="Sprite2D" parent="Container"]
+visible = false
 position = Vector2(650, -1409)
 scale = Vector2(0.778431, 0.778431)
 texture = ExtResource("16_my27i")

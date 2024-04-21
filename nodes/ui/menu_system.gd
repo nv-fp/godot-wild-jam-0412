@@ -18,32 +18,33 @@ func _ready():
 
 var tweeners = []
 func _start_intro():
-	var start_start_xy = $MainMenuBG/StartButton.position
-	$MainMenuBG/StartButton.position.y = -450
-
-	var credits_start_xy = $MainMenuBG/CreditsButton.position
-	$MainMenuBG/CreditsButton.position.y = -426
-
-	var quit_start_xy = $MainMenuBG/QuitButton.position
-	$MainMenuBG/QuitButton.position.y = -400
-
-	var t_quit = get_tree().create_tween()
-	t_quit.set_trans(Tween.TRANS_BOUNCE)
-	t_quit.set_ease(Tween.EASE_OUT)
-	t_quit.tween_property($MainMenuBG/QuitButton, 'position', quit_start_xy, 1.5)
-
-	var t_credits = get_tree().create_tween()
-	t_credits.set_trans(Tween.TRANS_BOUNCE)
-	t_credits.set_ease(Tween.EASE_OUT)
-	t_credits.tween_property($MainMenuBG/CreditsButton, 'position', $MainMenuBG/CreditsButton.position, .75)
-	t_credits.tween_property($MainMenuBG/CreditsButton, 'position', credits_start_xy, 1.5)
-
-	var t_start = get_tree().create_tween()
-	t_start.set_trans(Tween.TRANS_BOUNCE)
-	t_start.set_ease(Tween.EASE_OUT)
-	t_start.tween_property($MainMenuBG/StartButton, 'position', $MainMenuBG/StartButton.position, 1.75)
-	t_start.tween_property($MainMenuBG/StartButton, 'position', start_start_xy, 1.5)
-	t_start.tween_callback(_intro_complete)
+	#var start_start_xy = $MainMenuBG/StartButton.position
+	#$MainMenuBG/StartButton.position.y = -450
+#
+	#var credits_start_xy = $MainMenuBG/CreditsButton.position
+	#$MainMenuBG/CreditsButton.position.y = -426
+#
+	#var quit_start_xy = $MainMenuBG/QuitButton.position
+	#$MainMenuBG/QuitButton.position.y = -400
+#
+	#var t_quit = get_tree().create_tween()
+	#t_quit.set_trans(Tween.TRANS_BOUNCE)
+	#t_quit.set_ease(Tween.EASE_OUT)
+	#t_quit.tween_property($MainMenuBG/QuitButton, 'position', quit_start_xy, 1.5)
+#
+	#var t_credits = get_tree().create_tween()
+	#t_credits.set_trans(Tween.TRANS_BOUNCE)
+	#t_credits.set_ease(Tween.EASE_OUT)
+	#t_credits.tween_property($MainMenuBG/CreditsButton, 'position', $MainMenuBG/CreditsButton.position, .75)
+	#t_credits.tween_property($MainMenuBG/CreditsButton, 'position', credits_start_xy, 1.5)
+#
+	#var t_start = get_tree().create_tween()
+	#t_start.set_trans(Tween.TRANS_BOUNCE)
+	#t_start.set_ease(Tween.EASE_OUT)
+	#t_start.tween_property($MainMenuBG/StartButton, 'position', $MainMenuBG/StartButton.position, 1.75)
+	#t_start.tween_property($MainMenuBG/StartButton, 'position', start_start_xy, 1.5)
+	#t_start.tween_callback(_intro_complete)
+	_intro_complete()
 
 func _intro_complete():
 	has_displayed_intro_animation = true

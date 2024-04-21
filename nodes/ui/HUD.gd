@@ -74,7 +74,7 @@ func _item_completed(id: String, points: int, remaining_ms: int):
 	item_completed += 1
 	var wb_idx = $OrderQueue.get_item_idx(id)
 	var wb = $OrderQueue.queue[wb_idx]
-	var percent = clampf(remaining_ms / (.75 * wb.complete_time_ms), .2, 1.0)
+	var percent = clampf(remaining_ms / (.75 * wb.complete_time_ms), .4, 1.0)
 	update_score((percent * points) as int)
 	$OrderQueue.remove_item(id)
 
