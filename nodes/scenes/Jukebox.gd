@@ -11,6 +11,7 @@ var credit_music = preload('res://sound/Meet_Me_At_The_End_Demo.mp3')
 var order_fill = preload('res://sound/OrderSuccess.mp3')
 var order_fail = preload('res://sound/OrderFailed.mp3')
 var menu_accept = preload('res://sound/Anvil.mp3')
+var turn_page = preload('res://sound/page_turn.mp3')
 
 var cur_music = null
 
@@ -67,6 +68,8 @@ func play_fx(fx: Enums.HudFX):
 			stream = order_fail
 		Enums.HudFX.MENU_ACCEPT:
 			stream = menu_accept
+		Enums.HudFX.PAGE_TURN:
+			stream = turn_page
 		_:
 			assert(false)
 	fx_player.stream = stream
