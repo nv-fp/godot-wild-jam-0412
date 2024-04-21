@@ -87,6 +87,7 @@ func _left_event(viewport, event, shape_idx):
 		return
 
 	_cur_page -= 1
+	Jukebox.play_fx(Enums.HudFX.PAGE_TURN)
 	update_pages()
 
 func _enter_right():
@@ -102,4 +103,5 @@ func _right_event(viewport, event, shape_idx):
 	if _cur_page >= _max_page:
 		return
 	_cur_page += 1
+	Jukebox.play_fx(Enums.HudFX.PAGE_TURN)
 	update_pages()

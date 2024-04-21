@@ -15,3 +15,9 @@ func start_level():
 
 func end_level():
 	$Tilemap/Blacksmith.end_level()
+
+func pause():
+	$Tilemap/Blacksmith.pause_game()
+
+func unpause():
+	$Tilemap/Blacksmith.resume_game()

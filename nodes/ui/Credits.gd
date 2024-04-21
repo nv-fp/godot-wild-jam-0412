@@ -108,6 +108,9 @@ var credits_scr = [
 	4000,
 	func(): _fade_in($Container/HelterSmelter, 3),
 	6000,
+	func(): _fade_out($Container/HelterSmelter/By, 2),
+	func(): _fade_out($Container/HelterSmelter/For, 2),
+	500,
 	func(): _fade_out($Container/HelterSmelter/Dino, 3),
 	func(): _fade_out($Container/HelterSmelter/GWJ, 3),
 ]
@@ -237,7 +240,7 @@ func _ready():
 	Jukebox.play_credits()
 
 func _done():
-	print('done moving camera')
+	pass
 
 var _advance_at = 0
 func _process_script():

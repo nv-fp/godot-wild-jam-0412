@@ -77,6 +77,8 @@ func _load_level():
 	# remove the currently active level if there is one
 	if active_level != null:
 		remove_child(active_level)
+	if _is_paused():
+		_unpause()
 	cur_tweener = null
 
 	active_level = levels[cur_level].instantiate()
@@ -84,7 +86,7 @@ func _load_level():
 	menu_system.visible = false
 	menu_system.modulate = Color.WHITE
 	active_level.get_node('Hud').level_completed.connect(_level_completed)
-
+	active_level.toggle_pause.connect(_toggle_pause)
 	_curtain_out(_level_fade_in_completed)
 	Jukebox.play_bg(cur_level)
 
@@ -114,6 +116,8 @@ func _load_menu():
 		remove_child(_credits)
 	if active_level != null:
 		remove_child(active_level)
+	if _is_paused():
+		_unpause()
 	
 	menu_system.visible = true
 	menu_system.modulate = Color.WHITE
@@ -170,3 +174,38 @@ func _summary_menu():
 
 func _exit_credits():
 	_curtain_in(_load_menu)
+
+func _is_paused():
+	return $CanvasLayer/Pause.visible
+
+func _toggle_pause():
+	print('Driver.pause; is_paused: ', _is_paused())
+	if _is_paused():
+		_unpause(false)
+	else:
+		_pause()
+
+func _unpause(skip_curtain = true):
+	if not skip_curtain:
+		_curtain.modulate = _color_fade_in
+	$CanvasLayer/Pause.visible = false
+	if active_level == null:
+		return
+	active_level.unpause()
+
+func _pause():
+	if active_level == null:
+		return
+	_curtain.modulate = Color(Color.BLACK, 0.75)
+	active_level.pause()
+	$CanvasLayer/Pause.setup()
+	$CanvasLayer/Pause.visible = true
+
+func _pause_to_menu():
+	_curtain_in(_load_menu)
+
+func _pause_to_restart():
+	_summary_progress(Enums.ProgressType.RETRY)
+
+func _pause_to_resume():
+	_unpause(false)

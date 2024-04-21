@@ -21,7 +21,6 @@ func get_size() -> int:
 	return queue.size()
 
 func fill(typ: String) -> bool:
-	print(typ)
 	var item_id = find_item(typ)
 	if item_id == null:
 		return false

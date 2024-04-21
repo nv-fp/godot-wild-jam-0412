@@ -558,7 +558,7 @@ func _physics_process(_delta) -> void:
 	if $RayCast2D.is_colliding():
 		var rid = $RayCast2D.get_collider_rid()
 		var tile = tilemap.get_coords_for_body_rid(rid)
-		print(tile)
+		#print(tile)
 		var data = tilemap.get_cell_tile_data(1, tile)
 		if data:
 			var resource = data.get_custom_data("interactable")
@@ -616,13 +616,14 @@ func pause_game():
 			if animation:
 				animation.pause()
 	
-	for i in range(tilemap.tables.size()):
-		if tilemap.tables[i].timer:
-			tilemap.tables[i].timer.pause()
-		
-			var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
-			if animation:
-				animation.pause()
+	if 'tables' in tilemap:
+		for i in range(tilemap.tables.size()):
+			if tilemap.tables[i].timer:
+				tilemap.tables[i].timer.pause()
+			
+				var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
+				if animation:
+					animation.pause()
 		
 	for i in range(tilemap.tubs.size()):
 		if tilemap.tubs[i].timer:
@@ -648,12 +649,13 @@ func resume_game():
 			if animation:
 				animation.play()
 	
-	for i in range(tilemap.tables.size()):
-		if tilemap.tables[i].timer:
-			tilemap.tables[i].timer.start()
-			var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
-			if animation:
-				animation.play()
+	if 'tables' in tilemap:
+		for i in range(tilemap.tables.size()):
+			if tilemap.tables[i].timer:
+				tilemap.tables[i].timer.start()
+				var animation = tilemap.get_node("Tables").get_node("Table" + str(i)).get_node("TableAnimation")
+				if animation:
+					animation.play()
 		
 	for i in range(tilemap.tubs.size()):
 		if tilemap.tubs[i].timer:
