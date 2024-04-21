@@ -387,11 +387,13 @@ horizontal_alignment = 2
 vertical_alignment = 2
 
 [node name="Sky" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(640, 360)
 scale = Vector2(2, 2)
 texture = ExtResource("2_eok7k")
 
 [node name="Grass" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(640, 490)
 scale = Vector2(2, 2)
 texture = ExtResource("2_c6kyy")
@@ -399,36 +401,43 @@ region_enabled = true
 region_rect = Rect2(0, 0, 640, 231)
 
 [node name="TopSky" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(640, -440)
 texture = ExtResource("12_f5fie")
 
 [node name="Clouds" type="Node2D" parent="Container"]
+texture_filter = 1
 position = Vector2(0, 128)
 script = ExtResource("4_507gy")
 height = 250
 max_clouds = 20
 
 [node name="Tree3" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(792, 350)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
 [node name="Tree4" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(184, 366)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
 [node name="Tree5" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(367, 392)
 scale = Vector2(4, 4)
 texture = ExtResource("4_y4u6e")
 
 [node name="Tree6" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(1124, 410)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("5_wnr3n")
 
 [node name="Tree1" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(1004, 553)
 scale = Vector2(4, 4)
 texture = ExtResource("4_ey1sa")
@@ -470,11 +479,13 @@ aoeu"
 clip_text = true
 
 [node name="Tree2" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(120, 501)
 scale = Vector2(4, 4)
 texture = ExtResource("5_wnr3n")
 
 [node name="Space" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(640, -1240)
 texture = ExtResource("13_20yrp")
 
@@ -493,6 +504,7 @@ horizontal_alignment = 1
 
 [node name="Dino" type="Sprite2D" parent="Container"]
 visible = false
+texture_filter = 1
 position = Vector2(629, -409)
 texture = ExtResource("15_442ld")
 
@@ -520,6 +532,7 @@ text = "Developed By"
 horizontal_alignment = 1
 
 [node name="Stars" type="GPUParticles2D" parent="Container"]
+texture_filter = 1
 position = Vector2(626, -1129)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_7hwjx")
@@ -656,6 +669,7 @@ text = "Ani
 horizontal_alignment = 1
 
 [node name="HelterSmelter" type="Sprite2D" parent="Container"]
+texture_filter = 1
 position = Vector2(650, -1409)
 scale = Vector2(0.778431, 0.778431)
 texture = ExtResource("16_my27i")
