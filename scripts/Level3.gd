@@ -1,13 +1,13 @@
 extends TileMap
 
-var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(35, 0), Vector2(35, -3), Vector2(29, 3), Vector2(27, 3)])
-var anvil_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(25, -1), Vector2(25, -4)])
-var furnace_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(25, 3), Vector2(31, -5), Vector2(37, -5)])
+var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(35, 0), Vector2(35, -3), Vector2(30, 0), Vector2(27, 3)])
+var anvil_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(28, -5)])
+var furnace_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(25, 3), Vector2(25, -3), Vector2(37, -5)])
 var trash_collision_tile: Vector2 = Vector2(25, 1)
 var table_collision_tile: PackedVector2Array = PackedVector2Array([Vector2(31, 6), Vector2(40, 4)])
 var tub_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(32, 3), Vector2(32, -2)])
 
-var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(10, 65), Vector2(0, 60), Vector2(0, 60)])
+var furnace_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(10, 65), Vector2(25, 60), Vector2(0, 60)])
 var table_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(15, 30), Vector2(-10, 30)])
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40), Vector2(15, 20)])
 
@@ -35,14 +35,14 @@ func _ready():
 		})
 	
 	for i in range($Anvils.get_child_count()):
-		var anvil_area = $Anvils.get_node("Anvil" + str(i))
+		var anvil_area = $Anvils.get_node("Anvil" + str(i)).get_node("Area")
 		anvil_area.add_to_group("anvil")
 		anvil_area.body_entered.connect(area_entered.bind(anvil_area))
 		anvil_area.body_exited.connect(area_exited.bind(anvil_area))
 	
 		var anvil_toast = mat_toast.instantiate()
 		add_child(anvil_toast)
-		anvil_toast.position = map_to_local(anvil_collision_tiles[i]) + Vector2(-5, -42)
+		anvil_toast.position = $Anvils.get_node("Anvil" + str(i)).get_node("ToastPosition").position
 	
 		anvils.append({
 			"id": i,
@@ -64,7 +64,7 @@ func _ready():
 				"diamond_gem": ["diamond_gem_chunk"]
 			},
 			"toast": anvil_toast,
-			"timer_position": Vector2(20, 45)
+			"timer_position": Vector2(-15, 40)
 		})
 	
 	for i in range($Furnaces.get_child_count()):
@@ -141,8 +141,14 @@ func _ready():
 	trash_area.body_entered.connect(area_entered.bind(trash_area))
 	trash_area.body_exited.connect(area_exited.bind(trash_area))
 	
+	# Second trash for level 3
+	var trash2_area = $Trash.get_node("Area2D2")
+	trash2_area.add_to_group("trash")
+	trash2_area.body_entered.connect(area_entered.bind(trash2_area))
+	trash2_area.body_exited.connect(area_exited.bind(trash2_area))
+	
 	for i in range($Tubs.get_child_count()):
-		var tub = $Tubs.get_node("Tubs" + str(i))
+		var tub = $Tubs.get_node("Tub" + str(i))
 		var tub_area = tub.get_node("Area")
 		tub_area.add_to_group("tub")
 		tub_area.body_entered.connect(area_entered.bind(tub_area))
@@ -153,6 +159,7 @@ func _ready():
 		tub_toast.position = tub.get_node("ToastPosition").position
 	
 		tubs.append({
+			"id": i,
 			"tile": tub_collision_tiles[i],
 			"recipe": null,
 			"polishing": false,

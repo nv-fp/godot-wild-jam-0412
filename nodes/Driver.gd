@@ -152,7 +152,7 @@ func _level_completed(score: int, orders_filled: int, orders_missed: int):
 func _summary_progress(typ: Enums.ProgressType):
 	match typ:
 		Enums.ProgressType.RETRY:
-			pass
+			_curtain_in(_load_level)
 		Enums.ProgressType.NEXT_LEVEL:
 			cur_level += 1
 			_curtain_in(_load_level)

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 3
 var anvil_time = 3
@@ -138,7 +138,6 @@ func basic_movement():
 		$Footsteps.playing = false
 		$AnimatedSprite2D.animation = "idle_" + last_direction
 		var degrees = angles[directions.find(last_direction)]
-		print(degrees)
 		$RayCast2D.rotation_degrees = degrees
 	
 
@@ -146,15 +145,20 @@ func basic_movement():
 	velocity = input_direction * speed
 	move_and_slide()
 	
-	
 func show_interact_button():
 	if interactable:
+		var isFurnace = tilemap.furnaces.filter(func (f): return f.area == interactable).size() > 0
+		if isFurnace:
+			$InteractPrompt2.visible = true
 		$InteractPrompt.visible = true
 		if !heldItem:
+			$InteractPrompt2.position = position + Vector2(0, 20)
 			$InteractPrompt.position = position + Vector2(0, 20)
 		else:
+			$InteractPrompt2.position = position + Vector2(0, 5)
 			$InteractPrompt.position = position + Vector2(0, 5)
 	else:
+		$InteractPrompt2.visible = false
 		$InteractPrompt.visible = false
 
 func handle_interaction_input() -> void:
@@ -205,6 +209,7 @@ func handle_interaction_input() -> void:
 						spawn_finished_item(anvil.recipe, anvil)
 			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
+				print(furnace.id)
 				# Our item finished smelting and we need to collect it
 				if heldItem == null:
 					if furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
@@ -214,17 +219,12 @@ func handle_interaction_input() -> void:
 					if furnace.inventory.size() > 0 && !furnace.smelting:
 						var itemToRemove = furnace.inventory[0]
 						furnace.toast.clear()
-						print(furnace.inventory)
 						furnace.inventory = furnace.inventory.slice(1)
-						print(furnace.inventory)	
 						for item in furnace.inventory:
 							furnace.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
-
 						return
-						
-					
-				
+							
 				if furnace.inventory.size() > 2:
 					return
 
@@ -238,6 +238,8 @@ func handle_interaction_input() -> void:
 					if !furnace.inventory.all(func(r): return r == resource):
 						print("Not Everything inside was same, disgard interact action")
 						return
+						
+					print(furnace.toast.position)
 
 					furnace.inventory.append(str(resource))
 					furnace.toast.add_material(str(resource))
@@ -359,7 +361,11 @@ func handle_interaction_input() -> void:
 						tub.timer.position = get_location_from_group(group, tub.tile) - tub.timer_position
 						tub.timer.start()
 						$Polishing.playing = true
+						tilemap.get_node("Tubs").get_node("Tub" + str(tub.id)).get_node("TubAnimation").frame = 0
+						tilemap.get_node("Tubs").get_node("Tub" + str(tub.id)).get_node("TubAnimation").visible = true
 						await tub.timer.timeout
+						tilemap.get_node("Tubs").get_node("Tub" + str(tub.id)).get_node("TubAnimation").frame = 0
+						tilemap.get_node("Tubs").get_node("Tub" + str(tub.id)).get_node("TubAnimation").visible = false
 						$Polishing.playing = false
 						spawn_finished_item(tub.recipe, tub)
 						tub.inventory = [tub.recipe]
@@ -385,6 +391,7 @@ func handle_start_interaction_input():
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				if furnace.recipes.has(furnace.recipe) && !furnace.smelting:
 					$LightFurnace.play()
+					tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").frame = 0
 					tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").visible = true
 					print("Starting smelting for " + furnace.recipe)
 					furnace.toast.clear()
@@ -521,6 +528,7 @@ func _physics_process(_delta) -> void:
 	if !immobile:
 		basic_movement()
 		show_interact_button()
+
 	
 func set_immobile(true_or_false):
 	immobile = true_or_false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dd28ij5lkfeyf"]
+[gd_scene load_steps=87 format=3 uid="uid://dd28ij5lkfeyf"]
 
 [ext_resource type="Script" path="res://scripts/Level3.gd" id="1_2x21t"]
 [ext_resource type="Texture2D" uid="uid://cp0iy5l6f1ulu" path="res://art/walls2.png" id="1_e3tpk"]
@@ -43,6 +43,21 @@
 [ext_resource type="Texture2D" uid="uid://bmks2653gdufv" path="res://art/furnace-animation/furnace animation final21.png" id="38_yipm7"]
 [ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="39_hp5x0"]
 [ext_resource type="Texture2D" uid="uid://ca4sirqq4rxup" path="res://art/puddle.png" id="42_li41q"]
+[ext_resource type="Texture2D" uid="uid://cvctyqo4l7db4" path="res://art/bubbles/bubbles1.png" id="43_6d5af"]
+[ext_resource type="Texture2D" uid="uid://diaeeoq5dcqwh" path="res://art/bubbles/bubbles2.png" id="44_0onum"]
+[ext_resource type="Texture2D" uid="uid://d1ygn2qy62opo" path="res://art/bubbles/bubbles3.png" id="45_ax744"]
+[ext_resource type="Texture2D" uid="uid://dqle2wtqnx52o" path="res://art/bubbles/bubbles4.png" id="46_5mbqm"]
+[ext_resource type="Texture2D" uid="uid://dhudk1a58vwtj" path="res://art/bubbles/bubbles5.png" id="47_00ixn"]
+[ext_resource type="Texture2D" uid="uid://57ba8q642swh" path="res://art/bubbles/bubbles6.png" id="48_2drj4"]
+[ext_resource type="Texture2D" uid="uid://kjcyjvtgfxhw" path="res://art/bubbles/bubbles7.png" id="49_tdhp8"]
+[ext_resource type="Texture2D" uid="uid://j3whtaioiwvx" path="res://art/bubbles/bubbles8.png" id="50_58ohk"]
+[ext_resource type="Texture2D" uid="uid://bgumcmn11ime" path="res://art/bubbles/bubbles9.png" id="51_qc4t1"]
+[ext_resource type="Texture2D" uid="uid://ddwc5rgh0mgrs" path="res://art/bubbles/bubbles10.png" id="52_k5tmf"]
+[ext_resource type="Texture2D" uid="uid://dljiie3rvh0ox" path="res://art/bubbles/bubbles11.png" id="53_8b2f8"]
+[ext_resource type="Texture2D" uid="uid://dfl84sgui5hm8" path="res://art/bubbles/bubbles12.png" id="54_qwql4"]
+[ext_resource type="Texture2D" uid="uid://dxu3ody1pq4lh" path="res://art/bubbles/bubbles13.png" id="55_h5476"]
+[ext_resource type="Texture2D" uid="uid://cboh4hghk2qe0" path="res://art/bubbles/bubbles14.png" id="56_nd1cw"]
+[ext_resource type="Texture2D" uid="uid://bt40kxkwniyww" path="res://art/bubbles/bubbles15.png" id="57_mrtpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1jf4"]
 texture = ExtResource("1_e3tpk")
@@ -75,6 +90,7 @@ texture_region_size = Vector2i(32, 48)
 0:0/0/texture_origin = Vector2i(0, 8)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -20, -16, 0, 16, 16, 16, -4)
 1:0/0 = 0
 1:0/0/texture_origin = Vector2i(0, 10)
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -608,7 +624,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("6_0mnyv")
 texture_region_size = Vector2i(40, 64)
 0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-8, -4)
+0:0/0/texture_origin = Vector2i(-8, -12)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 12, -24, 24, 8, 40, 16, 28)
@@ -692,6 +708,7 @@ texture_region_size = Vector2i(48, 48)
 texture = ExtResource("13_8p58w")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
+0:0/0/z_index = 2
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
@@ -1054,10 +1071,77 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_81rnu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("43_6d5af")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_0onum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_ax744")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_5mbqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_00ixn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_2drj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_tdhp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_58ohk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_qc4t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_k5tmf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_8b2f8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_qwql4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_h5476")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_nd1cw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_mrtpv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level3" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [92.0, 70.0]
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(260, 298)
+texture = ExtResource("16_gpie2")
+
+[node name="A FUCKING PUDDLE" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(490, 290)
+texture = ExtResource("42_li41q")
+
 [node name="Walls" type="TileMap" parent="."]
+z_index = -1
 y_sort_enabled = true
 texture_filter = 1
 tile_set = SubResource("TileSet_jvakl")
@@ -1159,35 +1243,28 @@ layer_1/name = "Wall1"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 1
 layer_1/z_index = 1
-layer_1/tile_data = PackedInt32Array(393239, 15, 268435456, 393242, 15, 268435456, 393244, 15, 268435456, 393245, 15, 268435456, 393248, 15, 268435456, 393253, 15, 268435456, 393254, 15, 268435456, 393240, 15, 268435456, -458715, 65554, 1, -65505, 65551, 0, 32, 65551, 0, 31, 65551, 0, 65569, 65551, 268435456, -131039, 1, 0, -131042, 1, 0, 393251, 15, 268435456, 393249, 15, 268435456, 65567, 23, 0, -131041, 23, 0, 393241, 14, 268435457, 393243, 131086, 268435457, 393250, 196622, 268435457, 393252, 262158, 268435457, 393246, 24, 0, -393180, 18, 1, -393186, 18, 1, -458721, 65554, 1, -196586, 19, 268435456, -393194, 19, 268435456, -458720, 1, 0, -458719, 1, 0, -458718, 1, 0, 33, 1, 0, 65566, 1, 0, -65503, 65551, 0, 30, 65551, 0, -65506, 1, 0, -65504, 65551, 0, -65513, 1, 0, -458728, 65538, 0, -458729, 1, 0, -458726, 9, 0, -458714, 1, 0, 393255, 15, 268435456, -458713, 1, 0, 196648, 25, 268435456, 393256, 65551, 0, 40, 15, 0, 65576, 15, 0, 851991, 1, 0, 851992, 1, 0, 851998, 1, 0, 851999, 1, 0, -131027, 1, 0, 852003, 1, 0, 852008, 1, 0, 852009, 1, 0, 852012, 1, 0, 852013, 1, 0, 852005, 1, 0, 852004, 1, 0, 524333, 1, 0, 131117, 1, 0, 458797, 1, 0, -131032, 65550, 268435457, -65496, 15, 0, -196568, 15, 0, -458707, 1, 0, 851993, 65536, 5, 851994, 65536, 5, 851995, 65536, 5, 851996, 65536, 5, 851997, 65536, 5, 852000, 65536, 5, 852001, 65536, 5, 852002, 65536, 5, 852006, 65536, 5, 852007, 65536, 5, 852010, 65536, 5, 852011, 65536, 5, 786477, 65536, 5, 720941, 65536, 5, 655405, 65536, 5, 589869, 65536, 5, 393261, 65536, 5, 327725, 65536, 5, 262189, 65536, 5, 196653, 65536, 5, 65581, 65536, 5, 45, 65536, 5, -65491, 65536, 5, -196563, 65536, 5, -262099, 65536, 5, -327635, 65536, 5, -393171, 65536, 5, 65560, 18, 268435457, 131095, 65554, 268435457, 327703, 1, 0, 262167, 1, 0, 196631, 1, 0)
+layer_1/tile_data = PackedInt32Array(393239, 15, 268435456, 393242, 15, 268435456, 393244, 15, 268435456, 393245, 15, 268435456, 393248, 15, 268435456, 393240, 15, 268435456, -458715, 65554, 1, 65569, 65551, 268435456, -131039, 1, 0, 393251, 15, 268435456, 393249, 15, 268435456, 65567, 23, 0, -131041, 23, 0, 393243, 131086, 268435457, 393250, 196622, 268435457, 393246, 24, 0, -393180, 18, 1, -458720, 1, 0, -458719, 1, 0, -458718, 1, 0, 65566, 1, 0, -65503, 65551, 0, -65513, 1, 0, -458728, 65538, 0, -458729, 1, 0, -458714, 1, 0, -458713, 1, 0, 196648, 25, 268435456, 40, 15, 0, 65576, 15, 0, 851998, 1, 0, 851999, 1, 0, -131027, 1, 0, 852003, 1, 0, 852008, 1, 0, 852009, 1, 0, 852012, 1, 0, 852013, 1, 0, 852005, 1, 0, 852004, 1, 0, 524333, 1, 0, 131117, 1, 0, 458797, 1, 0, -131032, 65550, 268435457, -65496, 15, 0, -196568, 15, 0, -458707, 1, 0, 851993, 65536, 5, 851995, 1, 0, 851996, 65536, 5, 851997, 65536, 5, 852000, 65536, 5, 852001, 65536, 5, 852002, 65536, 5, 852006, 65536, 5, 852007, 65536, 5, 852010, 65536, 5, 852011, 65536, 5, 786477, 65536, 5, 720941, 65536, 5, 655405, 65536, 5, 589869, 65536, 5, 393261, 65536, 5, 327725, 65536, 5, 262189, 65536, 5, 196653, 65536, 5, 65581, 65536, 5, 45, 65536, 5, -65491, 65536, 5, -196563, 65536, 5, -262099, 65536, 5, -327635, 65536, 5, -393171, 65536, 5, 65560, 18, 268435457, 131095, 65554, 268435457, 327703, 1, 0, 196631, 1, 0, 851992, 1, 0, 851991, 1, 0, -65506, 14, 1, -65504, 65551, 0, 32, 65551, 0, 30, 65551, 0, -131042, 65551, 0, -65505, 1, 0, 31, 1, 0, 393241, 15, 268435456, 262167, 9, 0, 393252, 15, 268435456, 33, 9, 0, -262120, 18, 268435457, -196585, 65554, 268435457, -524262, 19, 0, -131049, 1, 0, -393193, 1, 0, 393253, 262158, 268435457)
 layer_2/name = "Wall2"
 layer_2/y_sort_enabled = true
 layer_2/y_sort_origin = 2
 layer_2/z_index = 2
-layer_2/tile_data = PackedInt32Array(327706, 131086, 268435456, 327713, 196622, 268435456, 327715, 262158, 268435456, 393246, 65560, 0, -524260, 18, 0, -458723, 131090, 1, -524258, 196626, 1, -524254, 18, 0, -458717, 131090, 1, -524252, 196626, 1, 327704, 14, 268435456, -524257, 1, 0, -524256, 1, 0, -524255, 1, 0, 458775, 2, 0, 524311, 131074, 0, 458776, 2, 0, -524266, 1, 0, -524251, 1, 0, 196648, 65561, 268435456, 786454, 1, 0, 65580, 1, 0, 786467, 1, 0, 786476, 1, 0, -458710, 4, 0, -458712, 4, 0, -196569, 65550, 268435456, -524244, 1, 0, -262128, 5, 0, -65514, 18, 268435456, -131051, 131090, 268435456, 23, 131090, 268435457, 65558, 196626, 268435457)
+layer_2/tile_data = PackedInt32Array(327706, 131086, 268435456, 327713, 196622, 268435456, 393246, 65560, 0, -524254, 18, 0, -458717, 131090, 1, -524252, 196626, 1, -524257, 1, 0, -524256, 1, 0, -524255, 1, 0, 458775, 2, 0, 524311, 131074, 0, 458776, 2, 0, -524266, 1, 0, -524251, 1, 0, 196648, 65561, 268435456, 65580, 1, 0, 786467, 1, 0, 786476, 1, 0, -458710, 4, 0, -458712, 4, 0, -196569, 65550, 268435456, -524244, 1, 0, -262128, 5, 0, -65514, 18, 268435456, -131051, 131090, 268435456, 23, 131090, 268435457, 65558, 196626, 268435457, -131043, 14, 0, 327716, 262158, 268435456, -393194, 18, 268435456, -327657, 131090, 268435457, -262122, 196626, 268435457, 786454, 1, 0)
 layer_3/name = "Wall3"
 layer_3/y_sort_enabled = true
 layer_3/y_sort_origin = 3
 layer_3/z_index = 3
-layer_3/tile_data = PackedInt32Array(-589789, 327698, 1, -589791, 131090, 0, -65515, 131090, 268435456, -589797, 131090, 0, -524260, 262162, 1, -524254, 262162, 1, -589795, 327698, 1, -589794, 1, 0, -589803, 1, 0, -65514, 262162, 268435457, 21, 327698, 268435457)
+layer_3/tile_data = PackedInt32Array(-589789, 327698, 1, -589791, 131090, 0, -65515, 131090, 268435456, -524254, 262162, 1, -589794, 1, 0, -589803, 1, 0, -65514, 262162, 268435457, 21, 327698, 268435457, -458731, 131090, 268435456, -393194, 262162, 268435457, -327659, 327698, 268435457)
 layer_4/name = "Wall4"
 layer_4/y_sort_enabled = true
 layer_4/y_sort_origin = 4
 layer_4/z_index = 4
-layer_4/tile_data = PackedInt32Array(-589797, 393234, 1, -655332, 458770, 1, -655326, 458770, 1, -589791, 393234, 1, -65516, 458770, 268435457, -131051, 393234, 268435457)
+layer_4/tile_data = PackedInt32Array(-655326, 458770, 1, -589791, 393234, 1, -65516, 458770, 268435457, -131051, 393234, 268435457, -393196, 458770, 268435457, -458731, 393234, 268435457)
 layer_5/name = "Wall5"
 layer_5/y_sort_enabled = true
 layer_5/y_sort_origin = 5
 layer_5/z_index = 5
-layer_5/tile_data = PackedInt32Array(-393196, 3, 268435456, -589800, 65539, 0, -655330, 65539, 1, -655323, 3, 1, 262164, 3, 268435457, 65555, 5, 0)
+layer_5/tile_data = PackedInt32Array(-589800, 65539, 0, -655330, 65539, 1, -655323, 3, 1, 262164, 3, 268435457, 65555, 5, 0, -327661, 3, 268435456, -589797, 131075, 0)
 script = ExtResource("1_2x21t")
-
-[node name="Sprite2D" type="Sprite2D" parent="TileMap"]
-z_index = 1
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(259, 298)
-texture = ExtResource("16_gpie2")
 
 [node name="DeliveryArea" type="Area2D" parent="TileMap" groups=["delivery"]]
 
@@ -1199,50 +1276,42 @@ polygon = PackedVector2Array(727, 302, 764, 279, 827, 312, 792, 334)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/ZIndexArea"]
 z_index = 1
-polygon = PackedVector2Array(322, 231, 340, 239, 369, 255, 497, 190, 726, 300, 734, 313, 690, 336, 613, 374, 694, 359, 775, 338, 817, 351, 860, 326, 768, 282, 569, 197, 585, 190, 527, 160, 496, 161)
+polygon = PackedVector2Array(322, 231, 340, 239, 369, 255, 497, 190, 726, 300, 734, 313, 690, 336, 613, 374, 694, 359, 775, 338, 817, 351, 860, 326, 768, 282, 592, 207, 606, 200, 585, 190, 527, 160, 496, 161)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="TileMap/ZIndexArea"]
 z_index = 1
-polygon = PackedVector2Array(277, 288, 304, 272, 554, 398, 527, 412)
+polygon = PackedVector2Array(203, 292, 272, 259, 554, 398, 527, 412, 351, 331, 266, 321)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="TileMap/ZIndexArea"]
 z_index = 1
-polygon = PackedVector2Array(464, 274, 454, 279, 511, 309, 521, 303)
+polygon = PackedVector2Array(464, 274, 452, 279, 511, 309, 521, 303)
 
 [node name="Anvils" type="Node2D" parent="TileMap"]
 z_index = 1
 
-[node name="Anvil0" type="Area2D" parent="TileMap/Anvils"]
+[node name="Anvil0" type="Node2D" parent="TileMap/Anvils"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil0"]
-polygon = PackedVector2Array(419, 199, 448, 184, 461, 192, 433, 206)
+[node name="Area" type="Area2D" parent="TileMap/Anvils/Anvil0"]
+position = Vector2(-35, 64)
 
-[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil0/Area"]
+position = Vector2(131, -64)
+polygon = PackedVector2Array(435, 191, 448, 184, 477, 199, 464, 206)
+
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil0"]
 visible = false
 top_level = true
 z_index = 5
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(436, 160)
+position = Vector2(572, 161)
 sprite_frames = SubResource("SpriteFrames_jgvuu")
 autoplay = "default"
-frame_progress = 0.728058
+frame_progress = 0.0239096
 
-[node name="Anvil1" type="Area2D" parent="TileMap/Anvils"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil1"]
-polygon = PackedVector2Array(466, 175, 495, 161, 510, 168, 481, 182)
-
-[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil1"]
-visible = false
-top_level = true
-z_index = 5
-y_sort_enabled = true
-texture_filter = 1
-position = Vector2(485, 134)
-sprite_frames = SubResource("SpriteFrames_jgvuu")
-autoplay = "default"
-frame_progress = 0.709954
+[node name="ToastPosition" type="Marker2D" parent="TileMap/Anvils/Anvil0"]
+z_index = 3
+position = Vector2(560, 168)
 
 [node name="Furnaces" type="Node2D" parent="TileMap"]
 z_index = 1
@@ -1250,6 +1319,7 @@ z_index = 1
 [node name="Furnace0" type="Node2D" parent="TileMap/Furnaces"]
 
 [node name="Area" type="Area2D" parent="TileMap/Furnaces/Furnace0"]
+position = Vector2(16, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Furnaces/Furnace0/Area"]
 polygon = PackedVector2Array(340, 239, 352, 247, 398, 224, 384, 216)
@@ -1265,29 +1335,30 @@ texture_filter = 1
 position = Vector2(374, 180)
 sprite_frames = SubResource("SpriteFrames_5mdpi")
 autoplay = "default"
-frame_progress = 0.178841
+frame_progress = 0.00289615
 flip_h = true
 
 [node name="Furnace1" type="Node2D" parent="TileMap/Furnaces"]
 
 [node name="Area" type="Area2D" parent="TileMap/Furnaces/Furnace1"]
-position = Vector2(-1, 0)
+position = Vector2(-110, -23)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Furnaces/Furnace1/Area"]
-polygon = PackedVector2Array(563, 207, 575, 200, 621, 223, 608, 230)
+polygon = PackedVector2Array(558, 220, 546, 215, 591, 192, 602, 198)
 
 [node name="ToastPosition" type="Marker2D" parent="TileMap/Furnaces/Furnace1"]
-position = Vector2(604, 182)
+position = Vector2(449, 155)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace1"]
 visible = false
 z_index = 10
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(602, 172)
+position = Vector2(454, 141)
 sprite_frames = SubResource("SpriteFrames_qwm4v")
 autoplay = "default"
-frame_progress = 0.500899
+frame_progress = 0.740945
+flip_h = true
 
 [node name="Furnace2" type="Node2D" parent="TileMap/Furnaces"]
 
@@ -1297,6 +1368,7 @@ frame_progress = 0.500899
 polygon = PackedVector2Array(658, 255, 672, 247, 717, 271, 703, 279)
 
 [node name="ToastPosition" type="Marker2D" parent="TileMap/Furnaces/Furnace2"]
+z_index = 2
 position = Vector2(701, 231)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace2"]
@@ -1312,6 +1384,7 @@ frame_progress = 0.907067
 z_index = 1
 
 [node name="leather_hide" type="Area2D" parent="TileMap/Crates"]
+position = Vector2(160, -15)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/leather_hide"]
 polygon = PackedVector2Array(323, 263, 336, 256, 349, 263, 336, 270)
@@ -1327,6 +1400,7 @@ polygon = PackedVector2Array(355, 280, 368, 273, 381, 280, 368, 286)
 polygon = PackedVector2Array(467, 335, 480, 329, 493, 335, 480, 342)
 
 [node name="diamond_ore" type="Area2D" parent="TileMap/Crates"]
+position = Vector2(16, 8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Crates/diamond_ore"]
 polygon = PackedVector2Array(499, 351, 512, 344, 526, 352, 512, 358)
@@ -1366,37 +1440,62 @@ position = Vector2(611, 349)
 [node name="Tubs" type="Node2D" parent="TileMap"]
 z_index = 1
 
-[node name="Tubs0" type="Node2D" parent="TileMap/Tubs"]
+[node name="Tub0" type="Node2D" parent="TileMap/Tubs"]
 
-[node name="Area" type="Area2D" parent="TileMap/Tubs/Tubs0"]
+[node name="Area" type="Area2D" parent="TileMap/Tubs/Tub0"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Tubs/Tubs0/Area"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Tubs/Tub0/Area"]
 polygon = PackedVector2Array(480, 280, 509, 296, 496, 303, 467, 287)
 
-[node name="ToastPosition" type="Marker2D" parent="TileMap/Tubs/Tubs0"]
+[node name="ToastPosition" type="Marker2D" parent="TileMap/Tubs/Tub0"]
 position = Vector2(509, 262)
 
-[node name="Tubs1" type="Node2D" parent="TileMap/Tubs"]
+[node name="TubAnimation" type="AnimatedSprite2D" parent="TileMap/Tubs/Tub0"]
+visible = false
+top_level = true
+z_index = 6
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(500, 262)
+sprite_frames = SubResource("SpriteFrames_81rnu")
+autoplay = "default"
+frame_progress = 0.821697
 
-[node name="Area" type="Area2D" parent="TileMap/Tubs/Tubs1"]
+[node name="Tub1" type="Node2D" parent="TileMap/Tubs"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Tubs/Tubs1/Area"]
+[node name="Area" type="Area2D" parent="TileMap/Tubs/Tub1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Tubs/Tub1/Area"]
 polygon = PackedVector2Array(560, 240, 588, 255, 576, 262, 548, 247)
 
-[node name="ToastPosition" type="Marker2D" parent="TileMap/Tubs/Tubs1"]
+[node name="ToastPosition" type="Marker2D" parent="TileMap/Tubs/Tub1"]
 position = Vector2(554, 239)
+
+[node name="TubAnimation" type="AnimatedSprite2D" parent="TileMap/Tubs/Tub1"]
+visible = false
+top_level = true
+z_index = 6
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(548, 238)
+sprite_frames = SubResource("SpriteFrames_81rnu")
+autoplay = "default"
+frame_progress = 0.468721
 
 [node name="Trash" type="Node2D" parent="TileMap"]
 
 [node name="Area2D" type="Area2D" parent="TileMap/Trash"]
+position = Vector2(31, 111)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Trash/Area2D"]
 z_index = 1
 polygon = PackedVector2Array(515, 183, 528, 177, 542, 184, 529, 191)
 
-[node name="Blacksmith" parent="TileMap" instance=ExtResource("3_jp4lu")]
-position = Vector2(490, 234)
-collision_mask = 1
+[node name="Area2D2" type="Area2D" parent="TileMap/Trash"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Trash/Area2D2"]
+z_index = 1
+polygon = PackedVector2Array(324, 248, 337, 241, 348, 247, 336, 254)
 
 [node name="Camera2D" type="Camera2D" parent="TileMap"]
 z_index = 20
@@ -1406,13 +1505,12 @@ limit_left = 150
 limit_top = 85
 limit_right = 850
 limit_bottom = 430
+position_smoothing_speed = 32.0
 editor_draw_limits = true
 
-[node name="A FUCKING PUDDLE" type="Sprite2D" parent="."]
-z_index = 2
-texture_filter = 1
-position = Vector2(490, 290)
-texture = ExtResource("42_li41q")
+[node name="Blacksmith" parent="TileMap" instance=ExtResource("3_jp4lu")]
+position = Vector2(472, 236)
+collision_mask = 1
 
 [connection signal="body_entered" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_exited"]

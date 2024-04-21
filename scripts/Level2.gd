@@ -143,6 +143,7 @@ func _ready():
 		tub_toast.position = map_to_local(tub_collision_tiles[i]) + tub_item_offsets[i]
 	
 		tubs.append({
+			"id": i,
 			"tile": tub_collision_tiles[i],
 			"recipe": null,
 			"polishing": false,

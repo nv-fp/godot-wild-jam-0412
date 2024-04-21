@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://dtwbxt24ih3r5"]
+[gd_scene load_steps=83 format=3 uid="uid://dtwbxt24ih3r5"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_7kevh"]
 [ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="1_qvej2"]
@@ -42,6 +42,21 @@
 [ext_resource type="Texture2D" uid="uid://bmks2653gdufv" path="res://art/furnace-animation/furnace animation final21.png" id="39_ol6cy"]
 [ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="40_svrvx"]
 [ext_resource type="Texture2D" uid="uid://ca4sirqq4rxup" path="res://art/puddle.png" id="41_rh1ua"]
+[ext_resource type="Texture2D" uid="uid://cvctyqo4l7db4" path="res://art/bubbles/bubbles1.png" id="42_2aq2x"]
+[ext_resource type="Texture2D" uid="uid://diaeeoq5dcqwh" path="res://art/bubbles/bubbles2.png" id="43_sdw4n"]
+[ext_resource type="Texture2D" uid="uid://d1ygn2qy62opo" path="res://art/bubbles/bubbles3.png" id="44_sa7bx"]
+[ext_resource type="Texture2D" uid="uid://dqle2wtqnx52o" path="res://art/bubbles/bubbles4.png" id="45_lxh02"]
+[ext_resource type="Texture2D" uid="uid://dhudk1a58vwtj" path="res://art/bubbles/bubbles5.png" id="46_gvokv"]
+[ext_resource type="Texture2D" uid="uid://57ba8q642swh" path="res://art/bubbles/bubbles6.png" id="47_5g41s"]
+[ext_resource type="Texture2D" uid="uid://kjcyjvtgfxhw" path="res://art/bubbles/bubbles7.png" id="48_6758h"]
+[ext_resource type="Texture2D" uid="uid://j3whtaioiwvx" path="res://art/bubbles/bubbles8.png" id="49_14swk"]
+[ext_resource type="Texture2D" uid="uid://bgumcmn11ime" path="res://art/bubbles/bubbles9.png" id="50_rkud3"]
+[ext_resource type="Texture2D" uid="uid://ddwc5rgh0mgrs" path="res://art/bubbles/bubbles10.png" id="51_y4c73"]
+[ext_resource type="Texture2D" uid="uid://dljiie3rvh0ox" path="res://art/bubbles/bubbles11.png" id="52_sq45w"]
+[ext_resource type="Texture2D" uid="uid://dfl84sgui5hm8" path="res://art/bubbles/bubbles12.png" id="53_xw5un"]
+[ext_resource type="Texture2D" uid="uid://dxu3ody1pq4lh" path="res://art/bubbles/bubbles13.png" id="54_d1flt"]
+[ext_resource type="Texture2D" uid="uid://cboh4hghk2qe0" path="res://art/bubbles/bubbles14.png" id="55_vpsjb"]
+[ext_resource type="Texture2D" uid="uid://bt40kxkwniyww" path="res://art/bubbles/bubbles15.png" id="56_l13qw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ap120"]
 texture = ExtResource("1_qvg4w")
@@ -949,6 +964,59 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_boqas"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("42_2aq2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_sdw4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_sa7bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_lxh02")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_gvokv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_5g41s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_6758h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_14swk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_rkud3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_y4c73")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_sq45w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_xw5un")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_d1flt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_vpsjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_l13qw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level2" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -1146,6 +1214,34 @@ position = Vector2(521, 132)
 sprite_frames = SubResource("SpriteFrames_o28pe")
 autoplay = "default"
 frame_progress = 0.290272
+
+[node name="Tubs" type="Node2D" parent="TileMap"]
+
+[node name="Tub0" type="Node2D" parent="TileMap/Tubs"]
+
+[node name="TubAnimation" type="AnimatedSprite2D" parent="TileMap/Tubs/Tub0"]
+visible = false
+top_level = true
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(450, 271)
+sprite_frames = SubResource("SpriteFrames_boqas")
+autoplay = "default"
+frame_progress = 0.978706
+
+[node name="Tub1" type="Node2D" parent="TileMap/Tubs"]
+
+[node name="TubAnimation" type="AnimatedSprite2D" parent="TileMap/Tubs/Tub1"]
+visible = false
+top_level = true
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(658, 214)
+sprite_frames = SubResource("SpriteFrames_boqas")
+autoplay = "default"
+frame_progress = 0.25002
 
 [node name="Puddle" type="Sprite2D" parent="."]
 z_index = 2

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://phd1hy08xbjh"
-path="res://.godot/imported/Keyboard Letters and Symbols.png-c75267392a3ae1a672ec3c61c4af49e2.ctex"
+uid="uid://dqle2wtqnx52o"
+path="res://.godot/imported/bubbles4.png-3c84ca9658128fc3a2f99b35f7f632fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/Keyboard Letters and Symbols.png"
-dest_files=["res://.godot/imported/Keyboard Letters and Symbols.png-c75267392a3ae1a672ec3c61c4af49e2.ctex"]
+source_file="res://art/bubbles/bubbles4.png"
+dest_files=["res://.godot/imported/bubbles4.png-3c84ca9658128fc3a2f99b35f7f632fc.ctex"]
 
 [params]
 
