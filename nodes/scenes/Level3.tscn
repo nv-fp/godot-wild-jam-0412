@@ -1217,16 +1217,16 @@ z_index = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TileMap/Anvils/Anvil0"]
 polygon = PackedVector2Array(419, 199, 448, 184, 461, 192, 433, 206)
 
-[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils/Anvil0"]
+[node name="AnvilAnimation" type="AnimatedSprite2D" parent="TileMap/Anvils"]
 visible = false
 top_level = true
 z_index = 5
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(485, 134)
+position = Vector2(436, 160)
 sprite_frames = SubResource("SpriteFrames_jgvuu")
 autoplay = "default"
-frame_progress = 0.709954
+frame_progress = 0.728058
 
 [node name="Anvil1" type="Area2D" parent="TileMap/Anvils"]
 
@@ -1239,10 +1239,10 @@ top_level = true
 z_index = 5
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(436, 160)
+position = Vector2(485, 134)
 sprite_frames = SubResource("SpriteFrames_jgvuu")
 autoplay = "default"
-frame_progress = 0.728058
+frame_progress = 0.709954
 
 [node name="Furnaces" type="Node2D" parent="TileMap"]
 z_index = 1
@@ -1258,13 +1258,14 @@ polygon = PackedVector2Array(340, 239, 352, 247, 398, 224, 384, 216)
 position = Vector2(371, 193)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace0"]
+visible = false
 z_index = 10
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(374, 180)
 sprite_frames = SubResource("SpriteFrames_5mdpi")
 autoplay = "default"
-frame_progress = 0.211527
+frame_progress = 0.178841
 flip_h = true
 
 [node name="Furnace1" type="Node2D" parent="TileMap/Furnaces"]
