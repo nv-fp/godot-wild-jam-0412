@@ -181,6 +181,7 @@ func handle_interaction_input() -> void:
 					var item = heldItem.get_groups()[0]
 					
 					if !anvil_allowed_items.has(item):
+						$WompWomp.play()
 						return
 
 					anvil.inventory.append(str(item))
@@ -207,14 +208,18 @@ func handle_interaction_input() -> void:
 						anvil.timer.queue_free()
 						anvil.timer = null
 						spawn_finished_item(anvil.recipe, anvil)
+				else:
+					$WompWomp.play()
 			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
-				print(furnace.id)
 				# Our item finished smelting and we need to collect it
 				if heldItem == null:
 					if furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
 						furnace.smelting = false
 						clear_interactable(furnace)
+						return
+					else:
+						$WompWomp.play()
 						return
 					if furnace.inventory.size() > 0 && !furnace.smelting:
 						var itemToRemove = furnace.inventory[0]
@@ -224,8 +229,12 @@ func handle_interaction_input() -> void:
 							furnace.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
 						return
+					else:
+						$WompWomp.play()
+						return
 							
 				if furnace.inventory.size() > 2:
+					$WompWomp.play()
 					return
 
 				# If we are holding an item
@@ -233,13 +242,12 @@ func handle_interaction_input() -> void:
 					var resource = heldItem.get_groups()[0]
 					
 					if !furnace_allowed_items.has(resource):
+						$WompWomp.play()
 						return
 					
 					if !furnace.inventory.all(func(r): return r == resource):
-						print("Not Everything inside was same, disgard interact action")
+						$WompWomp.play()
 						return
-						
-					print(furnace.toast.position)
 
 					furnace.inventory.append(str(resource))
 					furnace.toast.add_material(str(resource))
@@ -252,48 +260,67 @@ func handle_interaction_input() -> void:
 							furnace.recipe = resource.split("_")[0] + "_blade_chunk"
 						3:
 							furnace.recipe = resource.split("_")[0] + "_shield_chunk"
+				else:
+					$WompWomp.play()
 			"craft":
 				var table = tilemap.tables.filter(func (t): return t.area == interactable).front()
-				if heldItem == null && table.inventory.size() == 1 && table.crafting:
-					table.crafting = false
-					clear_interactable(table)
-					return
+				if heldItem == null:
+					if table.crafting:
+						if table.inventory.size() == 1:
+							table.crafting = false
+							clear_interactable(table)
+							return
+						else:
+							$WompWomp.play()
+							return
+					else:
+						var itemToRemove = table.inventory[0]
+						table.toast.clear()
+						table.inventory = table.inventory.slice(1)
+						for item in table.inventory:
+							table.toast.add_material(item)
+						spawn_in_held_item(itemToRemove)
+						return
+				
 				
 				if table.inventory.size() > 1:
+					$WompWomp.play()
 					return
 					
 				if heldItem != null && !table.crafting:
 					var resource = heldItem.get_groups()[0]
 					
 					if !table_allowed_items.has(resource):
+						$WompWomp.play()
 						return
 					
 					if table.inventory.any(func(r): return r == resource):
-						print("You already put one of those in there!")
+						$WompWomp.play()
 						return
 					
 					# dirty hack to prevent putting in leather with staff or wood with sword
 					# too lazy to do this any other way
 					if table.inventory.size() > 0:
-						print(table.inventory[0])
-						print(resource)
 						match resource:
 							"leather_hide":
 								if !table.inventory[0].ends_with("blade"):
+									$WompWomp.play()
 									return
 							"wood":
 								if !table.inventory[0].ends_with("gem"):
+									$WompWomp.play()
 									return
 							"bronze_gem","gold_gem","diamond_gem":
 								if table.inventory[0] == "leather_hide":
+									$WompWomp.play()
 									return
 							"bronze_blade","gold_blade","diamond_blade":
 								if table.inventory[0] == "wood":
+									$WompWomp.play()
 									return
-					
-					
+
 					remove_held_item()
-					
+
 					if resource == "leather_hide":
 						if table.recipe:
 							table.recipe = table.recipe + "_sword"
@@ -332,6 +359,8 @@ func handle_interaction_input() -> void:
 						table.timer.queue_free()
 						table.timer = null
 						spawn_finished_item(table.recipe, table)
+				else:
+					$WompWomp.play()
 			"tub":
 				var tub = tilemap.tubs.filter(func (t): return t.area == interactable).front()
 				
@@ -341,12 +370,14 @@ func handle_interaction_input() -> void:
 					return
 				
 				if tub.inventory.size() > 0:
+					$WompWomp.play()
 					return
-					
+
 				if heldItem != null && !tub.polishing:
 					var resource = heldItem.get_groups()[0]
 					
 					if !tub_allowed_items.has(resource):
+						$WompWomp.play()
 						return
 
 					remove_held_item()
@@ -371,17 +402,22 @@ func handle_interaction_input() -> void:
 						tub.inventory = [tub.recipe]
 						tub.timer.queue_free()
 						tub.timer = null
+				else:
+					$WompWomp.play()
 			"trash":
 				if heldItem != null:
 					$TrashCan.playing = true
 					remove_held_item()
+				else:
+					$WompWomp.play()
 			"delivery":
 				if heldItem != null:
 					var queue = get_tree().current_scene.active_level.get_node("Hud").get_node("OrderQueue")
 					var item = heldItem.get_groups()[0]
 					if item.begins_with("polished") && queue.fill("_".join(item.split("_").slice(1))):
 						remove_held_item()
-						# PLAY DING SOUND OR COMPLETED ORDER SOUND
+					else:
+						$WompWomp.play()
 					
 func handle_start_interaction_input():
 	if interactable:
@@ -393,7 +429,6 @@ func handle_start_interaction_input():
 					$LightFurnace.play()
 					tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").frame = 0
 					tilemap.get_node("Furnaces").get_node("Furnace" + str(furnace.id)).get_node("FurnaceAnimation").visible = true
-					print("Starting smelting for " + furnace.recipe)
 					furnace.toast.clear()
 					furnace.smelting = true
 					furnace.timer = create_timer()
@@ -403,6 +438,8 @@ func handle_start_interaction_input():
 					furnace.timer.start()
 					$HeatFurnace.playing = true
 					furnace.timer.position = get_location_from_group(group, furnace.tile) - furnace.timer_position
+				else:
+					$WompWomp.play()
 					
 
 

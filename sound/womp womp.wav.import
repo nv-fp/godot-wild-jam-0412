@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chlm45y7byrfl"
+path="res://.godot/imported/womp womp.wav-c3a2e2275a001bed6e238dc85434d2c3.sample"
+
+[deps]
+
+source_file="res://sound/womp womp.wav"
+dest_files=["res://.godot/imported/womp womp.wav-c3a2e2275a001bed6e238dc85434d2c3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
