@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = false
+var immobile = true
 
 var polishing_time = 3
 var anvil_time = 3
