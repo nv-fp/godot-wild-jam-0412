@@ -10,6 +10,9 @@ var tub_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(31, 3)
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(19, 30), Vector2(-10, 40)])
 var tub_item_offsets: PackedVector2Array = PackedVector2Array([Vector2(-7, -10), Vector2(25, -26)])
 
+# RAYCAST STUFF
+var tub_tiles = [Vector2i(30, 3), Vector2i(33, -7)]
+
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide"]
 var crates = []
 var furnaces = []
@@ -143,6 +146,7 @@ func _ready():
 		tub_toast.position = map_to_local(tub_collision_tiles[i]) + tub_item_offsets[i]
 	
 		tubs.append({
+			"actual_tile": tub_tiles[i],
 			"id": i,
 			"tile": tub_collision_tiles[i],
 			"recipe": null,

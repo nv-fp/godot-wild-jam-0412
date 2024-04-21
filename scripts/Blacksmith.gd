@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = false
+var immobile = true
 
 var polishing_time = 3
 var anvil_time = 3
@@ -214,23 +214,21 @@ func handle_interaction_input() -> void:
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				# Our item finished smelting and we need to collect it
 				if heldItem == null:
-					if furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
-						furnace.smelting = false
-						clear_interactable(furnace)
-						return
+					if furnace.smelting:
+						if furnace.inventory.size() == 1 && furnace.inventory[0] == furnace.recipe:
+							furnace.smelting = false
+							clear_interactable(furnace)
+							return
+						else:
+							$WompWomp.play()
+							return
 					else:
-						$WompWomp.play()
-						return
-					if furnace.inventory.size() > 0 && !furnace.smelting:
 						var itemToRemove = furnace.inventory[0]
 						furnace.toast.clear()
 						furnace.inventory = furnace.inventory.slice(1)
 						for item in furnace.inventory:
 							furnace.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
-						return
-					else:
-						$WompWomp.play()
 						return
 							
 				if furnace.inventory.size() > 2:
@@ -550,15 +548,22 @@ func _physics_process(_delta) -> void:
 	if $RayCast2D.is_colliding():
 		var rid = $RayCast2D.get_collider_rid()
 		var tile = tilemap.get_coords_for_body_rid(rid)
+		print(tile)
 		var data = tilemap.get_cell_tile_data(1, tile)
 		if data:
 			var resource = data.get_custom_data("interactable")
-			var interact = tilemap.crates.filter(func (f): return f.id == resource).front()
-			if interact:
-				interactable = interact.area
+			match resource:
+				"wood","leather_hide","gold_ore","bronze_ore","diamond_ore":
+					var interact = tilemap.crates.filter(func (f): return f.id == resource).front()
+					if interact:
+						interactable = interact.area
+				"tub":
+					var interact = tilemap.tubs.filter(func (f): return f.actual_tile == tile).front()
+					if interact:
+						interactable = interact.area
 	else:
 		if interactable && !interactable.get_overlapping_bodies().filter(func (b): return b == self):
-			if crates.has(interactable.get_groups()[0]):
+			if crates.has(interactable.get_groups()[0]) || interactable.get_groups()[0] == "tub":
 				interactable = null
 
 	

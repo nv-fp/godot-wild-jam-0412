@@ -666,6 +666,8 @@ texture_region_size = Vector2i(41, 64)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 16, 32, 32, 24)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -4, -16, 0, -16, 16, 16, 32, 29.3125, 27.5625, 28.4375, 6.0625, 0, -8)
+0:0/0/custom_data_0 = "tub"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ycy52"]
 texture = ExtResource("10_dtg1u")

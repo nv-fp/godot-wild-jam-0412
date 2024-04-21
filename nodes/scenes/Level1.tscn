@@ -671,6 +671,8 @@ texture_region_size = Vector2i(41, 64)
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, -16, 16, 16, 32, 32, 24)
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
+0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(16, 0, 0, -8, -16, 0, -16, 16, 0.5625, 25.3125, 18.0625, 32.9375, 26.4375, 28.8125, 29.6875, 24.0625, 29.1875, 7.0625)
+0:0/0/custom_data_0 = "tub"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jofl"]
 texture = ExtResource("10_xlipf")
@@ -922,6 +924,12 @@ animations = [{
 [node name="Level 1" type="Node2D"]
 script = ExtResource("1_2op5i")
 
+[node name="Puddle" type="Sprite2D" parent="."]
+z_index = 2
+texture_filter = 1
+position = Vector2(474, 250)
+texture = ExtResource("42_gcnmn")
+
 [node name="Walls" type="TileMap" parent="."]
 y_sort_enabled = true
 texture_filter = 1
@@ -1123,12 +1131,6 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(392, 229)
 texture = ExtResource("16_fyae3")
-
-[node name="Puddle" type="Sprite2D" parent="."]
-z_index = 2
-texture_filter = 1
-position = Vector2(474, 250)
-texture = ExtResource("42_gcnmn")
 
 [connection signal="body_entered" from="Tilemap/ZIndexArea" to="Tilemap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Tilemap/ZIndexArea" to="Tilemap" method="_on_area_2d_body_exited"]

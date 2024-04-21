@@ -105,6 +105,7 @@ func _ready():
 	tub_toast.position = map_to_local(tub_collision_tile) + Vector2(-7, -10)
 	
 	tubs.append({
+		"actual_tile": Vector2i(28, -1),
 		"id": 0,
 		"tile": tub_collision_tile,
 		"recipe": null,
