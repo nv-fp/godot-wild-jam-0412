@@ -18,32 +18,6 @@ func _ready():
 
 var tweeners = []
 func _start_intro():
-	#var start_start_xy = $MainMenuBG/StartButton.position
-	#$MainMenuBG/StartButton.position.y = -450
-#
-	#var credits_start_xy = $MainMenuBG/CreditsButton.position
-	#$MainMenuBG/CreditsButton.position.y = -426
-#
-	#var quit_start_xy = $MainMenuBG/QuitButton.position
-	#$MainMenuBG/QuitButton.position.y = -400
-#
-	#var t_quit = get_tree().create_tween()
-	#t_quit.set_trans(Tween.TRANS_BOUNCE)
-	#t_quit.set_ease(Tween.EASE_OUT)
-	#t_quit.tween_property($MainMenuBG/QuitButton, 'position', quit_start_xy, 1.5)
-#
-	#var t_credits = get_tree().create_tween()
-	#t_credits.set_trans(Tween.TRANS_BOUNCE)
-	#t_credits.set_ease(Tween.EASE_OUT)
-	#t_credits.tween_property($MainMenuBG/CreditsButton, 'position', $MainMenuBG/CreditsButton.position, .75)
-	#t_credits.tween_property($MainMenuBG/CreditsButton, 'position', credits_start_xy, 1.5)
-#
-	#var t_start = get_tree().create_tween()
-	#t_start.set_trans(Tween.TRANS_BOUNCE)
-	#t_start.set_ease(Tween.EASE_OUT)
-	#t_start.tween_property($MainMenuBG/StartButton, 'position', $MainMenuBG/StartButton.position, 1.75)
-	#t_start.tween_property($MainMenuBG/StartButton, 'position', start_start_xy, 1.5)
-	#t_start.tween_callback(_intro_complete)
 	_intro_complete()
 
 func _intro_complete():
@@ -90,3 +64,32 @@ func _exit_credits():
 func _action_credits(viewport, event, shape_idx):
 	if InputUtil.is_click(event):
 		show_credits.emit()
+
+func _settings_enter():
+	_over_button($MainMenuBG/SettingsButton)
+
+func _settings_exit():
+	_exit_button($MainMenuBG/SettingsButton)
+
+func _settings_event(viewport, event, shape_idx):
+	if InputUtil.is_click(event):
+		_load_settings()
+
+func _load_settings():
+	var t = get_tree().create_tween()
+	var new_xy = $MainMenuBG.position
+	new_xy.x += 1280
+	t.set_parallel(true)
+	t.set_trans(Tween.TRANS_SINE)
+	t.tween_property($MainMenuBG, 'position', new_xy, 1.5)
+	t.tween_property($SettingsMenu, 'position', Vector2.ZERO, 1.5)
+
+
+func _unload_settings():
+	var t = get_tree().create_tween()
+	var new_xy = $SettingsMenu.position
+	new_xy.x -= 1280
+	t.set_parallel(true)
+	t.set_trans(Tween.TRANS_SINE)
+	t.tween_property($MainMenuBG, 'position', Vector2.ZERO, 1.5)
+	t.tween_property($SettingsMenu, 'position', new_xy, 1.5)
