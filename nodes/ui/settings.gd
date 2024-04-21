@@ -19,3 +19,9 @@ func change_volume(value: float, emitter, idx: int):
 func _back_event(viewport, event, shape_idx):
 	if InputUtil.is_click(event):
 		back.emit()
+
+func _back_enter():
+	$SettingsItems/BackButton.modulate = Color(1, .9, .9)
+
+func _back_exit():
+	$SettingsItems/BackButton.modulate = Color.WHITE

@@ -230,3 +230,5 @@ position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_4g8nx")
 
 [connection signal="input_event" from="SettingsItems/BackButton/Area2D" to="." method="_back_event"]
+[connection signal="mouse_entered" from="SettingsItems/BackButton/Area2D" to="." method="_back_enter"]
+[connection signal="mouse_exited" from="SettingsItems/BackButton/Area2D" to="." method="_back_exit"]
