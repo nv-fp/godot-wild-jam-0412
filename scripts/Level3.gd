@@ -12,6 +12,7 @@ var table_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(15, 30
 var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(-15, 40), Vector2(15, 20)])
 
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide", "wood"]
+var crates = []
 var furnaces = []
 var anvils = []
 var tables = []
@@ -27,6 +28,11 @@ func _ready():
 		area.body_exited.connect(area_exited.bind(area))
 		
 		area.add_to_group(groupNames[i])
+		
+		crates.append({
+			"id": groupNames[i],
+			"area": area,
+		})
 	
 	for i in range($Anvils.get_child_count()):
 		var anvil_area = $Anvils.get_node("Anvil" + str(i))

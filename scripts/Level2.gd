@@ -11,6 +11,7 @@ var tub_timer_offsets: PackedVector2Array = PackedVector2Array([Vector2(19, 30),
 var tub_item_offsets: PackedVector2Array = PackedVector2Array([Vector2(-7, -10), Vector2(25, -26)])
 
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore", "leather_hide"]
+var crates = []
 var furnaces = []
 var anvils = []
 var tables = []
@@ -27,6 +28,11 @@ func _ready():
 		
 		area.add_to_group(groupNames[i])
 		add_child(area)
+		
+		crates.append({
+			"id": groupNames[i],
+			"area": area,
+		})
 	
 	var anvil_area = create_collision_for_anvil(anvil_collision_tile)
 	anvil_area.add_to_group("anvil")

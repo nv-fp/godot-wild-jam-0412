@@ -426,3 +426,8 @@ bus = &"Environment"
 stream = SubResource("AudioStreamMP3_mxqrh")
 max_polyphony = 3
 bus = &"Environment"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 15)
+collision_mask = 2
+hit_from_inside = true

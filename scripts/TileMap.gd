@@ -7,6 +7,7 @@ var trash_collision_tile: Vector2 = Vector2(25, -3)
 var tub_collision_tile: Vector2 = Vector2(29, -1)
 var groupNames = ["bronze_ore", "gold_ore", "diamond_ore"]
 
+var crates = []
 var furnaces = []
 var anvils = []
 var tubs = []
@@ -24,6 +25,11 @@ func _ready():
 		
 		area.add_to_group(groupNames[i])
 		add_child(area)
+		
+		crates.append({
+			"id": groupNames[i],
+			"area": area,
+		})
 	
 	var anvil_area = create_collision_for_anvil(anvil_collision_tile)
 	anvil_area.add_to_group("anvil")

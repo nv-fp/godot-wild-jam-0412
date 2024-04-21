@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var tilemap: TileMap = get_parent()
 @export var speed: int = 175
 
-var immobile = true
+var immobile = false
 
 var polishing_time = 3
 var anvil_time = 3
@@ -118,6 +118,7 @@ var smithingTimerScene: PackedScene = preload("res://nodes/scenes/cowndown_timer
 var smithingTimer: Node2D
 
 var directions: PackedStringArray = PackedStringArray(["east", "south_east", "south", "south_west", "west", "north_west", "north", "north_east"])
+var angles = [-90, -45, 0, 45, 90, 135, 180, -135]
 var last_direction: String = "south"
 var last_direction_vector: Vector2 = Vector2(0, 1)
 
@@ -130,12 +131,17 @@ func basic_movement():
 		if $Footsteps.playing == false:
 			$Footsteps.playing = true
 		$AnimatedSprite2D.animation = directions[index]
+		$RayCast2D.rotation_degrees = angles[index]
 		last_direction = directions[index]
 		last_direction_vector = input_direction
 	else:
 		$Footsteps.playing = false
 		$AnimatedSprite2D.animation = "idle_" + last_direction
-		
+		var degrees = angles[directions.find(last_direction)]
+		print(degrees)
+		$RayCast2D.rotation_degrees = degrees
+	
+
 	$AnimatedSprite2D.play()
 	velocity = input_direction * speed
 	move_and_slide()
@@ -478,7 +484,27 @@ func start_level():
 func end_level():
 	set_immobile(true)
 
+var crates = ["wood", "leather_hide", "gold_ore", "bronze_ore", "diamond_ore"]
 func _physics_process(_delta) -> void:
+	
+	# Raycast detect Phyiscs Layer 2 for Resource Crates
+	# Will allow them to pickup crates from any direction instead of
+	# only in front of them
+	if $RayCast2D.is_colliding():
+		var rid = $RayCast2D.get_collider_rid()
+		var tile = tilemap.get_coords_for_body_rid(rid)
+		var data = tilemap.get_cell_tile_data(1, tile)
+		if data:
+			var resource = data.get_custom_data("interactable")
+			var interact = tilemap.crates.filter(func (f): return f.id == resource).front()
+			if interact:
+				interactable = interact.area
+	else:
+		if interactable && !interactable.get_overlapping_bodies().filter(func (b): return b == self):
+			if crates.has(interactable.get_groups()[0]):
+				interactable = null
+
+	
 	if !immobile:
 		basic_movement()
 		show_interact_button()
