@@ -12,7 +12,7 @@ extends Node2D
 	'diamond_staff',
 ]
 
-@export var score_limits = [150, 350, 500]
+@export var score_limits = [150, 600, 1100]
 
 # Called when the node enters the scene tree for the first time.
 func start_level():
