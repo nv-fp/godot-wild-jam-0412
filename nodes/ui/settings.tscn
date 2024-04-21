@@ -12,6 +12,7 @@
 size = Vector2(256, 82)
 
 [node name="MenuSystem" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_guqxq")
 
 [node name="SettingsItems" type="Sprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1p3hl55up3u8"]
+[gd_scene load_steps=13 format=3 uid="uid://tdutty58bn5g"]
 
 [ext_resource type="Texture2D" uid="uid://12tcnoh4t2rt" path="res://art/main_menu.jpg" id="1_8u8lk"]
 [ext_resource type="Script" path="res://nodes/ui/menu_system.gd" id="1_bpgo5"]
@@ -22,6 +22,7 @@ size = Vector2(503, 113)
 size = Vector2(258, 85)
 
 [node name="MenuSystem" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_bpgo5")
 
 [node name="MainMenuFrame" type="Sprite2D" parent="."]
@@ -45,6 +46,7 @@ region_rect = Rect2(571.619, 34.603, 707.384, 221.647)
 
 [node name="StartButton" type="Sprite2D" parent="MainMenuBG"]
 z_index = 1
+texture_filter = 1
 position = Vector2(645, 314)
 texture = ExtResource("3_b5mhr")
 region_enabled = true
