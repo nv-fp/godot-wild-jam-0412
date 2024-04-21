@@ -1126,7 +1126,8 @@ frame_progress = 0.588799
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace0"]
 visible = false
 top_level = true
-z_index = 5
+z_index = 10
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(584, 164)
 sprite_frames = SubResource("SpriteFrames_nxexa")
@@ -1138,7 +1139,8 @@ frame_progress = 0.492502
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace1"]
 visible = false
 top_level = true
-z_index = 5
+z_index = 10
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(521, 132)
 sprite_frames = SubResource("SpriteFrames_o28pe")

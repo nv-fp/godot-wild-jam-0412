@@ -1258,13 +1258,13 @@ polygon = PackedVector2Array(340, 239, 352, 247, 398, 224, 384, 216)
 position = Vector2(371, 193)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace0"]
-visible = false
-z_index = 6
+z_index = 10
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(374, 180)
 sprite_frames = SubResource("SpriteFrames_5mdpi")
 autoplay = "default"
-frame_progress = 0.00585524
+frame_progress = 0.211527
 flip_h = true
 
 [node name="Furnace1" type="Node2D" parent="TileMap/Furnaces"]
@@ -1280,7 +1280,8 @@ position = Vector2(604, 182)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace1"]
 visible = false
-z_index = 5
+z_index = 10
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(602, 172)
 sprite_frames = SubResource("SpriteFrames_qwm4v")
@@ -1299,7 +1300,8 @@ position = Vector2(701, 231)
 
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="TileMap/Furnaces/Furnace2"]
 visible = false
-z_index = 6
+z_index = 10
+y_sort_enabled = true
 position = Vector2(698, 220)
 sprite_frames = SubResource("SpriteFrames_jnbsl")
 autoplay = "default"

@@ -1010,7 +1010,8 @@ editor_draw_limits = true
 [node name="FurnaceAnimation" type="AnimatedSprite2D" parent="Tilemap/Furnaces/Furnace0"]
 visible = false
 top_level = true
-z_index = 5
+z_index = 10
+y_sort_enabled = true
 texture_filter = 1
 position = Vector2(554, 147)
 sprite_frames = SubResource("SpriteFrames_cxfwm")
