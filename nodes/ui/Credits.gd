@@ -105,6 +105,11 @@ var credits_scr = [
 	func(): _fade_out($Container/Sound, 2.5),
 	2500,
 	func(): _fade_out($Container/Art, 2.5),
+	4000,
+	func(): _fade_in($Container/HelterSmelter, 3),
+	6000,
+	func(): _fade_out($Container/HelterSmelter/Dino, 3),
+	func(): _fade_out($Container/HelterSmelter/GWJ, 3),
 ]
 
 var in_sky = false

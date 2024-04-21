@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://1mghd4a0yc8k"]
+[gd_scene load_steps=55 format=3 uid="uid://1mghd4a0yc8k"]
 
 [ext_resource type="Script" path="res://nodes/ui/Credits.gd" id="1_7e3js"]
 [ext_resource type="Texture2D" uid="uid://chemdfjegn0jy" path="res://art/credits/grass.png" id="2_c6kyy"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dxhawt6bm1hfi" path="res://art/credits/space.png" id="13_20yrp"]
 [ext_resource type="Texture2D" uid="uid://c6r5tcfr2tc2m" path="res://art/credits/dino.png" id="15_442ld"]
 [ext_resource type="Texture2D" uid="uid://qdc8ombpe5vv" path="res://art/flare_11_sm.png" id="16_hnbjo"]
+[ext_resource type="Texture2D" uid="uid://r7ttvokevu6a" path="res://art/title.png" id="16_my27i"]
+[ext_resource type="Texture2D" uid="uid://cjxaiayvqc8ap" path="res://art/credits/gwj.png" id="17_74uj8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aelkp"]
 atlas = ExtResource("7_o814s")
@@ -652,3 +654,42 @@ theme_override_font_sizes/font_size = 82
 text = "Ani
 "
 horizontal_alignment = 1
+
+[node name="HelterSmelter" type="Sprite2D" parent="Container"]
+position = Vector2(650, -1409)
+scale = Vector2(0.778431, 0.778431)
+texture = ExtResource("16_my27i")
+region_enabled = true
+region_rect = Rect2(0, 0, 1280, 255.704)
+
+[node name="Dino" type="Sprite2D" parent="Container/HelterSmelter"]
+position = Vector2(-202.091, 297.154)
+scale = Vector2(0.774445, 0.774445)
+texture = ExtResource("15_442ld")
+
+[node name="GWJ" type="Sprite2D" parent="Container/HelterSmelter"]
+position = Vector2(197.796, 294.512)
+scale = Vector2(0.437632, 0.437632)
+texture = ExtResource("17_74uj8")
+
+[node name="By" type="Label" parent="Container/HelterSmelter"]
+offset_left = -355.844
+offset_top = 282.62
+offset_right = -315.844
+offset_bottom = 314.62
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_5aijh")
+theme_override_font_sizes/font_size = 38
+text = "BY"
+
+[node name="For" type="Label" parent="Container/HelterSmelter"]
+offset_left = 34.685
+offset_top = 282.62
+offset_right = 91.685
+offset_bottom = 314.62
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_5aijh")
+theme_override_font_sizes/font_size = 38
+text = "For"

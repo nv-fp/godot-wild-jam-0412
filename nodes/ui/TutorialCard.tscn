@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://mxsv78s4n8l5"]
+[gd_scene load_steps=16 format=3 uid="uid://mxsv78s4n8l5"]
 
 [ext_resource type="Script" path="res://nodes/ui/TutorialCard.gd" id="1_kmt1j"]
 [ext_resource type="Texture2D" uid="uid://cum7o17rjmoa7" path="res://art/tutorial-card/tutorial_card_base_2.png" id="2_i5sl6"]
+[ext_resource type="Texture2D" uid="uid://borqe78ayva41" path="res://art/tutorial-card/how_to_play_page.png" id="3_fo67y"]
 [ext_resource type="Texture2D" uid="uid://duo0dv6iveak" path="res://art/tutorial-card/shield_img.png" id="3_t5p5l"]
 [ext_resource type="Texture2D" uid="uid://cqet7lhqk8xnr" path="res://art/tutorial-card/sword_img.png" id="4_2i1j7"]
 [ext_resource type="Texture2D" uid="uid://cyrr7ejl2fm2p" path="res://art/tutorial-card/staff_img.png" id="5_6hxnv"]
-[ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="6_wjwgq"]
 [ext_resource type="Texture2D" uid="uid://7af4r8mem8gw" path="res://art/tutorial-card/start_button.png" id="7_xaakr"]
 [ext_resource type="Texture2D" uid="uid://lk1vfubqodr1" path="res://art/tutorial-card/next_page_button.png" id="8_jas88"]
 [ext_resource type="Texture2D" uid="uid://p7a4vnoinc6x" path="res://art/tutorial-card/left_arrow.png" id="9_mdxfg"]
 [ext_resource type="Texture2D" uid="uid://qk2ygbxivlv2" path="res://art/tutorial-card/prev_button.png" id="10_rrd07"]
 [ext_resource type="Texture2D" uid="uid://c2lwkqiw6ttki" path="res://art/tutorial-card/right_arrow.png" id="11_ige12"]
+[ext_resource type="Texture2D" uid="uid://gdpbeq8eq0i1" path="res://art/tutorial-card/play_word.png" id="12_obdg1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duf87"]
 size = Vector2(129, 64)
@@ -30,22 +31,12 @@ position = Vector2(522, 265)
 texture = ExtResource("2_i5sl6")
 
 [node name="Instructions" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(0, -5.92505)
-scale = Vector2(0.950625, 0.950625)
-
-[node name="Label" type="Label" parent="Background/Instructions"]
-offset_left = -125.181
-offset_top = -277.791
-offset_right = 138.819
-offset_bottom = -238.791
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("6_wjwgq")
-theme_override_font_sizes/font_size = 48
-text = "Instructions"
+position = Vector2(1.53326, -12.35)
+scale = Vector2(0.929583, 0.929583)
+texture = ExtResource("3_fo67y")
 
 [node name="Shield" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(0, -17)
 scale = Vector2(0.925, 0.925)
 texture = ExtResource("3_t5p5l")
@@ -102,13 +93,9 @@ position = Vector2(-52, -17)
 position = Vector2(49, 16)
 shape = SubResource("RectangleShape2D_lwhod")
 
-[node name="Label" type="Label" parent="Start"]
-offset_left = -37.0
-offset_top = -24.0
-offset_right = 34.0
-offset_bottom = 18.0
-theme_override_font_sizes/font_size = 30
-text = "Start"
+[node name="Text" type="Sprite2D" parent="Start"]
+position = Vector2(-4, 0)
+texture = ExtResource("12_obdg1")
 
 [connection signal="input_event" from="Pagers/Left/Area2D" to="." method="_left_event"]
 [connection signal="mouse_entered" from="Pagers/Left/Area2D" to="." method="_enter_left"]
