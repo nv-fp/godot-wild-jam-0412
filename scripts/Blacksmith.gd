@@ -160,7 +160,6 @@ func show_interact_button():
 func handle_interaction_input() -> void:
 	if interactable:
 		var group = interactable.get_groups()[0]
-		print(group)
 		match group:
 			"diamond_ore","gold_ore","bronze_ore","leather_hide", "wood":
 				if heldItem == null:
@@ -169,7 +168,7 @@ func handle_interaction_input() -> void:
 			"anvil":
 				var anvil = tilemap.anvils.filter(func (a): return a.area == interactable).front()
 
-				if  heldItem == null && anvil.inventory.size() == 1 && anvil.smithing:
+				if  heldItem == null && anvil.inventory.size() == 1 && anvil.smithing && anvil.inventory[0] == anvil.recipe:
 					anvil.smithing = false
 					clear_interactable(anvil)
 					return
@@ -184,7 +183,7 @@ func handle_interaction_input() -> void:
 					remove_held_item()
 					anvil.recipe = "_".join(item.split("_").slice(0, 2))
 					
-					if anvil.recipes.has(anvil.recipe):
+					if !anvil.smithing && anvil.recipes.has(anvil.recipe):
 						immobile = true
 						anvil.smithing = true
 						anvil.timer = create_timer()
@@ -207,10 +206,24 @@ func handle_interaction_input() -> void:
 			"furnace":
 				var furnace = tilemap.furnaces.filter(func (f): return f.area == interactable).front()
 				# Our item finished smelting and we need to collect it
-				if heldItem == null && furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
-					furnace.smelting = false
-					clear_interactable(furnace)
-					return
+				if heldItem == null:
+					if furnace.inventory.size() == 1 && furnace.smelting && furnace.inventory[0] == furnace.recipe:
+						furnace.smelting = false
+						clear_interactable(furnace)
+						return
+					if furnace.inventory.size() > 0 && !furnace.smelting:
+						var itemToRemove = furnace.inventory[0]
+						furnace.toast.clear()
+						print(furnace.inventory)
+						furnace.inventory = furnace.inventory.slice(1)
+						print(furnace.inventory)	
+						for item in furnace.inventory:
+							furnace.topast.add_material(item)
+						spawn_in_held_item(itemToRemove)
+
+						return
+						
+					
 				
 				if furnace.inventory.size() > 2:
 					return

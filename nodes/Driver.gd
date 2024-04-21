@@ -135,6 +135,8 @@ func _level_fade_in_completed():
 	$CanvasLayer/TutorialCard.visible = true
 
 func _tutorial_card_clear():
+	if active_level == null or not $CanvasLayer/TutorialCard.visible:
+		return
 	$CanvasLayer/TutorialCard.visible = false
 	active_level.start_level()
 
