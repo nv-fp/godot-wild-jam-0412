@@ -56,6 +56,8 @@ func _curtain_out(next):
 var max_level = 0
 
 func _game_credits():
+	if not _can_start:
+		return
 	_curtain_in(_load_credits)
 
 # handles button presses so we can filter out spamming the start button
@@ -87,6 +89,7 @@ func _load_level():
 	Jukebox.play_bg(cur_level)
 
 func _load_credits():
+	_can_start = false
 	_level_summary.visible = false
 	if active_level != null:
 		remove_child(active_level)

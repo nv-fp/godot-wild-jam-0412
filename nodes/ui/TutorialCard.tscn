@@ -1,53 +1,121 @@
-[gd_scene load_steps=8 format=3 uid="uid://mxsv78s4n8l5"]
+[gd_scene load_steps=15 format=3 uid="uid://mxsv78s4n8l5"]
 
 [ext_resource type="Script" path="res://nodes/ui/TutorialCard.gd" id="1_kmt1j"]
-[ext_resource type="Texture2D" uid="uid://c13gc6nid0cdp" path="res://art/tutorial-card/tutorial_card_base.png" id="2_wrlcw"]
-[ext_resource type="Texture2D" uid="uid://csj47fk8x4mql" path="res://art/tutorial-card/shield-text.png" id="3_ypemw"]
-[ext_resource type="Texture2D" uid="uid://c3fi60dbpkr2m" path="res://art/tutorial-card/sword-text.png" id="4_mg6h8"]
-[ext_resource type="Texture2D" uid="uid://d4uucflrltmi" path="res://art/tutorial-card/staff-text.png" id="5_x6otf"]
+[ext_resource type="Texture2D" uid="uid://cum7o17rjmoa7" path="res://art/tutorial-card/tutorial_card_base_2.png" id="2_i5sl6"]
+[ext_resource type="Texture2D" uid="uid://duo0dv6iveak" path="res://art/tutorial-card/shield_img.png" id="3_t5p5l"]
+[ext_resource type="Texture2D" uid="uid://cqet7lhqk8xnr" path="res://art/tutorial-card/sword_img.png" id="4_2i1j7"]
+[ext_resource type="Texture2D" uid="uid://cyrr7ejl2fm2p" path="res://art/tutorial-card/staff_img.png" id="5_6hxnv"]
 [ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="6_wjwgq"]
+[ext_resource type="Texture2D" uid="uid://7af4r8mem8gw" path="res://art/tutorial-card/start_button.png" id="7_xaakr"]
+[ext_resource type="Texture2D" uid="uid://lk1vfubqodr1" path="res://art/tutorial-card/next_page_button.png" id="8_jas88"]
+[ext_resource type="Texture2D" uid="uid://p7a4vnoinc6x" path="res://art/tutorial-card/left_arrow.png" id="9_mdxfg"]
+[ext_resource type="Texture2D" uid="uid://qk2ygbxivlv2" path="res://art/tutorial-card/prev_button.png" id="10_rrd07"]
+[ext_resource type="Texture2D" uid="uid://c2lwkqiw6ttki" path="res://art/tutorial-card/right_arrow.png" id="11_ige12"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duf87"]
+size = Vector2(129, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihmet"]
+size = Vector2(132, 67)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lwhod"]
-size = Vector2(104, 22)
+size = Vector2(132, 109)
 
 [node name="TutorialCard" type="Node2D"]
+position = Vector2(60, 96)
 script = ExtResource("1_kmt1j")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(522, 265)
-texture = ExtResource("2_wrlcw")
+texture = ExtResource("2_i5sl6")
 
-[node name="Shield" type="Sprite2D" parent="Background"]
+[node name="Instructions" type="Sprite2D" parent="Background"]
 visible = false
-texture = ExtResource("3_ypemw")
+position = Vector2(0, -5.92505)
+scale = Vector2(0.950625, 0.950625)
 
-[node name="Sword" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(13, -24)
-texture = ExtResource("4_mg6h8")
-
-[node name="Staff" type="Sprite2D" parent="Background"]
-visible = false
-position = Vector2(-24, -75)
-texture = ExtResource("5_x6otf")
-
-[node name="Start" type="Label" parent="."]
-offset_left = 890.0
-offset_top = 460.0
-offset_right = 996.0
-offset_bottom = 486.0
+[node name="Label" type="Label" parent="Background/Instructions"]
+offset_left = -125.181
+offset_top = -277.791
+offset_right = 138.819
+offset_bottom = -238.791
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("6_wjwgq")
-theme_override_font_sizes/font_size = 32
-text = "Start >"
+theme_override_font_sizes/font_size = 48
+text = "Instructions"
+
+[node name="Shield" type="Sprite2D" parent="Background"]
+position = Vector2(0, -17)
+scale = Vector2(0.925, 0.925)
+texture = ExtResource("3_t5p5l")
+
+[node name="Sword" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(1.33328, -9)
+scale = Vector2(0.958333, 0.958333)
+texture = ExtResource("4_2i1j7")
+
+[node name="Staff" type="Sprite2D" parent="Background"]
+visible = false
+position = Vector2(-3.55557, -5)
+scale = Vector2(0.969444, 0.969444)
+texture = ExtResource("5_6hxnv")
+
+[node name="Pagers" type="Node2D" parent="."]
+position = Vector2(522, 265)
+
+[node name="Left" type="Sprite2D" parent="Pagers"]
+position = Vector2(-408, -257)
+texture = ExtResource("8_jas88")
+
+[node name="Arrow" type="Sprite2D" parent="Pagers/Left"]
+texture = ExtResource("9_mdxfg")
+
+[node name="Area2D" type="Area2D" parent="Pagers/Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pagers/Left/Area2D"]
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_duf87")
+
+[node name="Right" type="Sprite2D" parent="Pagers"]
+position = Vector2(413, -254)
+texture = ExtResource("10_rrd07")
+
+[node name="Arrow" type="Sprite2D" parent="Pagers/Right"]
+texture = ExtResource("11_ige12")
+
+[node name="Area2D" type="Area2D" parent="Pagers/Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pagers/Right/Area2D"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_ihmet")
+
+[node name="Start" type="Sprite2D" parent="."]
+position = Vector2(942, 477)
+texture = ExtResource("7_xaakr")
 
 [node name="Area2D" type="Area2D" parent="Start"]
+position = Vector2(-52, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Start/Area2D"]
-position = Vector2(53, 12)
+position = Vector2(49, 16)
 shape = SubResource("RectangleShape2D_lwhod")
 
+[node name="Label" type="Label" parent="Start"]
+offset_left = -37.0
+offset_top = -24.0
+offset_right = 34.0
+offset_bottom = 18.0
+theme_override_font_sizes/font_size = 30
+text = "Start"
+
+[connection signal="input_event" from="Pagers/Left/Area2D" to="." method="_left_event"]
+[connection signal="mouse_entered" from="Pagers/Left/Area2D" to="." method="_enter_left"]
+[connection signal="mouse_exited" from="Pagers/Left/Area2D" to="." method="_exit_left"]
+[connection signal="input_event" from="Pagers/Right/Area2D" to="." method="_right_event"]
+[connection signal="mouse_entered" from="Pagers/Right/Area2D" to="." method="_enter_right"]
+[connection signal="mouse_exited" from="Pagers/Right/Area2D" to="." method="_exit_right"]
 [connection signal="input_event" from="Start/Area2D" to="." method="_start_event"]
 [connection signal="mouse_entered" from="Start/Area2D" to="." method="_start_enter"]
 [connection signal="mouse_exited" from="Start/Area2D" to="." method="_start_exit"]

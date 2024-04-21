@@ -110,16 +110,16 @@ var credits_scr = [
 var in_sky = false
 func _dump_ground():
 	in_sky = true
-	remove_child($Sky)
-	remove_child($Grass)
-	remove_child($Clouds)
-	remove_child($Tree1)
-	remove_child($Tree2)
-	remove_child($Tree3)
-	remove_child($Tree4)
-	remove_child($Tree5)
-	remove_child($Tree6)
-	remove_child($Blacksmith)
+	$Container.remove_child($Container/Sky)
+	$Container.remove_child($Container/Grass)
+	$Container.remove_child($Container/Clouds)
+	$Container.remove_child($Container/Tree1)
+	$Container.remove_child($Container/Tree2)
+	$Container.remove_child($Container/Tree3)
+	$Container.remove_child($Container/Tree4)
+	$Container.remove_child($Container/Tree5)
+	$Container.remove_child($Container/Tree6)
+	$Container.remove_child($Container/Blacksmith)
 
 func _switch_script(new_scr):
 	scr = new_scr

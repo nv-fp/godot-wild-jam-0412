@@ -9,6 +9,6 @@ script = ExtResource("1_fvkng")
 
 [node name="Hud" parent="." instance=ExtResource("2_cdfi4")]
 visible = false
-initial_display_sec = 190
+initial_display_sec = 220
 
 [node name="Level" parent="." instance=ExtResource("3_sok41")]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://tdutty58bn5g"]
+[gd_scene load_steps=11 format=3 uid="uid://b1p3hl55up3u8"]
 
 [ext_resource type="Texture2D" uid="uid://12tcnoh4t2rt" path="res://art/main_menu.jpg" id="1_8u8lk"]
 [ext_resource type="Script" path="res://nodes/ui/menu_system.gd" id="1_bpgo5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://wxorn3874kvk" path="res://art/main-menu/buttons.png" id="3_b5mhr"]
 [ext_resource type="Texture2D" uid="uid://dejaafy4w1ffj" path="res://art/main-menu/font.png" id="4_upawf"]
 [ext_resource type="Texture2D" uid="uid://dpgtmjj15ln7j" path="res://art/main-menu/buttons-drop-shadow.png" id="5_epw5x"]
+[ext_resource type="Texture2D" uid="uid://r7ttvokevu6a" path="res://art/title.png" id="6_5sjof"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg7qw"]
 size = Vector2(367, 139)
@@ -25,7 +26,7 @@ texture = ExtResource("2_k1mfh")
 
 [node name="StartButton" type="Sprite2D" parent="MainMenuBG"]
 z_index = 1
-position = Vector2(-2, -75)
+position = Vector2(294, -139)
 texture = ExtResource("3_b5mhr")
 region_enabled = true
 region_rect = Rect2(444, 256, 378, 161)
@@ -54,7 +55,7 @@ shape = SubResource("RectangleShape2D_cg7qw")
 [node name="QuitButton" type="Sprite2D" parent="MainMenuBG"]
 z_index = 1
 z_as_relative = false
-position = Vector2(-8, 235)
+position = Vector2(288, 171)
 texture = ExtResource("3_b5mhr")
 region_enabled = true
 region_rect = Rect2(493.316, 552.316, 274.23, 89.4064)
@@ -83,7 +84,7 @@ shape = SubResource("RectangleShape2D_5tsdj")
 
 [node name="CreditsButton" type="Sprite2D" parent="MainMenuBG"]
 z_index = 1
-position = Vector2(-2, 96)
+position = Vector2(294, 32)
 texture = ExtResource("3_b5mhr")
 region_enabled = true
 region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
@@ -107,6 +108,18 @@ region_rect = Rect2(678.067, 428.813, 479.472, 135.51)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/CreditsButton/Area2D"]
 position = Vector2(2, 5.5)
 shape = SubResource("RectangleShape2D_c5ofg")
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenuBG"]
+position = Vector2(-314, -114)
+texture = ExtResource("6_5sjof")
+region_enabled = true
+region_rect = Rect2(0, 0, 559.913, 262.681)
+
+[node name="Sprite2D" type="Sprite2D" parent="MainMenuBG/Sprite2D"]
+position = Vector2(22, 240)
+texture = ExtResource("6_5sjof")
+region_enabled = true
+region_rect = Rect2(571.619, 34.603, 707.384, 221.647)
 
 [node name="MainMenu" type="Sprite2D" parent="."]
 visible = false
