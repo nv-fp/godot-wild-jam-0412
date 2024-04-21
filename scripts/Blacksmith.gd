@@ -267,20 +267,23 @@ func handle_interaction_input() -> void:
 				var table = tilemap.tables.filter(func (t): return t.area == interactable).front()
 				if heldItem == null:
 					if table.crafting:
-						if table.inventory.size() == 1:
+						if table.inventory.size() == 1 && table.recipe == table.inventory[0]:
 							table.crafting = false
 							clear_interactable(table)
 							return
 						else:
 							$WompWomp.play()
 							return
-					else:
+					elif table.inventory.size() == 1:
 						var itemToRemove = table.inventory[0]
 						table.toast.clear()
 						table.inventory = table.inventory.slice(1)
 						for item in table.inventory:
 							table.toast.add_material(item)
 						spawn_in_held_item(itemToRemove)
+						return
+					else:
+						$WompWomp.play()
 						return
 				
 				

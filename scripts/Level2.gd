@@ -1,6 +1,6 @@
 extends TileMap
 
-var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(35, 0), Vector2(35, -3), Vector2(29, 3), Vector2(27, 3)])
+var crate_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(35, 0), Vector2(35, -3), Vector2(29, 3), Vector2(26, 3)])
 var anvil_collision_tile: Vector2 = Vector2(25, -3)
 var furnace_collision_tiles: PackedVector2Array = PackedVector2Array([Vector2(30, -5), Vector2(26, -5)])
 var trash_collision_tile: Vector2 = Vector2(25, 1)
