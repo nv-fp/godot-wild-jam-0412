@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://tjdkpgoqr6lw"]
+
+[ext_resource type="Script" path="res://nodes/wip/Anvils/Anvil.gd" id="1_37r6u"]
+[ext_resource type="Texture2D" uid="uid://d2icifub1b3j1" path="res://art/anvil.png" id="2_qnqcg"]
+[ext_resource type="PackedScene" uid="uid://dpsr055c1v16j" path="res://nodes/ui/MaterialToast.tscn" id="3_vsw8d"]
+
+[node name="Anvil" type="Area2D" groups=["anvil", "interactable"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_37r6u")
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(6, 0, 20, -6, 19, -22, -9, -36, -20, -30, -19, -11)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -17.5)
+texture = ExtResource("2_qnqcg")
+region_enabled = true
+region_rect = Rect2(0, 29, 39, 35)
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+
+[node name="InventoryToast" parent="." instance=ExtResource("3_vsw8d")]

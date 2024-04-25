@@ -18,7 +18,7 @@ enum TubState {
 
 var type: Enums.StationType = Enums.StationType.TUB
 var inventory: PackedStringArray = PackedStringArray([])
-var max_size: int = 3
+var max_size: int = 1
 var recipes: Array[Recipe] = []
 var state: TubState = TubState.IDLE
 
