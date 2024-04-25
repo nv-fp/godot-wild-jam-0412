@@ -578,7 +578,8 @@ func _process(_delta) -> void:
 	if immobile || interactable == null:
 		return
 	if Input.is_action_just_pressed("interaction"):
-		if !interactable.interact(self, &"interaction"):
+		var success = await interactable.interact(self, &"interaction")
+		if !success:
 			$WompWomp.play()
 	if Input.is_action_just_pressed("start_block"):
 		interactable.interact(self, &"start_block")

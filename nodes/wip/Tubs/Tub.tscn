@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h6wala3xyh6c"]
+[gd_scene load_steps=20 format=3 uid="uid://h6wala3xyh6c"]
 
 [ext_resource type="Script" path="res://nodes/wip/Tubs/Tub.gd" id="1_fm7tn"]
 [ext_resource type="Texture2D" uid="uid://dstti4knqy3mj" path="res://art/sink.png" id="2_ejv7p"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dxu3ody1pq4lh" path="res://art/bubbles/bubbles13.png" id="15_ym03a"]
 [ext_resource type="Texture2D" uid="uid://cboh4hghk2qe0" path="res://art/bubbles/bubbles14.png" id="16_wh6hx"]
 [ext_resource type="Texture2D" uid="uid://bt40kxkwniyww" path="res://art/bubbles/bubbles15.png" id="17_u1ggl"]
+[ext_resource type="PackedScene" uid="uid://dpsr055c1v16j" path="res://nodes/ui/MaterialToast.tscn" id="18_jg8xd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_a2qc1"]
 animations = [{
@@ -88,8 +89,10 @@ texture = ExtResource("2_ejv7p")
 region_enabled = true
 region_rect = Rect2(0, 26, 41, 38)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-3, -33)
 sprite_frames = SubResource("SpriteFrames_a2qc1")
-frame_progress = 0.609171
+frame_progress = 0.13971
+
+[node name="InventoryToast" parent="." instance=ExtResource("18_jg8xd")]
