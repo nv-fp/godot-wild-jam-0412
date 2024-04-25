@@ -36,6 +36,12 @@ func interact(player: Blacksmith, action: StringName) -> bool:
 						player.equip_item(item.get_groups()[0])
 						item.queue_free()
 						return true
+					else:
+						# If we want to allow the player to exchange items as well
+						var item = player.unequip_item()
+						player.equip_item(remove_item().get_groups()[0])
+						add_item(item)
+						return true
 	return false
 
 
