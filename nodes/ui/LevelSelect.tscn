@@ -1,0 +1,153 @@
+[gd_scene load_steps=18 format=3 uid="uid://g5yjh1m3n5vd"]
+
+[ext_resource type="Texture2D" uid="uid://wxorn3874kvk" path="res://art/main-menu/buttons.png" id="1_5dhxx"]
+[ext_resource type="Script" path="res://nodes/ui/LevelSelect.gd" id="1_7w1my"]
+[ext_resource type="Texture2D" uid="uid://cm85sh6xrelrn" path="res://art/level-select/select.png" id="2_axiqr"]
+[ext_resource type="Texture2D" uid="uid://c7ml5hykr5amx" path="res://art/level-select/level1.png" id="3_dufw0"]
+[ext_resource type="Texture2D" uid="uid://trrudy114ht6" path="res://art/level-select/level2.png" id="4_4hs3b"]
+[ext_resource type="Texture2D" uid="uid://lk1vfubqodr1" path="res://art/tutorial-card/next_page_button.png" id="4_t0jxr"]
+[ext_resource type="Texture2D" uid="uid://bp111kmmjtorr" path="res://art/level-select/level3.png" id="5_2ugnd"]
+[ext_resource type="Texture2D" uid="uid://p7a4vnoinc6x" path="res://art/tutorial-card/left_arrow.png" id="5_ejr80"]
+[ext_resource type="Texture2D" uid="uid://qk2ygbxivlv2" path="res://art/tutorial-card/prev_button.png" id="6_dgtb2"]
+[ext_resource type="Texture2D" uid="uid://c2lwkqiw6ttki" path="res://art/tutorial-card/right_arrow.png" id="7_anbud"]
+[ext_resource type="Texture2D" uid="uid://mr2bfua01rmk" path="res://art/settings.png" id="11_3ktql"]
+[ext_resource type="Texture2D" uid="uid://gdpbeq8eq0i1" path="res://art/tutorial-card/play_word.png" id="12_dhcu8"]
+
+[sub_resource type="GDScript" id="GDScript_5coak"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7mj7"]
+size = Vector2(129, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycq77"]
+size = Vector2(132, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5sx16"]
+size = Vector2(368.571, 122.857)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8gbk"]
+size = Vector2(178.753, 54.9759)
+
+[node name="LevelSelect" type="Node2D"]
+script = ExtResource("1_7w1my")
+
+[node name="Settings" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(622, 100)
+texture = ExtResource("1_5dhxx")
+region_enabled = true
+region_rect = Rect2(671.172, 416.332, 473.49, 131.624)
+
+[node name="Sprite2D" type="Sprite2D" parent="Settings"]
+texture = ExtResource("2_axiqr")
+
+[node name="Carousel" type="Node2D" parent="."]
+position = Vector2(0, -25)
+
+[node name="Cards" type="Node2D" parent="Carousel"]
+position = Vector2(640, 400)
+scale = Vector2(0.6, 0.6)
+script = SubResource("GDScript_5coak")
+
+[node name="Level1" type="Sprite2D" parent="Carousel/Cards"]
+texture = ExtResource("3_dufw0")
+
+[node name="Level2" type="Sprite2D" parent="Carousel/Cards"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(930, 0)
+texture = ExtResource("4_4hs3b")
+
+[node name="Level3" type="Sprite2D" parent="Carousel/Cards"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1860, 0)
+texture = ExtResource("5_2ugnd")
+
+[node name="Pagers" type="Node2D" parent="Carousel"]
+position = Vector2(618, 399)
+
+[node name="Left" type="Sprite2D" parent="Carousel/Pagers"]
+position = Vector2(-374, 0)
+texture = ExtResource("4_t0jxr")
+
+[node name="Arrow" type="Sprite2D" parent="Carousel/Pagers/Left"]
+texture = ExtResource("5_ejr80")
+
+[node name="Area2D" type="Area2D" parent="Carousel/Pagers/Left"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carousel/Pagers/Left/Area2D"]
+position = Vector2(-1.5, 3)
+shape = SubResource("RectangleShape2D_u7mj7")
+
+[node name="Right" type="Sprite2D" parent="Carousel/Pagers"]
+position = Vector2(392, 4)
+texture = ExtResource("6_dgtb2")
+
+[node name="Arrow" type="Sprite2D" parent="Carousel/Pagers/Right"]
+texture = ExtResource("7_anbud")
+
+[node name="Area2D" type="Area2D" parent="Carousel/Pagers/Right"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carousel/Pagers/Right/Area2D"]
+position = Vector2(-2, -0.5)
+shape = SubResource("RectangleShape2D_ycq77")
+
+[node name="Back" type="Sprite2D" parent="."]
+position = Vector2(378, 627)
+texture = ExtResource("1_5dhxx")
+region_enabled = true
+region_rect = Rect2(493, 552.4, 277.2, 92.4)
+
+[node name="Text" type="Sprite2D" parent="Back"]
+position = Vector2(-1, -1.00001)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("11_3ktql")
+region_enabled = true
+region_rect = Rect2(43.8241, 632.347, 209.366, 88.4913)
+
+[node name="Area2D" type="Area2D" parent="Back/Text"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back/Text/Area2D"]
+position = Vector2(0, 2.85718)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_5sx16")
+
+[node name="Play" type="Sprite2D" parent="."]
+position = Vector2(904, 624)
+texture = ExtResource("1_5dhxx")
+region_enabled = true
+region_rect = Rect2(494.218, 549.332, 269.88, 97.0868)
+
+[node name="Text" type="Sprite2D" parent="Play"]
+position = Vector2(5.00001, 0.999993)
+scale = Vector2(1.43103, 1.43103)
+texture = ExtResource("12_dhcu8")
+
+[node name="Area2D" type="Area2D" parent="Play/Text"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Play/Text/Area2D"]
+position = Vector2(-4.12354, 0)
+shape = SubResource("RectangleShape2D_j8gbk")
+
+[connection signal="input_event" from="Carousel/Pagers/Left/Area2D" to="." method="_left_event"]
+[connection signal="mouse_entered" from="Carousel/Pagers/Left/Area2D" to="." method="_left_enter"]
+[connection signal="mouse_exited" from="Carousel/Pagers/Left/Area2D" to="." method="_left_exit"]
+[connection signal="input_event" from="Carousel/Pagers/Right/Area2D" to="." method="_right_event"]
+[connection signal="mouse_entered" from="Carousel/Pagers/Right/Area2D" to="." method="_right_enter"]
+[connection signal="mouse_exited" from="Carousel/Pagers/Right/Area2D" to="." method="_right_exit"]
+[connection signal="input_event" from="Back/Text/Area2D" to="." method="_back_event"]
+[connection signal="mouse_entered" from="Back/Text/Area2D" to="." method="_back_enter"]
+[connection signal="mouse_exited" from="Back/Text/Area2D" to="." method="_back_exit"]
+[connection signal="input_event" from="Play/Text/Area2D" to="." method="_play_event"]
+[connection signal="mouse_entered" from="Play/Text/Area2D" to="." method="_play_enter"]
+[connection signal="mouse_exited" from="Play/Text/Area2D" to="." method="_play_exit"]

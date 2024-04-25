@@ -26,6 +26,7 @@ func _ready():
 	menu_system.start_game.connect(_game_start)
 	menu_system.quit_game.connect(_game_exit)
 	menu_system.show_credits.connect(_game_credits)
+	menu_system.select_level.connect(_start_level)
 
 func _game_exit():
 	get_tree().quit()
@@ -59,6 +60,15 @@ func _game_credits():
 	if not _can_start:
 		return
 	_curtain_in(_load_credits)
+
+func _start_level(level: int):
+	if not _can_start:
+		return
+	_can_start = false
+	# have to offset by 1 because the level emitted from the level select signal is 1-indexed
+	# ...because i'm a doofus
+	cur_level = level - 1
+	_curtain_in(_load_level)
 
 # handles button presses so we can filter out spamming the start button
 func _game_start():

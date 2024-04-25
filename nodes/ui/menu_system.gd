@@ -7,6 +7,8 @@ extends Node2D
 #
 # if starting in StartMode.NORMAL level is an empty string
 signal start_game
+
+signal select_level
 signal quit_game
 signal show_credits
 
@@ -93,3 +95,34 @@ func _unload_settings():
 	t.set_trans(Tween.TRANS_SINE)
 	t.tween_property($MainMenuBG, 'position', Vector2.ZERO, 1.5)
 	t.tween_property($SettingsMenu, 'position', new_xy, 1.5)
+
+func _load_levelselect():
+	var t = get_tree().create_tween()
+	var new_xy = $MainMenuBG.position
+	new_xy.y -= 720
+	t.set_parallel(true)
+	t.set_trans(Tween.TRANS_SINE)
+	t.tween_property($MainMenuBG, 'position', new_xy, 1)
+	t.tween_property($LevelSelect, 'position', Vector2.ZERO, 1)
+
+func _unload_levelselect():
+	var t = get_tree().create_tween()
+	var new_xy = $LevelSelect.position
+	new_xy.y += 720
+	t.set_parallel(true)
+	t.set_trans(Tween.TRANS_SINE)
+	t.tween_property($LevelSelect, 'position', new_xy, 1)
+	t.tween_property($MainMenuBG, 'position', Vector2.ZERO, 1)
+
+func _select_enter():
+	_over_button($MainMenuBG/LevelSelect)
+
+func _select_exit():
+	_exit_button($MainMenuBG/LevelSelect)
+
+func _select_event(viewport, event, shape_idx):
+	if InputUtil.is_click(event):
+		_load_levelselect()
+
+func _level_selected(level: int):
+	select_level.emit(level)
