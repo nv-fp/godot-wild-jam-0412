@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://1mghd4a0yc8k"]
+[gd_scene load_steps=56 format=3 uid="uid://1mghd4a0yc8k"]
 
 [ext_resource type="Script" path="res://nodes/ui/Credits.gd" id="1_7e3js"]
 [ext_resource type="Texture2D" uid="uid://chemdfjegn0jy" path="res://art/credits/grass.png" id="2_c6kyy"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dqn0ajm3y25s8" path="res://art/credits/top_sky.png" id="12_f5fie"]
 [ext_resource type="Texture2D" uid="uid://bqmdesmdgx0bv" path="res://art/credits/dialoge_mask.png" id="12_ldmfo"]
 [ext_resource type="Texture2D" uid="uid://dxhawt6bm1hfi" path="res://art/credits/space.png" id="13_20yrp"]
+[ext_resource type="Texture2D" uid="uid://cvc8eatcalsmo" path="res://art/credits/advance-text.png" id="13_ck470"]
 [ext_resource type="Texture2D" uid="uid://c6r5tcfr2tc2m" path="res://art/credits/dino.png" id="15_442ld"]
 [ext_resource type="Texture2D" uid="uid://qdc8ombpe5vv" path="res://art/flare_11_sm.png" id="16_hnbjo"]
 [ext_resource type="Texture2D" uid="uid://r7ttvokevu6a" path="res://art/title.png" id="16_my27i"]
@@ -478,6 +479,12 @@ aoeu
 aoeu"
 clip_text = true
 
+[node name="Advance" type="Sprite2D" parent="Container/Blacksmith/Dialoge"]
+visible = false
+position = Vector2(75, 34.3333)
+scale = Vector2(0.148649, 0.148649)
+texture = ExtResource("13_ck470")
+
 [node name="Tree2" type="Sprite2D" parent="Container"]
 texture_filter = 1
 position = Vector2(120, 501)
@@ -541,9 +548,9 @@ lifetime = 6.0
 
 [node name="Art" type="Label" parent="Container"]
 visible = false
-offset_left = 610.0
+offset_left = 637.0
 offset_top = -1301.0
-offset_right = 889.0
+offset_right = 916.0
 offset_bottom = -1262.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -601,7 +608,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("6_5aijh")
 theme_override_font_sizes/font_size = 82
-text = "Blob +"
+text = "blob +"
 horizontal_alignment = 1
 
 [node name="Name2" type="Label" parent="Container/Development"]
@@ -614,7 +621,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("6_5aijh")
 theme_override_font_sizes/font_size = 82
-text = "Envy"
+text = "envy"
 horizontal_alignment = 1
 
 [node name="Sound" type="Label" parent="Container"]
@@ -664,8 +671,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("6_5aijh")
 theme_override_font_sizes/font_size = 82
-text = "Ani
-"
+text = "ANI"
 horizontal_alignment = 1
 
 [node name="HelterSmelter" type="Sprite2D" parent="Container"]

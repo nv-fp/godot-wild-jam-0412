@@ -4,7 +4,7 @@ signal end_credits
 
 var initial_speed = 175
 var speed = 175
-var line_height_px = 10
+var line_height_px = 9
 var _space_color = Color(0, 0.098, 0.157)
 
 @onready var _dlg = $Container/Blacksmith/Dialoge
@@ -35,22 +35,25 @@ var bart_scr = [
 	500,
 	func(): _speak(blurb[0]), # hi
 	1250,
-	func(): _speak(blurb[1]), # I'm bart
-	3750,
-	func(): _scroll_dlg(3, 1.5),
+	func(): _speak(blurb[1]), # I'm bart,
+	2250,
+	func(): _wait_for(WaitKeypress.ctor('ui_accept')),
+	func(): _scroll_dlg(5, 2),
 	func(): _speak(blurb[2]), # Most folks
-	3500,
-	func(): _scroll_dlg(5, 2.5),
 	2000,
+	func(): _wait_for(WaitKeypress.ctor('ui_accept')),
+	func(): _scroll_dlg(4, 1.75),
+	1750,
+	func(): _speak_clear(),
 	func(): _speak(blurb[3]), # paid
-	2750,
+	func(): _wait_for(WaitKeypress.ctor('ui_accept')),
 	func(): _speak_clear(),
 	func(): _speak(blurb[4]),
 	1000,
 	func(): _speak(blurb[5]),
 	2500,
 	func(): _speak(blurb[6]),
-	350,
+	func(): _wait_for(WaitKeypress.ctor('ui_accept')),
 	func(): _start_camera_move(80),
 	1500,
 	func(): _speak_clear(),
@@ -67,9 +70,9 @@ var bart_scr = [
 	2250,
 	func(): _speak_clear(),
 	func(): _speak(blurb[10]),
-	250,
+	600,
 	func(): _fade_out(_dlg, 1),
-	1000,
+	1250,
 	func(): _set_speed(initial_speed),
 	func(): _play_out_bart(),
 	func(): _switch_script(credits_scr)
@@ -243,17 +246,65 @@ func _done():
 	pass
 
 var _advance_at = 0
+
+enum BarierType {
+	TIME,
+	KEY,
+}
+
+class WaitTime:
+	var tgt
+	var type
+
+	static func ctor(time):
+		var wt = WaitTime.new()
+		wt.type = BarierType.TIME
+		wt.tgt = time
+		return wt
+
+	func can_progress() -> bool:
+		var now = Time.get_ticks_msec()
+		return now > tgt
+
+class WaitKeypress:
+	var was_pressed
+	var tgt_key
+	var type
+
+	static func ctor(key):
+		var wk = WaitKeypress.new()
+		wk.type = BarierType.KEY
+		wk.was_pressed = false
+		wk.tgt_key = key
+		return wk
+
+	func check_key():
+		if Input.is_action_just_pressed(tgt_key):
+			was_pressed = true
+
+	func can_progress() -> bool:
+		return was_pressed
+
+func _wait_for(new_barrier):
+	cur_barrier = new_barrier
+
+var cur_barrier
+
 func _process_script():
 	if frame_pointer >= scr.size():
 		return
-	var now = Time.get_ticks_msec()
-	if now < _advance_at:
-		return
 
+	if cur_barrier != null and not cur_barrier.can_progress():
+		return
+	if cur_barrier != null and cur_barrier.type == BarierType.KEY:
+		$Container/Blacksmith/Dialoge/Advance.visible = false
+	cur_barrier = null
+
+	var now = Time.get_ticks_msec()
 	var thing = scr[frame_pointer]
 	match typeof(thing):
 		TYPE_INT:
-			_advance_at = now + thing
+			_wait_for(WaitTime.ctor(now + thing))
 		TYPE_CALLABLE:
 			thing.call()
 
@@ -264,7 +315,12 @@ func _process(delta):
 	if Input.is_action_just_pressed('ui_cancel'):
 		end_credits.emit()
 
-	_process_script()	
+	if cur_barrier != null and cur_barrier.type == BarierType.KEY:
+		$Container/Blacksmith/Dialoge/Advance.visible = true
+		cur_barrier.check_key()
+
+	_process_script()
+
 	if not in_sky:
 		var vel = _get_velocity()
 		_blacksmith.position += (delta * vel)

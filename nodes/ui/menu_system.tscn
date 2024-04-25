@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://tdutty58bn5g"]
+[gd_scene load_steps=16 format=3 uid="uid://tdutty58bn5g"]
 
 [ext_resource type="Texture2D" uid="uid://12tcnoh4t2rt" path="res://art/main_menu.jpg" id="1_8u8lk"]
 [ext_resource type="Script" path="res://nodes/ui/menu_system.gd" id="1_bpgo5"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dejaafy4w1ffj" path="res://art/main-menu/font.png" id="4_upawf"]
 [ext_resource type="Texture2D" uid="uid://dpgtmjj15ln7j" path="res://art/main-menu/buttons-drop-shadow.png" id="5_epw5x"]
 [ext_resource type="Texture2D" uid="uid://r7ttvokevu6a" path="res://art/title.png" id="6_5sjof"]
+[ext_resource type="Texture2D" uid="uid://cm85sh6xrelrn" path="res://art/level-select/select.png" id="7_ef5qe"]
 [ext_resource type="PackedScene" uid="uid://c0woxlj72u5mk" path="res://nodes/ui/settings.tscn" id="8_b7u2p"]
+[ext_resource type="PackedScene" uid="uid://g5yjh1m3n5vd" path="res://nodes/ui/LevelSelect.tscn" id="10_2wsmu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cg7qw"]
 size = Vector2(367, 139)
@@ -20,6 +22,9 @@ size = Vector2(503, 113)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5tsdj"]
 size = Vector2(258, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfw7v"]
+size = Vector2(399.221, 131.065)
 
 [node name="MenuSystem" type="Node2D"]
 texture_filter = 1
@@ -123,7 +128,7 @@ shape = SubResource("RectangleShape2D_klxc2")
 [node name="QuitButton" type="Sprite2D" parent="MainMenuBG"]
 z_index = 1
 z_as_relative = false
-position = Vector2(642, 605)
+position = Vector2(922, 605)
 texture = ExtResource("3_b5mhr")
 region_enabled = true
 region_rect = Rect2(493.316, 552.316, 274.23, 89.4064)
@@ -150,6 +155,24 @@ position = Vector2(-130, -37)
 position = Vector2(129, 39.5)
 shape = SubResource("RectangleShape2D_5tsdj")
 
+[node name="LevelSelect" type="Sprite2D" parent="MainMenuBG"]
+position = Vector2(368, 606)
+texture = ExtResource("3_b5mhr")
+region_enabled = true
+region_rect = Rect2(494.769, 552.049, 276.033, 98.3471)
+
+[node name="Text" type="Sprite2D" parent="MainMenuBG/LevelSelect"]
+position = Vector2(-2, 2)
+scale = Vector2(0.663793, 0.663793)
+texture = ExtResource("7_ef5qe")
+
+[node name="Area2D" type="Area2D" parent="MainMenuBG/LevelSelect/Text"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/LevelSelect/Text/Area2D"]
+position = Vector2(-2.25973, -5.27272)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_vfw7v")
+
 [node name="MainMenu" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
@@ -158,6 +181,9 @@ texture = ExtResource("1_8u8lk")
 
 [node name="SettingsMenu" parent="." instance=ExtResource("8_b7u2p")]
 position = Vector2(-1280, 0)
+
+[node name="LevelSelect" parent="." instance=ExtResource("10_2wsmu")]
+position = Vector2(0, 720)
 
 [connection signal="input_event" from="MainMenuBG/StartButton/StartArea" to="." method="_start_input"]
 [connection signal="mouse_entered" from="MainMenuBG/StartButton/StartArea" to="." method="_start_over"]
@@ -171,4 +197,9 @@ position = Vector2(-1280, 0)
 [connection signal="input_event" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_event"]
 [connection signal="mouse_entered" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_over"]
 [connection signal="mouse_exited" from="MainMenuBG/QuitButton/QuitArea" to="." method="_quit_exit"]
+[connection signal="input_event" from="MainMenuBG/LevelSelect/Text/Area2D" to="." method="_select_event"]
+[connection signal="mouse_entered" from="MainMenuBG/LevelSelect/Text/Area2D" to="." method="_select_enter"]
+[connection signal="mouse_exited" from="MainMenuBG/LevelSelect/Text/Area2D" to="." method="_select_exit"]
 [connection signal="back" from="SettingsMenu" to="." method="_unload_settings"]
+[connection signal="play_level" from="LevelSelect" to="." method="_level_selected"]
+[connection signal="unload" from="LevelSelect" to="." method="_unload_levelselect"]
