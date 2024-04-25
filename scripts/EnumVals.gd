@@ -23,3 +23,16 @@ enum HudFX {
 	MENU_ACCEPT,
 	PAGE_TURN,
 }
+
+
+### WIP Stuff
+enum StationType {
+	RESOURCE, # Crate/Materials
+	FURNACE,
+	ANVIL,
+	TABLE,    # Crafting
+	TUB,      # Quenching
+	DELIVERY,
+	TRASH,
+	COUNTER  # Storage
+}

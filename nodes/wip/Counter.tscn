@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2aivc3jl6kue"]
+
+[ext_resource type="Script" path="res://nodes/wip/Counter.gd" id="1_2uvii"]
+[ext_resource type="Texture2D" uid="uid://d18lgtvrxowmu" path="res://art/counter.png" id="2_u3h3q"]
+
+[node name="Counter" type="Area2D" groups=["counter", "interactable"]]
+z_index = 1
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_2uvii")
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+z_index = 1
+position = Vector2(0, 24)
+polygon = PackedVector2Array(-16, -6, -2, 0, 16, -9, 16, -24, 0, -31, -16, -23)
+
+[node name="ItemPosition" type="Marker2D" parent="."]
+gizmo_extents = 20.0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, 8)
+texture = ExtResource("2_u3h3q")
+hframes = 2

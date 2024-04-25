@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bayh5ptnx434p"]
+
+[ext_resource type="Script" path="res://nodes/wip/Crates/Crate.gd" id="1_df6yk"]
+[ext_resource type="Texture2D" uid="uid://duf4fegjkr7yl" path="res://art/ore_crates.png" id="2_ghubr"]
+
+[node name="Crate" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_df6yk")
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, -16, -7, -16, -36, 0, -36, 16, -36, 16, -7)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -18)
+texture = ExtResource("2_ghubr")
+region_enabled = true
+region_rect = Rect2(0, 28, 32, 36)

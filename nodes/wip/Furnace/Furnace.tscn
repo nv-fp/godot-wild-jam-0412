@@ -1,0 +1,121 @@
+[gd_scene load_steps=27 format=3 uid="uid://c0lp1fuwa7yu7"]
+
+[ext_resource type="Script" path="res://nodes/wip/Furnace/Furnace.gd" id="1_vdlcf"]
+[ext_resource type="Texture2D" uid="uid://b78cv36shvgns" path="res://art/wip/furnace.png" id="2_wl18w"]
+[ext_resource type="Texture2D" uid="uid://26xxepeooilu" path="res://art/furnace-animation/furnace animation final1.png" id="3_l7ybx"]
+[ext_resource type="Texture2D" uid="uid://x1eosjtvmrqa" path="res://art/furnace-animation/furnace animation final2.png" id="4_od4ln"]
+[ext_resource type="Texture2D" uid="uid://bji4cvo5x3647" path="res://art/furnace-animation/furnace animation final3.png" id="5_iygxk"]
+[ext_resource type="Texture2D" uid="uid://bwg6ff8j1436t" path="res://art/furnace-animation/furnace animation final4.png" id="6_v2ur3"]
+[ext_resource type="Texture2D" uid="uid://ea7iwqnogk5m" path="res://art/furnace-animation/furnace animation final5.png" id="7_3pk5g"]
+[ext_resource type="Texture2D" uid="uid://cti63a0myonrj" path="res://art/furnace-animation/furnace animation final6.png" id="8_vf1rm"]
+[ext_resource type="Texture2D" uid="uid://5ulmyw2p01on" path="res://art/furnace-animation/furnace animation final7.png" id="9_t2gnw"]
+[ext_resource type="Texture2D" uid="uid://dmhxir8lrshun" path="res://art/furnace-animation/furnace animation final8.png" id="10_5ptq8"]
+[ext_resource type="Texture2D" uid="uid://6y1baxrch38r" path="res://art/furnace-animation/furnace animation final9.png" id="11_mv3e8"]
+[ext_resource type="Texture2D" uid="uid://bdywt610ckwf4" path="res://art/furnace-animation/furnace animation final10.png" id="12_l5nwg"]
+[ext_resource type="Texture2D" uid="uid://cxkvgjwbqb2dj" path="res://art/furnace-animation/furnace animation final11.png" id="13_alx7w"]
+[ext_resource type="Texture2D" uid="uid://df37miilujwn7" path="res://art/furnace-animation/furnace animation final12.png" id="14_fsrn4"]
+[ext_resource type="Texture2D" uid="uid://cksf1eq4d2hej" path="res://art/furnace-animation/furnace animation final13.png" id="15_vj2y5"]
+[ext_resource type="Texture2D" uid="uid://cu2rsnwewico0" path="res://art/furnace-animation/furnace animation final14.png" id="16_sf8li"]
+[ext_resource type="Texture2D" uid="uid://biwysrhvhjbd3" path="res://art/furnace-animation/furnace animation final15.png" id="17_umsyi"]
+[ext_resource type="Texture2D" uid="uid://cx1dcobpltx1p" path="res://art/furnace-animation/furnace animation final16.png" id="18_85iqb"]
+[ext_resource type="Texture2D" uid="uid://dn6okq80yfd4i" path="res://art/furnace-animation/furnace animation final17.png" id="19_k7q25"]
+[ext_resource type="Texture2D" uid="uid://ctqp1p6cauwf4" path="res://art/furnace-animation/furnace animation final18.png" id="20_082i5"]
+[ext_resource type="Texture2D" uid="uid://rrkf3203q801" path="res://art/furnace-animation/furnace animation final19.png" id="21_fl8uf"]
+[ext_resource type="Texture2D" uid="uid://do5663jb5ix8y" path="res://art/furnace-animation/furnace animation final20.png" id="22_qel4k"]
+[ext_resource type="Texture2D" uid="uid://bmks2653gdufv" path="res://art/furnace-animation/furnace animation final21.png" id="23_xvhfx"]
+[ext_resource type="Texture2D" uid="uid://bghxbulmxrutl" path="res://art/furnace-animation/furnace animation final22.png" id="24_b08et"]
+[ext_resource type="PackedScene" uid="uid://dpsr055c1v16j" path="res://nodes/ui/MaterialToast.tscn" id="25_knatc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jb0ky"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l7ybx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_od4ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_iygxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v2ur3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3pk5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vf1rm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_t2gnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5ptq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mv3e8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l5nwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_alx7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fsrn4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_vj2y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_sf8li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_umsyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_85iqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_k7q25")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_082i5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_fl8uf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_qel4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_xvhfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_b08et")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Furnace" type="Area2D" groups=["furnace", "interactable"]]
+position = Vector2(0, -48)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_vdlcf")
+
+[node name="CollisionShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, 48, 32, 40, 32, 6, 32, -28, -32, -28, -32, 3, -32, 24)
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_wl18w")
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6, -5)
+sprite_frames = SubResource("SpriteFrames_jb0ky")
+frame_progress = 0.815296
+
+[node name="InventoryToast" parent="." instance=ExtResource("25_knatc")]
