@@ -549,8 +549,6 @@ func start_level():
 
 func end_level():
 	set_immobile(true)
-	
-var shader = preload("res://nodes/wip/test.gdshader")
 
 var crates = ["wood", "leather_hide", "gold_ore", "bronze_ore", "diamond_ore"]
 func _physics_process(_delta) -> void:

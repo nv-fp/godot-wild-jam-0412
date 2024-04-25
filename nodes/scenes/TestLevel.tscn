@@ -1,4 +1,4 @@
-[gd_scene load_steps=94 format=3 uid="uid://djq34560nwlx"]
+[gd_scene load_steps=95 format=3 uid="uid://djq34560nwlx"]
 
 [ext_resource type="Texture2D" uid="uid://0v6r74o2p5lv" path="res://art/isometric-sandbox-sheet.png" id="1_av4hw"]
 [ext_resource type="Texture2D" uid="uid://bnrwpcvbm713v" path="res://art/carpet.png" id="1_rdr83"]
@@ -50,6 +50,7 @@
 [ext_resource type="Texture2D" uid="uid://cjshxr0x0patj" path="res://art/table-animation/crafting animation27.png" id="68_b2swb"]
 [ext_resource type="PackedScene" uid="uid://bayh5ptnx434p" path="res://nodes/wip/Crates/Crate.tscn" id="69_2teq6"]
 [ext_resource type="Texture2D" uid="uid://byo4bej3y8y4q" path="res://art/table-animation/crafting animation28.png" id="69_3e5x2"]
+[ext_resource type="PackedScene" uid="uid://h6wala3xyh6c" path="res://nodes/wip/Tubs/Tub.tscn" id="70_bb2jl"]
 [ext_resource type="Texture2D" uid="uid://ldkw52t8yxi7" path="res://art/table-animation/crafting animation29.png" id="70_rnq4y"]
 [ext_resource type="Texture2D" uid="uid://5ttf0w01sqsn" path="res://art/table-animation/crafting animation30.png" id="71_b8i2m"]
 [ext_resource type="Texture2D" uid="uid://nltbl2wtwxuh" path="res://art/table-animation/crafting animation31.png" id="72_du6f1"]
@@ -1222,6 +1223,9 @@ flip_horizontally = true
 [node name="Crate" parent="." groups=["crate", "interactable"] instance=ExtResource("69_2teq6")]
 z_index = 1
 position = Vector2(496, 240)
+
+[node name="Tub" parent="." instance=ExtResource("70_bb2jl")]
+position = Vector2(502, 277)
 
 [connection signal="body_entered" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TileMap/ZIndexArea" to="TileMap" method="_on_area_2d_body_exited"]
