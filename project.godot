@@ -21,6 +21,7 @@ WantBubbleFactory="*res://scripts/WantBubbleFactory.gd"
 Jukebox="*res://nodes/scenes/Jukebox.gd"
 Enums="*res://scripts/EnumVals.gd"
 InputUtil="*res://scripts/InputUtil.gd"
+SaveData="*res://scripts/SaveData.gd"
 
 [display]
 

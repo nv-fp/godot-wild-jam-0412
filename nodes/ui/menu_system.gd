@@ -96,8 +96,12 @@ func _unload_settings():
 	t.tween_property($MainMenuBG, 'position', Vector2.ZERO, 1.5)
 	t.tween_property($SettingsMenu, 'position', new_xy, 1.5)
 
+func refresh_scores():
+	$LevelSelect.load_scores()
+
 func _load_levelselect():
 	var t = get_tree().create_tween()
+	$LevelSelect.setup()
 	var new_xy = $MainMenuBG.position
 	new_xy.y -= 720
 	t.set_parallel(true)

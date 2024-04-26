@@ -12,6 +12,13 @@ var cur_level = 1
 var _has_selected_level = false
 func setup():
 	_has_selected_level = false
+	load_scores()
+
+func load_scores():
+	for level_card in get_node('Carousel/Cards').get_children():
+		var level = level_card.get_meta('level')
+		var sb = level_card.get_node('ScoreBadge')
+		sb.setup(level)
 
 var _highlight_color = Color(1, .9, .9)
 

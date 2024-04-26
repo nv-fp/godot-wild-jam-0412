@@ -31,7 +31,7 @@ func _get_hammer(min: int) -> Texture2D:
 		return preload('res://art/level-summary/full-hammer.png')
 	return preload('res://art/level-summary/empty-hammer.png')
 
-func setup(score: int, score_limits: Array, orders_filled: int, orders_missed: int):
+func setup(level: int, score: int, score_limits: Array, orders_filled: int, orders_missed: int):
 	_hammer_count = 0
 	_click_count = 0
 	for tgt in score_limits:
@@ -44,6 +44,18 @@ func setup(score: int, score_limits: Array, orders_filled: int, orders_missed: i
 
 	$Stats/Score/Text.text = str(score)
 	$Stats/Failures/Text.text = str(orders_missed)
+
+	# TODO: having to do this is a mistake
+	var save_level = level + 1
+	var has_played = SaveData.has_played(save_level)
+	var high_score = 0
+	if has_played:
+		var old_high_score = SaveData.get_high_score(save_level)
+		if old_high_score > score:
+			high_score = old_high_score
+
+	if high_score < score:
+		SaveData.record_level(save_level, score, _hammer_count)
 
 	for c in $Message.get_children():
 		c.visible = false

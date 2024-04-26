@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn7xhx11dms2o"]
+
+[ext_resource type="Script" path="res://nodes/ui/ScoreBadge.gd" id="1_d0mtm"]
+[ext_resource type="Texture2D" uid="uid://barcecjuel6qv" path="res://art/level-summary/empty-hammer.png" id="2_ye05v"]
+[ext_resource type="FontFile" uid="uid://dr7uv14p8if1m" path="res://art/Stacked_Pixel.ttf" id="3_6t14d"]
+
+[node name="ScoreBadge" type="Node2D"]
+script = ExtResource("1_d0mtm")
+
+[node name="Hammers" type="Node2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="Hammer1" type="Sprite2D" parent="Hammers"]
+position = Vector2(40, 48)
+rotation = -0.785398
+texture = ExtResource("2_ye05v")
+
+[node name="Hammer2" type="Sprite2D" parent="Hammers"]
+position = Vector2(152, 0)
+texture = ExtResource("2_ye05v")
+
+[node name="Hammer3" type="Sprite2D" parent="Hammers"]
+position = Vector2(264, 48)
+rotation = 0.785398
+texture = ExtResource("2_ye05v")
+
+[node name="Score" type="Label" parent="."]
+offset_left = -18.0
+offset_top = 63.0
+offset_right = 230.0
+offset_bottom = 114.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_6t14d")
+theme_override_font_sizes/font_size = 62
+text = "1234"
+horizontal_alignment = 1

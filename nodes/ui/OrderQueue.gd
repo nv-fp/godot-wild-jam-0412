@@ -71,6 +71,9 @@ func remove_item(id: String):
 	return tgt
 
 func has_space() -> bool:
+	# don't queue more shit while the tweens are tweening
+	if (up_tween != null and  up_tween.is_valid()) or (out_tween != null and out_tween.is_valid()):
+		return false
 	return queue.size() < max_queue_size
 
 func add_item(wb: WantBubble) -> bool:
@@ -99,16 +102,32 @@ func _get_coords_pos(idx: int) -> Vector2:
 	#var v_offset = 100
 	return Vector2(0, idx * _h_offset)
 
+var out_tween
+var up_tween
+var out_speed = .1
+var up_speed = .25
+
 func _reflow(idx: int, tgt: WantBubble):
+	up_tween = get_tree().create_tween()
+	up_tween.tween_property(self, 'position', position, out_speed)
+	var up_chained = up_tween.set_parallel(true).chain()
+	out_tween = get_tree().create_tween()
+
 	if queue[idx] == null:
 		# remove the null place holder
 		queue.remove_at(idx)
 		# we may want to tween eventually but for now remove the child / free it
-		remove_child(tgt)
-		tgt.queue_free()
+		# remove_child(tgt)
+		print('adding out_tween entry')
+		out_tween.tween_property(tgt, 'position', Vector2(tgt.position.x + 200, tgt.position.y), out_speed)
+		out_tween.tween_callback(func(): remove_child(tgt))
+		out_tween.tween_callback(func(): tgt.queue_free())
+		# tgt.queue_free()
 		for n in range(0, queue.size()):
 			var p = _get_coords_pos(n)
-			queue[n].position = Vector2(p.x, p.y)
+			print('adding up_tween entry')
+			up_chained.tween_property(queue[n], 'position', Vector2(p.x, p.y), up_speed)
+			#queue[n].position = Vector2(p.x, p.y)
 	else:
 		var p = _get_coords_pos(idx)
 		tgt.position = Vector2(p.x, p.y)

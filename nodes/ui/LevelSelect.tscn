@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://g5yjh1m3n5vd"]
+[gd_scene load_steps=19 format=3 uid="uid://g5yjh1m3n5vd"]
 
 [ext_resource type="Texture2D" uid="uid://wxorn3874kvk" path="res://art/main-menu/buttons.png" id="1_5dhxx"]
 [ext_resource type="Script" path="res://nodes/ui/LevelSelect.gd" id="1_7w1my"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://trrudy114ht6" path="res://art/level-select/level2.png" id="4_4hs3b"]
 [ext_resource type="Texture2D" uid="uid://lk1vfubqodr1" path="res://art/tutorial-card/next_page_button.png" id="4_t0jxr"]
 [ext_resource type="Texture2D" uid="uid://bp111kmmjtorr" path="res://art/level-select/level3.png" id="5_2ugnd"]
+[ext_resource type="PackedScene" uid="uid://dn7xhx11dms2o" path="res://nodes/ui/ScoreBadge.tscn" id="5_a7tfr"]
 [ext_resource type="Texture2D" uid="uid://p7a4vnoinc6x" path="res://art/tutorial-card/left_arrow.png" id="5_ejr80"]
 [ext_resource type="Texture2D" uid="uid://qk2ygbxivlv2" path="res://art/tutorial-card/prev_button.png" id="6_dgtb2"]
 [ext_resource type="Texture2D" uid="uid://c2lwkqiw6ttki" path="res://art/tutorial-card/right_arrow.png" id="7_anbud"]
@@ -62,16 +63,28 @@ script = SubResource("GDScript_5coak")
 
 [node name="Level1" type="Sprite2D" parent="Carousel/Cards"]
 texture = ExtResource("3_dufw0")
+metadata/level = 1
+
+[node name="ScoreBadge" parent="Carousel/Cards/Level1" instance=ExtResource("5_a7tfr")]
+position = Vector2(177, 159)
 
 [node name="Level2" type="Sprite2D" parent="Carousel/Cards"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(930, 0)
 texture = ExtResource("4_4hs3b")
+metadata/level = 2
+
+[node name="ScoreBadge" parent="Carousel/Cards/Level2" instance=ExtResource("5_a7tfr")]
+position = Vector2(167, 159)
 
 [node name="Level3" type="Sprite2D" parent="Carousel/Cards"]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1860, 0)
 texture = ExtResource("5_2ugnd")
+metadata/level = 3
+
+[node name="ScoreBadge" parent="Carousel/Cards/Level3" instance=ExtResource("5_a7tfr")]
+position = Vector2(197, 159)
 
 [node name="Pagers" type="Node2D" parent="Carousel"]
 position = Vector2(618, 399)
@@ -119,7 +132,6 @@ region_rect = Rect2(43.8241, 632.347, 209.366, 88.4913)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Back/Text/Area2D"]
 position = Vector2(0, 2.85718)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_5sx16")
 
 [node name="Play" type="Sprite2D" parent="."]

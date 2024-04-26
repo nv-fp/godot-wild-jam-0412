@@ -61,6 +61,7 @@ func _game_credits():
 		return
 	_curtain_in(_load_credits)
 
+# called exclusively by level select screen
 func _start_level(level: int):
 	if not _can_start:
 		return
@@ -160,11 +161,12 @@ func _tutorial_card_clear():
 func _level_completed(score: int, orders_filled: int, orders_missed: int):
 	if cur_level == levels.size() - 1:
 		_level_summary._credits_next = true
-	_level_summary.setup(score, active_level.score_limits, orders_filled, orders_missed)
+	_level_summary.setup(cur_level, score, active_level.score_limits, orders_filled, orders_missed)
 	_level_summary.visible = true
 	active_level.get_node('Hud').visible = false
 	if active_level != null:
 		active_level.end_level()
+	menu_system.refresh_scores()
 
 func _summary_progress(typ: Enums.ProgressType):
 	match typ:

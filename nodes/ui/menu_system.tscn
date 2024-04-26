@@ -170,7 +170,6 @@ texture = ExtResource("7_ef5qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MainMenuBG/LevelSelect/Text/Area2D"]
 position = Vector2(-2.25973, -5.27272)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vfw7v")
 
 [node name="MainMenu" type="Sprite2D" parent="."]
