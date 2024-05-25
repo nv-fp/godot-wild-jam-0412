@@ -1,3 +1,5 @@
+<img src="https://github.com/unseenfaith/godotgamejam/blob/main/art/thumbnail.png?raw=true" alt="Helter Smelter Logo" title="Helter Smelter">
+
 # Helter Smelter
 
 Submission for [GodotGameJam #68](https://itch.io/jam/godot-wild-jam-68)
